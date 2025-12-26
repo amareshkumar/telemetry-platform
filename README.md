@@ -319,39 +319,7 @@ MIT License - see [LICENSE](LICENSE) for details
 
 ---
 
-## 👤 Author
-
-**Amaresh Kumar**  
-Senior C++ Engineer | Embedded Systems | Backend Services
-
-- 13 years C++ experience
-- Specialization: High-performance systems, telemetry, distributed coordination
-- Projects: TelemetryHub (9.1M ops/sec), TelemetryTaskProcessor (10k tasks/sec)
-
----
-
-## 🎯 Interview Talking Points
-
-**This project demonstrates:**
-
-1. **End-to-End Systems Design**: Sensor data collection → async processing → storage → monitoring
-2. **Microservices Architecture**: Two independent services (ingestion, processing) loosely coupled via Redis
-3. **Performance Engineering**: 9.1M ingestion ops/sec, 10k processing tasks/sec, <50ms p99 latency
-4. **Code Organization**: Monorepo with independent projects + shared library
-5. **Modern C++ Mastery**: C++17/20, RAII, move semantics, concurrency primitives
-6. **Production Readiness**: Docker Compose, Prometheus metrics, comprehensive testing
-7. **Observability**: Structured logging, metrics collection, Grafana dashboards
-
-**Key Achievements:**
-- Built integrated telemetry platform with 10K+ LOC
-- Achieved 5,000 telemetry samples/sec end-to-end throughput
-- Designed decoupled architecture allowing independent scaling
-- Implemented shared library eliminating code duplication
-- Created production-ready deployment with Docker Compose
-
----
-
-## 🚀 Next Steps
+##  Next Steps
 
 1. **Explore Services**:
    - Read [Ingestion README](ingestion/README.md)
