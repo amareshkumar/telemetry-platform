@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest/include" /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -116,10 +116,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -158,7 +158,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest/include" /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -189,10 +189,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -231,7 +231,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest/include" /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -262,10 +262,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -304,7 +304,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest/include" /external:I "C:/code/telemetry-platform/build/_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -334,10 +334,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\code\telemetry-platform\include;C:\code\telemetry-platform\processing\src\..\include;C:\code\telemetry-platform\build\_deps\json-src\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest\include;C:\code\telemetry-platform\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
