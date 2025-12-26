@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.14)
 
 project(TelemetryCommon VERSION 1.0.0 LANGUAGES CXX)
 
@@ -39,7 +39,8 @@ include(FetchContent)
 FetchContent_Declare(
     json
     GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG v3.11.2
+    GIT_TAG v3.11.3
+    GIT_SHALLOW TRUE
 )
 FetchContent_MakeAvailable(json)
 

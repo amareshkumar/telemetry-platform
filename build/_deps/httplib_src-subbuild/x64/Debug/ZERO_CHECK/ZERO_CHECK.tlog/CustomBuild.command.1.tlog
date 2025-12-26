@@ -1,0 +1,10 @@
+^C:\CODE\TELEMETRY-PLATFORM\BUILD\_DEPS\HTTPLIB_SRC-SUBBUILD\CMAKEFILES\ABD7B9FC1864E31DCC0DBC9DB88FD740\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/code/telemetry-platform/build/_deps/httplib_src-subbuild -BC:/code/telemetry-platform/build/_deps/httplib_src-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/code/telemetry-platform/build/_deps/httplib_src-subbuild/httplib_src-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

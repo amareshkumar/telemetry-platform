@@ -1,0 +1,10 @@
+^C:\CODE\TELEMETRY-PLATFORM\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\8BECF7ECD3F2E168D5F227DF468B5367\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/code/telemetry-platform/build/_deps/googletest-subbuild -BC:/code/telemetry-platform/build/_deps/googletest-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/code/telemetry-platform/build/_deps/googletest-subbuild/googletest-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

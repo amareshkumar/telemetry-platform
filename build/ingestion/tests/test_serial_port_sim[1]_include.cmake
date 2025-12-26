@@ -1,0 +1,5 @@
+if(EXISTS "C:/code/telemetry-platform/build/ingestion/tests/test_serial_port_sim[1]_tests.cmake")
+  include("C:/code/telemetry-platform/build/ingestion/tests/test_serial_port_sim[1]_tests.cmake")
+else()
+  add_test(test_serial_port_sim_NOT_BUILT test_serial_port_sim_NOT_BUILT)
+endif()

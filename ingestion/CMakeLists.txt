@@ -34,7 +34,7 @@ if(TARGET RUN_TESTS AND TARGET test_gateway_e2e)
 endif()
 
 # Include custom CMake modules
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(GetGit)   # loads thub_get_git_info()
 
 # Compute git info for generated header if needed
@@ -42,16 +42,16 @@ thub_get_git_info(GIT_TAG GIT_SHA)
 
 # If a hand-written Version.h exists in the repo, use it.
 # Otherwise, generate one into the build tree from Version.h.in
-set(THUB_VERSION_HEADER_SRC "${CMAKE_SOURCE_DIR}/device/include/telemetryhub/Version.h")
+set(THUB_VERSION_HEADER_SRC "${CMAKE_CURRENT_SOURCE_DIR}/device/include/telemetryhub/Version.h")
 if(EXISTS "${THUB_VERSION_HEADER_SRC}")
   message(STATUS "Using existing device/include/telemetryhub/Version.h from source tree.")
-  set(THUB_VERSION_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/device/include")
+  set(THUB_VERSION_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/device/include")
 else()
   message(STATUS "Generating telemetryhub/Version.h from template.")
   set(THUB_VERSION_HEADER_GEN "${CMAKE_BINARY_DIR}/generated/telemetryhub/Version.h")
   file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/generated/telemetryhub")
   configure_file(
-    "${CMAKE_SOURCE_DIR}/device/include/telemetryhub/Version.h.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/device/include/telemetryhub/Version.h.in"
     "${THUB_VERSION_HEADER_GEN}"
     @ONLY
   )
@@ -122,3 +122,5 @@ if (BUILD_TESTING)
     enable_testing()
     add_subdirectory(tests)
 endif()
+
+

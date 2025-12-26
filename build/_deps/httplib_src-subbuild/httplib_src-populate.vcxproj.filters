@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\946c02c5becc1e7c2e76d91910edfc81\httplib_src-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\38c4b8324609327c94422c2f146c5a09\httplib_src-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\abd7b9fc1864e31dcc0dbc9db88fd740\httplib_src-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\code\telemetry-platform\build\_deps\httplib_src-subbuild\CMakeFiles\httplib_src-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{FD73B802-09FC-30F4-82B1-E3C537C7AE3C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
