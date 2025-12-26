@@ -1,0 +1,62 @@
+# Build directories (all variants)
+build*/
+Testing/
+out/
+cmake-build-*/
+_codeql_build_dir/
+_codeql_detected_source_root
+
+# IDE files
+.vscode/
+.idea/
+.qtcreator/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Generated files
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.o
+*.obj
+
+# Generated Version.h (if it exists in source, don't commit auto-generated one)
+device/include/telemetryhub/Version.h
+
+# Log files
+*.log
+output.txt
+
+# External dependencies (if fetched)
+external/
+
+# Personal tracking (don't commit)
+docs/portfolio_enhancement_guide.ipynb
+docs/interview-topics.md
+SENIOR_LEVEL_TODO.md
+
+# Old mermaid files (already migrated)
+./Control flow-day05.mmd
+./High level diagram day05.mmd
+./Telemetry Path-day05.mmd
+/build_vs22_new
+
+# IDE specific
+.qtcreator/
+
+# Documentation generated files
+docs/mermaid/rendered/
+docs/mermaid/*.png
+docs/mermaid/local/
+
+#interview notes
+docs/interview
+.vscode/settings.json
+
+# Log files
+*.log

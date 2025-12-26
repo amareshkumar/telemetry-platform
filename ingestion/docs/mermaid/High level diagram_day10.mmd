@@ -1,0 +1,27 @@
+flowchart LR
+    %% TelemetryHub high-level architecture (Day 12)
+
+    subgraph Device Layer
+        D["Device (C++ state machine)"]
+    end
+
+    subgraph Gateway Layer
+        GC["GatewayCore (latest_sample/state)"]
+        Q["TelemetryQueue<TelemetrySample>"]
+        REST["REST (cpp-httplib)\n/status /start /stop"]
+    end
+
+    subgraph Presentation Layer
+        CLI["gateway_app (hosts REST)"]
+        Test["http_integration.ps1 (Windows)"]
+        GUI["Qt6 Desktop UI\n(QNetworkAccessManager + QTimer 1s)"]
+    end
+
+    D --> GC
+    GC --> Q
+    Q --> GC
+    CLI --> REST
+    REST --> GC
+    Test --> REST
+    GUI --> REST
+
