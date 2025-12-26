@@ -1,0 +1,223 @@
+Start testing: Dec 26 18:16 W. Europe Standard Time
+----------------------------------------------------------
+Unable to find executable: C:/code/telemetry-platform/build/ingestion/tests/Release/test_gateway_e2e.exe
+1/7 Testing: test_gateway_e2e
+1/7 Test: test_gateway_e2e
+Command: ""
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"test_gateway_e2e" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_gateway_e2e" end time: Dec 26 18:16 W. Europe Standard Time
+"test_gateway_e2e" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: unit_tests
+2/7 Test: unit_tests
+Command: "C:/code/telemetry-platform/build/ingestion/tests/Release/unit_tests.exe"
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"unit_tests" start time: Dec 26 18:16 W. Europe Standard Time
+Output:
+----------------------------------------------------------
+Running main() from C:\code\telemetry-platform\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 24 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 6 tests from DeviceTests
+[ RUN      ] DeviceTests.InitialStateIsIdle
+[       OK ] DeviceTests.InitialStateIsIdle (1 ms)
+[ RUN      ] DeviceTests.StartFromIdleEntersMeasuring
+[       OK ] DeviceTests.StartFromIdleEntersMeasuring (0 ms)
+[ RUN      ] DeviceTests.StopFromMeasuringReturnsToIdle
+[       OK ] DeviceTests.StopFromMeasuringReturnsToIdle (0 ms)
+[ RUN      ] DeviceTests.ReadSampleOnlyInMeasuring
+[       OK ] DeviceTests.ReadSampleOnlyInMeasuring (0 ms)
+[ RUN      ] DeviceTests.FaultLeadsToSafeStateAfterThreshold
+[       OK ] DeviceTests.FaultLeadsToSafeStateAfterThreshold (0 ms)
+[ RUN      ] DeviceTests.StartDoesNotRecoverFromSafeState
+[       OK ] DeviceTests.StartDoesNotRecoverFromSafeState (0 ms)
+[----------] 6 tests from DeviceTests (1 ms total)
+
+[----------] 3 tests from TelemetryQueueTests
+[ RUN      ] TelemetryQueueTests.PushPopSingleThread
+[       OK ] TelemetryQueueTests.PushPopSingleThread (0 ms)
+[ RUN      ] TelemetryQueueTests.ShutdownCausesPopToReturnNulloptWhenEmpty
+[       OK ] TelemetryQueueTests.ShutdownCausesPopToReturnNulloptWhenEmpty (0 ms)
+[ RUN      ] TelemetryQueueTests.SingleProducerSingleConsumerConcurrent
+[       OK ] TelemetryQueueTests.SingleProducerSingleConsumerConcurrent (1246 ms)
+[----------] 3 tests from TelemetryQueueTests (1246 ms total)
+
+[----------] 15 tests from RobustnessTests
+[ RUN      ] RobustnessTests.NoFaultInjectionMode_BehavesNormally
+[       OK ] RobustnessTests.NoFaultInjectionMode_BehavesNormally (0 ms)
+[ RUN      ] RobustnessTests.RandomSensorErrors_CausesIntermittentFailures
+[       OK ] RobustnessTests.RandomSensorErrors_CausesIntermittentFailures (0 ms)
+[ RUN      ] RobustnessTests.ConsecutiveFailures_TracksProperly
+[       OK ] RobustnessTests.ConsecutiveFailures_TracksProperly (0 ms)
+[ RUN      ] RobustnessTests.DeterministicFault_TriggersSafeState
+[       OK ] RobustnessTests.DeterministicFault_TriggersSafeState (0 ms)
+[ RUN      ] RobustnessTests.ResetMethod_RecoverFromSafeState
+[       OK ] RobustnessTests.ResetMethod_RecoverFromSafeState (0 ms)
+[ RUN      ] RobustnessTests.Reset_OnlyWorksFromFaultStates
+[       OK ] RobustnessTests.Reset_OnlyWorksFromFaultStates (0 ms)
+[ RUN      ] RobustnessTests.GatewayCore_EnforcesFailurePolicy
+[       OK ] RobustnessTests.GatewayCore_EnforcesFailurePolicy (0 ms)
+[ RUN      ] RobustnessTests.GatewayCore_ResetDevice_RecoversSafeState
+2025-12-26 18:16:27 [INFO] (GatewayCore) starting device...
+2025-12-26 18:16:27 [INFO] (GatewayCore) starting device...
+2025-12-26 18:16:27 [INFO] (GatewayCore) stopping device...
+2025-12-26 18:16:27 [INFO] (GatewayCore) [producer] thread started
+2025-12-26 18:16:27 [INFO] (GatewayCore) [producer] exiting
+2025-12-26 18:16:27 [INFO] (GatewayCore) [consumer] thread started
+2025-12-26 18:16:27 [INFO] (GatewayCore) [consumer] queue shutdown, exiting consumer loop
+2025-12-26 18:16:27 [INFO] (GatewayCore) [consumer] exiting
+2025-12-26 18:16:27 [INFO] (GatewayCore) stopped.
+[       OK ] RobustnessTests.GatewayCore_ResetDevice_RecoversSafeState (2 ms)
+[ RUN      ] RobustnessTests.BothFaultModes_InjectCombinedFailures
+[       OK ] RobustnessTests.BothFaultModes_InjectCombinedFailures (0 ms)
+[ RUN      ] RobustnessTests.Device_HandlesRepeatedStartStopCycles
+[       OK ] RobustnessTests.Device_HandlesRepeatedStartStopCycles (0 ms)
+[ RUN      ] RobustnessTests.MultipleResets_AreRepeatable
+[       OK ] RobustnessTests.MultipleResets_AreRepeatable (0 ms)
+[ RUN      ] RobustnessTests.ZeroErrorProbability_NoFailures
+[       OK ] RobustnessTests.ZeroErrorProbability_NoFailures (0 ms)
+[ RUN      ] RobustnessTests.MaxErrorProbability_AllFailures
+[       OK ] RobustnessTests.MaxErrorProbability_AllFailures (0 ms)
+[ RUN      ] RobustnessTests.Interview_StatisticalValidation
+[       OK ] RobustnessTests.Interview_StatisticalValidation (0 ms)
+[ RUN      ] RobustnessTests.Interview_CircuitBreakerPattern
+[       OK ] RobustnessTests.Interview_CircuitBreakerPattern (0 ms)
+[----------] 15 tests from RobustnessTests (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 24 tests from 3 test suites ran. (1252 ms total)
+[  PASSED  ] 24 tests.
+<end of output>
+Test time =   1.26 sec
+----------------------------------------------------------
+Test Passed.
+"unit_tests" end time: Dec 26 18:16 W. Europe Standard Time
+"unit_tests" time elapsed: 00:00:01
+----------------------------------------------------------
+
+3/7 Testing: test_config
+3/7 Test: test_config
+Command: "C:/code/telemetry-platform/build/ingestion/tests/Release/test_config.exe"
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"test_config" start time: Dec 26 18:16 W. Europe Standard Time
+Output:
+----------------------------------------------------------
+Running main() from C:\code\telemetry-platform\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 11 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 11 tests from ConfigTest
+[ RUN      ] ConfigTest.LoadValidConfig
+[       OK ] ConfigTest.LoadValidConfig (6 ms)
+[ RUN      ] ConfigTest.LoadConfigWithComments
+[       OK ] ConfigTest.LoadConfigWithComments (4 ms)
+[ RUN      ] ConfigTest.LoadConfigWithWhitespace
+[       OK ] ConfigTest.LoadConfigWithWhitespace (5 ms)
+[ RUN      ] ConfigTest.LoadConfigPartial
+[       OK ] ConfigTest.LoadConfigPartial (6 ms)
+[ RUN      ] ConfigTest.LoadConfigCaseInsensitiveKeys
+[       OK ] ConfigTest.LoadConfigCaseInsensitiveKeys (5 ms)
+[ RUN      ] ConfigTest.LoadConfigLogLevelVariants
+[       OK ] ConfigTest.LoadConfigLogLevelVariants (2 ms)
+[ RUN      ] ConfigTest.LoadConfigNonExistentFile
+[       OK ] ConfigTest.LoadConfigNonExistentFile (0 ms)
+[ RUN      ] ConfigTest.LoadConfigEmptyFile
+[       OK ] ConfigTest.LoadConfigEmptyFile (1 ms)
+[ RUN      ] ConfigTest.LoadConfigIgnoresInvalidLines
+[       OK ] ConfigTest.LoadConfigIgnoresInvalidLines (2 ms)
+[ RUN      ] ConfigTest.LoadConfigUnknownKeysIgnored
+[       OK ] ConfigTest.LoadConfigUnknownKeysIgnored (2 ms)
+[ RUN      ] ConfigTest.DefaultValues
+[       OK ] ConfigTest.DefaultValues (0 ms)
+[----------] 11 tests from ConfigTest (38 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 1 test suite ran. (38 ms total)
+[  PASSED  ] 11 tests.
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"test_config" end time: Dec 26 18:16 W. Europe Standard Time
+"test_config" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: C:/code/telemetry-platform/build/ingestion/tests/Release/test_bounded_queue.exe
+4/7 Testing: test_bounded_queue
+4/7 Test: test_bounded_queue
+Command: ""
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"test_bounded_queue" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_bounded_queue" end time: Dec 26 18:16 W. Europe Standard Time
+"test_bounded_queue" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: log_file_sink
+5/7 Test: log_file_sink
+Command: "C:/Program Files/CMake/bin/cmake.exe" "-DBIN_DIR=C:/code/telemetry-platform/build" "-DCONFIG=Release" "-P" "C:/code/telemetry-platform/ingestion/tests/log_check.cmake"
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"log_file_sink" start time: Dec 26 18:16 W. Europe Standard Time
+Output:
+----------------------------------------------------------
+CMake Error at C:/code/telemetry-platform/ingestion/tests/log_check.cmake:27 (message):
+  gateway_app not found.  Checked:
+
+    C:/code/telemetry-platform/build/gateway/gateway_app;C:/code/telemetry-platform/build/gateway/Release/gateway_app.exe;C:/code/telemetry-platform/build/gateway/Debug/gateway_app.exe;C:/code/telemetry-platform/build/gateway/Release/gateway_app.exe
+
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Failed.
+"log_file_sink" end time: Dec 26 18:16 W. Europe Standard Time
+"log_file_sink" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: C:/code/telemetry-platform/build/ingestion/tests/Release/cloud_client_tests.exe
+6/7 Testing: cloud_client_tests
+6/7 Test: cloud_client_tests
+Command: ""
+Directory: C:/code/telemetry-platform/build/ingestion/tests
+"cloud_client_tests" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cloud_client_tests" end time: Dec 26 18:16 W. Europe Standard Time
+"cloud_client_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: http_integration
+7/7 Test: http_integration
+Command: "C:/Program Files/WindowsApps/Microsoft.PowerShell_7.5.4.0_x64__8wekyb3d8bbwe/pwsh.exe" "-NoLogo" "-NoProfile" "-File" "C:/code/telemetry-platform/build/ingestion/tests/http_integration.ps1"
+Directory: C:/code/telemetry-platform/build
+"http_integration" start time: Dec 26 18:16 W. Europe Standard Time
+Output:
+----------------------------------------------------------
+Local mode: running full Measuring scenario
+state=Measuring latest_seq=0
+HTTP integration test passed (full scenario)
+<end of output>
+Test time =   1.38 sec
+----------------------------------------------------------
+Test Passed.
+"http_integration" end time: Dec 26 18:16 W. Europe Standard Time
+"http_integration" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Dec 26 18:16 W. Europe Standard Time
