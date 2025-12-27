@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package telemetry;
+
+option optimize_for = SPEED;  // Optimize for performance
+
+// Telemetry sample from IoT devices/sensors
+// Replaces JSON serialization for better performance
+message TelemetrySample {
+  // Microsecond timestamp since epoch
+  int64 timestamp_us = 1;
+  
+  // Measured value (temperature, pressure, etc.)
+  double value = 2;
+  
+  // Unit of measurement (e.g., "celsius", "pascal", "volts")
+  string unit = 3;
+  
+  // Sequence number for ordering/deduplication
+  uint32 sequence_id = 4;
+}
+
+// Batch of samples for efficient bulk transfer
+message TelemetryBatch {
+  repeated TelemetrySample samples = 1;
+  
+  // Device identifier
+  string device_id = 2;
+  
+  // Batch timestamp
+  int64 batch_timestamp_us = 3;
+}
+
+// Device state information
+message DeviceStatus {
+  enum State {
+    UNKNOWN = 0;
+    IDLE = 1;
+    ACTIVE = 2;
+    ERROR = 3;
+    DISCONNECTED = 4;
+  }
+  
+  State state = 1;
+  int64 timestamp_us = 2;
+  string device_id = 3;
+  string error_message = 4;  // Only set if state == ERROR
+}

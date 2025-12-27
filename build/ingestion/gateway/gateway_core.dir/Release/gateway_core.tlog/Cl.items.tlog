@@ -1,5 +1,0 @@
-C:\code\telemetry-platform\ingestion\gateway\src\GatewayCore.cpp;C:\code\telemetry-platform\build\ingestion\gateway\gateway_core.dir\Release\GatewayCore.obj
-C:\code\telemetry-platform\ingestion\gateway\src\TelemetryQueue.cpp;C:\code\telemetry-platform\build\ingestion\gateway\gateway_core.dir\Release\TelemetryQueue.obj
-C:\code\telemetry-platform\ingestion\gateway\src\RestCloudClient.cpp;C:\code\telemetry-platform\build\ingestion\gateway\gateway_core.dir\Release\RestCloudClient.obj
-C:\code\telemetry-platform\ingestion\gateway\src\Config.cpp;C:\code\telemetry-platform\build\ingestion\gateway\gateway_core.dir\Release\Config.obj
-C:\code\telemetry-platform\ingestion\gateway\src\ThreadPool.cpp;C:\code\telemetry-platform\build\ingestion\gateway\gateway_core.dir\Release\ThreadPool.obj

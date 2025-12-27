@@ -1,0 +1,49 @@
+flowchart TB
+    subgraph Physical["Physical Layer"]
+        S1[Temperature Sensor]
+        S2[Pressure Sensor]
+        S3[Humidity Sensor]
+    end
+    
+    subgraph TH["TelemetryHub (Ingestion)<br/>Port 8080"]
+        TH_DEV[Device Driver<br/>UART/I2C/SPI]
+        TH_QUEUE[In-Memory Queue<br/>9.1M ops/sec]
+        TH_API[REST API]
+        TH_PUB[Redis Publisher]
+    end
+    
+    subgraph Redis["Redis Broker<br/>Port 6379"]
+        R_QUEUE[LIST: tasks:pending]
+        R_DLQ[LIST: tasks:failed]
+    end
+    
+    subgraph TTP["TelemetryTaskProcessor<br/>10K tasks/sec"]
+        TTP_CLIENT[Redis Client<br/>BLPOP]
+        TTP_WORKERS[Worker Pool<br/>8 threads]
+        TTP_HANDLERS[Task Handlers]
+    end
+    
+    subgraph Storage["Storage Layer"]
+        DB[(PostgreSQL)]
+        METRICS[Prometheus]
+    end
+    
+    S1 & S2 & S3 -->|Raw Data| TH_DEV
+    TH_DEV --> TH_QUEUE
+    TH_QUEUE --> TH_API
+    TH_API --> TH_PUB
+    
+    TH_PUB -->|LPUSH| R_QUEUE
+    R_QUEUE -->|BLPOP| TTP_CLIENT
+    TTP_CLIENT --> TTP_WORKERS
+    TTP_WORKERS --> TTP_HANDLERS
+    
+    TTP_HANDLERS -->|INSERT| DB
+    TTP_HANDLERS -.->|Metrics| METRICS
+    TTP_WORKERS -->|Failed| R_DLQ
+    TH_API -.->|Metrics| METRICS
+    
+    style TH fill:#e3f2fd
+    style TTP fill:#f3e5f5
+    style Redis fill:#fff9c4
+    style Storage fill:#e8f5e9

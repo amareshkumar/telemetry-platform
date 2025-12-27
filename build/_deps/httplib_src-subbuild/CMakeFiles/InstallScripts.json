@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/code/telemetry-platform/build/_deps/httplib_src-subbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

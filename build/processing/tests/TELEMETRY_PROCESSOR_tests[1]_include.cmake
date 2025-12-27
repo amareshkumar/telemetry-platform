@@ -1,5 +1,0 @@
-if(EXISTS "C:/code/telemetry-platform/build/processing/tests/TELEMETRY_PROCESSOR_tests[1]_tests.cmake")
-  include("C:/code/telemetry-platform/build/processing/tests/TELEMETRY_PROCESSOR_tests[1]_tests.cmake")
-else()
-  add_test(TELEMETRY_PROCESSOR_tests_NOT_BUILT TELEMETRY_PROCESSOR_tests_NOT_BUILT)
-endif()
