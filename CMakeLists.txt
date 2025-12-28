@@ -70,4 +70,61 @@ message(STATUS "  cmake --build build --target telemetry_common      (common lib
 message(STATUS "  cmake --build build --target telemetry_gateway     (ingestion service)")
 message(STATUS "  cmake --build build --target telemetry_processor   (processing service)")
 message(STATUS "  cmake --build build                                (build all)")
+
+# Documentation with Doxygen
+if(BUILD_DOCS)
+    find_package(Doxygen QUIET)
+    if(DOXYGEN_FOUND)
+        message(STATUS "")
+        message(STATUS "Doxygen found: ${DOXYGEN_VERSION}")
+        message(STATUS "  Documentation target available: cmake --build . --target docs")
+        
+        # Configure Doxygen
+        set(DOXYGEN_PROJECT_NAME "TelemetryHub")
+        set(DOXYGEN_PROJECT_NUMBER ${PROJECT_VERSION})
+        set(DOXYGEN_PROJECT_BRIEF "High-performance IoT telemetry platform")
+        set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/docs/doxygen)
+        set(DOXYGEN_GENERATE_HTML YES)
+        set(DOXYGEN_GENERATE_LATEX YES)
+        set(DOXYGEN_EXTRACT_ALL YES)
+        set(DOXYGEN_EXTRACT_PRIVATE YES)
+        set(DOXYGEN_EXTRACT_STATIC YES)
+        set(DOXYGEN_BUILTIN_STL_SUPPORT YES)
+        set(DOXYGEN_SOURCE_BROWSER YES)
+        set(DOXYGEN_REFERENCED_BY_RELATION YES)
+        set(DOXYGEN_REFERENCES_RELATION YES)
+        set(DOXYGEN_CALL_GRAPH YES)
+        set(DOXYGEN_CALLER_GRAPH YES)
+        set(DOXYGEN_HAVE_DOT YES)
+        set(DOXYGEN_UML_LOOK NO)
+        set(DOXYGEN_TEMPLATE_RELATIONS YES)
+        set(DOXYGEN_COLLABORATION_GRAPH YES)
+        set(DOXYGEN_CLASS_GRAPH YES)
+        set(DOXYGEN_INCLUDE_GRAPH YES)
+        set(DOXYGEN_INCLUDED_BY_GRAPH YES)
+        set(DOXYGEN_GRAPHICAL_HIERARCHY YES)
+        set(DOXYGEN_DIRECTORY_GRAPH YES)
+        set(DOXYGEN_USE_MDFILE_AS_MAINPAGE ${CMAKE_SOURCE_DIR}/README.md)
+        
+        # Add documentation target
+        doxygen_add_docs(
+            docs
+            ${CMAKE_SOURCE_DIR}/common/include
+            ${CMAKE_SOURCE_DIR}/common/src
+            ${CMAKE_SOURCE_DIR}/ingestion/gateway/include
+            ${CMAKE_SOURCE_DIR}/ingestion/gateway/src
+            ${CMAKE_SOURCE_DIR}/processing/include
+            ${CMAKE_SOURCE_DIR}/processing/src
+            ${CMAKE_SOURCE_DIR}/README.md
+            ${CMAKE_SOURCE_DIR}/docs/architecture.md
+            COMMENT "Generating API documentation with Doxygen"
+        )
+    else()
+        message(WARNING "")
+        message(WARNING "Doxygen not found. Documentation will not be generated.")
+        message(WARNING "  Install: choco install doxygen.install graphviz")
+        message(WARNING "  Or download: https://www.doxygen.nl/download.html")
+    endif()
+endif()
+
 message(STATUS "=================================================")

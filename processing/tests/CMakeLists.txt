@@ -2,6 +2,7 @@
 add_executable(TELEMETRY_PROCESSOR_tests
     test_task.cpp
     test_redis_client.cpp
+    ../../../tests/test_task_queue.cpp
 )
 
 target_link_libraries(TELEMETRY_PROCESSOR_tests
