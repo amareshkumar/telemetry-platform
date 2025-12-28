@@ -2,6 +2,7 @@
 add_library(TELEMETRY_PROCESSOR_core
     core/Task.cpp
     core/RedisClient.cpp
+    task_queue.cpp
 )
 
 target_include_directories(TELEMETRY_PROCESSOR_core PUBLIC
