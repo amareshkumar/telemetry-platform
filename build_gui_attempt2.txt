@@ -1,0 +1,1145 @@
+CMake is re-running because C:/code/telemetry-platform/build_vs26/common/CMakeFiles/generate.stamp is out-of-date.
+  the file 'C:/code/telemetry-platform/common/CMakeLists.txt'
+  is newer than 'C:/code/telemetry-platform/build_vs26/common/CMakeFiles/generate.stamp.depend'
+  result='-1'
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.
+-- =================================================
+-- Telemetry Platform - Monorepo Build
+-- =================================================
+-- Build Type: Release
+-- C++ Standard: C++17
+-- 
+-- Building: common/ (shared library)
+-- Using the multi-header code from C:/code/telemetry-platform/build_vs26/_deps/json-src/include/
+CMake Deprecation Warning at build_vs26/_deps/hiredis-src/CMakeLists.txt:1 (CMAKE_MINIMUM_REQUIRED):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+Detected version: 1.3.0
+CMake Deprecation Warning at build_vs26/_deps/redis++-src/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- redis-plus-plus version: 1.3.15
+-- redis-plus-plus build type: Release
+-- redis-plus-plus build with CXX standard: c++17
+-- redis-plus-plus TLS support: OFF
+-- redis-plus-plus check hiredis features
+-- redis-plus-plus build static library: ON
+-- redis-plus-plus build static library with position independent code: ON
+-- redis-plus-plus build shared library: OFF
+-- redis-plus-plus build test: OFF
+-- Debian package name: .deb
+CMake Deprecation Warning at build_vs26/_deps/protobuf-src/CMakeLists.txt:7 (cmake_policy):
+  The OLD behavior for policy CMP0141 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- 
+-- 25.1.0
+CMake Warning at build_vs26/_deps/protobuf-src/third_party/abseil-cpp/CMakeLists.txt:77 (message):
+  A future Abseil release will default ABSL_PROPAGATE_CXX_STD to ON for CMake
+  3.8 and up.  We recommend enabling this option to ensure your project still
+  builds correctly.
+
+
+CMake Deprecation Warning at build_vs26/_deps/protobuf-src/third_party/utf8_range/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- Building: ingestion/ (TelemetryHub)
+-- Generating telemetryhub/Version.h from template.
+CMake Warning (dev) at C:/Program Files/CMake/share/cmake-4.2/Modules/FetchContent.cmake:1963 (message):
+  Calling FetchContent_Populate(httplib_src) is deprecated, call
+  FetchContent_MakeAvailable(httplib_src) instead.  Policy CMP0169 can be set
+  to OLD to allow FetchContent_Populate(httplib_src) to be called directly
+  for now, but the ability to call it with declared details will be removed
+  completely in a future version.
+Call Stack (most recent call first):
+  ingestion/CMakeLists.txt:100 (FetchContent_Populate)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Building: processing/ (TelemetryTaskProcessor)
+-- Building: tests/integration/
+-- 
+-- =================================================
+-- Configuration Summary:
+--   Common Library:       ON
+--   Ingestion Service:    ON
+--   Processing Service:   ON
+--   Tests:                ON
+--   Examples:             ON
+-- =================================================
+-- 
+-- Build targets:
+--   cmake --build build --target telemetry_common      (common library)
+--   cmake --build build --target telemetry_gateway     (ingestion service)
+--   cmake --build build --target telemetry_processor   (processing service)
+--   cmake --build build                                (build all)
+-- =================================================
+-- Configuring done (18.0s)
+-- Generating done (29.0s)
+-- Build files have been written to: C:/code/telemetry-platform/build_vs26
+MSBuild version 18.0.5+e22287bf1 for .NET Framework
+
+  1>Checking Build System
+  Task.cpp
+  TELEMETRY_PROCESSOR_core.vcxproj -> C:\code\telemetry-platform\build_vs26\processing\src\Release\TELEMETRY_PROCESSOR_core.dll
+  main.cpp
+LINK : fatal error LNK1181: cannot open input file 'Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\src\TELEMETRY_PROCESSOR_demo.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/googletest-src/googletest/CMakeLists.txt
+  gtest-all.cc
+     Creating library C:/code/telemetry-platform/build_vs26/lib/Release/gtest.lib and object C:/code/telemetry-platform/build_vs26/lib/Release/gtest.exp
+  gtest.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gtest.dll
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/googletest-src/googletest/CMakeLists.txt
+  gtest_main.cc
+     Creating library C:/code/telemetry-platform/build_vs26/lib/Release/gtest_main.lib and object C:/code/telemetry-platform/build_vs26/lib/Release/gtest_main.exp
+  gtest_main.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gtest_main.dll
+  test_redis_client.cpp
+  test_task.cpp
+  Generating Code...
+LINK : fatal error LNK1181: cannot open input file '..\src\Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\tests\TELEMETRY_PROCESSOR_tests.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/CMakeLists.txt
+  cycleclock.cc
+  low_level_alloc.cc
+  raw_logging.cc
+  scoped_set_env.cc
+  strerror.cc
+  spinlock.cc
+  spinlock_wait.cc
+  sysinfo.cc
+  thread_identity.cc
+  throw_delegate.cc
+  unscaledcycleclock.cc
+  log_severity.cc
+  hashtablez_sampler.cc
+  hashtablez_sampler_force_weak_definition.cc
+  raw_hash_set.cc
+  crc32c.cc
+  cpu_detect.cc
+  crc.cc
+  crc_cord_state.cc
+  crc_x86_arm_combined.cc
+  Generating Code...
+  Compiling...
+  crc_memcpy_fallback.cc
+  crc_memcpy_x86_64.cc
+  crc_non_temporal_memcpy.cc
+  failure_signal_handler.cc
+  stacktrace.cc
+  symbolize.cc
+  address_is_readable.cc
+  demangle.cc
+  elf_mem_image.cc
+  examine_stack.cc
+  stack_consumption.cc
+  vdso_support.cc
+  city.cc
+  hash.cc
+  low_level_hash.cc
+  die_if_null.cc
+  check_op.cc
+  conditions.cc
+  log_format.cc
+  log_message.cc
+  Generating Code...
+  Compiling...
+  log_sink_set.cc
+  nullguard.cc
+  proto.cc
+  initialize.cc
+  log_entry.cc
+  log_sink.cc
+  int128.cc
+  exponential_biased.cc
+  periodic_sampler.cc
+  discrete_distribution.cc
+  gaussian_distribution.cc
+  pool_urbg.cc
+  randen.cc
+  randen_detect.cc
+  randen_hwaes.cc
+  randen_round_keys.cc
+  randen_slow.cc
+  seed_material.cc
+  seed_gen_exception.cc
+  seed_sequences.cc
+  Generating Code...
+  Compiling...
+  status.cc
+  statusor.cc
+  status_payload_printer.cc
+  ascii.cc
+  charconv.cc
+  cord.cc
+  cord_analysis.cc
+  cord_buffer.cc
+  charconv_bigint.cc
+  charconv_parse.cc
+  cord_internal.cc
+  cord_rep_btree.cc
+  cord_rep_btree_navigator.cc
+  cord_rep_btree_reader.cc
+  cord_rep_crc.cc
+  cord_rep_consume.cc
+  cord_rep_ring.cc
+  cordz_functions.cc
+  cordz_handle.cc
+  cordz_info.cc
+  Generating Code...
+  Compiling...
+  cordz_sample_token.cc
+  damerau_levenshtein_distance.cc
+  stringify_sink.cc
+  match.cc
+  numbers.cc
+  str_cat.cc
+  str_replace.cc
+  str_split.cc
+  string_view.cc
+  substitute.cc
+  memutil.cc
+  ostringstream.cc
+  pow10_helper.cc
+  arg.cc
+  bind.cc
+  extension.cc
+  float_conversion.cc
+  output.cc
+  parser.cc
+  utf8.cc
+  Generating Code...
+  Compiling...
+  barrier.cc
+  blocking_counter.cc
+  mutex.cc
+  notification.cc
+  create_thread_identity.cc
+  futex_waiter.cc
+  graphcycles.cc
+  kernel_timeout.cc
+  per_thread_sem.cc
+  pthread_waiter.cc
+  sem_waiter.cc
+  stdcpp_waiter.cc
+  waiter_base.cc
+  win32_waiter.cc
+  civil_time.cc
+  clock.cc
+  duration.cc
+  format.cc
+  time.cc
+  civil_time_detail.cc
+  Generating Code...
+  Compiling...
+  time_zone_fixed.cc
+  time_zone_format.cc
+  time_zone_if.cc
+  time_zone_impl.cc
+  time_zone_info.cc
+  time_zone_libc.cc
+  time_zone_lookup.cc
+  time_zone_posix.cc
+  zone_info_source.cc
+  bad_any_cast.cc
+  bad_optional_access.cc
+  bad_variant_access.cc
+  leak_check.cc
+  Generating Code...
+  globals.cc
+  globals.cc
+  escaping.cc
+  escaping.cc
+  Auto build dll exports
+status.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+statusor.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+status_payload_printer.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+cord.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+cordz_handle.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+cordz_info.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+cordz_sample_token.obj : warning LNK4197: export '??_7CordzHandle@cord_internal@lts_20230802@absl@@6B@' specified multiple times; using first specification [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\abseil_dll.vcxproj]
+     Creating library C:/code/telemetry-platform/build_vs26/_deps/protobuf-build/third_party/abseil-cpp/absl/Release/abseil_dll.lib and object C:/code/telemetry-platform/build_vs26/_deps/protobuf-build/third_party/abseil-cpp/absl/Release/abseil_dll.exp
+  abseil_dll.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\abseil_dll.dll
+  device.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\device\Release\device.lib
+  gateway_core.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\gateway\Release\gateway_core.dll
+  cloud_client_tests.cpp
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\cloud_client_tests.vcxproj]
+  device_simulator_cli.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_simulator_cli.exe
+  device_smoke.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_smoke.exe
+  device_state_test.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_state_test.exe
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  commandlineflag.cc
+  flags_commandlineflag_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag_internal.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  commandlineflag.cc
+  flags_commandlineflag.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  program_name.cc
+  flags_program_name.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_program_name.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  usage_config.cc
+  flags_config.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_config.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  marshalling.cc
+  flags_marshalling.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_marshalling.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  flag.cc
+  flags_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_internal.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  private_handle_accessor.cc
+  flags_private_handle_accessor.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_private_handle_accessor.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  reflection.cc
+  flags_reflection.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_reflection.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  flag.cc
+  flags.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  usage.cc
+  flags_usage_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_usage_internal.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  usage.cc
+  flags_usage.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_usage.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/flags/CMakeLists.txt
+  parse.cc
+  flags_parse.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_parse.lib
+  http_server.cpp
+LINK : fatal error LNK1181: cannot open input file 'Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\gateway\gateway_app.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/googletest-src/googlemock/CMakeLists.txt
+  gtest-all.cc
+  gmock-all.cc
+  Generating Code...
+     Creating library C:/code/telemetry-platform/build_vs26/lib/Release/gmock.lib and object C:/code/telemetry-platform/build_vs26/lib/Release/gmock.exp
+  gmock.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gmock.dll
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/googletest-src/googlemock/CMakeLists.txt
+  gtest-all.cc
+  gmock-all.cc
+  gmock_main.cc
+  Generating Code...
+     Creating library C:/code/telemetry-platform/build_vs26/lib/Release/gmock_main.lib and object C:/code/telemetry-platform/build_vs26/lib/Release/gmock_main.exp
+  gmock_main.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gmock_main.dll
+  Automatic MOC and UIC for target gui_app
+  Building Custom Rule C:/code/telemetry-platform/ingestion/gui/CMakeLists.txt
+  main_gui.cpp
+  MainWindow.cpp
+  RestClient.cpp
+  mocs_compilation_Release.cpp
+  Generating Code...
+  gui_app.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\gui\Release\gui_app.exe
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/hiredis-src/CMakeLists.txt
+  alloc.c
+  async.c
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\alloc.c(40,17): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\alloc.c(59,21): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(62,32): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(81,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(82,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(505,13): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(509,20): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(565,13): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(566,13): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(567,13): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(865,20): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(890,16): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\async.c(943,16): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+  hiredis.c
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\hiredis.c(352,31): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\hiredis.c(508,19): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\hiredis.c(527,16): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\hiredis.c(991,21): warning C4244: '=': conversion from 'ssize_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+  net.c
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(339,14): warning C4267: 'function': conversion from 'size_t' to 'socklen_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(404,9): warning C4267: 'function': conversion from 'size_t' to 'socklen_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(408,9): warning C4267: 'function': conversion from 'size_t' to 'socklen_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(561,21): warning C4267: 'function': conversion from 'size_t' to 'socklen_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(584,13): warning C4267: 'function': conversion from 'size_t' to 'socklen_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\net.c(710,1): warning C4102: 'oom': unreferenced label [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+  read.c
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(216,37): warning C4146: unary minus operator applied to unsigned type, result still unsigned [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(232,16): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(303,29): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(305,36): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(307,37): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(308,37): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details. [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(410,36): warning C4267: '=': conversion from 'size_t' to 'unsigned long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\read.c(433,27): warning C4244: '+=': conversion from '__int64' to 'unsigned long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+  sds.c
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(102,24): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(107,23): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(108,25): warning C4267: '=': conversion from 'size_t' to 'uint8_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(114,23): warning C4267: '=': conversion from 'size_t' to 'uint16_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(115,25): warning C4267: '=': conversion from 'size_t' to 'uint16_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(121,23): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(122,25): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(462,12): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(491,12): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(590,9): warning C4267: '=': conversion from 'size_t' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(618,22): warning C4267: '+=': conversion from 'size_t' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(635,26): warning C4267: '+=': conversion from 'size_t' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(653,26): warning C4267: '+=': conversion from 'size_t' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\hiredis-src\sds.c(792,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\hiredis.vcxproj]
+  sockcompat.c
+  Generating Code...
+  Auto build dll exports
+     Creating library C:/code/telemetry-platform/build_vs26/_deps/hiredis-build/Release/hiredis.lib and object C:/code/telemetry-platform/build_vs26/_deps/hiredis-build/Release/hiredis.exp
+  hiredis.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\Release\hiredis.dll
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/utf8_range/CMakeLists.txt
+  utf8_validity.cc
+  utf8_validity.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\utf8_range\Release\utf8_validity.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/CMakeLists.txt
+  any.pb.cc
+  api.pb.cc
+  duration.pb.cc
+  empty.pb.cc
+  field_mask.pb.cc
+  source_context.pb.cc
+  struct.pb.cc
+  timestamp.pb.cc
+  type.pb.cc
+  wrappers.pb.cc
+  any.cc
+  any_lite.cc
+  arena.cc
+  arena_align.cc
+  arenastring.cc
+  arenaz_sampler.cc
+  importer.cc
+  cpp_features.pb.cc
+  descriptor.cc
+  descriptor.pb.cc
+  descriptor_database.cc
+  dynamic_message.cc
+  extension_set.cc
+  extension_set_heavy.cc
+  feature_resolver.cc
+  generated_enum_util.cc
+  generated_message_bases.cc
+  generated_message_reflection.cc
+  generated_message_tctable_full.cc
+  generated_message_tctable_gen.cc
+  generated_message_tctable_lite.cc
+  generated_message_util.cc
+  implicit_weak_message.cc
+  inlined_string_field.cc
+  internal_message_util.cc
+  coded_stream.cc
+  gzip_stream.cc
+  io_win32.cc
+  printer.cc
+  strtod.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(1401,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(1418,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(2550,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf.vcxproj]
+  tokenizer.cc
+  zero_copy_sink.cc
+  zero_copy_stream.cc
+  zero_copy_stream_impl.cc
+  zero_copy_stream_impl_lite.cc
+  lexer.cc
+  message_path.cc
+  unparser.cc
+  untyped_message.cc
+  writer.cc
+  zero_copy_buffered_stream.cc
+  json.cc
+  map.cc
+  map_field.cc
+  message.cc
+  message_lite.cc
+  parse_context.cc
+  port.cc
+  raw_ptr.cc
+  reflection_mode.cc
+  reflection_ops.cc
+  repeated_field.cc
+  repeated_ptr_field.cc
+  service.cc
+  common.cc
+  text_format.cc
+  unknown_field_set.cc
+  delimited_message_util.cc
+  field_comparator.cc
+  field_mask_util.cc
+  message_differencer.cc
+  time_util.cc
+  type_resolver_util.cc
+  wire_format.cc
+  wire_format_lite.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\text_format.cc(906,11): warning C4805: '==': unsafe mix of type 'bool' and type 'uint64_t' in operation [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf.vcxproj]
+  parser.cc
+  parser.cc
+  libprotobuf.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotobuf.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/CMakeLists.txt
+  any_lite.cc
+  arena.cc
+  arena_align.cc
+  arenastring.cc
+  arenaz_sampler.cc
+  extension_set.cc
+  generated_enum_util.cc
+  generated_message_tctable_lite.cc
+  generated_message_util.cc
+  implicit_weak_message.cc
+  inlined_string_field.cc
+  coded_stream.cc
+  io_win32.cc
+  zero_copy_stream.cc
+  zero_copy_stream_impl.cc
+  zero_copy_stream_impl_lite.cc
+  map.cc
+  message_lite.cc
+  parse_context.cc
+  port.cc
+  raw_ptr.cc
+  repeated_field.cc
+  repeated_ptr_field.cc
+  common.cc
+  wire_format_lite.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(1401,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf-lite.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(1418,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf-lite.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\generated_message_tctable_lite.cc(2550,24): warning C4141: 'inline': used more than once [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotobuf-lite.vcxproj]
+  libprotobuf-lite.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotobuf-lite.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/CMakeLists.txt
+  editions.cc
+  empty_package.cc
+  open_enum.cc
+  unused_imports.cc
+  weak_imports.cc
+  code_generator.cc
+  command_line_interface.cc
+  cord_field.cc
+  padding_optimizer.cc
+  parse_function_generator.cc
+  tracker.cc
+  csharp_doc_comment.cc
+  csharp_enum.cc
+  csharp_enum_field.cc
+  csharp_field_base.cc
+  csharp_generator.cc
+  csharp_helpers.cc
+  csharp_map_field.cc
+  csharp_message.cc
+  csharp_message_field.cc
+  csharp_primitive_field.cc
+  csharp_reflection_class.cc
+  csharp_repeated_enum_field.cc
+  csharp_repeated_message_field.cc
+  csharp_repeated_primitive_field.cc
+  csharp_source_generator_base.cc
+  csharp_wrapper_field.cc
+  doc_comment.cc
+  enum_field_lite.cc
+  enum_lite.cc
+  extension_lite.cc
+  generator_factory.cc
+  java_features.pb.cc
+  kotlin_generator.cc
+  map_field_lite.cc
+  message_builder.cc
+  message_builder_lite.cc
+  message_field_lite.cc
+  message_lite.cc
+  message_serialization.cc
+  name_resolver.cc
+  primitive_field_lite.cc
+  shared_code_generator.cc
+  string_field_lite.cc
+  import_writer.cc
+  line_consumer.cc
+  text_format_decode_data.cc
+  php_generator.cc
+  plugin.cc
+  plugin.pb.cc
+  pyi_generator.cc
+  retention.cc
+  ruby_generator.cc
+  accessors.cc
+  singular_message.cc
+  singular_scalar.cc
+  singular_string.cc
+  unsupported_field.cc
+  naming.cc
+  relative_path.cc
+  subprocess.cc
+  zip_writer.cc
+  enum.cc
+  extension.cc
+  field.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\third_party\abseil-cpp\absl\log\internal\check_op.h(341,1): warning C4018: '>': signed/unsigned mismatch [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotoc.vcxproj]
+  (compiling source file '../protobuf-src/src/google/protobuf/compiler/cpp/field.cc')
+      C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\third_party\abseil-cpp\absl\log\internal\check_op.h(341,1):
+      the template instantiation context (the oldest one first) is
+          C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\compiler\cpp\field.cc(296,3):
+          see reference to function template instantiation 'std::string *absl::lts_20230802::log_internal::Check_GTImpl<unsigned int,int>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned int,
+              T2=int
+          ]
+  
+  enum_field.cc
+  map_field.cc
+  message_field.cc
+  primitive_field.cc
+  string_field.cc
+  file.cc
+  generator.cc
+  helpers.cc
+  message.cc
+  service.cc
+  names.cc
+  context.cc
+  enum.cc
+  enum_field.cc
+  extension.cc
+  field.cc
+  file.cc
+  generator.cc
+  helpers.cc
+  map_field.cc
+  message.cc
+  message_field.cc
+  names.cc
+  primitive_field.cc
+  service.cc
+  string_field.cc
+  enum.cc
+  enum_field.cc
+  extension.cc
+  field.cc
+  file.cc
+  generator.cc
+  helpers.cc
+  map_field.cc
+  message.cc
+  message_field.cc
+  names.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\compiler\objectivec\names.cc(950,1): warning C4715: 'google::protobuf::compiler::objectivec::`anonymous namespace'::FragmentName': not all control paths return a value [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotoc.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\compiler\objectivec\names.cc(1079,1): warning C4715: 'google::protobuf::compiler::objectivec::`anonymous namespace'::FieldObjCTypeInternal': not all control paths return a value [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\libprotoc.vcxproj]
+  oneof.cc
+  primitive_field.cc
+  names.cc
+  generator.cc
+  helpers.cc
+  context.cc
+  generator.cc
+  message.cc
+  oneof.cc
+  libprotoc.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotoc.lib
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/log/CMakeLists.txt
+  flags.cc
+  log_flags.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\log\Release\absl_log_flags.lib
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tools\perf_tool.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/CMakeLists.txt
+  main.cc
+C:\code\telemetry-platform\build_vs26\_deps\protobuf-src\src\google\protobuf\map.h(689,19): warning C4244: 'initializing': conversion from 'uintptr_t' to 'google::protobuf::internal::map_index_t', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\protoc.vcxproj]
+  (compiling source file '../protobuf-src/src/google/protobuf/compiler/main.cc')
+  
+  protoc.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\protoc.exe
+  raii_demo.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\raii_demo.exe
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/redis++-src/CMakeLists.txt
+  command.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  command_options.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command_options.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command_options.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command_options.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command_options.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/command_options.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  connection.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(153,25): warning C4244: '=': conversion from '_Rep' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(153,25): warning C4244:         with [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(153,25): warning C4244:         [ [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(153,25): warning C4244:             _Rep=__int64 [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(153,25): warning C4244:         ] [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(154,27): warning C4244: '=': conversion from '_Rep' to 'long', possible loss of data [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(154,27): warning C4244:         with [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(154,27): warning C4244:         [ [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(154,27): warning C4244:             _Rep=__int64 [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+C:\code\telemetry-platform\build_vs26\_deps\redis++-src\src\sw\redis++\connection.cpp(154,27): warning C4244:         ] [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  connection_pool.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/connection_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  crc16.cpp
+  errors.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/errors.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/errors.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/errors.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/errors.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/errors.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  pipeline.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/pipeline.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/pipeline.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/pipeline.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/pipeline.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/pipeline.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  redis.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  redis_cluster.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_cluster.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_cluster.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_cluster.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_cluster.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_cluster.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  redis_uri.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_uri.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_uri.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_uri.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_uri.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/redis_uri.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  reply.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/reply.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/reply.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/reply.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/reply.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/reply.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  sentinel.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/sentinel.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/sentinel.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/sentinel.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/sentinel.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/sentinel.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  shards.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  shards_pool.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/shards_pool.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  subscriber.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/subscriber.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/subscriber.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/subscriber.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/subscriber.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/subscriber.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  transaction.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/transaction.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/transaction.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/transaction.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/transaction.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/transaction.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  redlock.cpp
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/patterns/redlock.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(59,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/patterns/redlock.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(65,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/patterns/redlock.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(71,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/patterns/redlock.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(77,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10): warning C4200: nonstandard extension used: zero-sized array in struct/union [C:\code\telemetry-platform\build_vs26\_deps\redis++-build\redis++_static.vcxproj]
+  (compiling source file '../redis++-src/src/sw/redis++/patterns/redlock.cpp')
+      C:\code\telemetry-platform\build_vs26\common\hiredis_wrapper\hiredis\sds.h(83,10):
+      This member will be ignored by a defaulted constructor or copy/move assignment operator
+  
+  Generating Code...
+  redis++_static.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\redis++-build\Release\redis++_static.lib
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tools\stress_test.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/abseil-cpp/absl/strings/CMakeLists.txt
+  string_view.cc
+  string_view.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\strings\Release\absl_string_view.lib
+  Running cpp protocol buffer compiler on C:/code/telemetry-platform/common/proto/telemetry.proto
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'C:\code\telemetry-platform\build_vs26\CMakeFiles\d916254248a7bb9bdffc472dd12edef7\telemetry.pb.h.rule' exited with code -1073741515. [C:\code\telemetry-platform\build_vs26\common\telemetry_proto.vcxproj]
+  simple_producer.cpp
+LINK : fatal error LNK1181: cannot open input file '..\src\Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\examples\telemetry_simple_producer.vcxproj]
+  test_bounded_queue.cpp
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_bounded_queue.vcxproj]
+  test_config.cpp
+C:\code\telemetry-platform\ingestion\gateway\include\telemetryhub\gateway\Log.h(24,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_config.vcxproj]
+  (compiling source file '../../../ingestion/tests/test_config.cpp')
+  
+C:\code\telemetry-platform\ingestion\gateway\include\telemetryhub\gateway\Log.h(33,61): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_config.vcxproj]
+  (compiling source file '../../../ingestion/tests/test_config.cpp')
+  
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_config.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_gateway_e2e.vcxproj]
+  test_serial_port_sim.cpp
+  test_serial_port_sim.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tests\Release\test_serial_port_sim.exe
+  CMake Error at C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake:381 (message):
+    Error running test executable.
+  
+      Path: 'C:/code/telemetry-platform/build_vs26/ingestion/tests/Release/test_serial_port_sim.exe'
+      Working directory: 'C:/code/telemetry-platform/build_vs26/ingestion/tests'
+      Result: Exit code 0xc0000135
+      Output:
+        
+  
+  Call Stack (most recent call first):
+    C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake:420 (gtest_discover_tests_impl)
+  
+  
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: The command "setlocal [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -D TEST_TARGET=test_serial_port_sim -D TEST_EXECUTABLE=C:/code/telemetry-platform/build_vs26/ingestion/tests/Release/test_serial_port_sim.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/code/telemetry-platform/build_vs26/ingestion/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test_serial_port_sim_TESTS -D CTEST_FILE=C:/code/telemetry-platform/build_vs26/ingestion/tests/test_serial_port_sim[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P "C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake" [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmErrorLevel [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: exit /b %1 [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmDone [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :VCEnd" exited with code 1. [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+  test_device.cpp
+  test_queue.cpp
+  test_robustness.cpp
+  Generating Code...
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\unit_tests.vcxproj]
+  Building Custom Rule C:/code/telemetry-platform/build_vs26/_deps/protobuf-src/third_party/utf8_range/CMakeLists.txt
+  naive.c
+  range2-neon.c
+  range2-sse.c
+  Generating Code...
+  utf8_range.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\utf8_range\Release\utf8_range.lib
