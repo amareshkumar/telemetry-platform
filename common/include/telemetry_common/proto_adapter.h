@@ -1,6 +1,6 @@
 #pragma once
 
-#include "telemetry.pb.h"
+#include "proto/telemetry.pb.h"
 #include <chrono>
 #include <optional>
 #include <string>

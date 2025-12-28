@@ -1,0 +1,78 @@
+MSBuild version 18.0.5+e22287bf1 for .NET Framework
+
+  TELEMETRY_PROCESSOR_core.vcxproj -> C:\code\telemetry-platform\build_vs26\processing\src\Release\TELEMETRY_PROCESSOR_core.dll
+LINK : fatal error LNK1181: cannot open input file 'Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\src\TELEMETRY_PROCESSOR_demo.vcxproj]
+  gtest.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gtest.dll
+  gtest_main.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gtest_main.dll
+LINK : fatal error LNK1181: cannot open input file '..\src\Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\tests\TELEMETRY_PROCESSOR_tests.vcxproj]
+  Auto build dll exports
+  abseil_dll.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\abseil_dll.dll
+  device.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\device\Release\device.lib
+  gateway_core.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\gateway\Release\gateway_core.dll
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\cloud_client_tests.vcxproj]
+  device_simulator_cli.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_simulator_cli.exe
+  device_smoke.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_smoke.exe
+  device_state_test.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\device_state_test.exe
+  flags_commandlineflag_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag_internal.lib
+  flags_commandlineflag.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag.lib
+  flags_program_name.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_program_name.lib
+  flags_config.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_config.lib
+  flags_marshalling.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_marshalling.lib
+  flags_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_internal.lib
+  flags_private_handle_accessor.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_private_handle_accessor.lib
+  flags_reflection.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_reflection.lib
+  flags.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags.lib
+  flags_usage_internal.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_usage_internal.lib
+  flags_usage.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_usage.lib
+  flags_parse.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\flags\Release\absl_flags_parse.lib
+LINK : fatal error LNK1181: cannot open input file 'Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\gateway\gateway_app.vcxproj]
+  gmock.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gmock.dll
+  gmock_main.vcxproj -> C:\code\telemetry-platform\build_vs26\bin\Release\gmock_main.dll
+  Auto build dll exports
+  hiredis.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\hiredis-build\Release\hiredis.dll
+  utf8_validity.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\utf8_range\Release\utf8_validity.lib
+  libprotobuf.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotobuf.lib
+  libprotobuf-lite.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotobuf-lite.lib
+  libprotoc.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\libprotoc.lib
+  log_flags.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\log\Release\absl_log_flags.lib
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tools\perf_tool.vcxproj]
+  protoc.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\Release\protoc.exe
+  raii_demo.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tools\Release\raii_demo.exe
+  redis++_static.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\redis++-build\Release\redis++_static.lib
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tools\stress_test.vcxproj]
+  string_view.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\abseil-cpp\absl\strings\Release\absl_string_view.lib
+  Running cpp protocol buffer compiler on C:/code/telemetry-platform/common/proto/telemetry.proto
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'C:\code\telemetry-platform\build_vs26\CMakeFiles\d916254248a7bb9bdffc472dd12edef7\telemetry.pb.h.rule' exited with code -1073741515. [C:\code\telemetry-platform\build_vs26\common\telemetry_proto.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\src\Release\TELEMETRY_PROCESSOR_core.lib' [C:\code\telemetry-platform\build_vs26\processing\examples\telemetry_simple_producer.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_bounded_queue.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_config.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_gateway_e2e.vcxproj]
+test_redis_client_unit.obj : error LNK2019: unresolved external symbol "class testing::internal::Mutex testing::internal::g_gmock_mutex" (?g_gmock_mutex@internal@testing@@3VMutex@12@A) referenced in function "public: virtual __cdecl testing::internal::FunctionMocker<class std::optional<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,double> > __cdecl(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)>::~FunctionMocker<class std::optional<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,double> > __cdecl(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)>(void)" (??1?$FunctionMocker@$$A6A?AV?$optional@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@N@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z@internal@testing@@UEAA@XZ) [C:\code\telemetry-platform\build_vs26\common\test_redis_client_unit.vcxproj]
+test_redis_client_unit.obj : error LNK2019: unresolved external symbol "class testing::internal::ThreadLocal<class testing::Sequence *> testing::internal::g_gmock_implicit_sequence" (?g_gmock_implicit_sequence@internal@testing@@3V?$ThreadLocal@PEAVSequence@testing@@@12@A) referenced in function "protected: class testing::internal::TypedExpectation<class std::optional<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,double> > __cdecl(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)> & __cdecl testing::internal::FunctionMocker<class std::optional<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,double> > __cdecl(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)>::AddNewExpectation(char const *,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::tuple<class testing::Matcher<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &> > const &)" (?AddNewExpectation@?$FunctionMocker@$$A6A?AV?$optional@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@N@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z@internal@testing@@IEAAAEAV?$TypedExpectation@$$A6A?AV?$optional@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@N@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z@23@PEBDHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$tuple@V?$Matcher@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@testing@@@6@@Z) [C:\code\telemetry-platform\build_vs26\common\test_redis_client_unit.vcxproj]
+C:\code\telemetry-platform\build_vs26\common\Release\test_redis_client_unit.exe : fatal error LNK1120: 2 unresolved externals [C:\code\telemetry-platform\build_vs26\common\test_redis_client_unit.vcxproj]
+  test_serial_port_sim.vcxproj -> C:\code\telemetry-platform\build_vs26\ingestion\tests\Release\test_serial_port_sim.exe
+  CMake Error at C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake:381 (message):
+    Error running test executable.
+  
+      Path: 'C:/code/telemetry-platform/build_vs26/ingestion/tests/Release/test_serial_port_sim.exe'
+      Working directory: 'C:/code/telemetry-platform/build_vs26/ingestion/tests'
+      Result: Exit code 0xc0000135
+      Output:
+        
+  
+  Call Stack (most recent call first):
+    C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake:420 (gtest_discover_tests_impl)
+  
+  
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: The command "setlocal [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: "C:\Program Files\CMake\bin\cmake.exe" -D TEST_TARGET=test_serial_port_sim -D TEST_EXECUTABLE=C:/code/telemetry-platform/build_vs26/ingestion/tests/Release/test_serial_port_sim.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/code/telemetry-platform/build_vs26/ingestion/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test_serial_port_sim_TESTS -D CTEST_FILE=C:/code/telemetry-platform/build_vs26/ingestion/tests/test_serial_port_sim[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P "C:/Program Files/CMake/share/cmake-4.2/Modules/GoogleTestAddTests.cmake" [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmErrorLevel [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: exit /b %1 [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmDone [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+C:\Program Files\Microsoft Visual Studio\18\Enterprise\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(166,5): error MSB3073: :VCEnd" exited with code 1. [C:\code\telemetry-platform\build_vs26\ingestion\tests\test_serial_port_sim.vcxproj]
+LINK : fatal error LNK1181: cannot open input file '..\gateway\Release\gateway_core.lib' [C:\code\telemetry-platform\build_vs26\ingestion\tests\unit_tests.vcxproj]
+  utf8_range.vcxproj -> C:\code\telemetry-platform\build_vs26\_deps\protobuf-build\third_party\utf8_range\Release\utf8_range.lib

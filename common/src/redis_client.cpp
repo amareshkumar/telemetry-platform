@@ -126,8 +126,9 @@ bool RedisClient::expire(const std::string& key, int seconds) {
 int RedisClient::ttl(const std::string& key) {
     if (!redis_) return -2;
     try {
-        auto ttl_val = redis_->ttl(key);
-        return static_cast<int>(ttl_val.count());
+        // redis++: ttl() returns long long (seconds)
+        long long ttl_seconds = redis_->ttl(key);
+        return static_cast<int>(ttl_seconds);
     }
     catch (const sw::redis::Error&) {
         return -2;

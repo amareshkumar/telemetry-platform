@@ -33,6 +33,7 @@ add_library(telemetry_common STATIC ${COMMON_SOURCES} ${COMMON_HEADERS})
 target_include_directories(telemetry_common
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
         $<INSTALL_INTERFACE:include>
 )
 
@@ -122,6 +123,9 @@ target_link_libraries(telemetry_common
         telemetry_proto
 )
 
+# Force proto generation before common compilation
+add_dependencies(telemetry_common telemetry_proto)
+
 # Compiler warnings
 if(MSVC)
     target_compile_options(telemetry_common PRIVATE /W4)
@@ -144,7 +148,7 @@ if(BUILD_TESTS)
     
     # Integration test - requires real Redis server
     add_executable(test_redis_connection tests/test_redis_connection.cpp)
-    target_link_libraries(test_redis_connection PRIVATE telemetry_common)
+    target_link_libraries(test_redis_connection PRIVATE telemetry_common hiredis)
     
     # Unit test - uses Google Mock (no server required)
     add_executable(test_redis_client_unit tests/test_redis_client_unit.cpp)
