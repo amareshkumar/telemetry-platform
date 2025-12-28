@@ -1,0 +1,26 @@
+# Python dependencies for integration testing
+
+# Core testing
+pytest>=7.4.0
+pytest-cov>=4.1.0          # Coverage reporting
+pytest-timeout>=2.2.0       # Test timeouts
+pytest-xdist>=3.5.0         # Parallel test execution
+pytest-benchmark>=4.0.0     # Performance benchmarking
+
+# HTTP testing
+requests>=2.31.0
+
+# Redis client
+redis>=5.0.0
+
+# JSON handling (if not using stdlib)
+# Already in Python 3.7+
+
+# Optional: Better assertions
+pytest-mock>=3.12.0
+
+# Optional: Test reporting
+pytest-html>=4.1.0
+
+# Optional: Retry flaky tests
+pytest-rerunfailures>=13.0

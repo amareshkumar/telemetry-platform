@@ -1,0 +1,132 @@
+# Docker Compose - Complete Testing Infrastructure
+# Includes: Redis, InfluxDB, Grafana for load testing visualization
+
+version: '3.8'
+
+services:
+  # ========== Core Services ==========
+  
+  redis:
+    image: redis:7-alpine
+    container_name: telemetry_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - telemetry_network
+
+  # ========== Testing Infrastructure ==========
+  
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: telemetry_influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=telemetry123
+      - DOCKER_INFLUXDB_INIT_ORG=telemetryhub
+      - DOCKER_INFLUXDB_INIT_BUCKET=k6
+      - DOCKER_INFLUXDB_INIT_RETENTION=30d
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=telemetry-admin-token
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - telemetry_network
+
+  grafana:
+    image: grafana/grafana:10.2.3
+    container_name: telemetry_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=telemetry123
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./tests/load/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./tests/load/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    depends_on:
+      - influxdb
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - telemetry_network
+
+# ========== Networks ==========
+
+networks:
+  telemetry_network:
+    driver: bridge
+    name: telemetry_network
+
+# ========== Volumes ==========
+
+volumes:
+  redis_data:
+    name: telemetry_redis_data
+  influxdb_data:
+    name: telemetry_influxdb_data
+  influxdb_config:
+    name: telemetry_influxdb_config
+  grafana_data:
+    name: telemetry_grafana_data
+
+# ========== Usage ==========
+
+# Start core services only (for development)
+# docker-compose up redis
+
+# Start full testing infrastructure (for load testing)
+# docker-compose up
+
+# Start specific service
+# docker-compose up grafana influxdb
+
+# Run in background
+# docker-compose up -d
+
+# View logs
+# docker-compose logs -f grafana
+
+# Stop all services
+# docker-compose down
+
+# Stop and remove volumes (clean slate)
+# docker-compose down -v
+
+# ========== Access URLs ==========
+# Redis: localhost:6379
+# InfluxDB: http://localhost:8086 (admin/telemetry123)
+# Grafana: http://localhost:3000 (admin/telemetry123)
+
+# ========== k6 Load Testing with Metrics ==========
+
+# 1. Start infrastructure
+# docker-compose up -d
+
+# 2. Run k6 with InfluxDB output
+# k6 run tests/load/telemetry_ingestion.js --out influxdb=http://localhost:8086/k6
+
+# 3. View results in Grafana
+# Open http://localhost:3000
+# Import dashboard: https://grafana.com/grafana/dashboards/2587
