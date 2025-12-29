@@ -28,6 +28,7 @@ output.txt
 *.vcxproj.filters
 *.vcxproj.user
 *.suo
+*.txt
 *.user
 .DS_Store
 
