@@ -88,7 +88,7 @@ svr.Post("/telemetry", [](Request& req, Response& res) {
 - **Error Rate:** 4.52% (timeouts fixed by adding thread pool)
 
 **Interview Talking Point:**
-> "I implemented a REST API gateway for IoT telemetry ingestion using cpp-httplib. Initially, the single-threaded server caused timeouts under 100 concurrent connections. I profiled the issue, identified the bottleneck, and added an 8-thread pool, reducing error rate from 4.5% to <1% and improving p95 latency to sub-200ms. This demonstrates my ability to diagnose performance issues and implement scalable solutions."
+> "I implemented a REST API gateway for IoT telemetry ingestion using cpp-httplib. Initially, the single-threaded server caused timeouts under 100 concurrent connections. Through load testing with k6, I identified 4.5% timeout rate and analyzed the symptoms: 60-second timeouts suggested queue buildup. I reviewed the code, hypothesized a concurrency bottleneck in the single-threaded server, implemented an 8-thread pool, and validated the fix reduced error rate to <1% and improved p95 latency to sub-200ms. This demonstrates my systematic approach to performance issues: observability → hypothesis → code review → fix → validation."
 
 ---
 
@@ -136,19 +136,21 @@ Failures:
 ```
 
 **Interview STAR:**
-- **Situation:** Needed to validate system could handle 5,000 concurrent devices
-- **Task:** Set up realistic load testing and identify bottlenecks
+- **Situation:** Gateway was failing under load - 4.5% of requests timing out at 100 concurrent users
+- **Task:** Diagnose the root cause and implement a fix to achieve <1% error rate
 - **Action:**
-  - Implemented k6 test suite with gradual ramp-up (50 → 100 → 200 VUs)
-  - Monitored p95/p99 latencies and error rates
-  - Identified single-threaded server as bottleneck (4.5% timeouts)
-  - Added 8-thread pool using cpp-httplib threading API
-  - Re-tested to validate fix
+  - **Load Testing:** Used k6 to simulate 100 VUs, observed 54-second p95 latency (matching timeout threshold)
+  - **Symptom Analysis:** 60-second timeouts suggested requests queuing up, not being processed
+  - **Code Review:** Examined HTTP server implementation, discovered single-threaded architecture
+  - **Hypothesis:** Thread starvation - server processing one request at a time while 99 others wait
+  - **Solution:** Added 8-thread pool (matching 8-core CPU) using cpp-httplib's threading API
+  - **Validation:** Re-ran k6 test, confirmed <1% error rate and p95 < 200ms
+  - **Documentation:** Created profiling guide for future performance optimization (see PROFILING_GUIDE.md)
 - **Result:**
-  - Reduced error rate from 4.5% to <1%
-  - Improved p95 latency from 54s to <200ms
-  - Documented performance baseline for future optimization
-  - Proved system can scale to 100+ concurrent connections
+  - Reduced error rate from 4.5% to <1% (>95% improvement)
+  - Improved p95 latency from 54s to 1.87ms (29,000x improvement)
+  - System now handles 100+ concurrent connections reliably
+  - Established methodology: observability → hypothesis → validation, not premature optimization
 
 ---
 
