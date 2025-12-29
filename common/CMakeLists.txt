@@ -157,6 +157,7 @@ if(BUILD_TESTS)
         ${CMAKE_CURRENT_SOURCE_DIR}/include
     )
     target_link_libraries(test_redis_client_unit PRIVATE 
+        telemetry_common
         GTest::gtest
         GTest::gtest_main
         GTest::gmock

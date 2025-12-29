@@ -204,7 +204,7 @@ SCENARIO("TaskQueue handles concurrent producers safely", "[threading][concurren
             std::vector<std::thread> producers;
             
             for (int t = 0; t < NUM_PRODUCERS; ++t) {
-                producers.emplace_back([&queue, t]() {
+                producers.emplace_back([&queue, t, TASKS_PER_PRODUCER]() {
                     for (int i = 0; i < TASKS_PER_PRODUCER; ++i) {
                         Task task(
                             "task-" + std::to_string(t) + "-" + std::to_string(i),
