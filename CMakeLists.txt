@@ -31,6 +31,7 @@ option(BUILD_TESTS "Build all tests" ON)
 option(BUILD_EXAMPLES "Build examples" ON)
 option(BUILD_CATCH2_TESTS "Build Catch2 BDD-style tests" ON)
 option(BUILD_DOCS "Build Doxygen documentation" OFF)
+option(BUILD_GUI "Build Qt GUI for ingestion service" ON)  # Added to root for consistency
 
 # Build order: common first (dependency for both projects)
 if(BUILD_COMMON)
