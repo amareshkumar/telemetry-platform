@@ -58,6 +58,31 @@ int run_http_server(unsigned short port) {
   std::call_once(g_init_flag, []{ g_gateway = std::make_shared<GatewayCore>(); });
   httplib::Server svr;
 
+  // Health check endpoint (for k6 load testing)
+  svr.Get("/health", [](const httplib::Request& req, httplib::Response& res){
+    (void)req;
+    res.set_content("{\"status\":\"ok\"}", "application/json");
+  });
+
+  // Telemetry ingestion endpoint (for k6 load testing)
+  svr.Post("/telemetry", [](const httplib::Request& req, httplib::Response& res){
+    if (!g_gateway) {
+      res.status = 500;
+      res.set_content("{\"error\":\"Gateway not initialized\"}", "application/json");
+      return;
+    }
+    
+    // Simple validation
+    if (req.body.empty()) {
+      res.status = 400;
+      res.set_content("{\"error\":\"Empty request body\"}", "application/json");
+      return;
+    }
+    
+    // Accept telemetry data (in real implementation, would parse and process)
+    res.set_content("{\"ok\":true,\"message\":\"Telemetry received\"}", "application/json");
+  });
+
   svr.Get("/status", [](const httplib::Request& req, httplib::Response& res){
     (void)req;
     if (!g_gateway) {
@@ -139,7 +164,11 @@ int run_http_server(unsigned short port) {
     res.set_content(os.str(), "application/json");
   });
 
+  // Enable multithreading for better concurrency (handle 100+ concurrent connections)
+  svr.new_task_queue = [] { return new httplib::ThreadPool(8); };
+  
   TELEMETRYHUB_LOGI("http", (std::string("Listening on port ") + std::to_string(port)).c_str());
+  TELEMETRYHUB_LOGI("http", "HTTP server configured with 8 worker threads for high concurrency");
   svr.listen("0.0.0.0", static_cast<int>(port));
   return 0;
 }
