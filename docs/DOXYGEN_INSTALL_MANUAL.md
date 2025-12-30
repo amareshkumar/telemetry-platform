@@ -1,4 +1,26 @@
-# Doxygen Installation Guide (Manual)
+# Doxygen Setup Guide
+## ✅ Automated GitHub Pages Deployment
+
+**Status:** GitHub Actions CI/CD configured for automatic documentation deployment
+
+See [DOXYGEN_SETUP_GUIDE.md](DOXYGEN_SETUP_GUIDE.md) for complete guide including:
+- GitHub Pages setup (one-time configuration)
+- CI/CD workflow explanation
+- Local documentation generation
+- Interview talking points
+- Best practices
+
+---
+
+## Quick Links
+
+- **Live Docs:** `https://<username>.github.io/telemetry-platform/` (after pushing to GitHub)
+- **CI Workflow:** [.github/workflows/docs.yml](../.github/workflows/docs.yml)
+- **Config:** [Doxyfile](../Doxyfile) (v5.0.0)
+
+---
+
+# Doxygen Installation Guide (Manual - For Local Development)
 
 ## ⚠️ Issue: Chocolatey Requires Admin Rights
 

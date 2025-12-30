@@ -4,7 +4,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 PROJECT_NAME           = "TelemetryHub"
-PROJECT_NUMBER         = "v0.2.0"
+PROJECT_NUMBER         = "v5.0.0"
 PROJECT_BRIEF          = "High-performance IoT telemetry collection and processing platform"
 PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = docs/doxygen
@@ -124,14 +124,15 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = common/include \
-                         common/src \
-                         ingestion/gateway/include \
-                         ingestion/gateway/src \
-                         processing/include \
-                         processing/src \
+INPUT                  = device/include \
+                         device/src \
+                         gateway/include \
+                         gateway/src \
+                         lib/include \
+                         lib/src \
                          README.md \
-                         docs/architecture.md
+                         docs/architecture.md \
+                         docs/api.md
 INPUT_ENCODING         = UTF-8
 INPUT_FILE_ENCODING    = 
 FILE_PATTERNS          = *.c \
@@ -231,7 +232,7 @@ EXTERNAL_SEARCH        = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to the LaTeX output
-#---------------------------------------------------------------------------
+#------------------------NO------------------------------------------------
 GENERATE_LATEX         = YES
 LATEX_OUTPUT           = latex
 LATEX_CMD_NAME         = 
