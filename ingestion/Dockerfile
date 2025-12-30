@@ -1,8 +1,15 @@
 # Multi-stage build (smaller image, build cache)
 FROM ubuntu:22.04 AS builder
-RUN apt-get update && apt-get install -y build-essential cmake ninja-build git
+
+# Install modern CMake (Ubuntu 22.04 has old CMake that doesn't support presets v6)
+RUN apt-get update && \
+    apt-get install -y build-essential ninja-build git wget && \
+    wget -qO- "https://cmake.org/files/v3.28/cmake-3.28.1-linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /src
 COPY . .
+WORKDIR /src/ingestion
 RUN cmake --preset linux-ninja-release && \
     cmake --build --preset linux-ninja-release --target gateway_app
 
