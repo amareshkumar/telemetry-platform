@@ -79,6 +79,9 @@ output.txt
 external/
 
 # Personal tracking (don't commit)
+# Note: Interview prep docs are intentionally public - they demonstrate
+# technical communication skills and help other engineers
+docs/.personal/                    # Personal drafts, notes
 docs/portfolio_enhancement_guide.ipynb
 docs/interview-topics.md
 SENIOR_LEVEL_TODO.md
