@@ -1,11 +1,17 @@
 # Telemetry Platform
 
-**Production-Ready C++ Telemetry Platform: High-Performance Data Ingestion + Async Processing**
+**Production-Ready Microservices Platform: Ingestion + Processing with Redis Coordination**
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![C++17](https://img.shields.io/badge/C++-17/20-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows-lightgrey)]()
+
+---
+
+## 🔗 Related Project
+
+**[TelemetryHub](https://github.com/amareshkumar/telemetryhub)** - Monolithic gateway companion project demonstrating **implementation excellence** (C++20 features, Qt6 GUI, FASTBuild optimization with 12× speedup). While Telemetry-Platform focuses on **architectural patterns** (microservices separation, distributed coordination, scalability), TelemetryHub showcases **modern C++ implementation** and user-facing features. See the [PROJECT_STRATEGY.md](PROJECT_STRATEGY.md) for detailed differentiation.
 
 ---
 

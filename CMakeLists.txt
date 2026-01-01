@@ -23,6 +23,9 @@ message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "C++ Standard: C++${CMAKE_CXX_STANDARD}")
 message(STATUS "")
 
+# FASTBuild integration (optional - defaults to OFF)
+include(cmake/FASTBuild.cmake)
+
 # Options
 option(BUILD_INGESTION "Build TelemetryHub ingestion service" ON)
 option(BUILD_PROCESSING "Build TelemetryTaskProcessor processing service" ON)
