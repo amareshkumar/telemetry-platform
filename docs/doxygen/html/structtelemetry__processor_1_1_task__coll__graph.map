@@ -1,0 +1,7 @@
+<map id="telemetry_processor::Task" name="telemetry_processor::Task">
+<area shape="rect" id="Node000001" title="Core Task data structure." alt="" coords="5,260,145,303"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,97,115,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,139,78,260,72,259,73,140"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="12,5,138,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,61,78,97,72,97,74,66"/>
+</map>

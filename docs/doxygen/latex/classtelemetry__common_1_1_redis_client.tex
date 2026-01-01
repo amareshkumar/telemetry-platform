@@ -1,0 +1,1242 @@
+\doxysection{telemetry\+\_\+common\+::Redis\+Client Class Reference}
+\hypertarget{classtelemetry__common_1_1_redis_client}{}\label{classtelemetry__common_1_1_redis_client}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+
+
+RAII-\/based Redis client wrapper with connection pooling.  
+
+
+
+
+{\ttfamily \#include $<$redis\+\_\+client.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+common\+::Redis\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}}
+\begin{DoxyCompactList}\small\item\em Connection options for Redis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} (const \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} \&options=\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}}\{\})
+\begin{DoxyCompactList}\small\item\em Construct Redis client with connection options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a25502eb421decddd2c395ff5e054fa01}{\texorpdfstring{$\sim$}{\string~}\+Redis\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ automatically closes connection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311}{Redis\+Client}} (const Redis\+Client \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \& \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70}{operator=}} (const \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2}{Redis\+Client}} (Redis\+Client \&\&) noexcept
+\item 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \& \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=}} (\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \&\&) noexcept
+\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e}{ping}} ()
+\begin{DoxyCompactList}\small\item\em Test connection with PING command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa70f619cb8a3c8415450e313a256d5d3}{is\+\_\+connected}} () const
+\begin{DoxyCompactList}\small\item\em Check if client is connected. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a}{set}} (const std\+::string \&key, const std\+::string \&value, int ttl\+\_\+seconds=0)
+\begin{DoxyCompactList}\small\item\em Set a key-\/value pair. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a49e2f9325b61f5153e81195b7c38c353}{get}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Get value by key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa78d10b46806d7ee83801551aa297a1f}{del}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Delete a key. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_af51f7fbeb2bb219c9ab9d3998db9f256}{exists}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Check if key exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a1e619089a054e8035fb046c0afbd3dcd}{expire}} (const std\+::string \&key, int seconds)
+\begin{DoxyCompactList}\small\item\em Set expiration on a key. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a531cbd950976cac0e1ce475cde41cbb4}{ttl}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Get time-\/to-\/live for a key. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a9fa2e10fa1c5774c5b589be486cf85b1}{lpush}} (const std\+::string \&key, const std\+::string \&value)
+\begin{DoxyCompactList}\small\item\em Push element to head of list (left push). \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ac529c9bac2642a7ad6fe6ba8ad2663ee}{rpop}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Pop element from tail of list (right pop). \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ae17681f63e4cdbee48b45019141576d7}{brpop}} (const std\+::string \&key, int timeout\+\_\+seconds=0)
+\begin{DoxyCompactList}\small\item\em Blocking right pop (waits for element). \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a4105793528415eb8c3b7ffff5a9af935}{llen}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Get list length. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a9f3a5d719acfa0b8b0eadbd8e65a4ffb}{lrange}} (const std\+::string \&key, long long start, long long stop)
+\begin{DoxyCompactList}\small\item\em Get range of elements from list. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_adfa6f332cc22ed2228510af8f16415ba}{sadd}} (const std\+::string \&key, const std\+::string \&member)
+\begin{DoxyCompactList}\small\item\em Add member to set. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a2b71b9bd460f0ba8ac61d2b2c7cb053b}{sismember}} (const std\+::string \&key, const std\+::string \&member)
+\begin{DoxyCompactList}\small\item\em Check if member exists in set. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad0aef1fccd5657da70dcc7dfe76a28c6}{srem}} (const std\+::string \&key, const std\+::string \&member)
+\begin{DoxyCompactList}\small\item\em Remove member from set. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a6f6bcb9ad3ad571f0effa50633dd3ab3}{zadd}} (const std\+::string \&key, const std\+::string \&member, double score)
+\begin{DoxyCompactList}\small\item\em Add member to sorted set with score. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a6feb857e158a44f87c4f86a65d5b9bfa}{zpopmax}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Pop member with highest score (max). \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a91b9fe82b7ce4971c37f8d55d4589b4a}{zcard}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Get sorted set cardinality (size). \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a94c0e91e24221fd94837d2f6715eecd2}{incr}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Atomic increment. \end{DoxyCompactList}\item 
+long long \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa52faf05914b7fd3c90d88fccb5efde8}{decr}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Atomic decrement. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} \& \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a}{get\+\_\+options}} () const
+\begin{DoxyCompactList}\small\item\em Get connection options used. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a76f3863808b2ab45e9d3ec4254442328}{info}} ()
+\begin{DoxyCompactList}\small\item\em Get info about Redis server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26}{options\+\_\+}}
+\item 
+std\+::unique\+\_\+ptr$<$ sw\+::redis\+::\+Redis $>$ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a23becf40bfbf2ee1bb9f971ff18a95f7}{redis\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RAII-\/based Redis client wrapper with connection pooling. 
+
+Wraps redis-\/plus-\/plus library with Telemetry\+Hub-\/specific operations. Provides high-\/level interface for storing and retrieving telemetry data.
+
+{\bfseries{Design Decisions}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{PIMPL Pattern}}\+: Hides redis++ implementation details from clients
+\item {\bfseries{Move-\/\+Only Semantics}}\+: Redis connections cannot be copied (resource ownership)
+\item {\bfseries{Exception Safety}}\+: All operations provide strong exception guarantee
+\item {\bfseries{Connection Pooling}}\+: Automatic pool management for concurrent access
+\end{DoxyItemize}
+
+{\bfseries{Interview Talking Points}}\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{RAII}}\+: Why C++ destructors are critical for resource management
+\item {\bfseries{PIMPL}}\+: Reduces compile-\/time dependencies, enables ABI stability
+\item {\bfseries{Move Semantics}}\+: Efficient transfer of ownership (no deep copy)
+\item {\bfseries{Connection Pooling}}\+: How to handle concurrent database access
+\item {\bfseries{Error Handling}}\+: std\+::optional vs exceptions (when to use each)
+\end{DoxyEnumerate}
+
+{\bfseries{Thread Safety}}\+:
+\begin{DoxyItemize}
+\item ✅ Multiple \doxylink{classtelemetry__common_1_1_redis_client}{Redis\+Client} instances\+: Safe (separate connections)
+\item ✅ Single \doxylink{classtelemetry__common_1_1_redis_client}{Redis\+Client} with connection pool\+: Safe (internally synchronized)
+\item ❌ Shared \doxylink{classtelemetry__common_1_1_redis_client}{Redis\+Client} across threads\+: Unsafe without external mutex
+\end{DoxyItemize}
+
+{\bfseries{Usage Example}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Configure\ connection}}
+\DoxyCodeLine{RedisClient::ConnectionOptions\ opts;}
+\DoxyCodeLine{opts.host\ =\ \textcolor{stringliteral}{"{}redis.example.com"{}};}
+\DoxyCodeLine{opts.port\ =\ 6379;}
+\DoxyCodeLine{opts.pool\_size\ =\ 10;\ \ \textcolor{comment}{//\ 10\ connections\ for\ concurrent\ access}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ client\ (RAII\ -\/\ connection\ auto-\/closed\ on\ scope\ exit)}}
+\DoxyCodeLine{\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\ client(opts);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Test\ connection}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!client.ping())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Redis\ connection\ failed"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Store\ telemetry\ data\ with\ 1-\/hour\ TTL}}
+\DoxyCodeLine{std::string\ json\ =\ serializeTelemetry(data);}
+\DoxyCodeLine{client.set(\textcolor{stringliteral}{"{}telemetry:device123"{}},\ json,\ 3600);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Retrieve\ data}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ value\ =\ client.get(\textcolor{stringliteral}{"{}telemetry:device123"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (value)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ data\ =\ deserializeTelemetry(*value);}
+\DoxyCodeLine{\ \ \ \ processData(data);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Push\ to\ queue\ for\ processing}}
+\DoxyCodeLine{client.rpush(\textcolor{stringliteral}{"{}processing\_queue"{}},\ json);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Worker:\ blocking\ pop\ from\ queue\ (timeout:\ 5\ seconds)}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ item\ =\ client.blpop(\textcolor{stringliteral}{"{}processing\_queue"{}},\ 5000);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (item)\ \{}
+\DoxyCodeLine{\ \ \ \ processTelemetry(*item);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Do not share \doxylink{classtelemetry__common_1_1_redis_client}{Redis\+Client} across threads without synchronization 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Connection is automatically closed when object goes out of scope 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options} for configuration 
+
+Proto\+Adapter for efficient serialization 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8h_source_l00118}{118}} of file \mbox{\hyperlink{redis__client_8h_source}{redis\+\_\+client.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetry__common_1_1_redis_client_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!RedisClient@{RedisClient}}
+\index{RedisClient@{RedisClient}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{RedisClient()}{RedisClient()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac} 
+telemetry\+\_\+common\+::\+Redis\+Client\+::\+Redis\+Client (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} \&}]{options}{ = {\ttfamily \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}}\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct Redis client with connection options. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Connection configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if connection fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00348}{options\+\_\+}}, \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, and \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70}{operator=()}}, \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311}{Redis\+Client()}}, and \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2}{Redis\+Client()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a25502eb421decddd2c395ff5e054fa01}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!````~RedisClient@{\texorpdfstring{$\sim$}{\string~}RedisClient}}
+\index{````~RedisClient@{\texorpdfstring{$\sim$}{\string~}RedisClient}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RedisClient()}{\string~RedisClient()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a25502eb421decddd2c395ff5e054fa01} 
+telemetry\+\_\+common\+::\+Redis\+Client\+::\texorpdfstring{$\sim$}{\string~}\+Redis\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor -\/ automatically closes connection. 
+
+\Hypertarget{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!RedisClient@{RedisClient}}
+\index{RedisClient@{RedisClient}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{RedisClient()}{RedisClient()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311} 
+telemetry\+\_\+common\+::\+Redis\+Client\+::\+Redis\+Client (\begin{DoxyParamCaption}\item[{const Redis\+Client \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!RedisClient@{RedisClient}}
+\index{RedisClient@{RedisClient}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{RedisClient()}{RedisClient()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2} 
+telemetry\+\_\+common\+::\+Redis\+Client\+::\+Redis\+Client (\begin{DoxyParamCaption}\item[{Redis\+Client \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+References \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry__common_1_1_redis_client_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry__common_1_1_redis_client_ae17681f63e4cdbee48b45019141576d7}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!brpop@{brpop}}
+\index{brpop@{brpop}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{brpop()}{brpop()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_ae17681f63e4cdbee48b45019141576d7} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+Redis\+Client\+::brpop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int}]{timeout\+\_\+seconds}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Blocking right pop (waits for element). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & List key \\
+\hline
+{\em timeout\+\_\+seconds} & Timeout in seconds (0 = block indefinitely) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value if available within timeout, std\+::nullopt otherwise
+\end{DoxyReturn}
+Interview note\+: BRPOP blocks worker thread until task available, more efficient than polling RPOP in loop 
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00164}{164}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_ae17681f63e4cdbee48b45019141576d7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_aa52faf05914b7fd3c90d88fccb5efde8}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!decr@{decr}}
+\index{decr@{decr}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{decr()}{decr()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_aa52faf05914b7fd3c90d88fccb5efde8} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::decr (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Atomic decrement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value after decrement 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00291}{291}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_aa52faf05914b7fd3c90d88fccb5efde8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_aa78d10b46806d7ee83801551aa297a1f}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!del@{del}}
+\index{del@{del}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_aa78d10b46806d7ee83801551aa297a1f} 
+int telemetry\+\_\+common\+::\+Redis\+Client\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Delete a key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of keys deleted (0 or 1) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_aa78d10b46806d7ee83801551aa297a1f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_af51f7fbeb2bb219c9ab9d3998db9f256}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!exists@{exists}}
+\index{exists@{exists}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_af51f7fbeb2bb219c9ab9d3998db9f256} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Check if key exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if key exists 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_af51f7fbeb2bb219c9ab9d3998db9f256_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a1e619089a054e8035fb046c0afbd3dcd}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!expire@{expire}}
+\index{expire@{expire}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{expire()}{expire()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a1e619089a054e8035fb046c0afbd3dcd} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::expire (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Set expiration on a key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+{\em seconds} & TTL in seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a1e619089a054e8035fb046c0afbd3dcd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a49e2f9325b61f5153e81195b7c38c353}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!get@{get}}
+\index{get@{get}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a49e2f9325b61f5153e81195b7c38c353} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+Redis\+Client\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Get value by key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value if exists, std\+::nullopt otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a49e2f9325b61f5153e81195b7c38c353_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!get\_options@{get\_options}}
+\index{get\_options@{get\_options}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{get\_options()}{get\_options()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a} 
+const \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} \& telemetry\+\_\+common\+::\+Redis\+Client\+::get\+\_\+options (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get connection options used. 
+
+
+
+Definition at line \mbox{\hyperlink{redis__client_8h_source_l00339}{339}} of file \mbox{\hyperlink{redis__client_8h_source}{redis\+\_\+client.\+h}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00339}{get\+\_\+options()}}, and \mbox{\hyperlink{redis__client_8h_source_l00348}{options\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{redis__client_8h_source_l00339}{get\+\_\+options()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a94c0e91e24221fd94837d2f6715eecd2}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!incr@{incr}}
+\index{incr@{incr}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{incr()}{incr()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a94c0e91e24221fd94837d2f6715eecd2} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::incr (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Atomic increment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New value after increment 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a94c0e91e24221fd94837d2f6715eecd2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a76f3863808b2ab45e9d3ec4254442328}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!info@{info}}
+\index{info@{info}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a76f3863808b2ab45e9d3ec4254442328} 
+std\+::string telemetry\+\_\+common\+::\+Redis\+Client\+::info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get info about Redis server. 
+
+\begin{DoxyReturn}{Returns}
+Server info string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00303}{303}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+\Hypertarget{classtelemetry__common_1_1_redis_client_aa70f619cb8a3c8415450e313a256d5d3}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!is\_connected@{is\_connected}}
+\index{is\_connected@{is\_connected}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{is\_connected()}{is\_connected()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_aa70f619cb8a3c8415450e313a256d5d3} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::is\+\_\+connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if client is connected. 
+
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_aa70f619cb8a3c8415450e313a256d5d3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a4105793528415eb8c3b7ffff5a9af935}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!llen@{llen}}
+\index{llen@{llen}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{llen()}{llen()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a4105793528415eb8c3b7ffff5a9af935} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::llen (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Get list length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & List key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of elements in list 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a4105793528415eb8c3b7ffff5a9af935_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a9fa2e10fa1c5774c5b589be486cf85b1}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!lpush@{lpush}}
+\index{lpush@{lpush}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{lpush()}{lpush()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a9fa2e10fa1c5774c5b589be486cf85b1} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::lpush (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Push element to head of list (left push). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & List key \\
+\hline
+{\em value} & Value to push \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of list after push
+\end{DoxyReturn}
+Interview note\+: LPUSH is O(1), perfect for producer side of queue 
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a9fa2e10fa1c5774c5b589be486cf85b1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a9f3a5d719acfa0b8b0eadbd8e65a4ffb}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!lrange@{lrange}}
+\index{lrange@{lrange}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{lrange()}{lrange()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a9f3a5d719acfa0b8b0eadbd8e65a4ffb} 
+std\+::vector$<$ std\+::string $>$ telemetry\+\_\+common\+::\+Redis\+Client\+::lrange (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{long long}]{start}{, }\item[{long long}]{stop}{}\end{DoxyParamCaption})}
+
+
+
+Get range of elements from list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & List key \\
+\hline
+{\em start} & Start index (0-\/based) \\
+\hline
+{\em stop} & Stop index (-\/1 = end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of elements 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00198}{198}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a9f3a5d719acfa0b8b0eadbd8e65a4ffb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70} 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \& telemetry\+\_\+common\+::\+Redis\+Client\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d} 
+\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \& telemetry\+\_\+common\+::\+Redis\+Client\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{Redis\+Client}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+References \mbox{\hyperlink{redis__client_8cpp_source_l00164}{brpop()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00291}{decr()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00096}{del()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00106}{exists()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00116}{expire()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00082}{get()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00281}{incr()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00061}{is\+\_\+connected()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00188}{llen()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00140}{lpush()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00198}{lrange()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00150}{rpop()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00212}{sadd()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00067}{set()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00222}{sismember()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00232}{srem()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00126}{ttl()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00244}{zadd()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00269}{zcard()}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00254}{zpopmax()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!ping@{ping}}
+\index{ping@{ping}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::ping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Test connection with PING command. 
+
+\begin{DoxyReturn}{Returns}
+true if connection is alive 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_ac529c9bac2642a7ad6fe6ba8ad2663ee}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!rpop@{rpop}}
+\index{rpop@{rpop}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{rpop()}{rpop()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_ac529c9bac2642a7ad6fe6ba8ad2663ee} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+Redis\+Client\+::rpop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Pop element from tail of list (right pop). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & List key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value if list not empty, std\+::nullopt otherwise
+\end{DoxyReturn}
+Interview note\+: RPOP is O(1), perfect for consumer side of queue Combined with LPUSH creates FIFO queue 
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_ac529c9bac2642a7ad6fe6ba8ad2663ee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_adfa6f332cc22ed2228510af8f16415ba}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!sadd@{sadd}}
+\index{sadd@{sadd}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{sadd()}{sadd()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_adfa6f332cc22ed2228510af8f16415ba} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::sadd (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})}
+
+
+
+Add member to set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Set key \\
+\hline
+{\em member} & Member to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of members added (0 if already exists, 1 if new) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00212}{212}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_adfa6f332cc22ed2228510af8f16415ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!set@{set}}
+\index{set@{set}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{, }\item[{int}]{ttl\+\_\+seconds}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Set a key-\/value pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+{\em value} & The value \\
+\hline
+{\em ttl\+\_\+seconds} & Time-\/to-\/live in seconds (0 = no expiration) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00126}{ttl()}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a2b71b9bd460f0ba8ac61d2b2c7cb053b}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!sismember@{sismember}}
+\index{sismember@{sismember}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{sismember()}{sismember()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a2b71b9bd460f0ba8ac61d2b2c7cb053b} 
+bool telemetry\+\_\+common\+::\+Redis\+Client\+::sismember (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})}
+
+
+
+Check if member exists in set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Set key \\
+\hline
+{\em member} & Member to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if member exists 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a2b71b9bd460f0ba8ac61d2b2c7cb053b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_ad0aef1fccd5657da70dcc7dfe76a28c6}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!srem@{srem}}
+\index{srem@{srem}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{srem()}{srem()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_ad0aef1fccd5657da70dcc7dfe76a28c6} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::srem (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})}
+
+
+
+Remove member from set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Set key \\
+\hline
+{\em member} & Member to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of members removed 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00232}{232}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_ad0aef1fccd5657da70dcc7dfe76a28c6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a531cbd950976cac0e1ce475cde41cbb4}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!ttl@{ttl}}
+\index{ttl@{ttl}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{ttl()}{ttl()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a531cbd950976cac0e1ce475cde41cbb4} 
+int telemetry\+\_\+common\+::\+Redis\+Client\+::ttl (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Get time-\/to-\/live for a key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TTL in seconds, -\/1 if no expiration, -\/2 if key doesn\textquotesingle{}t exist 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00067}{set()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a531cbd950976cac0e1ce475cde41cbb4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a6f6bcb9ad3ad571f0effa50633dd3ab3}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!zadd@{zadd}}
+\index{zadd@{zadd}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{zadd()}{zadd()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a6f6bcb9ad3ad571f0effa50633dd3ab3} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::zadd (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{, }\item[{double}]{score}{}\end{DoxyParamCaption})}
+
+
+
+Add member to sorted set with score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Sorted set key \\
+\hline
+{\em member} & Member to add \\
+\hline
+{\em score} & Score for ordering (higher = higher priority) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of members added
+\end{DoxyReturn}
+Interview note\+: Sorted sets enable priority queue implementation. Score can represent priority level or timestamp. 
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00244}{244}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a6f6bcb9ad3ad571f0effa50633dd3ab3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a91b9fe82b7ce4971c37f8d55d4589b4a}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!zcard@{zcard}}
+\index{zcard@{zcard}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{zcard()}{zcard()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a91b9fe82b7ce4971c37f8d55d4589b4a} 
+long long telemetry\+\_\+common\+::\+Redis\+Client\+::zcard (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Get sorted set cardinality (size). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Sorted set key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of members 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00269}{269}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a91b9fe82b7ce4971c37f8d55d4589b4a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a6feb857e158a44f87c4f86a65d5b9bfa}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!zpopmax@{zpopmax}}
+\index{zpopmax@{zpopmax}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{zpopmax()}{zpopmax()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a6feb857e158a44f87c4f86a65d5b9bfa} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+Redis\+Client\+::zpopmax (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})}
+
+
+
+Pop member with highest score (max). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Sorted set key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Member if exists, std\+::nullopt otherwise
+\end{DoxyReturn}
+Interview note\+: ZPOPMAX pops highest priority task first 
+
+Definition at line \mbox{\hyperlink{redis__client_8cpp_source_l00254}{254}} of file \mbox{\hyperlink{redis__client_8cpp_source}{redis\+\_\+client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{redis__client_8h_source_l00349}{redis\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_redis_client_a6feb857e158a44f87c4f86a65d5b9bfa_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetry__common_1_1_redis_client_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!options\_@{options\_}}
+\index{options\_@{options\_}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{options\_}{options\_}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26} 
+\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{Connection\+Options}} telemetry\+\_\+common\+::\+Redis\+Client\+::options\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{redis__client_8h_source_l00348}{348}} of file \mbox{\hyperlink{redis__client_8h_source}{redis\+\_\+client.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{redis__client_8h_source_l00339}{get\+\_\+options()}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}.
+
+\Hypertarget{classtelemetry__common_1_1_redis_client_a23becf40bfbf2ee1bb9f971ff18a95f7}\index{telemetry\_common::RedisClient@{telemetry\_common::RedisClient}!redis\_@{redis\_}}
+\index{redis\_@{redis\_}!telemetry\_common::RedisClient@{telemetry\_common::RedisClient}}
+\doxysubsubsection{\texorpdfstring{redis\_}{redis\_}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_redis_client_a23becf40bfbf2ee1bb9f971ff18a95f7} 
+std\+::unique\+\_\+ptr$<$sw\+::redis\+::\+Redis$>$ telemetry\+\_\+common\+::\+Redis\+Client\+::redis\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{redis__client_8h_source_l00349}{349}} of file \mbox{\hyperlink{redis__client_8h_source}{redis\+\_\+client.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{redis__client_8cpp_source_l00164}{brpop()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00291}{decr()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00096}{del()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00106}{exists()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00116}{expire()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00082}{get()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00281}{incr()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00303}{info()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00061}{is\+\_\+connected()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00188}{llen()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00140}{lpush()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00198}{lrange()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00050}{ping()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00010}{Redis\+Client()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00150}{rpop()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00212}{sadd()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00067}{set()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00222}{sismember()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00232}{srem()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00126}{ttl()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00244}{zadd()}}, \mbox{\hyperlink{redis__client_8cpp_source_l00269}{zcard()}}, and \mbox{\hyperlink{redis__client_8cpp_source_l00254}{zpopmax()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/include/telemetry\+\_\+common/\mbox{\hyperlink{redis__client_8h}{redis\+\_\+client.\+h}}\item 
+common/src/\mbox{\hyperlink{redis__client_8cpp}{redis\+\_\+client.\+cpp}}\end{DoxyCompactItemize}

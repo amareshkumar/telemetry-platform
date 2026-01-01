@@ -1,0 +1,155 @@
+\doxysection{ingestion/gateway/include/telemetryhub/gateway/\+Log.h File Reference}
+\hypertarget{_log_8h}{}\label{_log_8h}\index{ingestion/gateway/include/telemetryhub/gateway/Log.h@{ingestion/gateway/include/telemetryhub/gateway/Log.h}}
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Log.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_log_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_log_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1_logger}{telemetryhub\+::\+Logger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetryhub}{telemetryhub}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\+\_\+\+LOG}}(lvl,  cat,  msg)
+\item 
+\#define \mbox{\hyperlink{_log_8h_a2e4787f875190d1295b5442419a3421b}{TELEMETRYHUB\+\_\+\+LOGE}}(cat,  msg)
+\item 
+\#define \mbox{\hyperlink{_log_8h_af51e2fd4dae67db79ff86edaf5d52552}{TELEMETRYHUB\+\_\+\+LOGW}}(cat,  msg)
+\item 
+\#define \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\+\_\+\+LOGI}}(cat,  msg)
+\item 
+\#define \mbox{\hyperlink{_log_8h_a634ffa2eaad9a87cfbdcbadd08d489fa}{TELEMETRYHUB\+\_\+\+LOGD}}(cat,  msg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{telemetryhub\+::\+Log\+Level}} \{ \newline
+\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa902b0d55fddef6f8d651fe1035b7d4bd}{telemetryhub\+::\+Error}} =0
+, \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa56525ae64d370c0b448ac0d60710ef17}{telemetryhub\+::\+Warn}} =1
+, \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{telemetryhub\+::\+Info}} =2
+, \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba}{telemetryhub\+::\+Debug}} =3
+, \newline
+\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aadd4ec0ac4e58f7c32a01244ae91150b1}{telemetryhub\+::\+Trace}} =4
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{_log_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}\index{Log.h@{Log.h}!TELEMETRYHUB\_LOG@{TELEMETRYHUB\_LOG}}
+\index{TELEMETRYHUB\_LOG@{TELEMETRYHUB\_LOG}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{TELEMETRYHUB\_LOG}{TELEMETRYHUB\_LOG}}
+{\footnotesize\ttfamily \label{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b} 
+\#define TELEMETRYHUB\+\_\+\+LOG(\begin{DoxyParamCaption}\item[{}]{lvl}{, }\item[{}]{cat}{, }\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}{::telemetryhub::Logger::instance}}().\mbox{\hyperlink{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65}{log}}((lvl),(cat),(msg))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00058}{58}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}, and \mbox{\hyperlink{_gateway_core_8cpp_source_l00051}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::start()}}.
+
+\Hypertarget{_log_8h_a634ffa2eaad9a87cfbdcbadd08d489fa}\index{Log.h@{Log.h}!TELEMETRYHUB\_LOGD@{TELEMETRYHUB\_LOGD}}
+\index{TELEMETRYHUB\_LOGD@{TELEMETRYHUB\_LOGD}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{TELEMETRYHUB\_LOGD}{TELEMETRYHUB\_LOGD}}
+{\footnotesize\ttfamily \label{_log_8h_a634ffa2eaad9a87cfbdcbadd08d489fa} 
+\#define TELEMETRYHUB\+\_\+\+LOGD(\begin{DoxyParamCaption}\item[{}]{cat}{, }\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\_LOG}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba}{::telemetryhub::LogLevel::Debug}},\ (cat),\ (msg))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00062}{62}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+\Hypertarget{_log_8h_a2e4787f875190d1295b5442419a3421b}\index{Log.h@{Log.h}!TELEMETRYHUB\_LOGE@{TELEMETRYHUB\_LOGE}}
+\index{TELEMETRYHUB\_LOGE@{TELEMETRYHUB\_LOGE}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{TELEMETRYHUB\_LOGE}{TELEMETRYHUB\_LOGE}}
+{\footnotesize\ttfamily \label{_log_8h_a2e4787f875190d1295b5442419a3421b} 
+\#define TELEMETRYHUB\+\_\+\+LOGE(\begin{DoxyParamCaption}\item[{}]{cat}{, }\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\_LOG}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa902b0d55fddef6f8d651fe1035b7d4bd}{::telemetryhub::LogLevel::Error}},\ (cat),\ (msg))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00059}{59}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+\Hypertarget{_log_8h_a0e9db45c59215b84142937a21339ef16}\index{Log.h@{Log.h}!TELEMETRYHUB\_LOGI@{TELEMETRYHUB\_LOGI}}
+\index{TELEMETRYHUB\_LOGI@{TELEMETRYHUB\_LOGI}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{TELEMETRYHUB\_LOGI}{TELEMETRYHUB\_LOGI}}
+{\footnotesize\ttfamily \label{_log_8h_a0e9db45c59215b84142937a21339ef16} 
+\#define TELEMETRYHUB\+\_\+\+LOGI(\begin{DoxyParamCaption}\item[{}]{cat}{, }\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\_LOG}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{::telemetryhub::LogLevel::Info}},\ \ (cat),\ (msg))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00061}{61}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_gateway_core_8cpp_source_l00221}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::consumer\+\_\+loop()}}, \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}, \mbox{\hyperlink{_gateway_core_8cpp_source_l00259}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::process\+\_\+sample\+\_\+with\+\_\+metrics()}}, \mbox{\hyperlink{_gateway_core_8cpp_source_l00132}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::producer\+\_\+loop()}}, \mbox{\hyperlink{_rest_cloud_client_8cpp_source_l00011}{telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::push\+\_\+sample()}}, \mbox{\hyperlink{_rest_cloud_client_8cpp_source_l00020}{telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::push\+\_\+status()}}, \mbox{\hyperlink{_gateway_core_8cpp_source_l00106}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::reset\+\_\+device()}}, \mbox{\hyperlink{http__server_8cpp_source_l00057}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server()}}, \mbox{\hyperlink{_gateway_core_8cpp_source_l00051}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::start()}}, and \mbox{\hyperlink{_gateway_core_8cpp_source_l00074}{telemetryhub\+::gateway\+::\+Gateway\+Core\+::stop()}}.
+
+\Hypertarget{_log_8h_af51e2fd4dae67db79ff86edaf5d52552}\index{Log.h@{Log.h}!TELEMETRYHUB\_LOGW@{TELEMETRYHUB\_LOGW}}
+\index{TELEMETRYHUB\_LOGW@{TELEMETRYHUB\_LOGW}!Log.h@{Log.h}}
+\doxysubsubsection{\texorpdfstring{TELEMETRYHUB\_LOGW}{TELEMETRYHUB\_LOGW}}
+{\footnotesize\ttfamily \label{_log_8h_af51e2fd4dae67db79ff86edaf5d52552} 
+\#define TELEMETRYHUB\+\_\+\+LOGW(\begin{DoxyParamCaption}\item[{}]{cat}{, }\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\_LOG}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa56525ae64d370c0b448ac0d60710ef17}{::telemetryhub::LogLevel::Warn}},\ \ (cat),\ (msg))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00060}{60}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+

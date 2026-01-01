@@ -1,0 +1,38 @@
+\doxysection{common/include/telemetry\+\_\+common/types.h File Reference}
+\hypertarget{types_8h}{}\label{types_8h}\index{common/include/telemetry\_common/types.h@{common/include/telemetry\_common/types.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for types.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{types_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry__common}{telemetry\+\_\+common}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{telemetry\+\_\+common\+::timestamp\+\_\+t}} = std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point
+\begin{DoxyCompactList}\small\item\em Common types used across telemetry platform. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}{telemetry\+\_\+common\+::device\+\_\+id\+\_\+t}} = std\+::string
+\item 
+using \mbox{\hyperlink{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}{telemetry\+\_\+common\+::task\+\_\+id\+\_\+t}} = std\+::string
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} \mbox{\hyperlink{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95}{telemetry\+\_\+common\+::now}} ()
+\begin{DoxyCompactList}\small\item\em Get current timestamp. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e}{telemetry\+\_\+common\+::timestamp\+\_\+to\+\_\+iso8601}} (\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} ts)
+\begin{DoxyCompactList}\small\item\em Convert timestamp to ISO8601 string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} \mbox{\hyperlink{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036}{telemetry\+\_\+common\+::iso8601\+\_\+to\+\_\+timestamp}} (const std\+::string \&iso\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Parse ISO8601 string to timestamp. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453}{telemetry\+\_\+common\+::timestamp\+\_\+to\+\_\+ms}} (\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} ts)
+\begin{DoxyCompactList}\small\item\em Get timestamp in milliseconds since epoch. \end{DoxyCompactList}\end{DoxyCompactItemize}

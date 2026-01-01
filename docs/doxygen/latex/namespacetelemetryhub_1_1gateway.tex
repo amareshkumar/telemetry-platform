@@ -1,0 +1,239 @@
+\doxysection{telemetryhub\+::gateway Namespace Reference}
+\hypertarget{namespacetelemetryhub_1_1gateway}{}\label{namespacetelemetryhub_1_1gateway}\index{telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{App\+Config}}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core}{Gateway\+Core}}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client}{ICloud\+Client}}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher}{Redis\+Publisher}}
+\begin{DoxyCompactList}\small\item\em Redis publisher for Telemetry\+Hub-\/\+Telemetry\+Task\+Processor integration. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client}{Rest\+Cloud\+Client}}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue}{Telemetry\+Queue}}
+\item 
+class \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool}{Thread\+Pool}}
+\begin{DoxyCompactList}\small\item\em Simple thread pool for processing telemetry samples. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402}{load\+\_\+config}} (const std\+::string \&path, \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{App\+Config}} \&out)
+\item 
+static std\+::string \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}{json\+\_\+status}} ()
+\item 
+static void \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}{apply\+\_\+cfg\+\_\+if\+\_\+any}} (const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \texorpdfstring{$\ast$}{*}cfg)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{run\+\_\+http\+\_\+server}} (unsigned short port)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}{run\+\_\+http\+\_\+server\+\_\+with\+\_\+config}} (unsigned short port, const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \&cfg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_gateway_core}{Gateway\+Core}} $>$ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\+\_\+gateway}}
+\item 
+static std\+::once\+\_\+flag \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{g\+\_\+init\+\_\+flag}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacetelemetryhub_1_1gateway_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}\index{telemetryhub::gateway@{telemetryhub::gateway}!apply\_cfg\_if\_any@{apply\_cfg\_if\_any}}
+\index{apply\_cfg\_if\_any@{apply\_cfg\_if\_any}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{apply\_cfg\_if\_any()}{apply\_cfg\_if\_any()}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689} 
+void telemetryhub\+::gateway\+::apply\+\_\+cfg\+\_\+if\+\_\+any (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \texorpdfstring{$\ast$}{*}}]{cfg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{http__server_8cpp_source_l00018}{g\+\_\+gateway}}, \mbox{\hyperlink{_log_8h_source_l00015}{telemetryhub\+::\+Logger\+::instance()}}, \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00011}{telemetryhub\+::gateway\+::\+App\+Config\+::log\+\_\+level}}, \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00010}{telemetryhub\+::gateway\+::\+App\+Config\+::queue\+\_\+size}}, \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00009}{telemetryhub\+::gateway\+::\+App\+Config\+::sampling\+\_\+interval}}, and \mbox{\hyperlink{_log_8h_source_l00017}{telemetryhub\+::\+Logger\+::set\+\_\+level()}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00176}{run\+\_\+http\+\_\+server\+\_\+with\+\_\+config()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}\index{telemetryhub::gateway@{telemetryhub::gateway}!json\_status@{json\_status}}
+\index{json\_status@{json\_status}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{json\_status()}{json\_status()}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db} 
+std\+::string telemetryhub\+::gateway\+::json\+\_\+status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{http__server_8cpp_source_l00018}{g\+\_\+gateway}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00057}{run\+\_\+http\+\_\+server()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402}\index{telemetryhub::gateway@{telemetryhub::gateway}!load\_config@{load\_config}}
+\index{load\_config@{load\_config}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{load\_config()}{load\_config()}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402} 
+bool telemetryhub\+::gateway\+::load\+\_\+config (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{, }\item[{\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{App\+Config}} \&}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ingestion_2gateway_2src_2config_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{ingestion_2gateway_2src_2config_8cpp_source}{Config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00011}{telemetryhub\+::gateway\+::\+App\+Config\+::log\+\_\+level}}, \mbox{\hyperlink{main__gateway_8cpp_source_l00021}{parse\+\_\+level()}}, \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00010}{telemetryhub\+::gateway\+::\+App\+Config\+::queue\+\_\+size}}, and \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00009}{telemetryhub\+::gateway\+::\+App\+Config\+::sampling\+\_\+interval}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}\index{telemetryhub::gateway@{telemetryhub::gateway}!run\_http\_server@{run\_http\_server}}
+\index{run\_http\_server@{run\_http\_server}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{run\_http\_server()}{run\_http\_server()}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6} 
+int telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server (\begin{DoxyParamCaption}\item[{unsigned short}]{port}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{httplib__stub_8h_source_l00012}{httplib\+::\+Request\+::body}}, \mbox{\hyperlink{http__server_8cpp_source_l00018}{g\+\_\+gateway}}, \mbox{\hyperlink{http__server_8cpp_source_l00019}{g\+\_\+init\+\_\+flag}}, \mbox{\hyperlink{httplib__stub_8h_source_l00026}{httplib\+::\+Server\+::\+Get()}}, \mbox{\hyperlink{http__server_8cpp_source_l00021}{json\+\_\+status()}}, \mbox{\hyperlink{httplib__stub_8h_source_l00019}{httplib\+::\+Response\+::set\+\_\+content()}}, \mbox{\hyperlink{httplib__stub_8h_source_l00017}{httplib\+::\+Response\+::status}}, and \mbox{\hyperlink{_log_8h_source_l00061}{TELEMETRYHUB\+\_\+\+LOGI}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}, and \mbox{\hyperlink{http__server_8cpp_source_l00176}{run\+\_\+http\+\_\+server\+\_\+with\+\_\+config()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}\index{telemetryhub::gateway@{telemetryhub::gateway}!run\_http\_server\_with\_config@{run\_http\_server\_with\_config}}
+\index{run\_http\_server\_with\_config@{run\_http\_server\_with\_config}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{run\_http\_server\_with\_config()}{run\_http\_server\_with\_config()}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967} 
+int telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server\+\_\+with\+\_\+config (\begin{DoxyParamCaption}\item[{unsigned short}]{port}{, }\item[{const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \&}]{cfg}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00176}{176}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{http__server_8cpp_source_l00049}{apply\+\_\+cfg\+\_\+if\+\_\+any()}}, \mbox{\hyperlink{http__server_8cpp_source_l00018}{g\+\_\+gateway}}, \mbox{\hyperlink{http__server_8cpp_source_l00019}{g\+\_\+init\+\_\+flag}}, and \mbox{\hyperlink{http__server_8cpp_source_l00057}{run\+\_\+http\+\_\+server()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{namespacetelemetryhub_1_1gateway_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}\index{telemetryhub::gateway@{telemetryhub::gateway}!g\_gateway@{g\_gateway}}
+\index{g\_gateway@{g\_gateway}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{g\_gateway}{g\_gateway}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_gateway_core}{Gateway\+Core}}$>$ telemetryhub\+::gateway\+::g\+\_\+gateway\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00049}{apply\+\_\+cfg\+\_\+if\+\_\+any()}}, \mbox{\hyperlink{http__server_8cpp_source_l00021}{json\+\_\+status()}}, \mbox{\hyperlink{http__server_8cpp_source_l00057}{run\+\_\+http\+\_\+server()}}, and \mbox{\hyperlink{http__server_8cpp_source_l00176}{run\+\_\+http\+\_\+server\+\_\+with\+\_\+config()}}.
+
+\Hypertarget{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}\index{telemetryhub::gateway@{telemetryhub::gateway}!g\_init\_flag@{g\_init\_flag}}
+\index{g\_init\_flag@{g\_init\_flag}!telemetryhub::gateway@{telemetryhub::gateway}}
+\doxysubsubsection{\texorpdfstring{g\_init\_flag}{g\_init\_flag}}
+{\footnotesize\ttfamily \label{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c} 
+std\+::once\+\_\+flag telemetryhub\+::gateway\+::g\+\_\+init\+\_\+flag\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{http__server_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{http__server_8cpp_source}{http\+\_\+server.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00057}{run\+\_\+http\+\_\+server()}}, and \mbox{\hyperlink{http__server_8cpp_source_l00176}{run\+\_\+http\+\_\+server\+\_\+with\+\_\+config()}}.
+

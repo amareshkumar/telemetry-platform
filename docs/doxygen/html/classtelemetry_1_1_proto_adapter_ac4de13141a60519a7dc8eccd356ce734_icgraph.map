@@ -1,0 +1,5 @@
+<map id="telemetry::ProtoAdapter::fromProto" name="telemetry::ProtoAdapter::fromProto">
+<area shape="rect" id="Node000001" title="Convert Protobuf message to C++ struct." alt="" coords="213,5,372,48"/>
+<area shape="rect" id="Node000002" href="$classtelemetry_1_1_proto_adapter.html#ab93e9d5db38f88f626e009e0127127d2" title="Deserialize binary Protobuf data to C++ struct." alt="" coords="5,5,165,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,27,165,29,165,24,200,26"/>
+</map>

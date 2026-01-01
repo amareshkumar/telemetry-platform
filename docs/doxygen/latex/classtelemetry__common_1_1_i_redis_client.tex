@@ -1,0 +1,224 @@
+\doxysection{telemetry\+\_\+common\+::IRedis\+Client Class Reference}
+\hypertarget{classtelemetry__common_1_1_i_redis_client}{}\label{classtelemetry__common_1_1_i_redis_client}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+
+
+{\ttfamily \#include $<$i\+\_\+redis\+\_\+client.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a7de6b66c36aabad39cb23c167353f52a}{\texorpdfstring{$\sim$}{\string~}\+IRedis\+Client}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a9602fa6f953f09a1e777aae646c4255b}{ping}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a67ae0b5b819420d88275d3f361823fbe}{set}} (const std\+::string \&key, const std\+::string \&value)=0
+\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_ae905f582e947462a0a83d859f7314431}{get}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a1910c9592e70247e3e32501a051cec34}{del}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a7411a727f3fb9e732176c5d208d5dede}{del}} (const std\+::vector$<$ std\+::string $>$ \&keys)=0
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_aff22a919aff1b98ec0e9fcf6ca39fb6b}{exists}} (const std\+::string \&key)=0
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_adecf2d3ec46f1a4efd1b375f58f84ef5}{expire}} (const std\+::string \&key, int64\+\_\+t seconds)=0
+\item 
+virtual std\+::optional$<$ int64\+\_\+t $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a7e6a275b4419fa8d6b30da8ce851983a}{ttl}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_acfd2f15622b6c3b10b3c7c5408bbfa1b}{lpush}} (const std\+::string \&key, const std\+::string \&value)=0
+\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a89bad8de9333deb78573bae7e5379693}{rpop}} (const std\+::string \&key)=0
+\item 
+virtual std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a8ddc779dc378c21a008d9bea1927b2c5}{brpop}} (const std\+::string \&key, int timeout\+\_\+sec)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a72f56ffe295ff3e8348e8b46d559822b}{llen}} (const std\+::string \&key)=0
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a1e65e2dca25a0ae5b231aa496521c442}{lrange}} (const std\+::string \&key, int64\+\_\+t start, int64\+\_\+t stop)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a1b9976f6132343505424fe679c3da1cb}{sadd}} (const std\+::string \&key, const std\+::string \&member)=0
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_aa5490137f3140845ac3176dc6faaccc2}{sismember}} (const std\+::string \&key, const std\+::string \&member)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a33c3395f55bd0e620c5202b2fa776fc8}{srem}} (const std\+::string \&key, const std\+::string \&member)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a9536a9a74d08c7d543ecb7d82ef6f22b}{scard}} (const std\+::string \&key)=0
+\item 
+virtual bool \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a5f7f712abccd37c1c00b74c5b2e4f16a}{zadd}} (const std\+::string \&key, double score, const std\+::string \&member)=0
+\item 
+virtual std\+::optional$<$ std\+::pair$<$ std\+::string, double $>$ $>$ \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_ab881fd88b647e898d10a04ce6c3384ed}{zpopmax}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_a873cb3dfa1f9fc0cde5716fb1e53149b}{zcard}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_ad3a36d50ea07ee08b3f22675806b3573}{incr}} (const std\+::string \&key)=0
+\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client_ae712d42310e991541793d206d9e710d7}{decr}} (const std\+::string \&key)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classtelemetry__common_1_1_i_redis_client}{IRedis\+Client} -\/ Abstract interface for Redis operations
+
+This interface enables dependency injection and testing with Google Mock. Production code uses \doxylink{classtelemetry__common_1_1_redis_client}{Redis\+Client} (real redis-\/plus-\/plus implementation). Tests use Mock\+Redis\+Client (gmock implementation).
+
+Interview Talking Point\+:
+\begin{DoxyItemize}
+\item Dependency Inversion Principle\+: Depend on abstractions, not concrete implementations
+\item Enables testing\+: Inject mock in tests, real client in production
+\item Interface segregation\+: Only methods we actually use 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{i__redis__client_8h_source_l00022}{22}} of file \mbox{\hyperlink{i__redis__client_8h_source}{i\+\_\+redis\+\_\+client.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a7de6b66c36aabad39cb23c167353f52a}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!````~IRedisClient@{\texorpdfstring{$\sim$}{\string~}IRedisClient}}
+\index{````~IRedisClient@{\texorpdfstring{$\sim$}{\string~}IRedisClient}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IRedisClient()}{\string~IRedisClient()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a7de6b66c36aabad39cb23c167353f52a} 
+virtual telemetry\+\_\+common\+::\+IRedis\+Client\+::\texorpdfstring{$\sim$}{\string~}\+IRedis\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a8ddc779dc378c21a008d9bea1927b2c5}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!brpop@{brpop}}
+\index{brpop@{brpop}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{brpop()}{brpop()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a8ddc779dc378c21a008d9bea1927b2c5} 
+virtual std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::brpop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int}]{timeout\+\_\+sec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_ae712d42310e991541793d206d9e710d7}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!decr@{decr}}
+\index{decr@{decr}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{decr()}{decr()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_ae712d42310e991541793d206d9e710d7} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::decr (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a1910c9592e70247e3e32501a051cec34}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!del@{del}}
+\index{del@{del}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a1910c9592e70247e3e32501a051cec34} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a7411a727f3fb9e732176c5d208d5dede}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!del@{del}}
+\index{del@{del}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a7411a727f3fb9e732176c5d208d5dede} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::del (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{keys}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_aff22a919aff1b98ec0e9fcf6ca39fb6b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!exists@{exists}}
+\index{exists@{exists}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_aff22a919aff1b98ec0e9fcf6ca39fb6b} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_adecf2d3ec46f1a4efd1b375f58f84ef5}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!expire@{expire}}
+\index{expire@{expire}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{expire()}{expire()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_adecf2d3ec46f1a4efd1b375f58f84ef5} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::expire (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int64\+\_\+t}]{seconds}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_ae905f582e947462a0a83d859f7314431}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!get@{get}}
+\index{get@{get}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_ae905f582e947462a0a83d859f7314431} 
+virtual std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_ad3a36d50ea07ee08b3f22675806b3573}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!incr@{incr}}
+\index{incr@{incr}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{incr()}{incr()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_ad3a36d50ea07ee08b3f22675806b3573} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::incr (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a72f56ffe295ff3e8348e8b46d559822b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!llen@{llen}}
+\index{llen@{llen}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{llen()}{llen()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a72f56ffe295ff3e8348e8b46d559822b} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::llen (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_acfd2f15622b6c3b10b3c7c5408bbfa1b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!lpush@{lpush}}
+\index{lpush@{lpush}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{lpush()}{lpush()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_acfd2f15622b6c3b10b3c7c5408bbfa1b} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::lpush (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a1e65e2dca25a0ae5b231aa496521c442}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!lrange@{lrange}}
+\index{lrange@{lrange}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{lrange()}{lrange()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a1e65e2dca25a0ae5b231aa496521c442} 
+virtual std\+::vector$<$ std\+::string $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::lrange (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int64\+\_\+t}]{start}{, }\item[{int64\+\_\+t}]{stop}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a9602fa6f953f09a1e777aae646c4255b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!ping@{ping}}
+\index{ping@{ping}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a9602fa6f953f09a1e777aae646c4255b} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::ping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a89bad8de9333deb78573bae7e5379693}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!rpop@{rpop}}
+\index{rpop@{rpop}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{rpop()}{rpop()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a89bad8de9333deb78573bae7e5379693} 
+virtual std\+::optional$<$ std\+::string $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::rpop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a1b9976f6132343505424fe679c3da1cb}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!sadd@{sadd}}
+\index{sadd@{sadd}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{sadd()}{sadd()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a1b9976f6132343505424fe679c3da1cb} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::sadd (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a9536a9a74d08c7d543ecb7d82ef6f22b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!scard@{scard}}
+\index{scard@{scard}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{scard()}{scard()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a9536a9a74d08c7d543ecb7d82ef6f22b} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::scard (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a67ae0b5b819420d88275d3f361823fbe}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!set@{set}}
+\index{set@{set}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a67ae0b5b819420d88275d3f361823fbe} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_aa5490137f3140845ac3176dc6faaccc2}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!sismember@{sismember}}
+\index{sismember@{sismember}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{sismember()}{sismember()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_aa5490137f3140845ac3176dc6faaccc2} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::sismember (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a33c3395f55bd0e620c5202b2fa776fc8}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!srem@{srem}}
+\index{srem@{srem}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{srem()}{srem()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a33c3395f55bd0e620c5202b2fa776fc8} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::srem (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a7e6a275b4419fa8d6b30da8ce851983a}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!ttl@{ttl}}
+\index{ttl@{ttl}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{ttl()}{ttl()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a7e6a275b4419fa8d6b30da8ce851983a} 
+virtual std\+::optional$<$ int64\+\_\+t $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::ttl (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a5f7f712abccd37c1c00b74c5b2e4f16a}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!zadd@{zadd}}
+\index{zadd@{zadd}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{zadd()}{zadd()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a5f7f712abccd37c1c00b74c5b2e4f16a} 
+virtual bool telemetry\+\_\+common\+::\+IRedis\+Client\+::zadd (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{double}]{score}{, }\item[{const std\+::string \&}]{member}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_a873cb3dfa1f9fc0cde5716fb1e53149b}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!zcard@{zcard}}
+\index{zcard@{zcard}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{zcard()}{zcard()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_a873cb3dfa1f9fc0cde5716fb1e53149b} 
+virtual int64\+\_\+t telemetry\+\_\+common\+::\+IRedis\+Client\+::zcard (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classtelemetry__common_1_1_i_redis_client_ab881fd88b647e898d10a04ce6c3384ed}\index{telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}!zpopmax@{zpopmax}}
+\index{zpopmax@{zpopmax}!telemetry\_common::IRedisClient@{telemetry\_common::IRedisClient}}
+\doxysubsubsection{\texorpdfstring{zpopmax()}{zpopmax()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_i_redis_client_ab881fd88b647e898d10a04ce6c3384ed} 
+virtual std\+::optional$<$ std\+::pair$<$ std\+::string, double $>$ $>$ telemetry\+\_\+common\+::\+IRedis\+Client\+::zpopmax (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/include/telemetry\+\_\+common/\mbox{\hyperlink{i__redis__client_8h}{i\+\_\+redis\+\_\+client.\+h}}\end{DoxyCompactItemize}

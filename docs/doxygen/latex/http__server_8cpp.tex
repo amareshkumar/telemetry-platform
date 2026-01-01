@@ -1,0 +1,44 @@
+\doxysection{ingestion/gateway/src/http\+\_\+server.cpp File Reference}
+\hypertarget{http__server_8cpp}{}\label{http__server_8cpp}\index{ingestion/gateway/src/http\_server.cpp@{ingestion/gateway/src/http\_server.cpp}}
+{\ttfamily \#include "{}http\+\_\+config.\+h"{}}\newline
+{\ttfamily \#include $<$httplib.\+h$>$}\newline
+{\ttfamily \#include "{}telemetryhub/gateway/\+Gateway\+Core.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/gateway/\+Log.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/gateway/\+Config.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/device/\+Device\+Utils.\+h"{}}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+Include dependency graph for http\+\_\+server.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{http__server_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetryhub}{telemetryhub}}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub\+::gateway}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}{telemetryhub\+::gateway\+::json\+\_\+status}} ()
+\item 
+static void \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}{telemetryhub\+::gateway\+::apply\+\_\+cfg\+\_\+if\+\_\+any}} (const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \texorpdfstring{$\ast$}{*}cfg)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server}} (unsigned short port)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server\+\_\+with\+\_\+config}} (unsigned short port, const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \&cfg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_gateway_core}{Gateway\+Core}} $>$ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{telemetryhub\+::gateway\+::g\+\_\+gateway}}
+\item 
+static std\+::once\+\_\+flag \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{telemetryhub\+::gateway\+::g\+\_\+init\+\_\+flag}}
+\end{DoxyCompactItemize}

@@ -7,6 +7,63 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ---
 
+## [5.1.0] - 2026-01-01
+**Title:** Repository Organization & Professional Polish - New Year Edition 🎉
+
+### 🗂️ Repository Cleanup
+- **Script Organization** - Moved PowerShell scripts to dedicated `scripts/` folder
+  - `build.ps1` → `scripts/build.ps1`
+  - `build_with_gui.ps1` → `scripts/build_with_gui.ps1`
+  - `configure_fbuild.ps1` → `scripts/configure_fbuild.ps1`
+  - `run_grafana_test.ps1` → `scripts/run_grafana_test.ps1`
+  - `run_load_test.ps1` → `scripts/run_load_test.ps1`
+  - `setup_grafana_k6.ps1` → `scripts/setup_grafana_k6.ps1`
+  - Created: `organize_scripts.ps1` for future cleanup automation
+
+- **Build Artifact Cleanup** - Removed 11 temporary .txt files from root
+  - Deleted: `build_common_only.txt`, `build_final_full.txt`, `build_green_attempt.txt`
+  - Deleted: `build_gui_attempt2.txt`, `build_output.txt`, `build_output_day4.txt`
+  - Deleted: `build_release.txt`, `build_result_vs26.txt`, `build_vs26_output.txt`
+  - Deleted: `configure_clean.txt`, `test_results.txt`
+  - **Impact:** Clean root directory, professional appearance
+
+- **CMake Integration** - Removed FASTBuild CMake module (moved to standalone approach)
+  - Deleted: `cmake/FASTBuild.cmake`
+  - Reason: FASTBuild configuration now handled separately for clarity
+
+### 📚 Documentation
+- **Comprehensive docs/ folder** - 46+ technical documentation files organized
+  - Architecture diagrams and guides
+  - Day-by-day development summaries (DAY2-DAY5)
+  - Interview preparation materials
+  - Testing and profiling guides
+  - Build troubleshooting documentation
+  - Doxygen-generated API docs
+
+### 🎯 Repository Status
+- **Root directory:** Clean, only essential files (CMakeLists.txt, README.md, LICENSE, etc.)
+- **Scripts organized:** All .ps1 files in `scripts/` folder
+- **Documentation complete:** 46+ markdown files in `docs/` folder
+- **Build artifacts:** Cleaned (11 .txt files removed)
+- **Professional standards:** Interview-ready repository structure
+
+### 🔧 Technical Details
+- **Branch:** `january012026` (ahead of master with 3 commits)
+- **Previous version:** v5.0.0-day5-final
+- **New version:** v5.1.0 (minor bump - features + improvements)
+- **Files modified:** 7 scripts moved, 11 .txt files deleted, 1 CMake file removed
+
+### 💡 Why This Matters
+Starting 2026 with a professionally organized repository demonstrates:
+- **Organizational skills** - Clear folder structure
+- **Clean development practices** - No build artifacts in version control
+- **Professional presentation** - Interview-ready codebase
+- **Continuous improvement** - Regular cleanup and maintenance
+
+**Happy New Year! 🎊 Repository is now interview-ready with professional structure!**
+
+---
+
 ## [4.1.1] - 2025-12-23
 **Title:** Repository Professional Polish & Branch Cleanup
 

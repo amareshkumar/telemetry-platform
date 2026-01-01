@@ -1,0 +1,17 @@
+<map id="telemetryhub::gateway::run_http_server_with_config" name="telemetryhub::gateway::run_http_server_with_config">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,159,181"/>
+<area shape="rect" id="Node000002" href="$namespacetelemetryhub_1_1gateway.html#af816447a58db4286806d27d9b07ae689" title=" " alt="" coords="207,72,360,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,127,196,118,191,121,160,132"/>
+<area shape="rect" id="Node000005" href="$namespacetelemetryhub_1_1gateway.html#a25ee169b5e15eb899f786f2ee74b57b6" title=" " alt="" coords="207,164,360,207"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="159,162,194,169,189,171,159,167"/>
+<area shape="rect" id="Node000003" href="$classtelemetryhub_1_1_logger.html#ad695de45923ff9ce8deb687794d88308" title=" " alt="" coords="413,5,556,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="349,69,406,52,401,55,351,74"/>
+<area shape="rect" id="Node000004" href="$classtelemetryhub_1_1_logger.html#a8390e846001f81ff58a6b95881a234e0" title=" " alt="" coords="413,72,556,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="360,91,400,93,395,94,361,96"/>
+<area shape="rect" id="Node000006" href="$classhttplib_1_1_server.html#a1b692cb43bdc5c0e33f1951db7bd781d" title=" " alt="" coords="419,139,550,165"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="360,170,407,165,402,166,361,175"/>
+<area shape="rect" id="Node000007" href="$namespacetelemetryhub_1_1gateway.html#a9eb595a833ddc23fc09b705cb35f21db" title=" " alt="" coords="408,189,561,232"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="360,192,395,199,390,199,360,198"/>
+<area shape="rect" id="Node000008" href="$classhttplib_1_1_response.html#a6ed0bec7e4d9fcca5d02e0e53262c84e" title=" " alt="" coords="419,256,550,299"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="330,204,409,242,422,250,417,249,407,246,329,210"/>
+</map>

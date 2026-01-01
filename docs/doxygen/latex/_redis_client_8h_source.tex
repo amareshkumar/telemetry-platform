@@ -1,0 +1,51 @@
+\doxysection{Redis\+Client.\+h}
+\hypertarget{_redis_client_8h_source}{}\label{_redis_client_8h_source}\index{processing/include/telemetry\_processor/RedisClient.h@{processing/include/telemetry\_processor/RedisClient.h}}
+\mbox{\hyperlink{_redis_client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00008}\mbox{\hyperlink{namespacetelemetry__processor}{00008}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__processor}{telemetry\_processor}}\ \{}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00016}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a583a35e047f73594a24267bd0f9e4225}{RedisClient}}\ \{}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a583a35e047f73594a24267bd0f9e4225}{RedisClient}}(\textcolor{keyword}{const}\ std::string\&\ host\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}},\ \textcolor{keywordtype}{int}\ port\ =\ 6379);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00028}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_add79bfeaa409f3532ad1e042cda7f156}{00028}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_add79bfeaa409f3532ad1e042cda7f156}{\string~RedisClient}}();}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00029}00029\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a747bb76d50b41a3dfe86b2ccb8aa65ba}{connect}}();}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00035}00035\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a3ad0b44be9521e9ddc21a3b4b95284af}{is\_connected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00045}00045\ \ \ \ \ std::string\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_aec34e889dc6530a813b55bf0e8645e08}{ping}}();}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00046}00046\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_aa16b51e997168909d485f960e1d90f28}{rpush}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00061}00061\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_ad3d1be9577b1e528734c0ec29d86c6ab}{blpop}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keywordtype}{int}\ timeout\_seconds\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00062}00062\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a61fcb550421238f618062ba7b5653ef9}{set}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00076}00076\ \ \ \ \ std::optional<std::string>\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a75e44fa1646ff162980fc0690cac40aa}{get}}(\textcolor{keyword}{const}\ std::string\&\ key);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00077}00077\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a002d2a2dc477cf8015e02a381dfcaf36}{del}}(\textcolor{keyword}{const}\ std::string\&\ key);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00084}00084\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a076ecc87415a8a3dd43e12f2ddeda3c3}{llen}}(\textcolor{keyword}{const}\ std::string\&\ key);}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00092}00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00093}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a55c04674309b6dfa8ee491d74dbcb73c}{00093}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a55c04674309b6dfa8ee491d74dbcb73c}{host\_}};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00094}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a7d570e023dfc2eb4c257773c00e9177a}{00094}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a7d570e023dfc2eb4c257773c00e9177a}{port\_}};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00095}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a2357f858858e7de5ef75384550841b92}{00095}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a2357f858858e7de5ef75384550841b92}{connected\_}};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00096}00096\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ Redis\ connection\ (will\ add\ real\ redis++\ connection\ later)}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00098}00098\ \ \ \ \ \textcolor{comment}{//\ For\ Day\ 1,\ we'll\ use\ an\ in-\/memory\ mock}}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl}{Impl}};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00100}\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a0b1c236432dc39bceea69322db6677e9}{00100}}\ \ \ \ \ std::unique\_ptr<Impl>\ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a0b1c236432dc39bceea69322db6677e9}{impl\_}};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00101}00101\ \};}
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_redis_client_8h_source_l00103}00103\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_processor}}
+
+\end{DoxyCode}

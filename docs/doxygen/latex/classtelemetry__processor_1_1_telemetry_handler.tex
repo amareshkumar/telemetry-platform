@@ -1,0 +1,350 @@
+\doxysection{telemetry\+\_\+processor\+::Telemetry\+Handler Class Reference}
+\hypertarget{classtelemetry__processor_1_1_telemetry_handler}{}\label{classtelemetry__processor_1_1_telemetry_handler}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+
+
+Telemetry-\/specific task handler for Telemetry\+Task\+Processor.  
+
+
+
+
+{\ttfamily \#include $<$Telemetry\+Handler.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+processor\+::Telemetry\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classtelemetry__processor_1_1_telemetry_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}}
+\begin{DoxyCompactList}\small\item\em Processing result. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{Config}}
+\begin{DoxyCompactList}\small\item\em Configuration for telemetry processing. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_stats}{Stats}}
+\begin{DoxyCompactList}\small\item\em Get handler statistics. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_ac712d0e23d6e4c1478b27c468e0666b9}{Telemetry\+Handler}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{Config}} \&config=\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{Config}}\{\})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_ad57e2cd8841de17f1fad586468a8b553}{\texorpdfstring{$\sim$}{\string~}\+Telemetry\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a2cba5e0d33662f05da3f798b079d0fab}{process}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Process a telemetry task. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a3521eaea496bdd3bf0f033dd2d54f337}{handle\+\_\+analyze}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Statistical analysis on telemetry data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_af26a55199b6e851effb4703360daa666}{handle\+\_\+anomaly\+\_\+detect}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Anomaly detection using thresholds and statistical methods. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a68ee4e03c598069a045f96617cbdce4e}{handle\+\_\+aggregate}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Time-\/based aggregation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_ae49bd62a6c04d05ac2e0773f5e660754}{handle\+\_\+store}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Store telemetry data to Postgre\+SQL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_ae5854f0fef3f8f494305838a2dc4c0ea}{handle\+\_\+alert}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Trigger alerts based on conditions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_stats}{Stats}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_aef42a004f7f4bd96ce5510af38f46348}{get\+\_\+stats}} () const
+\item 
+void \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a70cd9f3094569614f5a69f94e0a6e8f5}{reset\+\_\+stats}} ()
+\begin{DoxyCompactList}\small\item\em Reset statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_ab0d806da97023ad9ba9ed00d1ecf1ed6}{parse\+\_\+payload}} (const std\+::string \&json\+\_\+payload)
+\item 
+bool \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a8615a4f33f04e019552be37d8afe6cea}{is\+\_\+anomaly}} (const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} \&payload)
+\item 
+bool \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a4e86814f9cae8f06539a4354a63ff490}{send\+\_\+webhook\+\_\+alert}} (const std\+::string \&message, const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} \&payload)
+\item 
+bool \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a95c161adf37432be54511509b6dc89b5}{ensure\+\_\+db\+\_\+connected}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ Impl $>$ \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler_a99850ed0747f3c0ed1dc7ad42edfe540}{pimpl\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Telemetry-\/specific task handler for Telemetry\+Task\+Processor. 
+
+Processes tasks published by Telemetry\+Hub Gateway via Redis. Supports various telemetry processing operations\+:
+\begin{DoxyItemize}
+\item telemetry.\+analyze\+: Statistical analysis
+\item telemetry.\+anomaly\+\_\+detect\+: Threshold-\/based anomaly detection
+\item telemetry.\+aggregate\+: Time-\/based aggregation
+\item telemetry.\+store\+: Persist to database
+\item telemetry.\+alert\+: Trigger alerts
+\end{DoxyItemize}
+
+Integration with Telemetry\+Hub\+:
+
+Telemetry\+Hub → Redis → Telemetry\+Task\+Processor ↓ \doxylink{classtelemetry__processor_1_1_telemetry_handler}{Telemetry\+Handler} ↓ \mbox{[}Analysis/\+Storage/\+Alerts\mbox{]}
+
+Usage\+: auto handler = std\+::make\+\_\+shared$<$\+Telemetry\+Handler$>$(db\+\_\+config); worker\+\_\+pool.\+register\+\_\+handler("{}telemetry.\+analyze"{}, handler); worker\+\_\+pool.\+register\+\_\+handler("{}telemetry.\+anomaly\+\_\+detect"{}, handler); 
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00033}{33}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_ac712d0e23d6e4c1478b27c468e0666b9}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!TelemetryHandler@{TelemetryHandler}}
+\index{TelemetryHandler@{TelemetryHandler}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{TelemetryHandler()}{TelemetryHandler()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_ac712d0e23d6e4c1478b27c468e0666b9} 
+telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Telemetry\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{Config}} \&}]{config}{ = {\ttfamily \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{Config}}\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & Handler configuration \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_ad57e2cd8841de17f1fad586468a8b553}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!````~TelemetryHandler@{\texorpdfstring{$\sim$}{\string~}TelemetryHandler}}
+\index{````~TelemetryHandler@{\texorpdfstring{$\sim$}{\string~}TelemetryHandler}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TelemetryHandler()}{\string~TelemetryHandler()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_ad57e2cd8841de17f1fad586468a8b553} 
+telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\texorpdfstring{$\sim$}{\string~}\+Telemetry\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a95c161adf37432be54511509b6dc89b5}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!ensure\_db\_connected@{ensure\_db\_connected}}
+\index{ensure\_db\_connected@{ensure\_db\_connected}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{ensure\_db\_connected()}{ensure\_db\_connected()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a95c161adf37432be54511509b6dc89b5} 
+bool telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::ensure\+\_\+db\+\_\+connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_aef42a004f7f4bd96ce5510af38f46348}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!get\_stats@{get\_stats}}
+\index{get\_stats@{get\_stats}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{get\_stats()}{get\_stats()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_aef42a004f7f4bd96ce5510af38f46348} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_stats}{Stats}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::get\+\_\+stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a68ee4e03c598069a045f96617cbdce4e}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!handle\_aggregate@{handle\_aggregate}}
+\index{handle\_aggregate@{handle\_aggregate}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{handle\_aggregate()}{handle\_aggregate()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a68ee4e03c598069a045f96617cbdce4e} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::handle\+\_\+aggregate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Time-\/based aggregation. 
+
+Aggregates telemetry over time windows\+:
+\begin{DoxyItemize}
+\item 1-\/minute averages
+\item 5-\/minute rolling windows
+\item Hourly summaries
+\end{DoxyItemize}
+
+Reduces storage requirements while preserving trends.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} with telemetry payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aggregated data 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_ae5854f0fef3f8f494305838a2dc4c0ea}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!handle\_alert@{handle\_alert}}
+\index{handle\_alert@{handle\_alert}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{handle\_alert()}{handle\_alert()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_ae5854f0fef3f8f494305838a2dc4c0ea} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::handle\+\_\+alert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Trigger alerts based on conditions. 
+
+Alert channels\+:
+\begin{DoxyItemize}
+\item Webhook (HTTP POST to configured endpoint)
+\item Email (SMTP)
+\item Log file
+\end{DoxyItemize}
+
+Alert payload includes\+:
+\begin{DoxyItemize}
+\item Device ID
+\item Timestamp
+\item Alert reason
+\item Telemetry values
+\item Severity level
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} with alert conditions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alert delivery result 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a3521eaea496bdd3bf0f033dd2d54f337}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!handle\_analyze@{handle\_analyze}}
+\index{handle\_analyze@{handle\_analyze}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{handle\_analyze()}{handle\_analyze()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a3521eaea496bdd3bf0f033dd2d54f337} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::handle\+\_\+analyze (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Statistical analysis on telemetry data. 
+
+Computes\+:
+\begin{DoxyItemize}
+\item Mean, median, std deviation
+\item Min/max values
+\item Rate of change
+\item Fourier transform (frequency analysis)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} with telemetry payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Analysis results 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_af26a55199b6e851effb4703360daa666}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!handle\_anomaly\_detect@{handle\_anomaly\_detect}}
+\index{handle\_anomaly\_detect@{handle\_anomaly\_detect}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{handle\_anomaly\_detect()}{handle\_anomaly\_detect()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_af26a55199b6e851effb4703360daa666} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::handle\+\_\+anomaly\+\_\+detect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Anomaly detection using thresholds and statistical methods. 
+
+Detects\+:
+\begin{DoxyItemize}
+\item Out-\/of-\/range values (threshold-\/based)
+\item Sudden spikes (gradient-\/based)
+\item Flatlines (no variance)
+\item Missing expected patterns
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} with telemetry payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Anomaly detection results (triggers alert if anomaly found) 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_ae49bd62a6c04d05ac2e0773f5e660754}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!handle\_store@{handle\_store}}
+\index{handle\_store@{handle\_store}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{handle\_store()}{handle\_store()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_ae49bd62a6c04d05ac2e0773f5e660754} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::handle\+\_\+store (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Store telemetry data to Postgre\+SQL. 
+
+Inserts into time-\/series table\+: CREATE TABLE telemetry\+\_\+data ( id SERIAL PRIMARY KEY, device\+\_\+id VARCHAR(64) NOT NULL, timestamp TIMESTAMPTZ NOT NULL, temperature DOUBLE PRECISION, humidity DOUBLE PRECISION, pressure DOUBLE PRECISION, voltage DOUBLE PRECISION, current DOUBLE PRECISION, raw\+\_\+data JSONB );
+
+Uses batch inserts for performance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} with telemetry payload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Storage result 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a8615a4f33f04e019552be37d8afe6cea}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!is\_anomaly@{is\_anomaly}}
+\index{is\_anomaly@{is\_anomaly}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{is\_anomaly()}{is\_anomaly()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a8615a4f33f04e019552be37d8afe6cea} 
+bool telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::is\+\_\+anomaly (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} \&}]{payload}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_ab0d806da97023ad9ba9ed00d1ecf1ed6}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!parse\_payload@{parse\_payload}}
+\index{parse\_payload@{parse\_payload}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{parse\_payload()}{parse\_payload()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_ab0d806da97023ad9ba9ed00d1ecf1ed6} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::parse\+\_\+payload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{json\+\_\+payload}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a2cba5e0d33662f05da3f798b079d0fab}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!process@{process}}
+\index{process@{process}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a2cba5e0d33662f05da3f798b079d0fab} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result}} telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::process (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \&}]{task}{}\end{DoxyParamCaption})}
+
+
+
+Process a telemetry task. 
+
+Dispatches to appropriate handler based on task type\+:
+\begin{DoxyItemize}
+\item "{}telemetry.\+analyze"{} → \doxylink{classtelemetry__processor_1_1_telemetry_handler_a3521eaea496bdd3bf0f033dd2d54f337}{handle\+\_\+analyze()}
+\item "{}telemetry.\+anomaly\+\_\+detect"{} → \doxylink{classtelemetry__processor_1_1_telemetry_handler_af26a55199b6e851effb4703360daa666}{handle\+\_\+anomaly\+\_\+detect()}
+\item "{}telemetry.\+aggregate"{} → \doxylink{classtelemetry__processor_1_1_telemetry_handler_a68ee4e03c598069a045f96617cbdce4e}{handle\+\_\+aggregate()}
+\item "{}telemetry.\+store"{} → \doxylink{classtelemetry__processor_1_1_telemetry_handler_ae49bd62a6c04d05ac2e0773f5e660754}{handle\+\_\+store()}
+\item "{}telemetry.\+alert"{} → \doxylink{classtelemetry__processor_1_1_telemetry_handler_ae5854f0fef3f8f494305838a2dc4c0ea}{handle\+\_\+alert()}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processor_1_1_task}{Task} to process \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structtelemetry__processor_1_1_telemetry_handler_1_1_process_result}{Process\+Result} with success status and metrics 
+\end{DoxyReturn}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a70cd9f3094569614f5a69f94e0a6e8f5}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!reset\_stats@{reset\_stats}}
+\index{reset\_stats@{reset\_stats}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{reset\_stats()}{reset\_stats()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a70cd9f3094569614f5a69f94e0a6e8f5} 
+void telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::reset\+\_\+stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reset statistics. 
+
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a4e86814f9cae8f06539a4354a63ff490}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!send\_webhook\_alert@{send\_webhook\_alert}}
+\index{send\_webhook\_alert@{send\_webhook\_alert}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{send\_webhook\_alert()}{send\_webhook\_alert()}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a4e86814f9cae8f06539a4354a63ff490} 
+bool telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::send\+\_\+webhook\+\_\+alert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload}{Telemetry\+Payload}} \&}]{payload}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetry__processor_1_1_telemetry_handler_a99850ed0747f3c0ed1dc7ad42edfe540}\index{telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}!pimpl\_@{pimpl\_}}
+\index{pimpl\_@{pimpl\_}!telemetry\_processor::TelemetryHandler@{telemetry\_processor::TelemetryHandler}}
+\doxysubsubsection{\texorpdfstring{pimpl\_}{pimpl\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processor_1_1_telemetry_handler_a99850ed0747f3c0ed1dc7ad42edfe540} 
+std\+::unique\+\_\+ptr$<$Impl$>$ telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::pimpl\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00205}{205}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/telemetry\+\_\+processor/\mbox{\hyperlink{_telemetry_handler_8h}{Telemetry\+Handler.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,15 @@
+<map id="telemetry_common::Config" name="telemetry_common::Config">
+<area shape="rect" id="Node000001" title="Simple INI&#45;style configuration parser." alt="" coords="40,392,218,419"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="54,261,204,320"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,334,132,393,127,391,127,337"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,120,108,147"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="80,159,121,261,115,261,77,164"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,131,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="68,61,71,120,65,119,68,66"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="132,120,252,147"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="183,159,143,262,138,260,179,163"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="163,13,202,40"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="183,53,187,96,191,120,186,119,181,96,181,58"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="230,13,269,40"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="241,52,222,97,205,121,200,118,218,95,238,57"/>
+</map>

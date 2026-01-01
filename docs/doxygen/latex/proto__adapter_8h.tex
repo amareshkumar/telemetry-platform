@@ -1,0 +1,69 @@
+\doxysection{common/include/telemetry\+\_\+common/proto\+\_\+adapter.h File Reference}
+\hypertarget{proto__adapter_8h}{}\label{proto__adapter_8h}\index{common/include/telemetry\_common/proto\_adapter.h@{common/include/telemetry\_common/proto\_adapter.h}}
+
+
+Adapter for converting between C++ structs and Protobuf messages.  
+
+
+{\ttfamily \#include "{}proto/telemetry.\+pb.\+h"{}}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for proto\+\_\+adapter.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{proto__adapter_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{proto__adapter_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp}{telemetry\+::\+Telemetry\+Sample\+Cpp}}
+\begin{DoxyCompactList}\small\item\em C++ representation of a telemetry data sample. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetry_1_1_proto_adapter}{telemetry\+::\+Proto\+Adapter}}
+\begin{DoxyCompactList}\small\item\em Adapter for converting between C++ structs and Protobuf messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry}{telemetry}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adapter for converting between C++ structs and Protobuf messages. 
+
+\begin{DoxyAuthor}{Author}
+Telemetry\+Hub Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/12-\/28 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2.\+0
+\end{DoxyVersion}
+This file provides efficient conversion between native C++ telemetry data structures and Protocol Buffer messages. Protobuf serialization is \texorpdfstring{$\sim$}{\string~}10x faster than JSON and produces 30\% smaller output, making it ideal for high-\/throughput telemetry systems.
+
+{\bfseries{Performance Benchmarks}} (Intel i7, Release build)\+:
+\begin{DoxyItemize}
+\item Serialization\+: 408,000 ops/sec
+\item Deserialization\+: 350,000 ops/sec
+\item Size\+: \texorpdfstring{$\sim$}{\string~}30 bytes per message (vs 90 bytes JSON)
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+telemetry.\+proto for Protobuf schema definition 
+\end{DoxySeeAlso}
+
+
+Definition in file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+

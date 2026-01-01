@@ -1,0 +1,27 @@
+<map id="telemetry_processor::RedisClient::Impl" name="telemetry_processor::RedisClient::Impl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1058,145,1197,188"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="521,5,667,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="683,44,847,85,1034,135,1061,145,1056,145,1033,140,846,90,683,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="260,207,340,233"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="353,201,422,170,456,148,486,121,494,107,497,94,501,80,510,65,533,50,538,47,514,68,505,82,503,95,499,109,490,124,459,152,424,174,355,206"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="785,145,966,188"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="355,212,786,172,784,178,355,218"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="512,256,676,283"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="347,237,385,248,449,259,514,267,509,267,448,264,383,253,347,242"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,215,131,257"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="145,228,262,221,257,224,146,233"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="240,77,360,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="374,72,523,41,518,44,376,77"/>
+<area shape="poly" id="edge13_Node000008_Node000005" title=" " alt="" coords="375,98,787,153,783,157,375,103"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="49,69,87,96"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="102,81,241,87,238,91,104,86"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="49,144,87,171"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="101,146,215,115,259,103,254,106,216,120,103,151"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="243,281,356,308"/>
+<area shape="poly" id="edge12_Node000010_Node000007" title=" " alt="" coords="102,174,277,279,273,282,100,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="981,164,1060,166,1055,167,982,169"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="692,272,727,264,760,249,769,238,771,226,774,212,783,198,799,190,804,188,787,202,779,214,777,227,773,240,763,253,729,269,692,277"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="372,303,429,307,488,303,526,293,559,284,564,283,527,298,488,308,429,312,372,309"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="834,212,917,239"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="932,214,1033,193,1058,189,1063,188,1034,199,933,219"/>
+</map>

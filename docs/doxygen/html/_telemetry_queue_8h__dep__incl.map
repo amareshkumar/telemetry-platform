@@ -1,0 +1,13 @@
+<map id="ingestion/gateway/include/telemetryhub/gateway/TelemetryQueue.h" name="ingestion/gateway/include/telemetryhub/gateway/TelemetryQueue.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="255,5,469,64"/>
+<area shape="rect" id="Node000002" href="$_gateway_core_8h.html" title=" " alt="" coords="127,112,376,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,73,277,114,274,109,316,76"/>
+<area shape="rect" id="Node000006" href="$_telemetry_queue_8cpp.html" title=" " alt="" coords="400,112,548,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="407,72,453,112,448,111,406,77"/>
+<area shape="rect" id="Node000003" href="$_gateway_core_8cpp.html" title=" " alt="" coords="5,203,154,245"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,161,121,205,118,200,195,163"/>
+<area shape="rect" id="Node000004" href="$http__server_8cpp.html" title=" " alt="" coords="177,203,326,245"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="253,168,254,204,249,201,250,172"/>
+<area shape="rect" id="Node000005" href="$main__gateway_8cpp.html" title=" " alt="" coords="349,203,498,245"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="306,160,386,202,381,202,305,165"/>
+</map>

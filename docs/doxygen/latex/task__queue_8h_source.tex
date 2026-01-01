@@ -1,0 +1,114 @@
+\doxysection{task\+\_\+queue.\+h}
+\hypertarget{task__queue_8h_source}{}\label{task__queue_8h_source}\index{processing/include/task\_queue.h@{processing/include/task\_queue.h}}
+\mbox{\hyperlink{task__queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00045}\mbox{\hyperlink{namespacetelemetry__processing}{00045}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__processing}{telemetry\_processing}}\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00062}\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{00062}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{TaskPriority}}\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00063}\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{00063}}\ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{HIGH}}\ =\ 0,\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00064}\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{00064}}\ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{MEDIUM}}\ =\ 1,\ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00065}\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}{00065}}\ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}{LOW}}\ =\ 2\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00066}00066\ \};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00073}\mbox{\hyperlink{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830}{00073}}\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830}{to\_string}}(\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{TaskPriority}}\ priority)\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{switch}\ (priority)\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{TaskPriority::HIGH}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}HIGH"{}};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{TaskPriority::MEDIUM}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}MEDIUM"{}};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}{TaskPriority::LOW}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}LOW"{}};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNKNOWN"{}};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00106}\mbox{\hyperlink{structtelemetry__processing_1_1_task}{00106}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}{Task}}\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00107}\mbox{\hyperlink{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}{00107}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00108}\mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{00108}}\ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{TaskPriority}}\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}}\ =\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{TaskPriority::MEDIUM}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00109}\mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{00109}}\ \ \ \ \ std::chrono::system\_clock::time\_point\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00110}\mbox{\hyperlink{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe}{00110}}\ \ \ \ \ nlohmann::json\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe}{payload}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00111}00111\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00115}\mbox{\hyperlink{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}{00115}}\ \ \ \ \ \mbox{\hyperlink{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}{Task}}()\ :\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}}(std::chrono::system\_clock::now())\ \{\}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00122}\mbox{\hyperlink{structtelemetry__processing_1_1_task_a0f284f03a5af2e0c3f97227c436a051a}{00122}}\ \ \ \ \ \mbox{\hyperlink{structtelemetry__processing_1_1_task_a0f284f03a5af2e0c3f97227c436a051a}{Task}}(std::string\ task\_id,\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{TaskPriority}}\ prio)}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}{id}}(std::move(task\_id))}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}}(prio)}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}}(std::chrono::system\_clock::now())\ \{\}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00126}00126\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00133}\mbox{\hyperlink{structtelemetry__processing_1_1_task_adfc921d45a8564b9b13a663dcade10d6}{00133}}\ \ \ \ \ \mbox{\hyperlink{structtelemetry__processing_1_1_task_adfc921d45a8564b9b13a663dcade10d6}{Task}}(std::string\ task\_id,\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{TaskPriority}}\ prio,\ nlohmann::json\ data)}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}{id}}(std::move(task\_id))}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}}(prio)}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}}(std::chrono::system\_clock::now())}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe}{payload}}(std::move(data))\ \{\}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00138}00138\ \};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00200}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue}{00200}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00201}00201\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00220}00220\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}(\textcolor{keywordtype}{size\_t}\ max\_capacity\ =\ 10000);}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00221}00221\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a7c2283d3233c455c4a359ddac3e8391c}{\string~TaskQueue}}();}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00230}00230\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00231}00231\ \ \ \ \ \textcolor{comment}{//\ Disable\ copy\ (queue\ contains\ unique\ state)}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00232}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a}{00232}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a}{TaskQueue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00233}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a}{00233}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00234}00234\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00235}00235\ \ \ \ \ \textcolor{comment}{//\ Enable\ move\ (transfer\ ownership)}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00236}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1}{00236}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1}{TaskQueue}}(\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&\&)\ noexcept\ =\ default;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00237}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{00237}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&\ operator=(\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\&\&)\ noexcept\ =\ default;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00238}00238\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00272}00272\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81}{enqueue}}(\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}\ task,\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::milliseconds\ timeout\ =\ std::chrono::milliseconds(0));}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00274}00274\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00309}00309\ \ \ \ \ std::optional<\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}>\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877}{dequeue}}(}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00310}00310\ \ \ \ \ \ \ \ \ std::chrono::milliseconds\ timeout\ =\ std::chrono::milliseconds(0));}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00311}00311\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00337}00337\ \ \ \ \ std::optional<\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}>\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a82db9f8a27c8debdb4dcbdaf651efb3d}{peek}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00338}00338\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00349}00349\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3}{size}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00350}00350\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00360}00360\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a02a5ad06f831d6242fdd37cee18b1c68}{empty}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00361}00361\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00371}00371\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a9dbfdde816b54f74dcaf00c06541379b}{full}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00372}00372\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00377}00377\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a2706d535524621bfa9fd160263380314}{capacity}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00378}00378\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00394}00394\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4eccb9d83884e122251c7aa36c1b3af5}{clear}}();}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00395}00395\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00414}00414\ \ \ \ \ nlohmann::json\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ac76c97d2c5709e9cdc458e34a75bdfc6}{get\_stats}}()\ const;}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00416}00416\ private:}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00431}\mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{00431}}\ \ \ \ \ struct\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{TaskComparator}}\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00432}\mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_af19053295b5732216cafe6cef1fadfed}{00432}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_af19053295b5732216cafe6cef1fadfed}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}\&\ b)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a.\mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}}\ !=\ b.\mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}})\ \{}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lower\ enum\ value\ =\ higher\ priority\ (process\ first)}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(a.\mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}})\ >\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(b.\mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}});}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Same\ priority:\ earlier\ timestamp\ =\ higher\ priority\ (FIFO)}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}}\ >\ b.\mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\_at}};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00439}00439\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00440}00440\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00441}00441\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00442}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af7fbb68821963b6cebd936597c48bbec}{00442}}\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af7fbb68821963b6cebd936597c48bbec}{mutex\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00443}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb}{00443}}\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb}{not\_empty\_}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00444}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb}{00444}}\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb}{not\_full\_}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00445}00445\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00446}00446\ \ \ \ \ std::priority\_queue<\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}},\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Task>,\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00448}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0b552fe899d67c48f1c151e279e7d76e}{00448}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{TaskComparator}}>\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0b552fe899d67c48f1c151e279e7d76e}{queue\_}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00449}00449\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00450}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4598db2e35bbf092570bf5f92473ddca}{00450}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4598db2e35bbf092570bf5f92473ddca}{max\_capacity\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00451}\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a7113ef3e4b46612013810abd422d54fc}{00451}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a7113ef3e4b46612013810abd422d54fc}{shutdown\_}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00452}00452\ \};}
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{task__queue_8h_source_l00454}00454\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_processing}}
+
+\end{DoxyCode}

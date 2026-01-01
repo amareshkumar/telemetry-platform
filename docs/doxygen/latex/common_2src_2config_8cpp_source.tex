@@ -1,0 +1,120 @@
+\doxysection{config.\+cpp}
+\hypertarget{common_2src_2config_8cpp_source}{}\label{common_2src_2config_8cpp_source}\index{common/src/config.cpp@{common/src/config.cpp}}
+\mbox{\hyperlink{common_2src_2config_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_2include_2telemetry__common_2config_8h}{telemetry\_common/config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__common}{telemetry\_common}}\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00008}\mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{00008}}\ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{trim}}(\textcolor{keyword}{const}\ std::string\&\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ first\ =\ str.find\_first\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ ==\ std::string::npos)\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ last\ =\ str.find\_last\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{return}\ str.substr(first,\ last\ -\/\ first\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00015}\mbox{\hyperlink{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275}{00015}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275}{Config::load\_from\_file}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00016}00016\ \ \ \ \ std::ifstream\ file(filename);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00021}00021\ \ \ \ \ std::string\ line,\ current\_section;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ line\ =\ \mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{trim}}(line);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Skip\ empty\ lines\ and\ comments}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty()\ ||\ line[0]\ ==\ \textcolor{charliteral}{'\#'}\ ||\ line[0]\ ==\ \textcolor{charliteral}{';'})\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Section\ header}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[0]\ ==\ \textcolor{charliteral}{'['}\ \&\&\ line.back()\ ==\ \textcolor{charliteral}{']'})\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ current\_section\ =\ line.substr(1,\ line.length()\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Key-\/value\ pair}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pos\ =\ line.find(\textcolor{charliteral}{'='});}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ key\ =\ \mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{trim}}(line.substr(0,\ pos));}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ value\ =\ \mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{trim}}(line.substr(pos\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}}[current\_section][key]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00044}00044\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00048}\mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{00048}}\ std::string\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{Config::get\_string}}(\textcolor{keyword}{const}\ std::string\&\ section,\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ default\_value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ sec\_it\ =\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}}.find(section);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (sec\_it\ ==\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00055}00055\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ key\_it\ =\ sec\_it-\/>second.find(key);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (key\_it\ ==\ sec\_it-\/>second.end())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ key\_it-\/>second;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00064}\mbox{\hyperlink{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec}{00064}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec}{Config::get\_int}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00067}00067\ \ \ \ \ std::string\ value\ =\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{get\_string}}(section,\ key);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (value.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00071}00071\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::stoi(value);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00074}00074\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00079}\mbox{\hyperlink{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014}{00079}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014}{Config::get\_bool}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ default\_value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00082}00082\ \ \ \ \ std::string\ value\ =\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{get\_string}}(section,\ key);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (value.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00086}00086\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00087}00087\ \ \ \ \ std::transform(value.begin(),\ value.end(),\ value.begin(),\ ::tolower);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{return}\ value\ ==\ \textcolor{stringliteral}{"{}true"{}}\ ||\ value\ ==\ \textcolor{stringliteral}{"{}1"{}}\ ||\ value\ ==\ \textcolor{stringliteral}{"{}yes"{}}\ ||\ value\ ==\ \textcolor{stringliteral}{"{}on"{}};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00091}\mbox{\hyperlink{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95}{00091}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95}{Config::get\_double}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ default\_value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00094}00094\ \ \ \ \ std::string\ value\ =\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{get\_string}}(section,\ key);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (value.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00098}00098\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::stod(value);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00101}00101\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00106}\mbox{\hyperlink{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0}{00106}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0}{Config::has\_key}}(\textcolor{keyword}{const}\ std::string\&\ section,\ \textcolor{keyword}{const}\ std::string\&\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{keyword}{auto}\ sec\_it\ =\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}}.find(section);}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (sec\_it\ ==\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{return}\ sec\_it-\/>second.find(key)\ !=\ sec\_it-\/>second.end();}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{common_2src_2config_8cpp_source_l00114}00114\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_common}}
+
+\end{DoxyCode}

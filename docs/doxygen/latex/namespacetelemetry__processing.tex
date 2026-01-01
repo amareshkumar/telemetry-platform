@@ -1,0 +1,98 @@
+\doxysection{telemetry\+\_\+processing Namespace Reference}
+\hypertarget{namespacetelemetry__processing}{}\label{namespacetelemetry__processing}\index{telemetry\_processing@{telemetry\_processing}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}
+\begin{DoxyCompactList}\small\item\em Represents a single unit of work with priority and metadata. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue}{Task\+Queue}}
+\begin{DoxyCompactList}\small\item\em Thread-\/safe bounded priority queue for task scheduling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} \+: int \{ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{HIGH}} = 0
+, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{MEDIUM}} = 1
+, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}{LOW}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Priority levels for task scheduling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830}{to\+\_\+string}} (\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} priority)
+\begin{DoxyCompactList}\small\item\em Convert \doxylink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority} enum to human-\/readable string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespacetelemetry__processing_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}\index{telemetry\_processing@{telemetry\_processing}!TaskPriority@{TaskPriority}}
+\index{TaskPriority@{TaskPriority}!telemetry\_processing@{telemetry\_processing}}
+\doxysubsubsection{\texorpdfstring{TaskPriority}{TaskPriority}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345} 
+enum class \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{telemetry\+\_\+processing\+::\+Task\+Priority}} \+: int\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Priority levels for task scheduling. 
+
+Lower numeric values indicate higher priority (0 = highest). This matches OS scheduling conventions (e.\+g., nice values in Unix).
+
+{\bfseries{Priority Guidelines}}\+:
+\begin{DoxyItemize}
+\item HIGH\+: Critical alerts, system health checks, SLA violations
+\item MEDIUM\+: Normal telemetry processing, analytics
+\item LOW\+: Batch jobs, data cleanup, non-\/urgent operations
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Values are ordered for std\+::priority\+\_\+queue (smallest = highest priority) 
+\end{DoxyNote}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIGH@{HIGH}!telemetry\_processing@{telemetry\_processing}}\index{telemetry\_processing@{telemetry\_processing}!HIGH@{HIGH}}}\Hypertarget{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}\label{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c} 
+HIGH&Highest priority (processed first). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MEDIUM@{MEDIUM}!telemetry\_processing@{telemetry\_processing}}\index{telemetry\_processing@{telemetry\_processing}!MEDIUM@{MEDIUM}}}\Hypertarget{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}\label{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce} 
+MEDIUM&Normal priority (default). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOW@{LOW}!telemetry\_processing@{telemetry\_processing}}\index{telemetry\_processing@{telemetry\_processing}!LOW@{LOW}}}\Hypertarget{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}\label{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88} 
+LOW&Lowest priority (processed last). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00062}{62}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespacetelemetry__processing_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830}\index{telemetry\_processing@{telemetry\_processing}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!telemetry\_processing@{telemetry\_processing}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830} 
+std\+::string telemetry\+\_\+processing\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}}}]{priority}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert \doxylink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority} enum to human-\/readable string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & Priority level \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representation ("{}\+HIGH"{}, "{}\+MEDIUM"{}, "{}\+LOW"{}) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00073}{73}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00063}{HIGH}}, \mbox{\hyperlink{task__queue_8h_source_l00065}{LOW}}, and \mbox{\hyperlink{task__queue_8h_source_l00064}{MEDIUM}}.
+

@@ -1,0 +1,275 @@
+\doxysection{telemetryhub\+::gateway\+::Redis\+Publisher Class Reference}
+\hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher}{}\label{classtelemetryhub_1_1gateway_1_1_redis_publisher}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+
+
+Redis publisher for Telemetry\+Hub-\/\+Telemetry\+Task\+Processor integration.  
+
+
+
+
+{\ttfamily \#include $<$Redis\+Publisher.\+h$>$}
+
+
+
+Collaboration diagram for telemetryhub\+::gateway\+::Redis\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classtelemetryhub_1_1gateway_1_1_redis_publisher__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_redis_publisher_1_1_stats}{Stats}}
+\begin{DoxyCompactList}\small\item\em Get publisher statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a391c09b3b2e424d332df81ff651ee574}{Redis\+Publisher}} (const std\+::string \&host="{}127.\+0.\+0.\+1"{}, int port=6379, const std\+::string \&queue\+\_\+name="{}telemetry\+:tasks"{})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a96a93fef24a00f5d43673f3c336a71af}{\texorpdfstring{$\sim$}{\string~}\+Redis\+Publisher}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a1e0a7f5609efd4f285061484e2de001f}{connect}} ()
+\begin{DoxyCompactList}\small\item\em Connect to Redis server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6a6e60ff349cd3e8ff428059742aba1c}{is\+\_\+connected}} () const
+\begin{DoxyCompactList}\small\item\em Check if connected to Redis. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8a50a1fa38a9ca5996e67908cbf5ede8}{publish\+\_\+task}} (const Telemetry\+Sample \&sample, const std\+::string \&task\+\_\+type="{}telemetry.\+analyze"{}, const std\+::string \&priority="{}NORMAL"{}, int max\+\_\+retries=3)
+\begin{DoxyCompactList}\small\item\em Publish telemetry sample as task to Redis. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a29b94a439d498a862ca615a571aefe55}{publish\+\_\+batch}} (const std\+::vector$<$ Telemetry\+Sample $>$ \&samples, const std\+::string \&task\+\_\+type="{}telemetry.\+analyze"{})
+\begin{DoxyCompactList}\small\item\em Batch publish multiple telemetry samples. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_acab0acc0c67c6d83fd67548fe164b777}{get\+\_\+queue\+\_\+depth}} () const
+\begin{DoxyCompactList}\small\item\em Get queue depth (number of pending tasks). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_ade251489c21fb5fe4f79bb2282ea58de}{is\+\_\+queue\+\_\+healthy}} (size\+\_\+t threshold=10000) const
+\begin{DoxyCompactList}\small\item\em Check if queue is healthy (not overloaded). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_redis_publisher_1_1_stats}{Stats}} \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a141f75414665e44dd6a44838d46d3481}{get\+\_\+stats}} () const
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a25339ee9ba0b6e24695ee196962aa0a5}{reset\+\_\+stats}} ()
+\begin{DoxyCompactList}\small\item\em Reset statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+nlohmann\+::json \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6e59a512c790c65c08a0aa9d3d9d658d}{sample\+\_\+to\+\_\+task\+\_\+json}} (const Telemetry\+Sample \&sample, const std\+::string \&task\+\_\+type, const std\+::string \&priority, int max\+\_\+retries)
+\item 
+std\+::string \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a7b7bdc9cec2a4e6a25fef9774a40415b}{generate\+\_\+uuid}} ()
+\item 
+std\+::string \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8b8bb613113a5e88295584ad1d22b38b}{get\+\_\+iso8601\+\_\+timestamp}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ Impl $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_redis_publisher_ac4d0f3ec83aa6cc13e881015a33a4340}{pimpl\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Redis publisher for Telemetry\+Hub-\/\+Telemetry\+Task\+Processor integration. 
+
+Publishes Telemetry\+Sample data as tasks to Redis for async processing by Telemetry\+Task\+Processor workers.
+
+Integration Architecture\+:
+
+Telemetry\+Hub Device → \doxylink{classtelemetryhub_1_1gateway_1_1_telemetry_queue}{Telemetry\+Queue} → \doxylink{classtelemetryhub_1_1gateway_1_1_gateway_core}{Gateway\+Core} → \doxylink{classtelemetryhub_1_1gateway_1_1_redis_publisher}{Redis\+Publisher} ↓ RPUSH Redis (task queue) ↓ BLPOP Telemetry\+Task\+Processor Workers
+
+Usage\+: auto publisher = std\+::make\+\_\+unique$<$\+Redis\+Publisher$>$("{}127.\+0.\+0.\+1"{}, 6379); if (publisher-\/\texorpdfstring{$>$}{>}\doxylink{classtelemetryhub_1_1gateway_1_1_redis_publisher_a1e0a7f5609efd4f285061484e2de001f}{connect()}) \{ Telemetry\+Sample sample = \{...\}; publisher-\/\texorpdfstring{$>$}{>}publish\+\_\+task(sample, "{}telemetry.\+analyze"{}); \} 
+
+Definition at line \mbox{\hyperlink{_redis_publisher_8h_source_l00032}{32}} of file \mbox{\hyperlink{_redis_publisher_8h_source}{Redis\+Publisher.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a391c09b3b2e424d332df81ff651ee574}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!RedisPublisher@{RedisPublisher}}
+\index{RedisPublisher@{RedisPublisher}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{RedisPublisher()}{RedisPublisher()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a391c09b3b2e424d332df81ff651ee574} 
+telemetryhub\+::gateway\+::\+Redis\+Publisher\+::\+Redis\+Publisher (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{host}{ = {\ttfamily "{}127.0.0.1"{}}, }\item[{int}]{port}{ = {\ttfamily 6379}, }\item[{const std\+::string \&}]{queue\+\_\+name}{ = {\ttfamily "{}telemetry\+:tasks"{}}}\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em host} & Redis server host \\
+\hline
+{\em port} & Redis server port \\
+\hline
+{\em queue\+\_\+name} & Redis list key for task queue (default\+: "{}telemetry\+:tasks"{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a96a93fef24a00f5d43673f3c336a71af}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!````~RedisPublisher@{\texorpdfstring{$\sim$}{\string~}RedisPublisher}}
+\index{````~RedisPublisher@{\texorpdfstring{$\sim$}{\string~}RedisPublisher}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RedisPublisher()}{\string~RedisPublisher()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a96a93fef24a00f5d43673f3c336a71af} 
+telemetryhub\+::gateway\+::\+Redis\+Publisher\+::\texorpdfstring{$\sim$}{\string~}\+Redis\+Publisher (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a1e0a7f5609efd4f285061484e2de001f}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!connect@{connect}}
+\index{connect@{connect}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a1e0a7f5609efd4f285061484e2de001f} 
+bool telemetryhub\+::gateway\+::\+Redis\+Publisher\+::connect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Connect to Redis server. 
+
+\begin{DoxyReturn}{Returns}
+true if connection successful 
+\end{DoxyReturn}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a7b7bdc9cec2a4e6a25fef9774a40415b}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!generate\_uuid@{generate\_uuid}}
+\index{generate\_uuid@{generate\_uuid}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{generate\_uuid()}{generate\_uuid()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a7b7bdc9cec2a4e6a25fef9774a40415b} 
+std\+::string telemetryhub\+::gateway\+::\+Redis\+Publisher\+::generate\+\_\+uuid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8b8bb613113a5e88295584ad1d22b38b}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!get\_iso8601\_timestamp@{get\_iso8601\_timestamp}}
+\index{get\_iso8601\_timestamp@{get\_iso8601\_timestamp}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{get\_iso8601\_timestamp()}{get\_iso8601\_timestamp()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8b8bb613113a5e88295584ad1d22b38b} 
+std\+::string telemetryhub\+::gateway\+::\+Redis\+Publisher\+::get\+\_\+iso8601\+\_\+timestamp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_acab0acc0c67c6d83fd67548fe164b777}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!get\_queue\_depth@{get\_queue\_depth}}
+\index{get\_queue\_depth@{get\_queue\_depth}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{get\_queue\_depth()}{get\_queue\_depth()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_acab0acc0c67c6d83fd67548fe164b777} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Redis\+Publisher\+::get\+\_\+queue\+\_\+depth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get queue depth (number of pending tasks). 
+
+\begin{DoxyReturn}{Returns}
+Number of tasks in queue, 0 if error 
+\end{DoxyReturn}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a141f75414665e44dd6a44838d46d3481}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!get\_stats@{get\_stats}}
+\index{get\_stats@{get\_stats}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{get\_stats()}{get\_stats()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a141f75414665e44dd6a44838d46d3481} 
+\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_redis_publisher_1_1_stats}{Stats}} telemetryhub\+::gateway\+::\+Redis\+Publisher\+::get\+\_\+stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6a6e60ff349cd3e8ff428059742aba1c}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!is\_connected@{is\_connected}}
+\index{is\_connected@{is\_connected}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{is\_connected()}{is\_connected()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6a6e60ff349cd3e8ff428059742aba1c} 
+bool telemetryhub\+::gateway\+::\+Redis\+Publisher\+::is\+\_\+connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if connected to Redis. 
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_ade251489c21fb5fe4f79bb2282ea58de}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!is\_queue\_healthy@{is\_queue\_healthy}}
+\index{is\_queue\_healthy@{is\_queue\_healthy}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{is\_queue\_healthy()}{is\_queue\_healthy()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_ade251489c21fb5fe4f79bb2282ea58de} 
+bool telemetryhub\+::gateway\+::\+Redis\+Publisher\+::is\+\_\+queue\+\_\+healthy (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{threshold}{ = {\ttfamily 10000}}\end{DoxyParamCaption}) const}
+
+
+
+Check if queue is healthy (not overloaded). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & Maximum acceptable queue depth \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if queue depth \texorpdfstring{$<$}{<} threshold 
+\end{DoxyReturn}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a29b94a439d498a862ca615a571aefe55}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!publish\_batch@{publish\_batch}}
+\index{publish\_batch@{publish\_batch}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{publish\_batch()}{publish\_batch()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a29b94a439d498a862ca615a571aefe55} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Redis\+Publisher\+::publish\+\_\+batch (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Telemetry\+Sample $>$ \&}]{samples}{, }\item[{const std\+::string \&}]{task\+\_\+type}{ = {\ttfamily "{}telemetry.analyze"{}}}\end{DoxyParamCaption})}
+
+
+
+Batch publish multiple telemetry samples. 
+
+More efficient than individual publish\+\_\+task calls for high throughput. Uses Redis MULTI/\+EXEC for atomic batch insertion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & Vector of Telemetry\+Sample to publish \\
+\hline
+{\em task\+\_\+type} & Task type for all samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of successfully published tasks 
+\end{DoxyReturn}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8a50a1fa38a9ca5996e67908cbf5ede8}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!publish\_task@{publish\_task}}
+\index{publish\_task@{publish\_task}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{publish\_task()}{publish\_task()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a8a50a1fa38a9ca5996e67908cbf5ede8} 
+std\+::string telemetryhub\+::gateway\+::\+Redis\+Publisher\+::publish\+\_\+task (\begin{DoxyParamCaption}\item[{const Telemetry\+Sample \&}]{sample}{, }\item[{const std\+::string \&}]{task\+\_\+type}{ = {\ttfamily "{}telemetry.analyze"{}}, }\item[{const std\+::string \&}]{priority}{ = {\ttfamily "{}NORMAL"{}}, }\item[{int}]{max\+\_\+retries}{ = {\ttfamily 3}}\end{DoxyParamCaption})}
+
+
+
+Publish telemetry sample as task to Redis. 
+
+Converts Telemetry\+Sample to Task JSON format and pushes to Redis queue.
+
+Task JSON format\+: \{ "{}id"{}\+: "{}uuid-\/v4"{}, "{}type"{}\+: "{}telemetry.\+analyze"{}, "{}payload"{}\+: \{ "{}device\+\_\+id"{}\+: "{}sensor\+\_\+001"{}, "{}timestamp"{}\+: "{}2025-\/12-\/26\+T10\+:30\+:00\+Z"{}, "{}temperature"{}\+: 23.\+5, "{}humidity"{}\+: 65.\+2, "{}pressure"{}\+: 1013.\+25, "{}voltage"{}\+: 3.\+3, "{}current"{}\+: 0.\+5 \}, "{}priority"{}\+: "{}\+NORMAL"{}, "{}max\+\_\+retries"{}\+: 3, "{}created\+\_\+at"{}\+: "{}2025-\/12-\/26\+T10\+:30\+:00\+Z"{} \}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Telemetry\+Sample to publish \\
+\hline
+{\em task\+\_\+type} & Task type (e.\+g., "{}telemetry.\+analyze"{}, "{}telemetry.\+anomaly\+\_\+detect"{}) \\
+\hline
+{\em priority} & Task priority ("{}\+HIGH"{}, "{}\+NORMAL"{}, "{}\+LOW"{}) \\
+\hline
+{\em max\+\_\+retries} & Maximum retry attempts (default\+: 3) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Task ID if successful, empty string if failed 
+\end{DoxyReturn}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a25339ee9ba0b6e24695ee196962aa0a5}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!reset\_stats@{reset\_stats}}
+\index{reset\_stats@{reset\_stats}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{reset\_stats()}{reset\_stats()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a25339ee9ba0b6e24695ee196962aa0a5} 
+void telemetryhub\+::gateway\+::\+Redis\+Publisher\+::reset\+\_\+stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reset statistics. 
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6e59a512c790c65c08a0aa9d3d9d658d}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!sample\_to\_task\_json@{sample\_to\_task\_json}}
+\index{sample\_to\_task\_json@{sample\_to\_task\_json}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{sample\_to\_task\_json()}{sample\_to\_task\_json()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_a6e59a512c790c65c08a0aa9d3d9d658d} 
+nlohmann\+::json telemetryhub\+::gateway\+::\+Redis\+Publisher\+::sample\+\_\+to\+\_\+task\+\_\+json (\begin{DoxyParamCaption}\item[{const Telemetry\+Sample \&}]{sample}{, }\item[{const std\+::string \&}]{task\+\_\+type}{, }\item[{const std\+::string \&}]{priority}{, }\item[{int}]{max\+\_\+retries}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_redis_publisher_ac4d0f3ec83aa6cc13e881015a33a4340}\index{telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}!pimpl\_@{pimpl\_}}
+\index{pimpl\_@{pimpl\_}!telemetryhub::gateway::RedisPublisher@{telemetryhub::gateway::RedisPublisher}}
+\doxysubsubsection{\texorpdfstring{pimpl\_}{pimpl\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_redis_publisher_ac4d0f3ec83aa6cc13e881015a33a4340} 
+std\+::unique\+\_\+ptr$<$Impl$>$ telemetryhub\+::gateway\+::\+Redis\+Publisher\+::pimpl\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_publisher_8h_source_l00139}{139}} of file \mbox{\hyperlink{_redis_publisher_8h_source}{Redis\+Publisher.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_redis_publisher_8h}{Redis\+Publisher.\+h}}\end{DoxyCompactItemize}

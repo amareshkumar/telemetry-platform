@@ -1,0 +1,22 @@
+\doxysection{json\+\_\+utils.\+h}
+\hypertarget{json__utils_8h_source}{}\label{json__utils_8h_source}\index{common/include/telemetry\_common/json\_utils.h@{common/include/telemetry\_common/json\_utils.h}}
+\mbox{\hyperlink{json__utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__common}{telemetry\_common}}\ \{}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00011}00011\ std::string\ \mbox{\hyperlink{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d}{json\_to\_string}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j,\ \textcolor{keywordtype}{int}\ indent\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00017}00017\ nlohmann::json\ \mbox{\hyperlink{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8}{string\_to\_json}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00025}00025\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851}{validate\_json}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ required\_fields);}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00030}00030\ std::string\ \mbox{\hyperlink{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5}{pretty\_print\_json}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j);}
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{json__utils_8h_source_l00032}00032\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_common}}
+
+\end{DoxyCode}

@@ -1,0 +1,11 @@
+<map id="ingestion/gateway/include/telemetryhub/gateway/RedisPublisher.h" name="ingestion/gateway/include/telemetryhub/gateway/RedisPublisher.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,291,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,59,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,51,66,90,64,85,127,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,96,152,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,47,134,84,130,81,149,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="176,96,242,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,46,197,83,192,82,173,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="267,96,397,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="207,46,294,88,289,89,206,51"/>
+</map>

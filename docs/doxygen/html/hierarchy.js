@@ -1,0 +1,37 @@
+var hierarchy =
+[
+    [ "telemetryhub::gateway::AppConfig", "structtelemetryhub_1_1gateway_1_1_app_config.html", null ],
+    [ "telemetry_common::Config", "classtelemetry__common_1_1_config.html", null ],
+    [ "telemetry_processor::TelemetryHandler::Config", "structtelemetry__processor_1_1_telemetry_handler_1_1_config.html", null ],
+    [ "telemetry_common::RedisClient::ConnectionOptions", "structtelemetry__common_1_1_redis_client_1_1_connection_options.html", null ],
+    [ "GatewayCore", "class_gateway_core.html", null ],
+    [ "telemetryhub::gateway::GatewayCore", "classtelemetryhub_1_1gateway_1_1_gateway_core.html", null ],
+    [ "telemetryhub::gateway::ICloudClient", "classtelemetryhub_1_1gateway_1_1_i_cloud_client.html", [
+      [ "telemetryhub::gateway::RestCloudClient", "classtelemetryhub_1_1gateway_1_1_rest_cloud_client.html", null ]
+    ] ],
+    [ "telemetry_processor::RedisClient::Impl", "structtelemetry__processor_1_1_redis_client_1_1_impl.html", null ],
+    [ "telemetry_common::IRedisClient", "classtelemetry__common_1_1_i_redis_client.html", null ],
+    [ "telemetryhub::Logger", "classtelemetryhub_1_1_logger.html", null ],
+    [ "GatewayCore::Metrics", "struct_gateway_core_1_1_metrics.html", null ],
+    [ "telemetryhub::gateway::GatewayCore::Metrics", "structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics.html", null ],
+    [ "telemetryhub::gateway::ThreadPool::Metrics", "structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics.html", null ],
+    [ "telemetry_processor::TelemetryHandler::ProcessResult", "structtelemetry__processor_1_1_telemetry_handler_1_1_process_result.html", null ],
+    [ "telemetry::ProtoAdapter", "classtelemetry_1_1_proto_adapter.html", null ],
+    [ "telemetry_common::RedisClient", "classtelemetry__common_1_1_redis_client.html", null ],
+    [ "telemetry_processor::RedisClient", "classtelemetry__processor_1_1_redis_client.html", null ],
+    [ "telemetryhub::gateway::RedisPublisher", "classtelemetryhub_1_1gateway_1_1_redis_publisher.html", null ],
+    [ "httplib::Request", "classhttplib_1_1_request.html", null ],
+    [ "httplib::Response", "classhttplib_1_1_response.html", null ],
+    [ "httplib::Server", "classhttplib_1_1_server.html", null ],
+    [ "telemetry_processor::TelemetryHandler::Stats", "structtelemetry__processor_1_1_telemetry_handler_1_1_stats.html", null ],
+    [ "telemetryhub::gateway::RedisPublisher::Stats", "structtelemetryhub_1_1gateway_1_1_redis_publisher_1_1_stats.html", null ],
+    [ "telemetry_processing::Task", "structtelemetry__processing_1_1_task.html", null ],
+    [ "telemetry_processor::Task", "structtelemetry__processor_1_1_task.html", null ],
+    [ "telemetry_processing::TaskQueue::TaskComparator", "structtelemetry__processing_1_1_task_queue_1_1_task_comparator.html", null ],
+    [ "telemetry_processing::TaskQueue", "classtelemetry__processing_1_1_task_queue.html", null ],
+    [ "telemetry_processor::TelemetryHandler", "classtelemetry__processor_1_1_telemetry_handler.html", null ],
+    [ "telemetry_processor::TelemetryHandler::TelemetryPayload", "structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload.html", null ],
+    [ "telemetryhub::gateway::TelemetryQueue", "classtelemetryhub_1_1gateway_1_1_telemetry_queue.html", null ],
+    [ "telemetry::TelemetrySampleCpp", "structtelemetry_1_1_telemetry_sample_cpp.html", null ],
+    [ "telemetryhub::gateway::ThreadPool", "classtelemetryhub_1_1gateway_1_1_thread_pool.html", null ]
+];

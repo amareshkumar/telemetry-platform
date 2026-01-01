@@ -1,0 +1,234 @@
+\doxysection{telemetryhub\+::Logger Class Reference}
+\hypertarget{classtelemetryhub_1_1_logger}{}\label{classtelemetryhub_1_1_logger}\index{telemetryhub::Logger@{telemetryhub::Logger}}
+
+
+{\ttfamily \#include $<$Log.\+h$>$}
+
+
+
+Collaboration diagram for telemetryhub\+::Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classtelemetryhub_1_1_logger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0}{set\+\_\+level}} (\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}} lvl)
+\item 
+\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}} \mbox{\hyperlink{classtelemetryhub_1_1_logger_a18de8ad973d6af1a8399ff60f9acf321}{level}} () const
+\item 
+bool \mbox{\hyperlink{classtelemetryhub_1_1_logger_ade03441f7e683f6780d8dbb433ec173b}{open\+\_\+file}} (const std\+::string \&path)
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65}{log}} (\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}} lvl, const char \texorpdfstring{$\ast$}{*}cat, const std\+::string \&msg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtelemetryhub_1_1_logger}{Logger}} \& \mbox{\hyperlink{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}{instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2}{lvl\+\_\+name}} (\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}} l)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic$<$ int $>$ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{level\+\_\+}} \{(int)\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{Log\+Level\+::\+Info}}\}
+\item 
+std\+::mutex \mbox{\hyperlink{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}{mu\+\_\+}}
+\item 
+std\+::\+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\+\_\+}} \{nullptr\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00013}{13}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetryhub_1_1_logger_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}\index{telemetryhub::Logger@{telemetryhub::Logger}!instance@{instance}}
+\index{instance@{instance}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308} 
+\mbox{\hyperlink{classtelemetryhub_1_1_logger}{Logger}} \& telemetryhub\+::\+Logger\+::instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00015}{15}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00049}{telemetryhub\+::gateway\+::apply\+\_\+cfg\+\_\+if\+\_\+any()}}, and \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1_logger_a18de8ad973d6af1a8399ff60f9acf321}\index{telemetryhub::Logger@{telemetryhub::Logger}!level@{level}}
+\index{level@{level}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{level()}{level()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a18de8ad973d6af1a8399ff60f9acf321} 
+\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}} telemetryhub\+::\+Logger\+::level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00018}{18}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00052}{level\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65}\index{telemetryhub::Logger@{telemetryhub::Logger}!log@{log}}
+\index{log@{log}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65} 
+void telemetryhub\+::\+Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}}}]{lvl}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{cat}{, }\item[{const std\+::string \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00028}{28}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00054}{file\+\_\+}}, \mbox{\hyperlink{_log_8h_source_l00052}{level\+\_\+}}, \mbox{\hyperlink{_log_8h_source_l00042}{lvl\+\_\+name()}}, and \mbox{\hyperlink{_log_8h_source_l00053}{mu\+\_\+}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2}\index{telemetryhub::Logger@{telemetryhub::Logger}!lvl\_name@{lvl\_name}}
+\index{lvl\_name@{lvl\_name}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{lvl\_name()}{lvl\_name()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2} 
+const char \texorpdfstring{$\ast$}{*} telemetryhub\+::\+Logger\+::lvl\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}}}]{l}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00042}{42}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Debug}}, \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Error}}, \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Info}}, and \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Warn}}.
+
+
+
+Referenced by \mbox{\hyperlink{_log_8h_source_l00028}{log()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1_logger_ade03441f7e683f6780d8dbb433ec173b}\index{telemetryhub::Logger@{telemetryhub::Logger}!open\_file@{open\_file}}
+\index{open\_file@{open\_file}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{open\_file()}{open\_file()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_ade03441f7e683f6780d8dbb433ec173b} 
+bool telemetryhub\+::\+Logger\+::open\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00021}{21}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00054}{file\+\_\+}}, and \mbox{\hyperlink{_log_8h_source_l00053}{mu\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0}\index{telemetryhub::Logger@{telemetryhub::Logger}!set\_level@{set\_level}}
+\index{set\_level@{set\_level}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{set\_level()}{set\_level()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0} 
+void telemetryhub\+::\+Logger\+::set\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{Log\+Level}}}]{lvl}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00017}{17}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00052}{level\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00049}{telemetryhub\+::gateway\+::apply\+\_\+cfg\+\_\+if\+\_\+any()}}, and \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetryhub_1_1_logger_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}\index{telemetryhub::Logger@{telemetryhub::Logger}!file\_@{file\_}}
+\index{file\_@{file\_}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{file\_}{file\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2} 
+std\+::\+FILE\texorpdfstring{$\ast$}{*} telemetryhub\+::\+Logger\+::file\+\_\+ \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00054}{54}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_log_8h_source_l00028}{log()}}, and \mbox{\hyperlink{_log_8h_source_l00021}{open\+\_\+file()}}.
+
+\Hypertarget{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}\index{telemetryhub::Logger@{telemetryhub::Logger}!level\_@{level\_}}
+\index{level\_@{level\_}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{level\_}{level\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4} 
+std\+::atomic$<$int$>$ telemetryhub\+::\+Logger\+::level\+\_\+ \{(int)\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{Log\+Level\+::\+Info}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00052}{52}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_log_8h_source_l00018}{level()}}, \mbox{\hyperlink{_log_8h_source_l00028}{log()}}, and \mbox{\hyperlink{_log_8h_source_l00017}{set\+\_\+level()}}.
+
+\Hypertarget{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}\index{telemetryhub::Logger@{telemetryhub::Logger}!mu\_@{mu\_}}
+\index{mu\_@{mu\_}!telemetryhub::Logger@{telemetryhub::Logger}}
+\doxysubsubsection{\texorpdfstring{mu\_}{mu\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c} 
+std\+::mutex telemetryhub\+::\+Logger\+::mu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_log_8h_source_l00053}{53}} of file \mbox{\hyperlink{_log_8h_source}{Log.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_log_8h_source_l00028}{log()}}, and \mbox{\hyperlink{_log_8h_source_l00021}{open\+\_\+file()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_log_8h}{Log.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="telemetry_processor::Task::create" name="telemetry_processor::Task::create">
+<area shape="rect" id="Node000001" title="Create a new task with generated UUID." alt="" coords="5,5,145,48"/>
+<area shape="rect" id="Node000002" href="$namespacetelemetry__processor.html#a51d6c36c1522a65fe9abdd77d02adfca" title="Generate a UUID v4 string." alt="" coords="193,5,332,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,24,180,26,175,27,145,29"/>
+</map>

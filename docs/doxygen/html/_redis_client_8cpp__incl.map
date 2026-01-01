@@ -1,0 +1,19 @@
+<map id="processing/src/core/RedisClient.cpp" name="processing/src/core/RedisClient.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="246,5,381,48"/>
+<area shape="rect" id="Node000002" href="$_redis_client_8h.html" title=" " alt="" coords="89,96,228,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,50,209,91,206,86,279,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="253,104,299,131"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="307,47,289,91,285,88,303,50"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="324,104,380,131"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="323,46,343,90,338,89,321,51"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="405,104,462,131"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="342,46,407,95,402,95,341,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,59,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,141,66,180,63,176,124,137"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="83,187,149,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="150,138,132,174,128,171,145,141"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="173,187,230,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="171,137,190,173,185,172,168,142"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="254,187,322,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="193,137,257,178,252,178,191,142"/>
+</map>

@@ -1,0 +1,60 @@
+\doxysection{telemetry\+\_\+processing\+::Task\+Queue\+::Task\+Comparator Struct Reference}
+\hypertarget{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{}\label{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}\index{telemetry\_processing::TaskQueue::TaskComparator@{telemetry\_processing::TaskQueue::TaskComparator}}
+
+
+Comparator for priority queue ordering.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_af19053295b5732216cafe6cef1fadfed}{operator()}} (const \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} \&a, const \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} \&b) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Comparator for priority queue ordering. 
+
+Orders tasks by\+:
+\begin{DoxyEnumerate}
+\item Priority (lower enum value = higher priority)
+\item Timestamp (earlier = higher priority for same priority level)
+\end{DoxyEnumerate}
+
+This ensures\+:
+\begin{DoxyItemize}
+\item HIGH priority processed before MEDIUM/\+LOW
+\item FIFO ordering within same priority
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Used by std\+::priority\+\_\+queue internally 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00431}{431}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_af19053295b5732216cafe6cef1fadfed}\index{telemetry\_processing::TaskQueue::TaskComparator@{telemetry\_processing::TaskQueue::TaskComparator}!operator()@{operator()}}
+\index{operator()@{operator()}!telemetry\_processing::TaskQueue::TaskComparator@{telemetry\_processing::TaskQueue::TaskComparator}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_queue_1_1_task_comparator_af19053295b5732216cafe6cef1fadfed} 
+bool telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Comparator\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} \&}]{a}{, }\item[{const \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} \&}]{b}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00432}{432}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00109}{telemetry\+\_\+processing\+::\+Task\+::created\+\_\+at}}, and \mbox{\hyperlink{task__queue_8h_source_l00108}{telemetry\+\_\+processing\+::\+Task\+::priority}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/\mbox{\hyperlink{task__queue_8h}{task\+\_\+queue.\+h}}\end{DoxyCompactItemize}

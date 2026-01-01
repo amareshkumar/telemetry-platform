@@ -1,0 +1,107 @@
+\doxysection{processing/include/task\+\_\+queue.h File Reference}
+\hypertarget{task__queue_8h}{}\label{task__queue_8h}\index{processing/include/task\_queue.h@{processing/include/task\_queue.h}}
+
+
+Thread-\/safe priority-\/based task queue for telemetry processing.  
+
+
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$condition\+\_\+variable$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+Include dependency graph for task\+\_\+queue.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{task__queue_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{task__queue_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry__processing_1_1_task}{telemetry\+\_\+processing\+::\+Task}}
+\begin{DoxyCompactList}\small\item\em Represents a single unit of work with priority and metadata. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue}{telemetry\+\_\+processing\+::\+Task\+Queue}}
+\begin{DoxyCompactList}\small\item\em Thread-\/safe bounded priority queue for task scheduling. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Comparator}}
+\begin{DoxyCompactList}\small\item\em Comparator for priority queue ordering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry__processing}{telemetry\+\_\+processing}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{telemetry\+\_\+processing\+::\+Task\+Priority}} \+: int \{ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{telemetry\+\_\+processing\+::\+HIGH}} = 0
+, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{telemetry\+\_\+processing\+::\+MEDIUM}} = 1
+, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345a41bc94cbd8eebea13ce0491b2ac11b88}{telemetry\+\_\+processing\+::\+LOW}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Priority levels for task scheduling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__processing_ae1c6151684cc69ed0ca9adb73b227830}{telemetry\+\_\+processing\+::to\+\_\+string}} (\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} priority)
+\begin{DoxyCompactList}\small\item\em Convert \doxylink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority} enum to human-\/readable string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread-\/safe priority-\/based task queue for telemetry processing. 
+
+\begin{DoxyAuthor}{Author}
+Telemetry\+Hub Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/12-\/28 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+3.\+0
+\end{DoxyVersion}
+This file provides a production-\/ready priority queue implementation for high-\/throughput telemetry processing with\+:
+\begin{DoxyItemize}
+\item {\bfseries{Priority Scheduling}}\+: HIGH/\+MEDIUM/\+LOW priority levels
+\item {\bfseries{Thread Safety}}\+: Full synchronization with mutex + condition variable
+\item {\bfseries{Bounded Capacity}}\+: Configurable max size with backpressure
+\item {\bfseries{Blocking Operations}}\+: enqueue() and dequeue() with timeout support
+\item {\bfseries{FIFO Within Priority}}\+: Same-\/priority tasks processed in order
+\end{DoxyItemize}
+
+{\bfseries{Performance Characteristics}}\+:
+\begin{DoxyItemize}
+\item enqueue()\+: O(log n) -\/ binary heap insertion
+\item dequeue()\+: O(log n) -\/ extract-\/min from heap
+\item peek()\+: O(1) -\/ view highest priority task
+\item size()/empty()\+: O(1) -\/ constant time
+\end{DoxyItemize}
+
+{\bfseries{Interview Talking Points}}\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Priority Queue}}\+: Why binary heap over sorted list? (O(log n) vs O(n))
+\item {\bfseries{Thread Safety}}\+: Producer-\/consumer pattern with condition variables
+\item {\bfseries{Bounded Queue}}\+: Backpressure mechanism (prevent memory exhaustion)
+\item {\bfseries{Timeout Handling}}\+: std\+::chrono for type-\/safe time management
+\item {\bfseries{Modern C++17}}\+: std\+::optional, lambda comparators, RAII lock guards
+\end{DoxyEnumerate}
+
+\begin{DoxySeeAlso}{See also}
+std\+::priority\+\_\+queue for underlying data structure 
+
+std\+::condition\+\_\+variable for blocking synchronization 
+\end{DoxySeeAlso}
+
+
+Definition in file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+

@@ -1,0 +1,114 @@
+\doxysection{redis\+\_\+client.\+h}
+\hypertarget{redis__client_8h_source}{}\label{redis__client_8h_source}\index{common/include/telemetry\_common/redis\_client.h@{common/include/telemetry\_common/redis\_client.h}}
+\mbox{\hyperlink{redis__client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00041}00041\ \textcolor{comment}{//\ Forward\ declarations\ to\ avoid\ exposing\ redis++\ in\ header}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00042}\mbox{\hyperlink{namespacesw}{00042}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesw}{sw}}\ \{}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00043}\mbox{\hyperlink{namespacesw_1_1redis}{00043}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesw_1_1redis}{redis}}\ \{}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{class\ }Redis;}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00048}00048\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__common}{telemetry\_common}}\ \{}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00118}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client}{00118}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\ \{}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00119}00119\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00123}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{00123}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{ConnectionOptions}}\ \{}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00124}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a198ffb00514e9bfa9e022ff1211db9f8}{00124}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a198ffb00514e9bfa9e022ff1211db9f8}{host}}\ =\ \textcolor{stringliteral}{"{}localhost"{}};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00125}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a218c65b66d7c2948fa5c5a544106d9ae}{00125}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a218c65b66d7c2948fa5c5a544106d9ae}{port}}\ =\ 6379;}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00126}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a860f3465af6a327d8d3c939ee3aa6817}{00126}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a860f3465af6a327d8d3c939ee3aa6817}{password}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00127}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a55cb9ae3593e6c966083793bca9713d1}{00127}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a55cb9ae3593e6c966083793bca9713d1}{db}}\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Database\ index\ (0-\/15)}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00128}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_aee824e372b84f754a55cfc304784c028}{00128}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_aee824e372b84f754a55cfc304784c028}{pool\_size}}\ =\ 5;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connection\ pool\ size}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00129}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_aeaaf2650a425969f1f01b7ff7dfaf25b}{00129}}\ \ \ \ \ \ \ \ \ std::chrono::milliseconds\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_aeaaf2650a425969f1f01b7ff7dfaf25b}{connect\_timeout}}\{1000\};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00130}\mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a73374101a5b0604d6e3fb967ea2c0da9}{00130}}\ \ \ \ \ \ \ \ \ std::chrono::milliseconds\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options_a73374101a5b0604d6e3fb967ea2c0da9}{socket\_timeout}}\{1000\};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00131}00131\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00138}00138\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}(\textcolor{keyword}{const}\ ConnectionOptions\&\ options\ =\ ConnectionOptions\{\});}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00143}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a25502eb421decddd2c395ff5e054fa01}{00143}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a25502eb421decddd2c395ff5e054fa01}{\string~RedisClient}}();}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//\ Disable\ copy\ (Redis\ connection\ is\ not\ copyable)}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00146}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311}{00146}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a664886c5edf97ad50654f086b7847311}{RedisClient}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00147}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70}{00147}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a150f211c9911ea84e439040cbc351a70}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00149}00149\ \ \ \ \ \textcolor{comment}{//\ Enable\ move}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00150}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2}{00150}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a90a175e31af44eab0556b5207c0ff7d2}{RedisClient}}(\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&\&)\ noexcept;}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00151}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad2379542557c9a2a1c19e1c6f1e31b9d}{00151}}\ \ \ \ \ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&\ operator=(\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7dfc3a6ada1c8d899e47256166ac82ac}{RedisClient}}\&\&)\ noexcept;}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00153}00153\ \ \ \ \ \textcolor{comment}{//\ ==========\ Connection\ Management\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a670dd5807e948ed9470d7af34fa02a0e}{ping}}();}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa70f619cb8a3c8415450e313a256d5d3}{is\_connected}}()\ const;}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//\ ==========\ String\ Operations\ (Key-\/Value)\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00175}00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a7108f5c1c6ff19901b341fc89bb5e71a}{set}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ value,\ \textcolor{keywordtype}{int}\ ttl\_seconds\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00182}00182\ \ \ \ \ std::optional<std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a49e2f9325b61f5153e81195b7c38c353}{get}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00189}00189\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa78d10b46806d7ee83801551aa297a1f}{del}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00196}00196\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_af51f7fbeb2bb219c9ab9d3998db9f256}{exists}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00204}00204\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a1e619089a054e8035fb046c0afbd3dcd}{expire}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ \textcolor{keywordtype}{int}\ seconds);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a531cbd950976cac0e1ce475cde41cbb4}{ttl}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00213}00213\ \ \ \ \ \textcolor{comment}{//\ ==========\ List\ Operations\ (Task\ Queue)\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00223}00223\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a9fa2e10fa1c5774c5b589be486cf85b1}{lpush}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ value);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00233}00233\ \ \ \ \ std::optional<std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ac529c9bac2642a7ad6fe6ba8ad2663ee}{rpop}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00244}00244\ \ \ \ \ std::optional<std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ae17681f63e4cdbee48b45019141576d7}{brpop}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ \textcolor{keywordtype}{int}\ timeout\_seconds\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00251}00251\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a4105793528415eb8c3b7ffff5a9af935}{llen}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00260}00260\ \ \ \ \ std::vector<std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a9f3a5d719acfa0b8b0eadbd8e65a4ffb}{lrange}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ start,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ stop);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//\ ==========\ Set\ Operations\ (Task\ Deduplication)\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00270}00270\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_adfa6f332cc22ed2228510af8f16415ba}{sadd}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ member);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00278}00278\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a2b71b9bd460f0ba8ac61d2b2c7cb053b}{sismember}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ member);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00286}00286\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_ad0aef1fccd5657da70dcc7dfe76a28c6}{srem}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ member);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ ==========\ Sorted\ Set\ Operations\ (Priority\ Queue)\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00300}00300\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a6f6bcb9ad3ad571f0effa50633dd3ab3}{zadd}}(const\ std::\textcolor{keywordtype}{string}\&\ key,\ const\ std::\textcolor{keywordtype}{string}\&\ member,\ \textcolor{keywordtype}{double}\ score);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00309}00309\ \ \ \ \ std::optional<std::\textcolor{keywordtype}{string}>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a6feb857e158a44f87c4f86a65d5b9bfa}{zpopmax}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00316}00316\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a91b9fe82b7ce4971c37f8d55d4589b4a}{zcard}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00318}00318\ \ \ \ \ \textcolor{comment}{//\ ==========\ Atomic\ Operations\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00325}00325\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a94c0e91e24221fd94837d2f6715eecd2}{incr}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00332}00332\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_aa52faf05914b7fd3c90d88fccb5efde8}{decr}}(const\ std::\textcolor{keywordtype}{string}\&\ key);}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00334}00334\ \ \ \ \ \textcolor{comment}{//\ ==========\ Statistics\ \&\ Debugging\ ==========}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00339}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a}{00339}}\ \ \ \ \ const\ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{ConnectionOptions}}\&\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a8d92466d414873581f4b6a5ec106425a}{get\_options}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26}{options\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00345}00345\ \ \ \ \ std::string\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a76f3863808b2ab45e9d3ec4254442328}{info}}();}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00347}00347\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00348}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26}{00348}}\ \ \ \ \ \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{ConnectionOptions}}\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a10640093f5a5891ae65f5c6ad3c91c26}{options\_}};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00349}\mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a23becf40bfbf2ee1bb9f971ff18a95f7}{00349}}\ \ \ \ \ std::unique\_ptr<sw::redis::Redis>\ \mbox{\hyperlink{classtelemetry__common_1_1_redis_client_a23becf40bfbf2ee1bb9f971ff18a95f7}{redis\_}};\ \ \textcolor{comment}{//\ PIMPL\ pattern\ to\ hide\ implementation}}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00350}00350\ \};}
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{redis__client_8h_source_l00352}00352\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_common}}
+
+\end{DoxyCode}

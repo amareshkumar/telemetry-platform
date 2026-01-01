@@ -1,0 +1,284 @@
+\doxysection{Gateway\+Core.\+cpp}
+\hypertarget{_gateway_core_8cpp_source}{}\label{_gateway_core_8cpp_source}\index{ingestion/gateway/src/GatewayCore.cpp@{ingestion/gateway/src/GatewayCore.cpp}}
+\mbox{\hyperlink{_gateway_core_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gateway_core_8h}{telemetryhub/gateway/GatewayCore.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}telemetryhub/device/DeviceUtils.h"{}}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_log_8h}{telemetryhub/gateway/Log.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }std::chrono\_literals;\ \textcolor{comment}{//\ enable\ 100ms\ duration\ literal}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub::gateway}}\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00013}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ac90c4a9c3bff8b1dd2fdefa0482cbc73}{00013}}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ac90c4a9c3bff8b1dd2fdefa0482cbc73}{GatewayCore::GatewayCore}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00014}00014\ \ \ \ \ :\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}\{\},\ \textcolor{comment}{//\ default\ Device\ (e.g.\ fault\ after\ 8\ samples)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00015}00015\ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ac3f25184e687f6e0cf9c29ed2228441d}{start\_time\_}}(std::chrono::steady\_clock::now()),}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00016}00016\ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa0a9989eda7b28cd55be399fd21c6e26}{thread\_pool\_}}(std::make\_unique<\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool}{ThreadPool}}>(4))\ \ \textcolor{comment}{//\ 4\ worker\ threads\ for\ processing}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00020}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a2ef47a5a310de0bf024e239ea4d9995d}{00020}}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a2ef47a5a310de0bf024e239ea4d9995d}{GatewayCore::\string~GatewayCore}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aba201b962c90462b92cdec5e9473ecba}{stop}}();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00025}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aef77ea19a1e61664604afc0178476107}{00025}}\ \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics}{GatewayCore::Metrics}}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aef77ea19a1e61664604afc0178476107}{GatewayCore::get\_metrics}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00026}00026\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics}{Metrics}}\ m;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00028}00028\ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_ae6f052bc51bfb38f94ea8f5d7909f398}{samples\_processed}}\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a51dd7f3d3856bdf758831a87701f5fa7}{metrics\_samples\_processed\_}}.load();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00029}00029\ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a6e52636bd51cc02e690dc5fc5c0780af}{samples\_dropped}}\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a198e80647fee73dafddab824797a620c}{metrics\_samples\_dropped\_}}.load();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ Note:\ queue\_.size()\ requires\ mutable\ access,\ so\ we\ can't\ get\ accurate\ depth\ from\ const\ method}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ TODO:\ Make\ queue\ metrics\ thread-\/safe\ for\ const\ access\ or\ make\ get\_metrics()\ non-\/const}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00032}00032\ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_aedee79e02e8caaa24290076a705bb149}{queue\_depth}}\ =\ 0;\ \ \textcolor{comment}{//\ Placeholder\ -\/\ requires\ non-\/const\ access\ to\ queue}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00033}00033\ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a6ce9b0f4592da15fcac171b686f68ffe}{latency\_p99\_ms}}\ =\ 0.0;\ \textcolor{comment}{//\ TODO:\ Implement\ latency\ tracking\ with\ histogram}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{auto}\ uptime\ =\ std::chrono::duration\_cast<std::chrono::seconds>(now\ -\/\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ac3f25184e687f6e0cf9c29ed2228441d}{start\_time\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00037}00037\ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a80eedf3b9046a5a6f5c865d3d99383f2}{uptime\_seconds}}\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}(uptime.count());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Thread\ pool\ metrics\ (Day\ 17)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa0a9989eda7b28cd55be399fd21c6e26}{thread\_pool\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pool\_metrics\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa0a9989eda7b28cd55be399fd21c6e26}{thread\_pool\_}}-\/>get\_metrics();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a30a050f9ce2ce66e0c9c3e4f23d98fcf}{pool\_jobs\_processed}}\ =\ pool\_metrics.jobs\_processed;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a25c05719cbab51163616cfa9500db975}{pool\_jobs\_queued}}\ =\ pool\_metrics.jobs\_queued;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a01d739ab345eb5d07e46067075c544fc}{pool\_avg\_processing\_ms}}\ =\ pool\_metrics.avg\_processing\_ms;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_gateway_core_1_1_metrics_a6836971d17f78e92f6c760ba601d8f47}{pool\_num\_threads}}\ =\ pool\_metrics.num\_threads;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00047}00047\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00051}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_af590fdb1f6eb3935eac640781494ea2d}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_af590fdb1f6eb3935eac640781494ea2d}{GatewayCore::start}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ expected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a0eb23876dcdd79a44a24f39ab306e6a5}{running\_}}.compare\_exchange\_strong(expected,\ \textcolor{keyword}{true}))}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00055}00055\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ running}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}starting\ device..."{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{TELEMETRYHUB\_LOG}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{::telemetryhub::LogLevel::Info}},\ \textcolor{stringliteral}{"{}GatewayCore"{}},\ \textcolor{stringliteral}{"{}starting\ device..."{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a4c18800da440e649ca8c51e18a7ce134}{prev\_state\_}}\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.state();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.start();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ Apply\ queue\ capacity\ if\ requested}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a27bab702a9440034259dc773b40db091}{queue\_capacity\_}}\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a13bd88e8d153ca80c017fb5788cc8f5e}{queue\_}}.set\_capacity(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a27bab702a9440034259dc773b40db091}{queue\_capacity\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_afb467986402ce081ff8ba2e2e5e92512}{producer\_thread\_}}\ =\ std::thread(\&\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa9b709e36da60abafe7bdd775c54bcbb}{GatewayCore::producer\_loop}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a60ec11a1be5af3f92d8e84c368594306}{consumer\_thread\_}}\ =\ std::thread(\&\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a9e3ff1d49a192a1dc5ebf311f2a11098}{GatewayCore::consumer\_loop}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00074}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aba201b962c90462b92cdec5e9473ecba}{00074}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aba201b962c90462b92cdec5e9473ecba}{GatewayCore::stop}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ expected\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a0eb23876dcdd79a44a24f39ab306e6a5}{running\_}}.compare\_exchange\_strong(expected,\ \textcolor{keyword}{false}))}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ stopped}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore]\ stopping...\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}stopping\ device..."{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ Tell\ queue\ no\ more\ pushes\ are\ coming}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00087}00087\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a13bd88e8d153ca80c017fb5788cc8f5e}{queue\_}}.shutdown();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ Stop\ device\ if\ still\ measuring}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00091}00091\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.stop();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_afb467986402ce081ff8ba2e2e5e92512}{producer\_thread\_}}.joinable())}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00094}00094\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_afb467986402ce081ff8ba2e2e5e92512}{producer\_thread\_}}.join();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a60ec11a1be5af3f92d8e84c368594306}{consumer\_thread\_}}.joinable())}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00098}00098\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a60ec11a1be5af3f92d8e84c368594306}{consumer\_thread\_}}.join();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore]\ stopped.\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}stopped."{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00106}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a728c4c4a09773513fc0ab2176f2f4352}{00106}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a728c4c4a09773513fc0ab2176f2f4352}{GatewayCore::reset\_device}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ Can\ only\ reset\ when\ not\ running}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a0eb23876dcdd79a44a24f39ab306e6a5}{running\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ success\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.reset();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (success)\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a72fc2b9d0767e9ceab18222e9a4d18d8}{consecutive\_read\_failures\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\ \textcolor{stringliteral}{"{}Device\ reset\ from\ SafeState/Error\ to\ Idle"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{return}\ success;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00121}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_afda6a8521ff11ed154409f0c86a4157c}{00121}}\ device::DeviceState\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_afda6a8521ff11ed154409f0c86a4157c}{GatewayCore::device\_state}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00122}00122\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.state();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00126}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a1c61e461eba8f43b934097f63c6e3f68}{00126}}\ std::optional<device::TelemetrySample>\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a1c61e461eba8f43b934097f63c6e3f68}{GatewayCore::latest\_sample}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00127}00127\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00128}00128\ \ \ \ \ std::lock\_guard\ lock(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_adbe4324e50f3326e31e0a7a53d44704e}{latest\_mutex\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5751b14d6fcec65c1fe5c745d2696c6b}{latest\_}};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00132}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa9b709e36da60abafe7bdd775c54bcbb}{00132}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa9b709e36da60abafe7bdd775c54bcbb}{GatewayCore::producer\_loop}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore::producer]\ thread\ started\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00135}00135\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}[producer]\ thread\ started"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00137}00137\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a0eb23876dcdd79a44a24f39ab306e6a5}{running\_}})}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00138}00138\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ state\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.state();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Push\ status\ on\ transitions}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ab0e2d42544e4ad36b6311bce91365a3e}{cloud\_client\_}}\ \&\&\ state\ !=\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a4c18800da440e649ca8c51e18a7ce134}{prev\_state\_}})}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ab0e2d42544e4ad36b6311bce91365a3e}{cloud\_client\_}}-\/>push\_status(state);\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\ (std::string(\textcolor{stringliteral}{"{}cloud\ push\_status\ failed:\ "{}})\ +\ e.what()).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a4c18800da440e649ca8c51e18a7ce134}{prev\_state\_}}\ =\ state;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\ !=\ device::DeviceState::Measuring)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ device::DeviceState::SafeState\ ||}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ ==\ device::DeviceState::Error)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[producer]\ device\ state="{}}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ <<\ device::to\_string(state)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ <<\ "{},\ exiting\ producer\ loop\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\ (std::string(\textcolor{stringliteral}{"{}[producer]\ device\ state="{}})\ +\ device::to\_string(state)\ +\ \textcolor{stringliteral}{"{},\ exiting\ producer\ loop"{}}).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Idle\ or\ transitioning\ –\ wait\ a\ bit}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_acc3651bae168215ada5f5d40777e0f9e}{sample\_interval\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Attempt\ to\ read\ sample\ from\ device}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sample\_opt\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.read\_sample();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sample\_opt)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Track\ consecutive\ failures\ (circuit\ breaker\ pattern)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a72fc2b9d0767e9ceab18222e9a4d18d8}{consecutive\_read\_failures\_}}++;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (std::string(\textcolor{stringliteral}{"{}[producer]\ read\ failed,\ consecutive\ failures:\ "{}})\ +}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a72fc2b9d0767e9ceab18222e9a4d18d8}{consecutive\_read\_failures\_}})).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Force\ device\ to\ SafeState\ after\ threshold\ (policy\ enforcement)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a72fc2b9d0767e9ceab18222e9a4d18d8}{consecutive\_read\_failures\_}}\ >=\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a540a0e7bcabad69395202f14ecb6705e}{max\_consecutive\_failures\_}})}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (std::string(\textcolor{stringliteral}{"{}[producer]\ Max\ consecutive\ failures\ ("{}})\ +}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a540a0e7bcabad69395202f14ecb6705e}{max\_consecutive\_failures\_}})\ +}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{})\ reached,\ forcing\ device\ to\ SafeState"{}}).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Stop\ device—policy-\/driven\ SafeState\ transition}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5a21f33c75a7a91568b202c6c4096d2d}{device\_}}.stop();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_acc3651bae168215ada5f5d40777e0f9e}{sample\_interval\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Successful\ read—reset\ failure\ counter}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a72fc2b9d0767e9ceab18222e9a4d18d8}{consecutive\_read\_failures\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sample\_opt)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Blocking\ push\ in\ current\ queue\ implementation;\ treat\ as\ accepted}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a13bd88e8d153ca80c017fb5788cc8f5e}{queue\_}}.push(*sample\_opt);}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a51dd7f3d3856bdf758831a87701f5fa7}{metrics\_samples\_processed\_}}++;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a47a80083851d52e9adf02cb1d37227f6}{accepted\_counter\_}}++;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ab0e2d42544e4ad36b6311bce91365a3e}{cloud\_client\_}}\ \&\&\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a47a80083851d52e9adf02cb1d37227f6}{accepted\_counter\_}}\ \%\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a6455be12eac3ede1c4cc88074163903a}{cloud\_sample\_interval\_}}\ ==\ 0))}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_ab0e2d42544e4ad36b6311bce91365a3e}{cloud\_client\_}}-\/>push\_sample(*sample\_opt);\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\ (std::string(\textcolor{stringliteral}{"{}cloud\ push\_sample\ failed:\ "{}})\ +\ e.what()).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pace\ sampling\ irrespective\ of\ whether\ we\ produced\ a\ sample}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ std::this\_thread::sleep\_for(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_acc3651bae168215ada5f5d40777e0f9e}{sample\_interval\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00215}00215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore::producer]\ exiting\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00218}00218\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}[producer]\ exiting"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00219}00219\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00221}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a9e3ff1d49a192a1dc5ebf311f2a11098}{00221}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a9e3ff1d49a192a1dc5ebf311f2a11098}{GatewayCore::consumer\_loop}}()}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00222}00222\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00223}00223\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore::consumer]\ thread\ started\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00224}00224\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}[consumer]\ thread\ started"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00226}00226\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00227}00227\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sample\_opt\ =\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a13bd88e8d153ca80c017fb5788cc8f5e}{queue\_}}.pop();}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sample\_opt)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[consumer]\ queue\ shutdown,\ exiting\ consumer\ loop\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}[consumer]\ queue\ shutdown,\ exiting\ consumer\ loop"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard\ lock(\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_adbe4324e50f3326e31e0a7a53d44704e}{latest\_mutex\_}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a5751b14d6fcec65c1fe5c745d2696c6b}{latest\_}}\ =\ *sample\_opt;}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Submit\ processing\ to\ thread\ pool\ (Day\ 17)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa0a9989eda7b28cd55be399fd21c6e26}{thread\_pool\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_aa0a9989eda7b28cd55be399fd21c6e26}{thread\_pool\_}}-\/>submit(\&\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a2d8c3397a4a97d634e45afc03b7778bd}{GatewayCore::process\_sample\_with\_metrics}},\ \textcolor{keyword}{this},\ *sample\_opt);}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[consumer]\ got\ sample\ \#"{}\ <<\ sample\_opt-\/>sequence\_id}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ <<\ "{}\ value="{}\ <<\ sample\_opt-\/>value}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ <<\ "{}\ "{}\ <<\ sample\_opt-\/>unit\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ (std::string(\textcolor{stringliteral}{"{}[consumer]\ got\ sample\ \#"{}})\ +\ std::to\_string(sample\_opt-\/>sequence\_id)\ +}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ value="{}}\ +\ std::to\_string(sample\_opt-\/>value)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ sample\_opt-\/>unit).c\_str());\ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00253}00253\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}[GatewayCore::consumer]\ exiting\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00256}00256\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},\textcolor{stringliteral}{"{}[consumer]\ exiting"{}});}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00257}00257\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00259}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a2d8c3397a4a97d634e45afc03b7778bd}{00259}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_gateway_core_a2d8c3397a4a97d634e45afc03b7778bd}{GatewayCore::process\_sample\_with\_metrics}}(\textcolor{keyword}{const}\ device::TelemetrySample\&\ sample)}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00260}00260\ \{}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//\ Example\ derived\ metric:\ compute\ moving\ average,\ variance,\ etc.}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//\ This\ demonstrates\ CPU-\/bound\ work\ that\ benefits\ from\ parallel\ processing}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00263}00263\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{comment}{//\ Simulate\ some\ processing\ work}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00265}00265\ \ \ \ \ \textcolor{comment}{//\ In\ production,\ this\ would\ be:}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//\ -\/\ Statistical\ calculations\ (moving\ average,\ stddev,\ percentiles)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//\ -\/\ Data\ transformation\ (unit\ conversions,\ normalization)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ -\/\ Anomaly\ detection\ (outlier\ detection,\ trend\ analysis)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//\ -\/\ Aggregation\ (windowed\ metrics,\ rollups)}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00270}00270\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00271}00271\ \ \ \ \ \textcolor{keywordtype}{double}\ derived\_value\ =\ sample.value\ *\ 1.5;\ \ \textcolor{comment}{//\ Example:\ apply\ calibration\ factor}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00272}00272\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00273}00273\ \ \ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}GatewayCore"{}},}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ (std::string(\textcolor{stringliteral}{"{}[thread\_pool]\ processed\ sample\ \#"{}})\ +\ std::to\_string(sample.sequence\_id)\ +}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ derived\_value="{}}\ +\ std::to\_string(derived\_value)).c\_str());}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00276}00276\ \}}
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_gateway_core_8cpp_source_l00278}00278\ \}\ \ \ \textcolor{comment}{//\ namespace\ telemetryhub::gateway\ }}
+
+\end{DoxyCode}

@@ -1,0 +1,186 @@
+\doxysection{telemetry\+\_\+processor\+::Redis\+Client\+::Impl Struct Reference}
+\hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl}{}\label{structtelemetry__processor_1_1_redis_client_1_1_impl}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+
+
+Collaboration diagram for telemetry\+\_\+processor\+::Redis\+Client\+::Impl\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structtelemetry__processor_1_1_redis_client_1_1_impl__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_aa6d752021c0bd4aa76df7935ce84c3ca}{rpush}} (const std\+::string \&key, const std\+::string \&value)
+\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a4a22445b88404c328cdfd112ac5f9cb1}{blpop}} (const std\+::string \&key, int)
+\item 
+bool \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a69070c67f7d1d20a21b188b69505be71}{set}} (const std\+::string \&key, const std\+::string \&value)
+\item 
+std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a401747fbcd89dea2e5d062ace4a16970}{get}} (const std\+::string \&key)
+\item 
+bool \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a2a1124cd3a698bbb715619c0b3f0bbed}{del}} (const std\+::string \&key)
+\item 
+long long \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a3eca8ebbe589793fcebfcf899e3d21ac}{llen}} (const std\+::string \&key)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a7f76e3c964c890cf7adb0486e67f7537}{kv\+\_\+store}}
+\item 
+std\+::map$<$ std\+::string, std\+::deque$<$ std\+::string $>$ $>$ \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_ad4e95181bb341f167c2ec1a8a5890cd9}{lists}}
+\item 
+std\+::mutex \mbox{\hyperlink{structtelemetry__processor_1_1_redis_client_1_1_impl_a8576c373117dd2991c4e711735ad48d7}{mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Day 1\+: Mock Redis implementation using in-\/memory data structures This allows us to build and test without external Redis dependency
+
+Day 2\+: Replace with real redis-\/plus-\/plus implementation 
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a4a22445b88404c328cdfd112ac5f9cb1}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!blpop@{blpop}}
+\index{blpop@{blpop}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{blpop()}{blpop()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a4a22445b88404c328cdfd112ac5f9cb1} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::blpop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00016}{lists}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a2a1124cd3a698bbb715619c0b3f0bbed}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!del@{del}}
+\index{del@{del}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a2a1124cd3a698bbb715619c0b3f0bbed} 
+bool telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00015}{kv\+\_\+store}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00016}{lists}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a401747fbcd89dea2e5d062ace4a16970}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!get@{get}}
+\index{get@{get}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a401747fbcd89dea2e5d062ace4a16970} 
+std\+::optional$<$ std\+::string $>$ telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00015}{kv\+\_\+store}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a3eca8ebbe589793fcebfcf899e3d21ac}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!llen@{llen}}
+\index{llen@{llen}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{llen()}{llen()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a3eca8ebbe589793fcebfcf899e3d21ac} 
+long long telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::llen (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00016}{lists}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_aa6d752021c0bd4aa76df7935ce84c3ca}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!rpush@{rpush}}
+\index{rpush@{rpush}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{rpush()}{rpush()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_aa6d752021c0bd4aa76df7935ce84c3ca} 
+bool telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::rpush (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00016}{lists}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a69070c67f7d1d20a21b188b69505be71}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!set@{set}}
+\index{set@{set}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a69070c67f7d1d20a21b188b69505be71} 
+bool telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_redis_client_8cpp_source_l00015}{kv\+\_\+store}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{mutex}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a7f76e3c964c890cf7adb0486e67f7537}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!kv\_store@{kv\_store}}
+\index{kv\_store@{kv\_store}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{kv\_store}{kv\_store}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a7f76e3c964c890cf7adb0486e67f7537} 
+std\+::map$<$std\+::string, std\+::string$>$ telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::kv\+\_\+store}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{_redis_client_8cpp_source_l00052}{del()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00043}{get()}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00037}{set()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_ad4e95181bb341f167c2ec1a8a5890cd9}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!lists@{lists}}
+\index{lists@{lists}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{lists}{lists}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_ad4e95181bb341f167c2ec1a8a5890cd9} 
+std\+::map$<$std\+::string, std\+::deque$<$std\+::string$>$ $>$ telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::lists}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{_redis_client_8cpp_source_l00025}{blpop()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00052}{del()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00059}{llen()}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00019}{rpush()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_redis_client_1_1_impl_a8576c373117dd2991c4e711735ad48d7}\index{telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}!mutex@{mutex}}
+\index{mutex@{mutex}!telemetry\_processor::RedisClient::Impl@{telemetry\_processor::RedisClient::Impl}}
+\doxysubsubsection{\texorpdfstring{mutex}{mutex}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_redis_client_1_1_impl_a8576c373117dd2991c4e711735ad48d7} 
+std\+::mutex telemetry\+\_\+processor\+::\+Redis\+Client\+::\+Impl\+::mutex}
+
+
+
+Definition at line \mbox{\hyperlink{_redis_client_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_redis_client_8cpp_source}{Redis\+Client.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{_redis_client_8cpp_source_l00025}{blpop()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00052}{del()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00043}{get()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00059}{llen()}}, \mbox{\hyperlink{_redis_client_8cpp_source_l00019}{rpush()}}, and \mbox{\hyperlink{_redis_client_8cpp_source_l00037}{set()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+processing/src/core/\mbox{\hyperlink{_redis_client_8cpp}{Redis\+Client.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\doxysection{telemetryhub\+::gateway\+::Thread\+Pool\+::Metrics Struct Reference}
+\hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}{}\label{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}\index{telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}}
+
+
+Get metrics for monitoring.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Pool.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a2a4d45beefb695e9f41489e0d6ba52c2}{jobs\+\_\+processed}} \{0\}
+\begin{DoxyCompactList}\small\item\em Total jobs completed. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a7100c7255663d3343bc8bfa16d9927ed}{jobs\+\_\+queued}} \{0\}
+\begin{DoxyCompactList}\small\item\em Jobs currently in queue. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a3493fdc83e57ab6391289bed0def948d}{avg\+\_\+processing\+\_\+ms}} \{0.\+0\}
+\begin{DoxyCompactList}\small\item\em Average job processing time. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a1fa3907bce043fdeb01772c234ee3250}{num\+\_\+threads}} \{0\}
+\begin{DoxyCompactList}\small\item\em Number of worker threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Get metrics for monitoring. 
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00064}{64}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a3493fdc83e57ab6391289bed0def948d}\index{telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}!avg\_processing\_ms@{avg\_processing\_ms}}
+\index{avg\_processing\_ms@{avg\_processing\_ms}!telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}}
+\doxysubsubsection{\texorpdfstring{avg\_processing\_ms}{avg\_processing\_ms}}
+{\footnotesize\ttfamily \label{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a3493fdc83e57ab6391289bed0def948d} 
+double telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::avg\+\_\+processing\+\_\+ms \{0.\+0\}}
+
+
+
+Average job processing time. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00067}{67}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::get\+\_\+metrics()}}.
+
+\Hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a2a4d45beefb695e9f41489e0d6ba52c2}\index{telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}!jobs\_processed@{jobs\_processed}}
+\index{jobs\_processed@{jobs\_processed}!telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}}
+\doxysubsubsection{\texorpdfstring{jobs\_processed}{jobs\_processed}}
+{\footnotesize\ttfamily \label{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a2a4d45beefb695e9f41489e0d6ba52c2} 
+uint64\+\_\+t telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::jobs\+\_\+processed \{0\}}
+
+
+
+Total jobs completed. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00065}{65}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::get\+\_\+metrics()}}.
+
+\Hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a7100c7255663d3343bc8bfa16d9927ed}\index{telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}!jobs\_queued@{jobs\_queued}}
+\index{jobs\_queued@{jobs\_queued}!telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}}
+\doxysubsubsection{\texorpdfstring{jobs\_queued}{jobs\_queued}}
+{\footnotesize\ttfamily \label{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a7100c7255663d3343bc8bfa16d9927ed} 
+uint64\+\_\+t telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::jobs\+\_\+queued \{0\}}
+
+
+
+Jobs currently in queue. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00066}{66}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::get\+\_\+metrics()}}.
+
+\Hypertarget{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a1fa3907bce043fdeb01772c234ee3250}\index{telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}!num\_threads@{num\_threads}}
+\index{num\_threads@{num\_threads}!telemetryhub::gateway::ThreadPool::Metrics@{telemetryhub::gateway::ThreadPool::Metrics}}
+\doxysubsubsection{\texorpdfstring{num\_threads}{num\_threads}}
+{\footnotesize\ttfamily \label{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics_a1fa3907bce043fdeb01772c234ee3250} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::num\+\_\+threads \{0\}}
+
+
+
+Number of worker threads. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00068}{68}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::get\+\_\+metrics()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_thread_pool_8h}{Thread\+Pool.\+h}}\end{DoxyCompactItemize}

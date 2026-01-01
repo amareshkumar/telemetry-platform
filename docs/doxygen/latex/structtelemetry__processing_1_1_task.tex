@@ -1,0 +1,231 @@
+\doxysection{telemetry\+\_\+processing\+::Task Struct Reference}
+\hypertarget{structtelemetry__processing_1_1_task}{}\label{structtelemetry__processing_1_1_task}\index{telemetry\_processing::Task@{telemetry\_processing::Task}}
+
+
+Represents a single unit of work with priority and metadata.  
+
+
+
+
+{\ttfamily \#include $<$task\+\_\+queue.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+processing\+::Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{structtelemetry__processing_1_1_task__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}{Task}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor with current timestamp. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processing_1_1_task_a0f284f03a5af2e0c3f97227c436a051a}{Task}} (std\+::string task\+\_\+id, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} prio)
+\begin{DoxyCompactList}\small\item\em Constructor with ID and priority. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetry__processing_1_1_task_adfc921d45a8564b9b13a663dcade10d6}{Task}} (std\+::string task\+\_\+id, \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} prio, nlohmann\+::json data)
+\begin{DoxyCompactList}\small\item\em Full constructor with payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}{id}}
+\begin{DoxyCompactList}\small\item\em Unique task identifier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} \mbox{\hyperlink{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}{priority}} = \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{Task\+Priority\+::\+MEDIUM}}
+\begin{DoxyCompactList}\small\item\em Scheduling priority. \end{DoxyCompactList}\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}{created\+\_\+at}}
+\begin{DoxyCompactList}\small\item\em Creation timestamp. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe}{payload}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structtelemetry__processing_1_1_task}{Task} data (flexible JSON). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single unit of work with priority and metadata. 
+
+A task encapsulates\+:
+\begin{DoxyItemize}
+\item {\bfseries{Priority}}\+: For scheduling order
+\item {\bfseries{Timestamp}}\+: For FIFO ordering within same priority
+\item {\bfseries{Payload}}\+: Arbitrary JSON data for processing
+\item {\bfseries{ID}}\+: Unique identifier for tracking
+\end{DoxyItemize}
+
+{\bfseries{Design Decisions}}\+:
+\begin{DoxyItemize}
+\item JSON payload\+: Flexible schema-\/less data (vs rigid structs)
+\item Timestamp\+: std\+::chrono for precision (microseconds)
+\item ID\+: String UUID for distributed systems
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}{Task}}\ task;}
+\DoxyCodeLine{task.id\ =\ \textcolor{stringliteral}{"{}task-\/12345"{}};}
+\DoxyCodeLine{task.priority\ =\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{TaskPriority::HIGH}};}
+\DoxyCodeLine{task.created\_at\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{task.payload\ =\ \{\{\textcolor{stringliteral}{"{}device\_id"{}},\ \textcolor{stringliteral}{"{}sensor-\/001"{}}\},\ \{\textcolor{stringliteral}{"{}temperature"{}},\ 25.5\}\};}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00106}{106}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{structtelemetry__processing_1_1_task_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!Task@{Task}}
+\index{Task@{Task}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{Task()}{Task()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_aa729adf57cab95cc9a08b454e1e63a21} 
+telemetry\+\_\+processing\+::\+Task\+::\+Task (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor with current timestamp. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00115}{115}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00109}{created\+\_\+at}}.
+
+\Hypertarget{structtelemetry__processing_1_1_task_a0f284f03a5af2e0c3f97227c436a051a}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!Task@{Task}}
+\index{Task@{Task}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{Task()}{Task()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_a0f284f03a5af2e0c3f97227c436a051a} 
+telemetry\+\_\+processing\+::\+Task\+::\+Task (\begin{DoxyParamCaption}\item[{std\+::string}]{task\+\_\+id}{, }\item[{\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}}}]{prio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with ID and priority. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+id} & Unique task identifier \\
+\hline
+{\em prio} & \doxylink{structtelemetry__processing_1_1_task}{Task} priority level \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00122}{122}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00109}{created\+\_\+at}}, \mbox{\hyperlink{task__queue_8h_source_l00107}{id}}, and \mbox{\hyperlink{task__queue_8h_source_l00108}{priority}}.
+
+\Hypertarget{structtelemetry__processing_1_1_task_adfc921d45a8564b9b13a663dcade10d6}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!Task@{Task}}
+\index{Task@{Task}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{Task()}{Task()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_adfc921d45a8564b9b13a663dcade10d6} 
+telemetry\+\_\+processing\+::\+Task\+::\+Task (\begin{DoxyParamCaption}\item[{std\+::string}]{task\+\_\+id}{, }\item[{\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}}}]{prio}{, }\item[{nlohmann\+::json}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Full constructor with payload. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+id} & Unique task identifier \\
+\hline
+{\em prio} & \doxylink{structtelemetry__processing_1_1_task}{Task} priority level \\
+\hline
+{\em data} & \doxylink{structtelemetry__processing_1_1_task}{Task} payload (JSON) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00133}{133}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00109}{created\+\_\+at}}, \mbox{\hyperlink{task__queue_8h_source_l00107}{id}}, \mbox{\hyperlink{task__queue_8h_source_l00110}{payload}}, and \mbox{\hyperlink{task__queue_8h_source_l00108}{priority}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetry__processing_1_1_task_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_ac8ee68908203930a7564fa943ce7f757} 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point telemetry\+\_\+processing\+::\+Task\+::created\+\_\+at}
+
+
+
+Creation timestamp. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00109}{109}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8h_source_l00432}{telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Comparator\+::operator()()}}, \mbox{\hyperlink{task__queue_8h_source_l00115}{Task()}}, \mbox{\hyperlink{task__queue_8h_source_l00122}{Task()}}, and \mbox{\hyperlink{task__queue_8h_source_l00133}{Task()}}.
+
+\Hypertarget{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!id@{id}}
+\index{id@{id}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_ac48e1f6e0bb2981b3a0975fca9d6fe66} 
+std\+::string telemetry\+\_\+processing\+::\+Task\+::id}
+
+
+
+Unique task identifier. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00107}{107}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8h_source_l00122}{Task()}}, and \mbox{\hyperlink{task__queue_8h_source_l00133}{Task()}}.
+
+\Hypertarget{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!payload@{payload}}
+\index{payload@{payload}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_a17ec0d97532bf337554eec400b84cabe} 
+nlohmann\+::json telemetry\+\_\+processing\+::\+Task\+::payload}
+
+
+
+\doxylink{structtelemetry__processing_1_1_task}{Task} data (flexible JSON). 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00110}{110}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8h_source_l00133}{Task()}}.
+
+\Hypertarget{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d}\index{telemetry\_processing::Task@{telemetry\_processing::Task}!priority@{priority}}
+\index{priority@{priority}!telemetry\_processing::Task@{telemetry\_processing::Task}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily \label{structtelemetry__processing_1_1_task_afd98f087a04a16204c782c902235d56d} 
+\mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority}} telemetry\+\_\+processing\+::\+Task\+::priority = \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ac87f3be66ffc3c0d4249f1c2cc5f3cce}{Task\+Priority\+::\+MEDIUM}}}
+
+
+
+Scheduling priority. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00108}{108}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8h_source_l00432}{telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Comparator\+::operator()()}}, \mbox{\hyperlink{task__queue_8h_source_l00122}{Task()}}, and \mbox{\hyperlink{task__queue_8h_source_l00133}{Task()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/\mbox{\hyperlink{task__queue_8h}{task\+\_\+queue.\+h}}\end{DoxyCompactItemize}

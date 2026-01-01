@@ -1,0 +1,65 @@
+\doxysection{httplib\+\_\+stub.\+h}
+\hypertarget{httplib__stub_8h_source}{}\label{httplib__stub_8h_source}\index{ingestion/gateway/include/third\_party/httplib\_stub.h@{ingestion/gateway/include/third\_party/httplib\_stub.h}}
+\mbox{\hyperlink{httplib__stub_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00006}\mbox{\hyperlink{namespacehttplib}{00006}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacehttplib}{httplib}}\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00008}\mbox{\hyperlink{classhttplib_1_1_request}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classhttplib_1_1_request}{Request}}\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00009}00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00010}\mbox{\hyperlink{classhttplib_1_1_request_af69b50892d54b1a66c9b47e53226badc}{00010}}\ \ \ std::string\ \mbox{\hyperlink{classhttplib_1_1_request_af69b50892d54b1a66c9b47e53226badc}{method}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00011}\mbox{\hyperlink{classhttplib_1_1_request_ac26dc36ecdf16660d152385d39c7be9a}{00011}}\ \ \ std::string\ \mbox{\hyperlink{classhttplib_1_1_request_ac26dc36ecdf16660d152385d39c7be9a}{path}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00012}\mbox{\hyperlink{classhttplib_1_1_request_ad4502def5e057794ad17f014cf671656}{00012}}\ \ \ std::string\ \mbox{\hyperlink{classhttplib_1_1_request_ad4502def5e057794ad17f014cf671656}{body}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00013}00013\ \};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00015}\mbox{\hyperlink{classhttplib_1_1_response}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classhttplib_1_1_response}{Response}}\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00017}\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{00017}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 200;}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00018}\mbox{\hyperlink{classhttplib_1_1_response_ac77eb5c7e8758ac0c39ebb4507b7015c}{00018}}\ \ \ std::string\ \mbox{\hyperlink{classhttplib_1_1_response_ac77eb5c7e8758ac0c39ebb4507b7015c}{body}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00019}\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{00019}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{keyword}{const}\ std::string\&\ b,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{comment}{/*mime*/})\ \{\ \mbox{\hyperlink{classhttplib_1_1_response_ac77eb5c7e8758ac0c39ebb4507b7015c}{body}}\ =\ b;\ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00020}00020\ \};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00022}\mbox{\hyperlink{classhttplib_1_1_server}{00022}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classhttplib_1_1_server}{Server}}\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00024}\mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{00024}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}\ =\ std::function<void(\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{Request}}\&,\ \mbox{\hyperlink{classhttplib_1_1_response}{Response}}\&)>;}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00026}\mbox{\hyperlink{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d}{00026}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d}{Get}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}\ h)\ \{\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\_}}[std::string(\textcolor{stringliteral}{"{}GET\ "{}})+path]\ =\ std::move(h);\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00028}00028\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00029}00029\ \ \ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00030}\mbox{\hyperlink{classhttplib_1_1_server_ac0a38b0a0e69331347109a74b27353a3}{00030}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classhttplib_1_1_server_ac0a38b0a0e69331347109a74b27353a3}{Post}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}\ h)\ \{\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\_}}[std::string(\textcolor{stringliteral}{"{}POST\ "{}})+path]\ =\ std::move(h);\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00032}00032\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00033}00033\ \ \ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00034}00034\ \ \ \textcolor{comment}{//\ Stub\ listen\ just\ prints\ routes;\ replace\ with\ real\ listen\ in\ cpp-\/httplib}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00035}\mbox{\hyperlink{classhttplib_1_1_server_a619949612beee1706c1b8c956da18f75}{00035}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classhttplib_1_1_server_a619949612beee1706c1b8c956da18f75}{listen}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ host,\ \textcolor{keywordtype}{int}\ port)\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00036}00036\ \ \ \ \ (void)host;\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00037}00037\ \ \ \ \ (void)port;\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ no-\/op}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00040}00040\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00042}00042\ \ \ \textcolor{comment}{//\ For\ tests,\ allow\ manual\ dispatch}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00043}\mbox{\hyperlink{classhttplib_1_1_server_aebd733f33e0eff710048d85008a7bf16}{00043}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classhttplib_1_1_server_aebd733f33e0eff710048d85008a7bf16}{dispatch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{Response}}\&\ res)\ \{}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{auto}\ key\ =\ req.\mbox{\hyperlink{classhttplib_1_1_request_af69b50892d54b1a66c9b47e53226badc}{method}}\ +\ std::string(\textcolor{stringliteral}{"{}\ "{}})\ +\ req.\mbox{\hyperlink{classhttplib_1_1_request_ac26dc36ecdf16660d152385d39c7be9a}{path}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\_}}.find(key);}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00046}00046\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\_}}.end())\ \{\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 404;\ res.\mbox{\hyperlink{classhttplib_1_1_response_ac77eb5c7e8758ac0c39ebb4507b7015c}{body}}\ =\ \textcolor{stringliteral}{"{}not\ found"{}};\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00050}00050\ \ \ \ \ it-\/>second(req,\ res);}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00053}00053\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00055}00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00056}\mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{00056}}\ \ \ std::map<std::string,\ Handler>\ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\_}};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00057}00057\ \};}
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{httplib__stub_8h_source_l00059}00059\ \}\ \textcolor{comment}{//\ namespace\ httplib}}
+
+\end{DoxyCode}

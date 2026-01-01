@@ -1,0 +1,14 @@
+<map id="common/src/proto_adapter.cpp" name="common/src/proto_adapter.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,207,32"/>
+<area shape="rect" id="Node000002" href="$proto__adapter_8h.html" title="Adapter for converting between C++ structs and Protobuf messages." alt="" coords="85,80,250,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,30,145,68,140,68,115,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="14,171,75,197"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="99,30,75,81,53,157,48,155,70,79,97,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="99,171,236,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,121,170,156,165,154,166,125"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="138,123,78,164,75,160,133,124"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="260,171,326,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="200,121,263,162,258,162,199,126"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="350,171,403,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="222,121,338,166,333,168,221,126"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,347,55,373"/>
+<area shape="rect" id="Node000002" href="$classtelemetry__processor_1_1_redis_client.html#ad3d1be9577b1e528734c0ec29d86c6ab" title="Blocking left pop from list (BLPOP)." alt="" coords="109,5,248,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="28,346,28,294,36,219,45,177,58,135,76,95,101,58,105,56,103,61,105,62,81,97,63,137,50,178,41,219,33,295,33,346"/>
+<area shape="rect" id="Node000003" href="$classtelemetry__processor_1_1_redis_client.html#a747bb76d50b41a3dfe86b2ccb8aa65ba" title="Connect to Redis server." alt="" coords="103,72,254,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="29,346,33,304,43,246,65,182,81,152,101,125,106,122,103,127,105,128,85,155,70,184,49,247,38,305,34,346"/>
+<area shape="rect" id="Node000004" href="$structtelemetry__processor_1_1_task.html#a4ecf0d7c4f9d346c1f28438eb5142fa0" title="Create a new task with generated UUID." alt="" coords="109,139,248,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="31,346,38,315,51,274,72,230,101,192,106,189,104,193,105,195,76,233,56,276,43,316,36,346"/>
+<area shape="rect" id="Node000006" href="$structtelemetry__processor_1_1_task.html#ae0bb17d5733e6e161018f49a5855c612" title="Deserialize task from JSON." alt="" coords="109,205,248,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="36,345,61,303,79,279,101,258,108,255,105,259,104,262,83,283,65,306,41,347"/>
+<area shape="rect" id="Node000007" href="$classtelemetry__processor_1_1_redis_client.html#a75e44fa1646ff162980fc0690cac40aa" title="Get value by key (GET)." alt="" coords="109,272,248,315"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="53,347,102,324,116,319,112,324,104,329,57,351"/>
+<area shape="rect" id="Node000008" href="$classtelemetry__processor_1_1_redis_client.html#a076ecc87415a8a3dd43e12f2ddeda3c3" title="Get list length (LLEN)." alt="" coords="109,339,248,381"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="53,358,95,358,91,362,56,362"/>
+<area shape="rect" id="Node000009" href="$classtelemetry__processor_1_1_redis_client.html#aec34e889dc6530a813b55bf0e8645e08" title="Ping Redis server." alt="" coords="109,405,248,448"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="54,369,104,391,116,397,112,400,102,396,56,374"/>
+<area shape="rect" id="Node000010" href="$namespacetelemetry__processor.html#a29d4e5f2ef4740d2ecb548ab3caf7a86" title="Convert Priority to string." alt="" coords="109,472,248,515"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="38,371,65,414,83,437,104,458,109,462,104,464,101,462,79,441,61,417,38,376"/>
+<area shape="rect" id="Node000011" href="$classtelemetry__processor_1_1_redis_client.html#aa16b51e997168909d485f960e1d90f28" title="Push item to right of list (RPUSH)." alt="" coords="109,539,248,581"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="34,371,43,404,56,444,76,487,105,525,108,529,103,530,101,528,72,490,51,446,38,405,34,377"/>
+<area shape="rect" id="Node000012" href="$classtelemetry__processor_1_1_redis_client.html#a61fcb550421238f618062ba7b5653ef9" title="Set key&#45;value pair (SET)." alt="" coords="109,605,248,648"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="32,371,38,415,49,473,70,536,85,565,105,592,107,595,102,595,101,595,81,568,65,538,43,474,33,416,32,377"/>
+<area shape="rect" id="Node000013" href="$namespacetelemetry__processor.html#ad0cbfdf3060103085c5c326efe30f005" title="Convert TaskStatus to string." alt="" coords="109,672,248,715"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="31,371,33,425,41,501,50,542,63,583,81,623,105,658,107,662,101,661,101,662,76,625,58,585,45,543,36,501,28,426,30,376"/>
+<area shape="rect" id="Node000005" href="$namespacetelemetry__processor.html#a51d6c36c1522a65fe9abdd77d02adfca" title="Generate a UUID v4 string." alt="" coords="302,139,441,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="247,158,289,158,284,162,250,162"/>
+</map>

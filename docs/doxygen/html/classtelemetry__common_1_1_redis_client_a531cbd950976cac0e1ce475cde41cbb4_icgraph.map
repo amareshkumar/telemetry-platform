@@ -1,0 +1,8 @@
+<map id="telemetry_common::RedisClient::ttl" name="telemetry_common::RedisClient::ttl">
+<area shape="rect" id="Node000001" title="Get time&#45;to&#45;live for a key." alt="" coords="544,13,771,40"/>
+<area shape="rect" id="Node000002" href="$classtelemetry__common_1_1_redis_client.html#ad2379542557c9a2a1c19e1c6f1e31b9d" title=" " alt="" coords="5,5,214,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="528,29,214,29,214,24,529,24"/>
+<area shape="rect" id="Node000003" href="$classtelemetry__common_1_1_redis_client.html#a7108f5c1c6ff19901b341fc89bb5e71a" title="Set a key&#45;value pair." alt="" coords="262,39,496,65"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="531,38,497,44,496,39,526,39"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="243,40,214,39,214,34,249,39"/>
+</map>

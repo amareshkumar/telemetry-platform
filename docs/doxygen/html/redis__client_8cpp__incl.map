@@ -1,0 +1,21 @@
+<map id="common/src/redis_client.cpp" name="common/src/redis_client.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="354,5,542,32"/>
+<area shape="rect" id="Node000002" href="$redis__client_8h.html" title="Thread&#45;safe Redis client wrapper for telemetry data operations." alt="" coords="119,80,284,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,34,280,77,278,72,412,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="307,88,453,115"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="440,31,402,78,399,74,435,34"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="477,88,555,115"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="460,30,498,77,493,76,458,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="579,88,648,115"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="474,30,577,81,571,81,473,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,59,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="159,126,73,166,71,161,157,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="83,171,149,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="182,122,142,162,139,158,177,124"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="173,171,230,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="203,121,204,156,199,153,200,125"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="254,171,314,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="224,121,263,160,258,159,222,126"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="338,171,406,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="246,121,334,163,329,164,245,126"/>
+</map>

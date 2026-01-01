@@ -1,0 +1,11 @@
+<map id="telemetryhub::gateway::ThreadPool::ThreadPool" name="telemetryhub::gateway::ThreadPool::ThreadPool">
+<area shape="rect" id="Node000001" title="Construct thread pool with N worker threads." alt="" coords="223,105,392,148"/>
+<area shape="rect" id="Node000002" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#aa3ef20ad6cbe28d7f1ee5786d27c71fa" title=" " alt="" coords="11,5,169,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,99,174,62,149,51,148,46,176,58,254,97"/>
+<area shape="rect" id="Node000003" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#a4f9e1393cd7d5b361d2f3211c3530617" title=" " alt="" coords="11,72,169,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,112,170,108,169,103,210,110"/>
+<area shape="rect" id="Node000004" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#a469feb6bd4488f8d311bf4202faffa20" title=" " alt="" coords="5,139,175,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,143,176,150,174,144,210,141"/>
+<area shape="rect" id="Node000005" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#af4662aa7ad3f5121d4de59f8bd438564" title=" " alt="" coords="5,205,175,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="254,155,176,196,149,207,147,202,174,191,249,156"/>
+</map>

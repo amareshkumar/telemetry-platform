@@ -1,0 +1,83 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\index{processing/src/main.cpp@{processing/src/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_task_8h}{telemetry\_processor/Task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_redis_client_8h}{telemetry\_processor/RedisClient.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00005}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}TelemetryTaskProcessor\ -\/\ Day\ 1\ Demo\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}======================\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{comment}{//\ Test\ 1:\ Task\ creation\ and\ serialization}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Test\ 1:\ Task\ Creation\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0}{telemetry\_processor::Task::create}}(}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}compute"{}},}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ R\textcolor{stringliteral}{"{}(\{"{}operation"{}:\ "{}matrix\_multiply"{},\ "{}size"{}:\ 1000\})"{},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746ab89de3b4b81c4facfac906edf29aec8c}{telemetry\_processor::Priority::HIGH}},}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ );}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ std::cout\ <<\ }\textcolor{stringliteral}{"{}\ \ Task\ ID:\ "{}}\ <<\ task.id\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Type:\ "{}}\ <<\ task.type\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Priority:\ "{}}\ <<\ \mbox{\hyperlink{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86}{telemetry\_processor::priority\_to\_string}}(task.priority)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Status:\ "{}}\ <<\ \mbox{\hyperlink{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005}{telemetry\_processor::status\_to\_string}}(task.status)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Test\ 2:\ JSON\ serialization}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 2:\ JSON\ Serialization\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{auto}\ json\ =\ task.to\_json();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ JSON:\ "{}}\ <<\ json.dump(2)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ Test\ 3:\ JSON\ deserialization}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 3:\ JSON\ Deserialization\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{auto}\ task2\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}{telemetry\_processor::Task::from\_json}}(json);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Deserialized\ ID:\ "{}}\ <<\ task2.id\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Match:\ "{}}\ <<\ (task.id\ ==\ task2.id\ ?\ \textcolor{stringliteral}{"{}✓"{}}\ :\ \textcolor{stringliteral}{"{}✗"{}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ Test\ 4:\ Redis\ client}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nTest\ 4:\ Redis\ Client\ (Mock)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client}{telemetry\_processor::RedisClient}}\ redis;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a747bb76d50b41a3dfe86b2ccb8aa65ba}{connect}}())\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Connected:\ ✓\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pong\ =\ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_aec34e889dc6530a813b55bf0e8645e08}{ping}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Ping:\ "{}}\ <<\ pong\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Test\ RPUSH/BLPOP}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ std::string\ queue\_key\ =\ \textcolor{stringliteral}{"{}distqueue:tasks:pending"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_aa16b51e997168909d485f960e1d90f28}{rpush}}(queue\_key,\ json.dump());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Pushed\ task\ to\ queue:\ ✓\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ queue\_len\ =\ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a076ecc87415a8a3dd43e12f2ddeda3c3}{llen}}(queue\_key);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Queue\ length:\ "{}}\ <<\ queue\_len\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ popped\ =\ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_ad3d1be9577b1e528734c0ec29d86c6ab}{blpop}}(queue\_key);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (popped)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Popped\ task:\ ✓\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ task3\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}{telemetry\_processor::Task::from\_json}}(nlohmann::json::parse(*popped));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Popped\ Task\ ID:\ "{}}\ <<\ task3.id\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Test\ SET/GET}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ std::string\ key\ =\ \textcolor{stringliteral}{"{}distqueue:task:"{}}\ +\ task.id;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a61fcb550421238f618062ba7b5653ef9}{set}}(key,\ json.dump());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ value\ =\ redis.\mbox{\hyperlink{classtelemetry__processor_1_1_redis_client_a75e44fa1646ff162980fc0690cac40aa}{get}}(key);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ SET/GET:\ "{}}\ <<\ (value.has\_value()\ ?\ \textcolor{stringliteral}{"{}✓"{}}\ :\ \textcolor{stringliteral}{"{}✗"{}})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ Connection\ failed:\ ✗\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n======================\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Day\ 1\ Complete!\ ✓\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nNext\ Steps:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ -\/\ Day\ 2:\ Producer\ API\ implementation\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ -\/\ Day\ 3:\ Worker\ process\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ -\/\ Day\ 4:\ Real\ Redis\ integration\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ \}}
+
+\end{DoxyCode}
