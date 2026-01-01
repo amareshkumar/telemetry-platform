@@ -1,0 +1,128 @@
+\doxysection{Task.\+cpp}
+\hypertarget{_task_8cpp_source}{}\label{_task_8cpp_source}\index{processing/src/core/Task.cpp@{processing/src/core/Task.cpp}}
+\mbox{\hyperlink{_task_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_task_8h}{telemetry\_processor/Task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__processor}{telemetry\_processor}}\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00008}\mbox{\hyperlink{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca}{00008}}\ std::string\ \mbox{\hyperlink{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca}{generate\_uuid}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{static}\ std::uniform\_int\_distribution<>\ dis(0,\ 15);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{static}\ std::uniform\_int\_distribution<>\ dis2(8,\ 11);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00013}00013\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00014}00014\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00015}00015\ \ \ \ \ ss\ <<\ std::hex;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 8;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ ss\ <<\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00020}00020\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00021}00021\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ ss\ <<\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00025}00025\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}-\/4"{}};\ \textcolor{comment}{//\ Version\ 4}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00026}00026\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ ss\ <<\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00030}00030\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00032}00032\ \ \ \ \ ss\ <<\ dis2(gen);\ \textcolor{comment}{//\ Variant}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ ss\ <<\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00036}00036\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 12;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ ss\ <<\ dis(gen);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00041}00041\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00045}\mbox{\hyperlink{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86}{00045}}\ std::string\ \mbox{\hyperlink{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86}{priority\_to\_string}}(\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{switch}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746ab89de3b4b81c4facfac906edf29aec8c}{Priority::HIGH}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}HIGH"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051}{Priority::NORMAL}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}NORMAL"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a41bc94cbd8eebea13ce0491b2ac11b88}{Priority::LOW}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}LOW"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNKNOWN"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00054}\mbox{\hyperlink{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005}{00054}}\ std::string\ \mbox{\hyperlink{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005}{status\_to\_string}}(\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{TaskStatus}}\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{switch}\ (s)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ac69f06e1a9b016d133907b4e5f5864d2}{TaskStatus::PENDING}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}PENDING"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a43491564ebcfd38568918efbd6e840fd}{TaskStatus::RUNNING}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RUNNING"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a8f7afecbc8fbc4cd0f50a57d1172482e}{TaskStatus::COMPLETED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}COMPLETED"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ab9e14d9b2886bcff408b85aefa780419}{TaskStatus::FAILED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}FAILED"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a9f935beb31030ad0d4d26126c0f39bf2}{TaskStatus::CANCELLED}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}CANCELLED"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UNKNOWN"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00065}\mbox{\hyperlink{structtelemetry__processor_1_1_task_abc10d154fdf2b03a4419f6264c176f94}{00065}}\ nlohmann::json\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_abc10d154fdf2b03a4419f6264c176f94}{Task::to\_json}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ nlohmann::json\{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}id"{}},\ \textcolor{keywordtype}{id}\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}type"{}},\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}}\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}payload"{}},\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}}\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}priority"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}})\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}status"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed}{status}})\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}retry\_count"{}},\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5}{retry\_count}}\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}max\_retries"{}},\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\_retries}}\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}created\_at"{}},\ std::chrono::system\_clock::to\_time\_t(\mbox{\hyperlink{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}{created\_at}})\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}updated\_at"{}},\ std::chrono::system\_clock::to\_time\_t(\mbox{\hyperlink{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3}{updated\_at}})\},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}worker\_id"{}},\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88}{worker\_id}}\}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00077}00077\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00080}\mbox{\hyperlink{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}{00080}}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}{Task::from\_json}}(\textcolor{keyword}{const}\ nlohmann::json\&\ j)\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}}\ task;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00082}00082\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_adf281d63d3afaf7cfc352fabfb6753e8}{id}}\ =\ j.value(\textcolor{stringliteral}{"{}id"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00083}00083\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}}\ =\ j.value(\textcolor{stringliteral}{"{}type"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00084}00084\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}}\ =\ j.value(\textcolor{stringliteral}{"{}payload"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00085}00085\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}}\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}}\textcolor{keyword}{>}(j.value(\textcolor{stringliteral}{"{}priority"{}},\ 1));}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00086}00086\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed}{status}}\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{TaskStatus}}\textcolor{keyword}{>}(j.value(\textcolor{stringliteral}{"{}status"{}},\ 0));}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00087}00087\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5}{retry\_count}}\ =\ j.value(\textcolor{stringliteral}{"{}retry\_count"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00088}00088\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\_retries}}\ =\ j.value(\textcolor{stringliteral}{"{}max\_retries"{}},\ 3);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{auto}\ created\_timestamp\ =\ j.value(\textcolor{stringliteral}{"{}created\_at"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00091}00091\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}{created\_at}}\ =\ std::chrono::system\_clock::from\_time\_t(created\_timestamp);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00092}00092\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{auto}\ updated\_timestamp\ =\ j.value(\textcolor{stringliteral}{"{}updated\_at"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00094}00094\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3}{updated\_at}}\ =\ std::chrono::system\_clock::from\_time\_t(updated\_timestamp);}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00095}00095\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00096}00096\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88}{worker\_id}}\ =\ j.value(\textcolor{stringliteral}{"{}worker\_id"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00097}00097\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{return}\ task;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00101}\mbox{\hyperlink{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0}{00101}}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0}{Task::create}}(}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}},}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\_retries}}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00106}00106\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}}\ task;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00108}00108\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_adf281d63d3afaf7cfc352fabfb6753e8}{id}}\ =\ \mbox{\hyperlink{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca}{generate\_uuid}}();}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00109}00109\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}}\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00110}00110\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}}\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00111}00111\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}}\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00112}00112\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed}{status}}\ =\ \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ac69f06e1a9b016d133907b4e5f5864d2}{TaskStatus::PENDING}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00113}00113\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5}{retry\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00114}00114\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\_retries}}\ =\ \mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\_retries}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00115}00115\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}{created\_at}}\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00116}00116\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3}{updated\_at}}\ =\ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}{created\_at}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00117}00117\ \ \ \ \ task.\mbox{\hyperlink{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88}{worker\_id}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00118}00118\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ task;}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_task_8cpp_source_l00122}00122\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_processor}}
+
+\end{DoxyCode}

@@ -1,0 +1,363 @@
+\chapter{Telemetry Platform }
+\hypertarget{index}{}\label{index}\index{Telemetry Platform@{Telemetry Platform}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+
+
+{\bfseries{Production-\/\+Ready C++ Telemetry Platform\+: High-\/\+Performance Data Ingestion + Async Processing}}
+
+\mbox{[}\mbox{]}() \mbox{[}\mbox{]}() \mbox{[}\mbox{]}() \mbox{[}\mbox{]}()
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{🎯 Overview}{🎯 Overview}}\label{index_autotoc_md2}
+Integrated telemetry platform demonstrating {\bfseries{end-\/to-\/end systems design}} from sensor data collection to async processing\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{IoT\ Sensors\ →\ Ingestion\ Service\ (9.1M\ ops/sec)\ →\ Redis\ →\ Processing\ Service\ (10k\ tasks/sec)\ →\ PostgreSQL}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ↓}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Prometheus\ →\ Grafana}
+
+\end{DoxyCode}
+
+
+{\bfseries{Two Independent Services + Shared Library\+:}}
+\begin{DoxyItemize}
+\item {\bfseries{Ingestion Service}} ({\ttfamily ingestion/}) -\/ Telemetry\+Hub\+: UART/\+I2\+C/\+SPI sensor data collection, REST API
+\item {\bfseries{Processing Service}} ({\ttfamily processing/}) -\/ Telemetry\+Task\+Processor\+: Async task processing with Redis coordination
+\item {\bfseries{Common Library}} ({\ttfamily common/}) -\/ Shared utilities (JSON, config, UUID generation)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{🏗️ Architecture}{🏗️ Architecture}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{telemetry-\/platform/}
+\DoxyCodeLine{├──\ common/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Shared\ library}
+\DoxyCodeLine{│\ \ \ ├──\ include/}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ telemetry\_common/}
+\DoxyCodeLine{│\ \ \ │\ \ \ \ \ \ \ ├──\ json\_utils.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ \ \ \ \ ├──\ config.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ \ \ \ \ ├──\ uuid\_generator.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ \ \ \ \ └──\ types.h}
+\DoxyCodeLine{│\ \ \ └──\ src/}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ ingestion/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ TelemetryHub\ (Independent\ Project)}
+\DoxyCodeLine{│\ \ \ ├──\ device/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Device\ layer\ (UART/I2C/SPI)}
+\DoxyCodeLine{│\ \ \ ├──\ gateway/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Gateway\ +\ REST\ API}
+\DoxyCodeLine{│\ \ \ ├──\ tests/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unit\ tests}
+\DoxyCodeLine{│\ \ \ ├──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Ingestion-\/specific\ docs}
+\DoxyCodeLine{│\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{│\ \ \ └──\ README.md}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ processing/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ TelemetryTaskProcessor\ (Independent\ Project)}
+\DoxyCodeLine{│\ \ \ ├──\ src/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Task\ processing\ logic}
+\DoxyCodeLine{│\ \ \ ├──\ include/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Public\ headers}
+\DoxyCodeLine{│\ \ \ ├──\ tests/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unit\ tests}
+\DoxyCodeLine{│\ \ \ ├──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Processing-\/specific\ docs}
+\DoxyCodeLine{│\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{│\ \ \ └──\ README.md}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ deployment/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Docker\ Compose,\ K8s\ configs}
+\DoxyCodeLine{├──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unified\ platform\ documentation}
+\DoxyCodeLine{├──\ tests/integration/\ \ \ \ \ \ \ \ \ \ \#\ End-\/to-\/end\ integration\ tests}
+\DoxyCodeLine{└──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Top-\/level\ build}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Component Responsibilities}{Component Responsibilities}}\label{index_autotoc_md6}
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Component  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Purpose  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Performance  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Tech Stack  \\
+{\bfseries{Ingestion}}  &Collect sensor data  &9.\+1M ops/sec  &C++20, UART/\+I2\+C/\+SPI, REST API  \\
+{\bfseries{Processing}}  &Async task processing  &10k tasks/sec  &C++17, Redis, Worker pool  \\
+{\bfseries{Common}}  &Shared utilities  &-\/  &JSON, Config, UUID  \\
+{\bfseries{Redis}}  &Message broker  &100k ops/sec  &Redis 7.\+x  \\
+{\bfseries{Postgre\+SQL}}  &Time-\/series storage  &10k writes/sec  &Postgre\+SQL 15  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{🚀 Quick Start}{🚀 Quick Start}}\label{index_autotoc_md8}
+\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Option 1\+: Build Everything}{Option 1\+: Build Everything}}\label{index_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Clone\ and\ build\ entire\ platform}
+\DoxyCodeLine{git\ clone\ https://github.com/amareshkumar/telemetry-\/platform.git}
+\DoxyCodeLine{cd\ telemetry-\/platform}
+\DoxyCodeLine{}
+\DoxyCodeLine{cmake\ -\/B\ build\ -\/S\ .}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/-\/config\ Release}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ tests}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build\ -\/-\/output-\/on-\/failure}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{Option 2\+: Build Individual Services}{Option 2\+: Build Individual Services}}\label{index_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Build\ only\ ingestion\ service}
+\DoxyCodeLine{cmake\ -\/B\ build\ -\/S\ .\ -\/DBUILD\_PROCESSING=OFF}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/-\/target\ telemetry\_gateway}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Build\ only\ processing\ service}
+\DoxyCodeLine{cmake\ -\/B\ build\ -\/S\ .\ -\/DBUILD\_INGESTION=OFF}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/-\/target\ telemetry\_processor}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{Option 3\+: Docker Compose (Recommended for Integration)}{Option 3\+: Docker Compose (Recommended for Integration)}}\label{index_autotoc_md11}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Start\ entire\ platform\ (7\ services)}
+\DoxyCodeLine{docker\ compose\ -\/f\ deployment/docker-\/compose.yml\ up\ -\/d}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ status}
+\DoxyCodeLine{docker\ compose\ ps}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ View\ logs}
+\DoxyCodeLine{docker\ compose\ logs\ -\/f\ ingestion}
+\DoxyCodeLine{docker\ compose\ logs\ -\/f\ processing}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md13}{}\doxysection{\texorpdfstring{📊 Performance Metrics}{📊 Performance Metrics}}\label{index_autotoc_md13}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Metric  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Value  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Notes  \\
+{\bfseries{Ingestion Throughput}}  &9.\+1M ops/sec  &In-\/memory queue with move semantics  \\
+{\bfseries{Processing Throughput}}  &10k tasks/sec  &Redis-\/based task distribution  \\
+{\bfseries{End-\/to-\/\+End Latency (p50)}}  &\texorpdfstring{$\sim$}{\string~}20ms  &Sensor → Database  \\
+{\bfseries{End-\/to-\/\+End Latency (p99)}}  &\texorpdfstring{$<$}{<}50ms  &Includes network + processing  \\
+{\bfseries{Memory Usage}}  &\texorpdfstring{$\sim$}{\string~}25\+MB  &C++ optimized memory layout  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md15}{}\doxysection{\texorpdfstring{🔧 Development Workflow}{🔧 Development Workflow}}\label{index_autotoc_md15}
+\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Working on Ingestion Service Only}{Working on Ingestion Service Only}}\label{index_autotoc_md16}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ ingestion}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Make\ changes}
+\DoxyCodeLine{code\ device/src/Device.cpp}
+\DoxyCodeLine{code\ gateway/src/GatewayCore.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Build}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/-\/target\ telemetry\_gateway}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Test}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build/ingestion}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Commit\ (processing\ untouched)}
+\DoxyCodeLine{git\ add\ ingestion/}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Ingestion:\ Add\ new\ sensor\ type"{}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Working on Processing Service Only}{Working on Processing Service Only}}\label{index_autotoc_md17}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ processing}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Make\ changes}
+\DoxyCodeLine{code\ src/Worker.cpp}
+\DoxyCodeLine{code\ include/telemetry\_processor/Task.h}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Build}
+\DoxyCodeLine{cmake\ -\/-\/build\ build\ -\/-\/target\ telemetry\_processor}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Test}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build/processing}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Commit\ (ingestion\ untouched)}
+\DoxyCodeLine{git\ add\ processing/}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Processing:\ Optimize\ worker\ pool"{}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md18}{}\doxysubsection{\texorpdfstring{Making Changes to Common Library}{Making Changes to Common Library}}\label{index_autotoc_md18}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ common}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Make\ changes}
+\DoxyCodeLine{code\ include/telemetry\_common/json\_utils.h}
+\DoxyCodeLine{code\ src/json\_utils.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Rebuild\ both\ services\ (they\ depend\ on\ common)}
+\DoxyCodeLine{cmake\ -\/-\/build\ build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Test\ both}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Commit}
+\DoxyCodeLine{git\ add\ common/}
+\DoxyCodeLine{git\ commit\ -\/m\ "{}Common:\ Add\ JSON\ validation\ helper"{}}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md20}{}\doxysection{\texorpdfstring{🧪 Testing}{🧪 Testing}}\label{index_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Run\ all\ tests}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build\ -\/-\/output-\/on-\/failure}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ ingestion\ tests\ only}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build/ingestion}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ processing\ tests\ only}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build/processing}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ integration\ tests}
+\DoxyCodeLine{ctest\ -\/-\/test-\/dir\ build/tests/integration}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{📈 Monitoring}{📈 Monitoring}}\label{index_autotoc_md22}
+Access monitoring dashboards\+:
+\begin{DoxyItemize}
+\item {\bfseries{Prometheus}}\+: \href{http://localhost:9090}{\texttt{http\+://localhost\+:9090}}
+\item {\bfseries{Grafana}}\+: \href{http://localhost:3000}{\texttt{http\+://localhost\+:3000}} (admin/admin)
+\item {\bfseries{Ingestion API}}\+: \href{http://localhost:8080/status}{\texttt{http\+://localhost\+:8080/status}}
+\item {\bfseries{Processing Metrics}}\+: \href{http://localhost:9092/metrics}{\texttt{http\+://localhost\+:9092/metrics}}
+\end{DoxyItemize}
+
+Key Metrics\+:
+\begin{DoxyItemize}
+\item {\ttfamily telemetry\+\_\+samples\+\_\+ingested\+\_\+total} -\/ Total samples collected
+\item {\ttfamily telemetry\+\_\+tasks\+\_\+processed\+\_\+total} -\/ Tasks completed
+\item {\ttfamily telemetry\+\_\+processing\+\_\+latency\+\_\+ms} -\/ Processing latency
+\item {\ttfamily redis\+\_\+queue\+\_\+depth} -\/ Redis queue backlog
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md24}{}\doxysection{\texorpdfstring{📚 Documentation}{📚 Documentation}}\label{index_autotoc_md24}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Platform-\/\+Level Docs}{Platform-\/\+Level Docs}}\label{index_autotoc_md25}
+
+\begin{DoxyItemize}
+\item Architecture Overview
+\item Integration Strategy
+\item Deployment Guide
+\item Performance Benchmarks
+\end{DoxyItemize}\hypertarget{index_autotoc_md26}{}\doxysubsection{\texorpdfstring{Service-\/\+Specific Docs}{Service-\/\+Specific Docs}}\label{index_autotoc_md26}
+
+\begin{DoxyItemize}
+\item \doxylink{dir_5aa600f322ba302221aa52ac2ff7363a}{Ingestion Service (Telemetry\+Hub)}
+\item \doxylink{dir_424257224698b8b613f9139c63df7df4}{Processing Service (Telemetry\+Task\+Processor)}
+\item Common Library API
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md28}{}\doxysection{\texorpdfstring{🏆 What This Demonstrates}{🏆 What This Demonstrates}}\label{index_autotoc_md28}
+✅ {\bfseries{Microservices Architecture}} -\/ Decoupled services communicating via Redis ~\newline
+ ✅ {\bfseries{High-\/\+Performance C++}} -\/ 9.\+1M ingestion + 10k processing ops/sec ~\newline
+ ✅ {\bfseries{Systems Thinking}} -\/ End-\/to-\/end pipeline design (sensor → storage) ~\newline
+ ✅ {\bfseries{Modern C++}} -\/ C++17/20, RAII, move semantics, smart pointers ~\newline
+ ✅ {\bfseries{Observability}} -\/ Prometheus metrics, Grafana dashboards ~\newline
+ ✅ {\bfseries{Dev\+Ops}} -\/ Docker Compose, health checks, CI/\+CD ~\newline
+ ✅ {\bfseries{Code Reuse}} -\/ Shared library eliminating duplication ~\newline
+ ✅ {\bfseries{Testing}} -\/ Unit tests, integration tests, load tests ~\newline
+ ✅ {\bfseries{Documentation}} -\/ Comprehensive docs, architecture diagrams ~\newline
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md30}{}\doxysection{\texorpdfstring{🛠️ Technology Stack}{🛠️ Technology Stack}}\label{index_autotoc_md30}
+\hypertarget{index_autotoc_md31}{}\doxysubsection{\texorpdfstring{Ingestion Service}{Ingestion Service}}\label{index_autotoc_md31}
+
+\begin{DoxyItemize}
+\item {\bfseries{Language}}\+: C++20
+\item {\bfseries{Protocols}}\+: UART, I2C, SPI
+\item {\bfseries{API}}\+: REST (cpp-\/httplib)
+\item {\bfseries{Threading}}\+: std\+::thread, producer-\/consumer queues
+\item {\bfseries{Build}}\+: CMake 3.\+20+
+\end{DoxyItemize}\hypertarget{index_autotoc_md32}{}\doxysubsection{\texorpdfstring{Processing Service}{Processing Service}}\label{index_autotoc_md32}
+
+\begin{DoxyItemize}
+\item {\bfseries{Language}}\+: C++17
+\item {\bfseries{Message Broker}}\+: Redis 7.\+x
+\item {\bfseries{Concurrency}}\+: Worker pool, thread-\/safe operations
+\item {\bfseries{Serialization}}\+: nlohmann/json
+\item {\bfseries{Build}}\+: CMake 3.\+20+
+\end{DoxyItemize}\hypertarget{index_autotoc_md33}{}\doxysubsection{\texorpdfstring{Common Library}{Common Library}}\label{index_autotoc_md33}
+
+\begin{DoxyItemize}
+\item {\bfseries{JSON}}\+: nlohmann/json
+\item {\bfseries{Config}}\+: INI-\/style parser
+\item {\bfseries{UUID}}\+: RFC 4122 v4 generation
+\item {\bfseries{Types}}\+: Shared type definitions
+\end{DoxyItemize}\hypertarget{index_autotoc_md34}{}\doxysubsection{\texorpdfstring{Infrastructure}{Infrastructure}}\label{index_autotoc_md34}
+
+\begin{DoxyItemize}
+\item {\bfseries{Message Broker}}\+: Redis 7.\+x
+\item {\bfseries{Database}}\+: Postgre\+SQL 15
+\item {\bfseries{Monitoring}}\+: Prometheus + Grafana
+\item {\bfseries{Container}}\+: Docker + Docker Compose
+\item {\bfseries{Orchestration}}\+: Kubernetes (optional)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md36}{}\doxysection{\texorpdfstring{🚢 Deployment}{🚢 Deployment}}\label{index_autotoc_md36}
+\hypertarget{index_autotoc_md37}{}\doxysubsection{\texorpdfstring{Docker Compose (Development/\+Testing)}{Docker Compose (Development/\+Testing)}}\label{index_autotoc_md37}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker\ compose\ -\/f\ deployment/docker-\/compose.yml\ up\ -\/d}
+
+\end{DoxyCode}
+
+
+Services started\+:
+\begin{DoxyItemize}
+\item Redis (port 6379)
+\item Postgre\+SQL (port 5432)
+\item Ingestion Service (port 8080, 9091)
+\item Processing Service x2 (port 9092, 9093)
+\item Prometheus (port 9090)
+\item Grafana (port 3000)
+\end{DoxyItemize}\hypertarget{index_autotoc_md38}{}\doxysubsection{\texorpdfstring{Kubernetes (Production)}{Kubernetes (Production)}}\label{index_autotoc_md38}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{kubectl\ apply\ -\/f\ deployment/kubernetes/}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md40}{}\doxysection{\texorpdfstring{📝 License}{📝 License}}\label{index_autotoc_md40}
+MIT License -\/ see \mbox{[}LICENSE\mbox{]}(LICENSE) for details
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md42}{}\doxysection{\texorpdfstring{Next Steps}{Next Steps}}\label{index_autotoc_md42}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Explore Services}}\+:
+\begin{DoxyItemize}
+\item Read \doxylink{dir_5aa600f322ba302221aa52ac2ff7363a}{Ingestion README}
+\item Read \doxylink{dir_424257224698b8b613f9139c63df7df4}{Processing README}
+\end{DoxyItemize}
+\item {\bfseries{Run Examples}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily cd ingestion/examples \&\& ./basic\+\_\+usage}
+\item {\ttfamily cd processing/examples \&\& ./simple\+\_\+producer}
+\end{DoxyItemize}
+\item {\bfseries{Deploy Full Stack}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily docker compose -\/f deployment/docker-\/compose.\+yml up -\/d}
+\item Open Grafana\+: \href{http://localhost:3000}{\texttt{http\+://localhost\+:3000}}
+\end{DoxyItemize}
+\item {\bfseries{Add Features}}\+:
+\begin{DoxyItemize}
+\item New sensor types in ingestion/
+\item New task handlers in processing/
+\item Shared utilities in common/
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+
+
+{\bfseries{Built with ❤️ using Modern C++}} 

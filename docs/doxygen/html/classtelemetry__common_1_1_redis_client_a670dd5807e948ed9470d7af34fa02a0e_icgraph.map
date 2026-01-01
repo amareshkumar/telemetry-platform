@@ -1,0 +1,16 @@
+<map id="telemetry_common::RedisClient::ping" name="telemetry_common::RedisClient::ping">
+<area shape="rect" id="Node000001" title="Test connection with PING command." alt="" coords="518,72,726,115"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="662,56,648,53,622,51,598,53,583,57,577,63,579,73,574,70,572,62,580,53,597,47,622,45,649,48,668,56"/>
+<area shape="rect" id="Node000002" href="$classtelemetry__common_1_1_redis_client.html#ad2379542557c9a2a1c19e1c6f1e31b9d" title=" " alt="" coords="5,5,214,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="513,69,470,63,337,46,215,35,214,30,337,41,470,57,518,68"/>
+<area shape="rect" id="Node000003" href="$classtelemetry__common_1_1_redis_client.html#a7dfc3a6ada1c8d899e47256166ac82ac" title="Construct Redis client with connection options." alt="" coords="262,72,470,115"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="500,103,471,105,470,100,505,102"/>
+<area shape="poly" id="edge6_Node000003_Node000001" title=" " alt="" coords="485,82,520,84,515,85,486,87"/>
+<area shape="poly" id="edge5_Node000003_Node000002" title=" " alt="" coords="264,69,195,51,194,46,269,67"/>
+<area shape="rect" id="Node000004" href="$classtelemetry__common_1_1_redis_client.html#a150f211c9911ea84e439040cbc351a70" title=" " alt="" coords="5,72,214,115"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="244,94,215,96,214,91,249,92"/>
+<area shape="rect" id="Node000005" href="$classtelemetry__common_1_1_redis_client.html#a664886c5edf97ad50654f086b7847311" title=" " alt="" coords="5,139,214,181"/>
+<area shape="poly" id="edge7_Node000003_Node000005" title=" " alt="" coords="264,120,195,141,193,136,269,118"/>
+<area shape="rect" id="Node000006" href="$classtelemetry__common_1_1_redis_client.html#a90a175e31af44eab0556b5207c0ff7d2" title=" " alt="" coords="5,205,214,248"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="327,123,275,162,215,196,187,207,186,202,212,191,272,157,322,125"/>
+</map>

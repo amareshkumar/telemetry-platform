@@ -1,0 +1,35 @@
+<map id="telemetry_processor::RedisClient" name="telemetry_processor::RedisClient">
+<area shape="rect" id="Node000001" title="Redis client wrapper for DistQueue." alt="" coords="1563,69,1702,112"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="260,104,340,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="321,91,349,66,383,46,449,25,503,21,627,27,1390,27,1441,30,1491,40,1580,69,1574,69,1490,45,1440,36,1390,32,627,32,503,26,450,30,385,50,352,70,325,95"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="555,67,702,109"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="354,110,557,93,553,96,356,115"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="820,197,1000,240"/>
+<area shape="poly" id="edge11_Node000010_Node000002" title=" " alt="" coords="354,121,550,145,673,164,796,187,831,197,826,197,795,192,672,170,549,151,355,126"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="546,207,711,233"/>
+<area shape="poly" id="edge13_Node000011_Node000002" title=" " alt="" coords="314,142,349,209,368,238,385,255,420,269,450,270,522,255,561,245,594,235,599,233,562,250,523,260,451,275,419,274,383,260,364,241,345,212,312,147"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,96,131,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="145,115,262,116,258,119,147,120"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="1302,127,1476,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1490,126,1560,110,1565,109,1492,131"/>
+<area shape="rect" id="Node000005" href="$structtelemetry__processor_1_1_redis_client_1_1_impl.html" title=" " alt="" coords="1092,135,1231,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1246,153,1305,156,1299,156,1247,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="717,87,881,98,975,109,1069,124,1100,134,1095,134,1067,129,975,114,881,103,717,93"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="240,249,360,276"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="349,241,446,199,490,177,521,158,532,142,545,126,572,111,576,108,548,130,537,146,524,162,493,182,448,204,352,246"/>
+<area shape="poly" id="edge16_Node000010_Node000007" title=" " alt="" coords="375,276,447,287,531,295,621,297,710,288,791,266,860,241,865,240,793,271,711,293,621,302,530,301,446,292,375,281"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="49,221,87,248"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="103,236,241,253,238,257,103,241"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="49,331,87,357"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="101,330,259,274,259,279,103,335"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="243,332,356,359"/>
+<area shape="poly" id="edge15_Node000012_Node000009" title=" " alt="" coords="103,342,244,343,242,347,103,347"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="384,380,522,407"/>
+<area shape="poly" id="edge19_Node000014_Node000009" title=" " alt="" coords="101,355,155,372,215,382,276,388,387,394,381,395,275,393,214,387,154,377,101,360"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="1014,195,1067,183,1091,179,1097,177,1069,188,1016,201"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="726,217,822,219,817,219,726,222"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="371,345,409,342,448,334,486,321,521,301,529,290,532,277,535,264,544,250,573,235,577,233,548,254,540,266,537,279,534,292,524,305,489,326,449,339,409,347,372,350"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="868,143,952,169"/>
+<area shape="poly" id="edge17_Node000005_Node000013" title=" " alt="" coords="966,153,1094,156,1089,156,967,159"/>
+<area shape="poly" id="edge18_Node000004_Node000014" title=" " alt="" coords="538,384,645,378,764,375,1163,375,1201,369,1236,354,1268,331,1296,303,1342,240,1372,187,1377,184,1347,243,1300,306,1271,335,1239,358,1203,374,1163,380,764,380,646,383,538,389"/>
+</map>

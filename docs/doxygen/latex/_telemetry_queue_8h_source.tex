@@ -1,0 +1,42 @@
+\doxysection{Telemetry\+Queue.\+h}
+\hypertarget{_telemetry_queue_8h_source}{}\label{_telemetry_queue_8h_source}\index{ingestion/gateway/include/telemetryhub/gateway/TelemetryQueue.h@{ingestion/gateway/include/telemetryhub/gateway/TelemetryQueue.h}}
+\mbox{\hyperlink{_telemetry_queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}telemetryhub/device/TelemetrySample.h"{}}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub::gateway}}\ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00011}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614}{TelemetryQueue}}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ max\_size=0\ means\ unbounded.\ If\ bounded\ and\ full,\ oldest\ item\ is\ dropped.}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00015}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614}{00015}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614}{TelemetryQueue}}(\textcolor{keywordtype}{size\_t}\ max\_size\ =\ 0)\ :\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}{max\_size\_}}(max\_size)\ \{\}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00016}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_aa381867b573a4d47727aa34377e12e8e}{00016}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_aa381867b573a4d47727aa34377e12e8e}{set\_capacity}}(\textcolor{keywordtype}{size\_t}\ cap)\ \{\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}{max\_size\_}}\ =\ cap;\ \}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a39a7bc48f6ffa8f4d3f217ac0a5a00f7}{push}}(\textcolor{keyword}{const}\ device::TelemetrySample\&\ sample);}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\ Optimized\ path\ to\ avoid\ extra\ copy\ when\ the\ caller\ can\ move}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a39a7bc48f6ffa8f4d3f217ac0a5a00f7}{push}}(device::TelemetrySample\&\&\ sample);}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00020}00020\ \ \ \ \ std::optional<device::TelemetrySample>\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a320f5cad295a110b285b12dd55295f4f}{pop}}();}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ Signal\ that\ no\ more\ items\ will\ be\ produced;\ unblocks\ waiting\ consumers.}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d673d944103a52fd87024f127dac0eb}{shutdown}}();}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ Get\ current\ queue\ depth\ (for\ metrics)}}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ab5a8c8c0291d2f4718e20a1509d52bb0}{size}}();}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00028}00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00029}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a9f63968f46fd3e8568cccca59ea559d3}{00029}}\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a9f63968f46fd3e8568cccca59ea559d3}{mutex\_}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00030}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49574bd8f18e3bc32d1002775dbcf33b}{00030}}\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49574bd8f18e3bc32d1002775dbcf33b}{cv\_}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00031}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d8ccb2d5e8b73df598a687d4e4d2e2b}{00031}}\ \ \ \ \ std::queue<device::TelemetrySample>\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d8ccb2d5e8b73df598a687d4e4d2e2b}{queue\_}};}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00032}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ae7a52ec080e0a1de7263d34e83d45d7d}{00032}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ae7a52ec080e0a1de7263d34e83d45d7d}{shutdown\_}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00033}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}{00033}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}{max\_size\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00034}00034\ \};}
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_telemetry_queue_8h_source_l00036}00036\ \}\ \textcolor{comment}{//\ namespace\ telemetryhub::gateway}}
+
+\end{DoxyCode}

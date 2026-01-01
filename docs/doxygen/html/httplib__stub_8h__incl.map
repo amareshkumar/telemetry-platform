@@ -1,0 +1,9 @@
+<map id="ingestion/gateway/include/third_party/httplib_stub.h" name="ingestion/gateway/include/third_party/httplib_stub.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="48,5,219,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,83,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,71,87,68,83,108,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="107,96,160,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,47,136,81,131,79,132,51"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,96,230,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,46,188,84,182,84,151,51"/>
+</map>

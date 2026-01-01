@@ -1,0 +1,7 @@
+<map id="telemetryhub::gateway::ThreadPool::ThreadPool" name="telemetryhub::gateway::ThreadPool::ThreadPool">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,175,48"/>
+<area shape="rect" id="Node000002" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#ab17f09c9cda16eb61c0d98c4b303c281" title="Construct thread pool with N worker threads." alt="" coords="223,5,392,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,24,210,26,205,27,175,29"/>
+<area shape="rect" id="Node000003" href="$classtelemetryhub_1_1gateway_1_1_thread_pool.html#ab91887708fab29ce92f07886629af8dd" title=" " alt="" coords="440,5,613,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,24,427,27,422,27,392,29"/>
+</map>

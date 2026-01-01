@@ -1,0 +1,9 @@
+<map id="telemetryhub::gateway::RestCloudClient" name="telemetryhub::gateway::RestCloudClient">
+<area shape="rect" id="Node000001" title=" " alt="" coords="51,212,204,255"/>
+<area shape="rect" id="Node000002" href="$classtelemetryhub_1_1gateway_1_1_i_cloud_client.html" title=" " alt="" coords="5,97,159,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,152,122,212,116,212,94,157"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="182,105,262,132"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,143,146,214,143,210,199,144"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="159,5,285,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,61,224,106,220,104,221,66"/>
+</map>

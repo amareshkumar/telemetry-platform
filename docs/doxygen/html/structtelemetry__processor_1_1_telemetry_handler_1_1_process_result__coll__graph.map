@@ -1,0 +1,16 @@
+<map id="telemetry_processor::TelemetryHandler::ProcessResult" name="telemetry_processor::TelemetryHandler::ProcessResult">
+<area shape="rect" id="Node000001" title="Processing result." alt="" coords="157,333,296,392"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="210,120,289,147"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,159,265,170,272,227,269,264,259,310,248,335,244,331,254,309,264,263,267,227,260,171,260,164"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="94,219,240,261"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="232,157,205,196,186,220,182,216,201,193,229,161"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="187,5,312,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="251,61,252,120,247,119,248,66"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,273,215,333,210,332,182,278"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,120,126,147"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="57,159,59,179,64,193,77,208,96,220,91,222,74,212,59,196,53,179,56,165"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="28,13,66,40"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="45,53,51,95,61,119,55,120,46,97,45,58"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="94,13,133,40"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="102,57,87,97,75,120,70,118,82,95,103,52"/>
+</map>

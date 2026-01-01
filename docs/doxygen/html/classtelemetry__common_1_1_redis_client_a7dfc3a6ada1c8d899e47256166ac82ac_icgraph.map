@@ -1,0 +1,16 @@
+<map id="telemetry_common::RedisClient::RedisClient" name="telemetry_common::RedisClient::RedisClient">
+<area shape="rect" id="Node000001" title="Construct Redis client with connection options." alt="" coords="518,147,726,189"/>
+<area shape="rect" id="Node000002" href="$classtelemetry__common_1_1_redis_client.html#a150f211c9911ea84e439040cbc351a70" title=" " alt="" coords="262,5,470,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="578,137,527,104,469,69,430,51,430,46,471,64,530,99,583,137"/>
+<area shape="rect" id="Node000003" href="$classtelemetry__common_1_1_redis_client.html#ad2379542557c9a2a1c19e1c6f1e31b9d" title=" " alt="" coords="5,105,214,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="560,140,517,126,469,113,404,105,337,104,215,112,214,107,337,98,404,100,471,108,519,121,565,140"/>
+<area shape="rect" id="Node000004" href="$classtelemetry__common_1_1_redis_client.html#a670dd5807e948ed9470d7af34fa02a0e" title="Test connection with PING command." alt="" coords="262,147,470,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="500,177,471,180,470,174,505,177"/>
+<area shape="rect" id="Node000005" href="$classtelemetry__common_1_1_redis_client.html#a664886c5edf97ad50654f086b7847311" title=" " alt="" coords="262,213,470,256"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="525,193,451,215,450,210,520,194"/>
+<area shape="rect" id="Node000006" href="$classtelemetry__common_1_1_redis_client.html#a90a175e31af44eab0556b5207c0ff7d2" title=" " alt="" coords="262,280,470,323"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="584,198,531,236,471,270,443,282,442,277,469,266,528,232,579,200"/>
+<area shape="poly" id="edge6_Node000004_Node000001" title=" " alt="" coords="485,156,520,159,515,160,486,162"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="244,150,215,146,214,141,249,148"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="406,131,392,128,366,125,342,127,327,132,321,138,323,147,318,145,316,137,324,128,340,122,366,120,393,122,411,131"/>
+</map>

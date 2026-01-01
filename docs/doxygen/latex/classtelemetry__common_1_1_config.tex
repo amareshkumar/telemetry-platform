@@ -1,0 +1,241 @@
+\doxysection{telemetry\+\_\+common\+::Config Class Reference}
+\hypertarget{classtelemetry__common_1_1_config}{}\label{classtelemetry__common_1_1_config}\index{telemetry\_common::Config@{telemetry\_common::Config}}
+
+
+Simple INI-\/style configuration parser.  
+
+
+
+
+{\ttfamily \#include $<$config.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+common\+::Config\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{classtelemetry__common_1_1_config__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275}{load\+\_\+from\+\_\+file}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Load configuration from file. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{get\+\_\+string}} (const std\+::string \&section, const std\+::string \&key, const std\+::string \&default\+\_\+value="{}"{}) const
+\begin{DoxyCompactList}\small\item\em Get string value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec}{get\+\_\+int}} (const std\+::string \&section, const std\+::string \&key, int default\+\_\+value=0) const
+\begin{DoxyCompactList}\small\item\em Get integer value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014}{get\+\_\+bool}} (const std\+::string \&section, const std\+::string \&key, bool default\+\_\+value=false) const
+\begin{DoxyCompactList}\small\item\em Get boolean value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95}{get\+\_\+double}} (const std\+::string \&section, const std\+::string \&key, double default\+\_\+value=0.\+0) const
+\begin{DoxyCompactList}\small\item\em Get double value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0}{has\+\_\+key}} (const std\+::string \&section, const std\+::string \&key) const
+\begin{DoxyCompactList}\small\item\em Check if key exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple INI-\/style configuration parser. 
+
+Supports format\+: \mbox{[}section\mbox{]} key = value 
+
+Definition at line \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source_l00015}{15}} of file \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source}{config.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry__common_1_1_config_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014}\index{telemetry\_common::Config@{telemetry\_common::Config}!get\_bool@{get\_bool}}
+\index{get\_bool@{get\_bool}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{get\_bool()}{get\_bool()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014} 
+bool telemetry\+\_\+common\+::\+Config\+::get\+\_\+bool (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{section}{, }\item[{const std\+::string \&}]{key}{, }\item[{bool}]{default\+\_\+value}{ = {\ttfamily false}}\end{DoxyParamCaption}) const}
+
+
+
+Get boolean value. 
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2src_2config_8cpp_source_l00048}{get\+\_\+string()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95}\index{telemetry\_common::Config@{telemetry\_common::Config}!get\_double@{get\_double}}
+\index{get\_double@{get\_double}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{get\_double()}{get\_double()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95} 
+double telemetry\+\_\+common\+::\+Config\+::get\+\_\+double (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{section}{, }\item[{const std\+::string \&}]{key}{, }\item[{double}]{default\+\_\+value}{ = {\ttfamily 0.0}}\end{DoxyParamCaption}) const}
+
+
+
+Get double value. 
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2src_2config_8cpp_source_l00048}{get\+\_\+string()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec}\index{telemetry\_common::Config@{telemetry\_common::Config}!get\_int@{get\_int}}
+\index{get\_int@{get\_int}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{get\_int()}{get\_int()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec} 
+int telemetry\+\_\+common\+::\+Config\+::get\+\_\+int (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{section}{, }\item[{const std\+::string \&}]{key}{, }\item[{int}]{default\+\_\+value}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const}
+
+
+
+Get integer value. 
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2src_2config_8cpp_source_l00048}{get\+\_\+string()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}\index{telemetry\_common::Config@{telemetry\_common::Config}!get\_string@{get\_string}}
+\index{get\_string@{get\_string}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{get\_string()}{get\_string()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a} 
+std\+::string telemetry\+\_\+common\+::\+Config\+::get\+\_\+string (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{section}{, }\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{default\+\_\+value}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption}) const}
+
+
+
+Get string value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em section} & Section name \\
+\hline
+{\em key} & Key name \\
+\hline
+{\em default\+\_\+value} & Default if not found \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source_l00059}{data\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_2src_2config_8cpp_source_l00079}{get\+\_\+bool()}}, \mbox{\hyperlink{common_2src_2config_8cpp_source_l00091}{get\+\_\+double()}}, and \mbox{\hyperlink{common_2src_2config_8cpp_source_l00064}{get\+\_\+int()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0}\index{telemetry\_common::Config@{telemetry\_common::Config}!has\_key@{has\_key}}
+\index{has\_key@{has\_key}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{has\_key()}{has\_key()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0} 
+bool telemetry\+\_\+common\+::\+Config\+::has\+\_\+key (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{section}{, }\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if key exists. 
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source_l00059}{data\+\_\+}}.
+
+\Hypertarget{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275}\index{telemetry\_common::Config@{telemetry\_common::Config}!load\_from\_file@{load\_from\_file}}
+\index{load\_from\_file@{load\_from\_file}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{load\_from\_file()}{load\_from\_file()}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275} 
+bool telemetry\+\_\+common\+::\+Config\+::load\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Load configuration from file. 
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source_l00059}{data\+\_\+}}, and \mbox{\hyperlink{common_2src_2config_8cpp_source_l00008}{telemetry\+\_\+common\+::trim()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetry__common_1_1_config_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}\index{telemetry\_common::Config@{telemetry\_common::Config}!data\_@{data\_}}
+\index{data\_@{data\_}!telemetry\_common::Config@{telemetry\_common::Config}}
+\doxysubsubsection{\texorpdfstring{data\_}{data\_}}
+{\footnotesize\ttfamily \label{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647} 
+std\+::map$<$std\+::string, std\+::map$<$std\+::string, std\+::string$>$ $>$ telemetry\+\_\+common\+::\+Config\+::data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source_l00059}{59}} of file \mbox{\hyperlink{common_2include_2telemetry__common_2config_8h_source}{config.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_2src_2config_8cpp_source_l00048}{get\+\_\+string()}}, \mbox{\hyperlink{common_2src_2config_8cpp_source_l00106}{has\+\_\+key()}}, and \mbox{\hyperlink{common_2src_2config_8cpp_source_l00015}{load\+\_\+from\+\_\+file()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/include/telemetry\+\_\+common/\mbox{\hyperlink{common_2include_2telemetry__common_2config_8h}{config.\+h}}\item 
+common/src/\mbox{\hyperlink{common_2src_2config_8cpp}{config.\+cpp}}\end{DoxyCompactItemize}

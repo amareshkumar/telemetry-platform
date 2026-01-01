@@ -1,0 +1,866 @@
+\doxysection{telemetry\+\_\+processing\+::Task\+Queue Class Reference}
+\hypertarget{classtelemetry__processing_1_1_task_queue}{}\label{classtelemetry__processing_1_1_task_queue}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+
+
+Thread-\/safe bounded priority queue for task scheduling.  
+
+
+
+
+{\ttfamily \#include $<$task\+\_\+queue.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+processing\+::Task\+Queue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{Task\+Comparator}}
+\begin{DoxyCompactList}\small\item\em Comparator for priority queue ordering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} (size\+\_\+t max\+\_\+capacity=10000)
+\begin{DoxyCompactList}\small\item\em Construct bounded task queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a7c2283d3233c455c4a359ddac3e8391c}{\texorpdfstring{$\sim$}{\string~}\+Task\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ automatically unblocks waiting threads. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a}{Task\+Queue}} (const Task\+Queue \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \& \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a}{operator=}} (const \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1}{Task\+Queue}} (Task\+Queue \&\&) noexcept=default
+\item 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \& \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=}} (\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \&\&) noexcept=default
+\item 
+bool \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81}{enqueue}} (\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} task, std\+::chrono\+::milliseconds timeout=std\+::chrono\+::milliseconds(0))
+\begin{DoxyCompactList}\small\item\em Enqueue a task with optional timeout. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} $>$ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877}{dequeue}} (std\+::chrono\+::milliseconds timeout=std\+::chrono\+::milliseconds(0))
+\begin{DoxyCompactList}\small\item\em Dequeue highest-\/priority task with optional timeout. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} $>$ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a82db9f8a27c8debdb4dcbdaf651efb3d}{peek}} () const
+\begin{DoxyCompactList}\small\item\em Peek at highest-\/priority task without removing. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3}{size}} () const
+\begin{DoxyCompactList}\small\item\em Get current number of tasks in queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a02a5ad06f831d6242fdd37cee18b1c68}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Check if queue is empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a9dbfdde816b54f74dcaf00c06541379b}{full}} () const
+\begin{DoxyCompactList}\small\item\em Check if queue is at capacity. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a2706d535524621bfa9fd160263380314}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Get maximum queue capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4eccb9d83884e122251c7aa36c1b3af5}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear all tasks from queue. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_ac76c97d2c5709e9cdc458e34a75bdfc6}{get\+\_\+stats}} () const
+\begin{DoxyCompactList}\small\item\em Get queue statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mutex \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af7fbb68821963b6cebd936597c48bbec}{mutex\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Protects all shared state. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb}{not\+\_\+empty\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Signals when task available. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb}{not\+\_\+full\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Signals when space available. \end{DoxyCompactList}\item 
+std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}, std\+::vector$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} $>$, \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{Task\+Comparator}} $>$ \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a0b552fe899d67c48f1c151e279e7d76e}{queue\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Underlying priority queue. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4598db2e35bbf092570bf5f92473ddca}{max\+\_\+capacity\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Maximum queue size (0 = unbounded). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a7113ef3e4b46612013810abd422d54fc}{shutdown\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em Shutdown flag (unblock threads). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread-\/safe bounded priority queue for task scheduling. 
+
+Implements a producer-\/consumer pattern with priority scheduling. Multiple producers can \doxylink{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81}{enqueue()} tasks, multiple consumers can \doxylink{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877}{dequeue()}.
+
+{\bfseries{Concurrency Model}}\+:
+\begin{DoxyItemize}
+\item Mutex protects all shared state (queue, size counters)
+\item Condition variables for blocking operations\+:
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb}{not\+\_\+empty\+\_\+}}\+: Consumers wait when queue empty
+\item {\ttfamily \doxylink{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb}{not\+\_\+full\+\_\+}}\+: Producers wait when queue at capacity
+\end{DoxyItemize}
+\item Lock guards ensure exception-\/safe unlocking
+\end{DoxyItemize}
+
+{\bfseries{Priority Scheduling}}\+:
+\begin{DoxyItemize}
+\item Uses std\+::priority\+\_\+queue with custom comparator
+\item Higher priority (lower enum value) processed first
+\item FIFO ordering within same priority (timestamp comparison)
+\end{DoxyItemize}
+
+{\bfseries{Bounded Capacity}}\+:
+\begin{DoxyItemize}
+\item Prevents unbounded memory growth
+\item Provides backpressure to producers
+\item Configurable max size (default\+: 10,000 tasks)
+\end{DoxyItemize}
+
+{\bfseries{Interview Talking Points}}\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Why bounded?}} Prevent OOM in high-\/load scenarios
+\item {\bfseries{Why condition variables?}} Efficient blocking (no busy-\/wait)
+\item {\bfseries{Why FIFO within priority?}} Fairness + predictable latency
+\item {\bfseries{Thread safety patterns}}\+: Lock guards, RAII, move semantics
+\end{DoxyEnumerate}
+
+{\bfseries{Usage Example}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ queue\ with\ capacity\ 1000}}
+\DoxyCodeLine{\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{TaskQueue}}\ queue(1000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Producer\ thread}}
+\DoxyCodeLine{Task\ high\_priority\_task(\textcolor{stringliteral}{"{}alert-\/001"{}},\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{TaskPriority::HIGH}});}
+\DoxyCodeLine{high\_priority\_task.payload\ =\ \{\{\textcolor{stringliteral}{"{}alert"{}},\ \textcolor{stringliteral}{"{}CPU\ overload"{}}\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (queue.enqueue(std::move(high\_priority\_task),\ 5000ms))\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Task\ enqueued\ successfully"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Queue\ full,\ task\ dropped"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Consumer\ thread}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ task\ =\ queue.dequeue(5000ms);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (task)\ \{}
+\DoxyCodeLine{\ \ \ \ processTask(*task);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Queue\ empty,\ no\ task\ available"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Not copyable (queue contains unique state) 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+All methods are thread-\/safe 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structtelemetry__processing_1_1_task}{Task} for task structure 
+
+\doxylink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345}{Task\+Priority} for priority levels 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00200}{200}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!TaskQueue@{TaskQueue}}
+\index{TaskQueue@{TaskQueue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{TaskQueue()}{TaskQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1} 
+telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Queue (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max\+\_\+capacity}{ = {\ttfamily 10000}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct bounded task queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+capacity} & Maximum number of tasks (default\+: 10,000)\\
+\hline
+\end{DoxyParams}
+Creates an empty queue with specified capacity. Choose capacity based on\+:
+\begin{DoxyItemize}
+\item Expected throughput (events/sec)
+\item Processing latency (ms/task)
+\item Memory constraints (bytes/task)
+\end{DoxyItemize}
+
+{\bfseries{Capacity Guidelines}}\+:
+\begin{DoxyItemize}
+\item Low throughput (\texorpdfstring{$<$}{<} 100/sec)\+: 1,000 tasks
+\item Medium throughput (\texorpdfstring{$<$}{<} 1k/sec)\+: 10,000 tasks
+\item High throughput (\texorpdfstring{$<$}{<} 10k/sec)\+: 100,000 tasks
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Capacity 0 = unbounded (use with caution!) 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00450}{max\+\_\+capacity\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a}{operator=()}}, \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}, \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a}{Task\+Queue()}}, and \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1}{Task\+Queue()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a7c2283d3233c455c4a359ddac3e8391c}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!````~TaskQueue@{\texorpdfstring{$\sim$}{\string~}TaskQueue}}
+\index{````~TaskQueue@{\texorpdfstring{$\sim$}{\string~}TaskQueue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TaskQueue()}{\string~TaskQueue()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a7c2283d3233c455c4a359ddac3e8391c} 
+telemetry\+\_\+processing\+::\+Task\+Queue\+::\texorpdfstring{$\sim$}{\string~}\+Task\+Queue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor -\/ automatically unblocks waiting threads. 
+
+Sets shutdown flag and notifies all waiting threads. Prevents deadlock if queue destroyed while threads blocked. 
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00443}{not\+\_\+empty\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00444}{not\+\_\+full\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00451}{shutdown\+\_\+}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!TaskQueue@{TaskQueue}}
+\index{TaskQueue@{TaskQueue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{TaskQueue()}{TaskQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a} 
+telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Queue (\begin{DoxyParamCaption}\item[{const Task\+Queue \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{task__queue_8cpp_source_l00006}{Task\+Queue()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_a48a2f1264880481dd409d9c45b2e793a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!TaskQueue@{TaskQueue}}
+\index{TaskQueue@{TaskQueue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{TaskQueue()}{TaskQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1} 
+telemetry\+\_\+processing\+::\+Task\+Queue\+::\+Task\+Queue (\begin{DoxyParamCaption}\item[{Task\+Queue \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+References \mbox{\hyperlink{task__queue_8cpp_source_l00006}{Task\+Queue()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_adf9da7e558e54006cf399808190a03a1_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a2706d535524621bfa9fd160263380314}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!capacity@{capacity}}
+\index{capacity@{capacity}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a2706d535524621bfa9fd160263380314} 
+size\+\_\+t telemetry\+\_\+processing\+::\+Task\+Queue\+::capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get maximum queue capacity. 
+
+\begin{DoxyReturn}{Returns}
+Max capacity (0 = unbounded) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00450}{max\+\_\+capacity\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classtelemetry__processing_1_1_task_queue_a2706d535524621bfa9fd160263380314_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a4eccb9d83884e122251c7aa36c1b3af5}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!clear@{clear}}
+\index{clear@{clear}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a4eccb9d83884e122251c7aa36c1b3af5} 
+void telemetry\+\_\+processing\+::\+Task\+Queue\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clear all tasks from queue. 
+
+Removes all tasks and notifies waiting producers. Useful for\+:
+\begin{DoxyItemize}
+\item Graceful shutdown
+\item Error recovery
+\item Priority change (flush old tasks)
+\end{DoxyItemize}
+
+{\bfseries{Time Complexity}}\+: O(n) where n = queue size
+
+\begin{DoxyWarning}{Warning}
+All tasks are lost (consider draining first) 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Thread-\/safe operation 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00115}{115}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00444}{not\+\_\+full\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classtelemetry__processing_1_1_task_queue_a4eccb9d83884e122251c7aa36c1b3af5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877} 
+std\+::optional$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} $>$ telemetry\+\_\+processing\+::\+Task\+Queue\+::dequeue (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{timeout}{ = {\ttfamily std\+:\+:chrono\+:\+:milliseconds(0)}}\end{DoxyParamCaption})}
+
+
+
+Dequeue highest-\/priority task with optional timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & Maximum wait time if queue empty (default\+: 0 = no wait) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Optional task (nullopt if timeout or shutdown)
+\end{DoxyReturn}
+Returns highest-\/priority task (lowest enum value). If queue is empty\+:
+\begin{DoxyItemize}
+\item timeout = 0\+: Returns nullopt immediately
+\item timeout \texorpdfstring{$>$}{>} 0\+: Waits up to timeout for task
+\item timeout = max\+: Waits indefinitely
+\end{DoxyItemize}
+
+{\bfseries{Time Complexity}}\+: O(log n) where n = queue size {\bfseries{Thread Safety}}\+: Fully synchronized
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Non-\/blocking\ dequeue}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ task\ =\ queue.dequeue();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!task)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Queue\ empty"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Blocking\ dequeue\ with\ 5-\/second\ timeout}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ task\ =\ queue.dequeue(5000ms);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (task)\ \{}
+\DoxyCodeLine{\ \ \ \ processTask(*task);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ task\ after\ 5\ seconds"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Returns nullopt if queue is shutting down 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00443}{not\+\_\+empty\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00444}{not\+\_\+full\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00451}{shutdown\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classtelemetry__processing_1_1_task_queue_ab8a1eb86b1ddcb65a2d6a2d65ee12877_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a02a5ad06f831d6242fdd37cee18b1c68}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!empty@{empty}}
+\index{empty@{empty}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a02a5ad06f831d6242fdd37cee18b1c68} 
+bool telemetry\+\_\+processing\+::\+Task\+Queue\+::empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if queue is empty. 
+
+\begin{DoxyReturn}{Returns}
+true if no tasks in queue
+\end{DoxyReturn}
+Equivalent to {\ttfamily \doxylink{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3}{size()} == 0} but more expressive.
+
+\begin{DoxyNote}{Note}
+State may change immediately after call 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classtelemetry__processing_1_1_task_queue_a02a5ad06f831d6242fdd37cee18b1c68_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81} 
+bool telemetry\+\_\+processing\+::\+Task\+Queue\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}}]{task}{, }\item[{std\+::chrono\+::milliseconds}]{timeout}{ = {\ttfamily std\+:\+:chrono\+:\+:milliseconds(0)}}\end{DoxyParamCaption})}
+
+
+
+Enqueue a task with optional timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & \doxylink{structtelemetry__processing_1_1_task}{Task} to enqueue (moved) \\
+\hline
+{\em timeout} & Maximum wait time if queue full (default\+: 0 = no wait) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if enqueued, false if timeout or shutdown
+\end{DoxyReturn}
+If queue is full\+:
+\begin{DoxyItemize}
+\item timeout = 0\+: Returns false immediately
+\item timeout \texorpdfstring{$>$}{>} 0\+: Waits up to timeout for space
+\item timeout = max\+: Waits indefinitely
+\end{DoxyItemize}
+
+{\bfseries{Time Complexity}}\+: O(log n) where n = queue size {\bfseries{Thread Safety}}\+: Fully synchronized (safe from multiple threads)
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Task\ task(\textcolor{stringliteral}{"{}task-\/001"{}},\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{TaskPriority::HIGH}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Non-\/blocking\ enqueue}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!queue.enqueue(std::move(task)))\ \{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Queue\ full,\ task\ dropped"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Blocking\ enqueue\ with\ 5-\/second\ timeout}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!queue.enqueue(std::move(task),\ 5000ms))\ \{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Queue\ full\ after\ 5\ seconds"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+\doxylink{structtelemetry__processing_1_1_task}{Task} is moved (do not use after enqueue) 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Returns false if queue is shutting down 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00450}{max\+\_\+capacity\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00443}{not\+\_\+empty\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00444}{not\+\_\+full\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00451}{shutdown\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classtelemetry__processing_1_1_task_queue_ad82d3ae8f7ddc65e27ae46af9460df81_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a9dbfdde816b54f74dcaf00c06541379b}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!full@{full}}
+\index{full@{full}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{full()}{full()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a9dbfdde816b54f74dcaf00c06541379b} 
+bool telemetry\+\_\+processing\+::\+Task\+Queue\+::full (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if queue is at capacity. 
+
+\begin{DoxyReturn}{Returns}
+true if no space for new tasks
+\end{DoxyReturn}
+Returns false if capacity = 0 (unbounded queue).
+
+\begin{DoxyNote}{Note}
+State may change immediately after call 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00450}{max\+\_\+capacity\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classtelemetry__processing_1_1_task_queue_a9dbfdde816b54f74dcaf00c06541379b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_ac76c97d2c5709e9cdc458e34a75bdfc6}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!get\_stats@{get\_stats}}
+\index{get\_stats@{get\_stats}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{get\_stats()}{get\_stats()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_ac76c97d2c5709e9cdc458e34a75bdfc6} 
+nlohmann\+::json telemetry\+\_\+processing\+::\+Task\+Queue\+::get\+\_\+stats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get queue statistics. 
+
+\begin{DoxyReturn}{Returns}
+JSON object with statistics
+\end{DoxyReturn}
+Returns\+:
+\begin{DoxyItemize}
+\item current\+\_\+size\+: Number of tasks
+\item capacity\+: Max capacity
+\item utilization\+: Percentage full (0-\/100)
+\item priority\+\_\+breakdown\+: Count per priority level
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ stats\ =\ queue.get\_stats();}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Queue\ utilization:\ "{}}\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <<\ stats[\textcolor{stringliteral}{"{}utilization"{}}]\ <<\ \textcolor{stringliteral}{"{}\%"{}}\ <<\ std::endl;}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00450}{max\+\_\+capacity\+\_\+}}, \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_ac76c97d2c5709e9cdc458e34a75bdfc6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a} 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \& telemetry\+\_\+processing\+::\+Task\+Queue\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{task__queue_8cpp_source_l00006}{Task\+Queue()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_a4391f29c7ff7fa444ee8dddf19dc976a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe} 
+\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \& telemetry\+\_\+processing\+::\+Task\+Queue\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_a3ef1cb6a06a0430c897130148beb39a1}{Task\+Queue}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+References \mbox{\hyperlink{task__queue_8cpp_source_l00111}{capacity()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00115}{clear()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00101}{empty()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00106}{full()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00127}{get\+\_\+stats()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00086}{peek()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00096}{size()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00006}{Task\+Queue()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a82db9f8a27c8debdb4dcbdaf651efb3d}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!peek@{peek}}
+\index{peek@{peek}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{peek()}{peek()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a82db9f8a27c8debdb4dcbdaf651efb3d} 
+std\+::optional$<$ \mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}} $>$ telemetry\+\_\+processing\+::\+Task\+Queue\+::peek (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Peek at highest-\/priority task without removing. 
+
+\begin{DoxyReturn}{Returns}
+Optional task (nullopt if empty)
+\end{DoxyReturn}
+View next task without modifying queue. Useful for\+:
+\begin{DoxyItemize}
+\item Checking priority before processing
+\item Monitoring queue state
+\item Conditional dequeue logic
+\end{DoxyItemize}
+
+{\bfseries{Time Complexity}}\+: O(1) -\/ constant time
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ next\ =\ queue.peek();}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (next\ \&\&\ next-\/>priority\ ==\ \mbox{\hyperlink{namespacetelemetry__processing_ab30a860d76dfa7284dcef78155104345ab89de3b4b81c4facfac906edf29aec8c}{TaskPriority::HIGH}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Process\ high-\/priority\ immediately}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ task\ =\ queue.dequeue();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+\doxylink{structtelemetry__processing_1_1_task}{Task} reference may become invalid if queue modified 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Thread-\/safe but task may be dequeued by another thread 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classtelemetry__processing_1_1_task_queue_a82db9f8a27c8debdb4dcbdaf651efb3d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!size@{size}}
+\index{size@{size}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3} 
+size\+\_\+t telemetry\+\_\+processing\+::\+Task\+Queue\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get current number of tasks in queue. 
+
+\begin{DoxyReturn}{Returns}
+Size of queue
+\end{DoxyReturn}
+{\bfseries{Time Complexity}}\+: O(1) -\/ cached value {\bfseries{Thread Safety}}\+: Fully synchronized
+
+\begin{DoxyNote}{Note}
+Size may change immediately after call (concurrent access) 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{task__queue_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{task__queue_8cpp_source}{task\+\_\+queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{task__queue_8h_source_l00442}{mutex\+\_\+}}, and \mbox{\hyperlink{task__queue_8h_source_l00448}{queue\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetry__processing_1_1_task_queue_af55c9f29b1a8528c2b3e64c967e5b0fe}{operator=()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classtelemetry__processing_1_1_task_queue_afb4b367d7c03d3c0e286a21bc95b9bf3_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a4598db2e35bbf092570bf5f92473ddca}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!max\_capacity\_@{max\_capacity\_}}
+\index{max\_capacity\_@{max\_capacity\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{max\_capacity\_}{max\_capacity\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a4598db2e35bbf092570bf5f92473ddca} 
+size\+\_\+t telemetry\+\_\+processing\+::\+Task\+Queue\+::max\+\_\+capacity\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maximum queue size (0 = unbounded). 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00450}{450}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00111}{capacity()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00106}{full()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00127}{get\+\_\+stats()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00006}{Task\+Queue()}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_af7fbb68821963b6cebd936597c48bbec}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!mutex\_@{mutex\_}}
+\index{mutex\_@{mutex\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{mutex\_}{mutex\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_af7fbb68821963b6cebd936597c48bbec} 
+std\+::mutex telemetry\+\_\+processing\+::\+Task\+Queue\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Protects all shared state. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00442}{442}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00115}{clear()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00101}{empty()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00106}{full()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00127}{get\+\_\+stats()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00086}{peek()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00096}{size()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00010}{\texorpdfstring{$\sim$}{\string~}\+Task\+Queue()}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!not\_empty\_@{not\_empty\_}}
+\index{not\_empty\_@{not\_empty\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{not\_empty\_}{not\_empty\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a0794036aed884f011ceca9fe5b5867fb} 
+std\+::condition\+\_\+variable telemetry\+\_\+processing\+::\+Task\+Queue\+::not\+\_\+empty\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Signals when task available. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00443}{443}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00010}{\texorpdfstring{$\sim$}{\string~}\+Task\+Queue()}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!not\_full\_@{not\_full\_}}
+\index{not\_full\_@{not\_full\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{not\_full\_}{not\_full\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a95673578555c2c90cf49178b9bf2a6eb} 
+std\+::condition\+\_\+variable telemetry\+\_\+processing\+::\+Task\+Queue\+::not\+\_\+full\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Signals when space available. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00444}{444}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00115}{clear()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00010}{\texorpdfstring{$\sim$}{\string~}\+Task\+Queue()}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a0b552fe899d67c48f1c151e279e7d76e}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!queue\_@{queue\_}}
+\index{queue\_@{queue\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{queue\_}{queue\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a0b552fe899d67c48f1c151e279e7d76e} 
+std\+::priority\+\_\+queue$<$\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}, std\+::vector$<$\mbox{\hyperlink{structtelemetry__processing_1_1_task}{Task}}$>$, \mbox{\hyperlink{structtelemetry__processing_1_1_task_queue_1_1_task_comparator}{Task\+Comparator}}$>$ telemetry\+\_\+processing\+::\+Task\+Queue\+::queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Underlying priority queue. 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00448}{448}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00115}{clear()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00101}{empty()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00106}{full()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00127}{get\+\_\+stats()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00086}{peek()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00096}{size()}}.
+
+\Hypertarget{classtelemetry__processing_1_1_task_queue_a7113ef3e4b46612013810abd422d54fc}\index{telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}!shutdown\_@{shutdown\_}}
+\index{shutdown\_@{shutdown\_}!telemetry\_processing::TaskQueue@{telemetry\_processing::TaskQueue}}
+\doxysubsubsection{\texorpdfstring{shutdown\_}{shutdown\_}}
+{\footnotesize\ttfamily \label{classtelemetry__processing_1_1_task_queue_a7113ef3e4b46612013810abd422d54fc} 
+bool telemetry\+\_\+processing\+::\+Task\+Queue\+::shutdown\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shutdown flag (unblock threads). 
+
+
+
+Definition at line \mbox{\hyperlink{task__queue_8h_source_l00451}{451}} of file \mbox{\hyperlink{task__queue_8h_source}{task\+\_\+queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{task__queue_8cpp_source_l00056}{dequeue()}}, \mbox{\hyperlink{task__queue_8cpp_source_l00020}{enqueue()}}, and \mbox{\hyperlink{task__queue_8cpp_source_l00010}{\texorpdfstring{$\sim$}{\string~}\+Task\+Queue()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/\mbox{\hyperlink{task__queue_8h}{task\+\_\+queue.\+h}}\item 
+processing/src/\mbox{\hyperlink{task__queue_8cpp}{task\+\_\+queue.\+cpp}}\end{DoxyCompactItemize}

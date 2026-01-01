@@ -1,0 +1,152 @@
+\doxysection{httplib\+::Server Class Reference}
+\hypertarget{classhttplib_1_1_server}{}\label{classhttplib_1_1_server}\index{httplib::Server@{httplib::Server}}
+
+
+{\ttfamily \#include $<$httplib\+\_\+stub.\+h$>$}
+
+
+
+Collaboration diagram for httplib\+::Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classhttplib_1_1_server__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}} = std\+::function$<$void(const \mbox{\hyperlink{classhttplib_1_1_request}{Request}}\&, \mbox{\hyperlink{classhttplib_1_1_response}{Response}}\&)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d}{Get}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}} h)
+\item 
+void \mbox{\hyperlink{classhttplib_1_1_server_ac0a38b0a0e69331347109a74b27353a3}{Post}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}} h)
+\item 
+bool \mbox{\hyperlink{classhttplib_1_1_server_a619949612beee1706c1b8c956da18f75}{listen}} (const char \texorpdfstring{$\ast$}{*}host, int port)
+\item 
+bool \mbox{\hyperlink{classhttplib_1_1_server_aebd733f33e0eff710048d85008a7bf16}{dispatch}} (const \mbox{\hyperlink{classhttplib_1_1_request}{Request}} \&req, \mbox{\hyperlink{classhttplib_1_1_response}{Response}} \&res)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}} $>$ \mbox{\hyperlink{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}{routes\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00022}{22}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{classhttplib_1_1_server_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}\index{httplib::Server@{httplib::Server}!Handler@{Handler}}
+\index{Handler@{Handler}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{Handler}{Handler}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489} 
+using \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{httplib\+::\+Server\+::\+Handler}} = std\+::function$<$void(const \mbox{\hyperlink{classhttplib_1_1_request}{Request}}\&, \mbox{\hyperlink{classhttplib_1_1_response}{Response}}\&)$>$}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00024}{24}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classhttplib_1_1_server_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classhttplib_1_1_server_aebd733f33e0eff710048d85008a7bf16}\index{httplib::Server@{httplib::Server}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{dispatch()}{dispatch()}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_aebd733f33e0eff710048d85008a7bf16} 
+bool httplib\+::\+Server\+::dispatch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classhttplib_1_1_request}{Request}} \&}]{req}{, }\item[{\mbox{\hyperlink{classhttplib_1_1_response}{Response}} \&}]{res}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00043}{43}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+References \mbox{\hyperlink{httplib__stub_8h_source_l00018}{httplib\+::\+Response\+::body}}, \mbox{\hyperlink{httplib__stub_8h_source_l00010}{httplib\+::\+Request\+::method}}, \mbox{\hyperlink{httplib__stub_8h_source_l00011}{httplib\+::\+Request\+::path}}, \mbox{\hyperlink{httplib__stub_8h_source_l00056}{routes\+\_\+}}, and \mbox{\hyperlink{httplib__stub_8h_source_l00017}{httplib\+::\+Response\+::status}}.
+
+\Hypertarget{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d}\index{httplib::Server@{httplib::Server}!Get@{Get}}
+\index{Get@{Get}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d} 
+void httplib\+::\+Server\+::\+Get (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{, }\item[{\mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00026}{26}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+References \mbox{\hyperlink{httplib__stub_8h_source_l00056}{routes\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{http__server_8cpp_source_l00057}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classhttplib_1_1_server_a619949612beee1706c1b8c956da18f75}\index{httplib::Server@{httplib::Server}!listen@{listen}}
+\index{listen@{listen}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{listen()}{listen()}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_a619949612beee1706c1b8c956da18f75} 
+bool httplib\+::\+Server\+::listen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{host}{, }\item[{int}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00035}{35}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+\Hypertarget{classhttplib_1_1_server_ac0a38b0a0e69331347109a74b27353a3}\index{httplib::Server@{httplib::Server}!Post@{Post}}
+\index{Post@{Post}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{Post()}{Post()}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_ac0a38b0a0e69331347109a74b27353a3} 
+void httplib\+::\+Server\+::\+Post (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{, }\item[{\mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00030}{30}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+References \mbox{\hyperlink{httplib__stub_8h_source_l00056}{routes\+\_\+}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classhttplib_1_1_server_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6}\index{httplib::Server@{httplib::Server}!routes\_@{routes\_}}
+\index{routes\_@{routes\_}!httplib::Server@{httplib::Server}}
+\doxysubsubsection{\texorpdfstring{routes\_}{routes\_}}
+{\footnotesize\ttfamily \label{classhttplib_1_1_server_a8a144dc365a21b88ddd0dedb24f65df6} 
+std\+::map$<$std\+::string, \mbox{\hyperlink{classhttplib_1_1_server_a5a4d4bda8260e6a180d33a1983c1a489}{Handler}}$>$ httplib\+::\+Server\+::routes\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{httplib__stub_8h_source_l00056}{56}} of file \mbox{\hyperlink{httplib__stub_8h_source}{httplib\+\_\+stub.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{httplib__stub_8h_source_l00043}{dispatch()}}, \mbox{\hyperlink{httplib__stub_8h_source_l00026}{Get()}}, and \mbox{\hyperlink{httplib__stub_8h_source_l00030}{Post()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/third\+\_\+party/\mbox{\hyperlink{httplib__stub_8h}{httplib\+\_\+stub.\+h}}\end{DoxyCompactItemize}

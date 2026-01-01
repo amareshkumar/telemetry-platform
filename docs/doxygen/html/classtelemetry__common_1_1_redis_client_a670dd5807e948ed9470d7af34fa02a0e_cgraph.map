@@ -1,0 +1,7 @@
+<map id="telemetry_common::RedisClient::ping" name="telemetry_common::RedisClient::ping">
+<area shape="rect" id="Node000001" title="Test connection with PING command." alt="" coords="5,29,214,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="61,28,59,19,67,10,84,5,110,3,137,5,155,13,150,14,136,10,109,8,85,10,70,15,64,21,66,29"/>
+<area shape="rect" id="Node000002" href="$classtelemetry__common_1_1_redis_client.html#a7dfc3a6ada1c8d899e47256166ac82ac" title="Construct Redis client with connection options." alt="" coords="262,29,470,72"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="214,57,249,60,243,60,214,62"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="258,42,229,44,229,39,264,42"/>
+</map>

@@ -1,0 +1,40 @@
+\doxysection{config.\+h}
+\hypertarget{common_2include_2telemetry__common_2config_8h_source}{}\label{common_2include_2telemetry__common_2config_8h_source}\index{common/include/telemetry\_common/config.h@{common/include/telemetry\_common/config.h}}
+\mbox{\hyperlink{common_2include_2telemetry__common_2config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00006}\mbox{\hyperlink{namespacetelemetry__common}{00006}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__common}{telemetry\_common}}\ \{}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00015}\mbox{\hyperlink{classtelemetry__common_1_1_config}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetry__common_1_1_config}{Config}}\ \{}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a2a23fd8cd578c06db4a286aeaac92275}{load\_from\_file}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00021}00021\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00028}00028\ \ \ \ \ std::string\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a0eed857ce5809d3101edc2081368296a}{get\_string}}(\textcolor{keyword}{const}\ std::string\&\ section,\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ default\_value\ =\ \textcolor{stringliteral}{"{}"{}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a62fa4b7b1d1469788ddc34dff9c47eec}{get\_int}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ default\_value\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a573ba751b628c3447c2d91da9301d014}{get\_bool}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ default\_value\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00045}00045\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_acc82d1dde6b1d3ed54217db4b4f41b95}{get\_double}}(\textcolor{keyword}{const}\ std::string\&\ section,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ key,}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ default\_value\ =\ 0.0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00052}00052\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a48ebdf3a53c315d265d17916bd4d68e0}{has\_key}}(\textcolor{keyword}{const}\ std::string\&\ section,\ \textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00058}00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00059}\mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{00059}}\ \ \ \ \ std::map<std::string,\ std::map<std::string,\ std::string>>\ \mbox{\hyperlink{classtelemetry__common_1_1_config_a746fed123f674e8764d9a2243969f647}{data\_}};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{common_2include_2telemetry__common_2config_8h_source_l00062}00062\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_common}}
+
+\end{DoxyCode}

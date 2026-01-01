@@ -1,0 +1,188 @@
+\doxysection{http\+\_\+server.\+cpp}
+\hypertarget{http__server_8cpp_source}{}\label{http__server_8cpp_source}\index{ingestion/gateway/src/http\_server.cpp@{ingestion/gateway/src/http\_server.cpp}}
+\mbox{\hyperlink{http__server_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{http__config_8h}{http\_config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <httplib.h>}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_gateway_core_8h}{telemetryhub/gateway/GatewayCore.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_log_8h}{telemetryhub/gateway/Log.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h}{telemetryhub/gateway/Config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}telemetryhub/device/DeviceUtils.h"{}}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00013}00013\ \textcolor{comment}{//\ minimal\ server\ exposing\ GatewayCore\ control/status\ via\ HTTP\ REST\ API}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub::gateway}}\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00016}00016\ \textcolor{comment}{//\ Note:\ run\_http\_server\ must\ only\ be\ called\ once\ from\ a\ single\ thread.}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00017}00017\ \textcolor{comment}{//\ The\ g\_gateway\ pointer\ is\ initialized\ once\ and\ then\ read\ by\ HTTP\ handlers.}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00018}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{00018}}\ \textcolor{keyword}{static}\ std::shared\_ptr<GatewayCore>\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00019}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{00019}}\ \textcolor{keyword}{static}\ std::once\_flag\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{g\_init\_flag}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00021}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}{00021}}\ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}{json\_status}}()\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00022}00022\ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00024}00024\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00025}00025\ \ \ std::ostringstream\ os;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00026}00026\ \ \ \textcolor{keyword}{auto}\ state\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>device\_state();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00027}00027\ \ \ \textcolor{keyword}{auto}\ latest\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>latest\_sample();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00028}00028\ \ \ \textcolor{keyword}{auto}\ metrics\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>get\_metrics();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00029}00029\ \ \ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00030}00030\ \ \ os\ <<\ \textcolor{stringliteral}{"{}\{\(\backslash\)"{}state\(\backslash\)"{}:\(\backslash\)"{}"{}}\ <<\ device::to\_string(state)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00031}00031\ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}latest\_sample\(\backslash\)"{}:"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00032}00032\ \ \ \textcolor{keywordflow}{if}\ (latest)\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00033}00033\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\{\(\backslash\)"{}seq\(\backslash\)"{}:"{}}\ <<\ latest-\/>sequence\_id}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}value\(\backslash\)"{}:"{}}\ <<\ latest-\/>value}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}unit\(\backslash\)"{}:\(\backslash\)"{}"{}}\ <<\ latest-\/>unit\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00036}00036\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00037}00037\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}null"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00038}00038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00039}00039\ \ \ os\ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}metrics\(\backslash\)"{}:"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00040}00040\ \ \ os\ <<\ \textcolor{stringliteral}{"{}\{\(\backslash\)"{}samples\_processed\(\backslash\)"{}:"{}}\ <<\ metrics.samples\_processed}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00041}00041\ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}samples\_dropped\(\backslash\)"{}:"{}}\ <<\ metrics.samples\_dropped}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00042}00042\ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}pool\_jobs\_processed\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_jobs\_processed}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00043}00043\ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}pool\_jobs\_queued\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_jobs\_queued}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00044}00044\ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\(\backslash\)"{}pool\_num\_threads\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_num\_threads\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00045}00045\ \ \ os\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{return}\ os.str();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00049}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}{00049}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}{apply\_cfg\_if\_any}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub::gateway::AppConfig}}*\ cfg)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00050}00050\ \ \ \textcolor{keywordflow}{if}\ (!cfg)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00051}00051\ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00052}00052\ \ \ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>set\_sampling\_interval(cfg-\/>\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_a5850046673896782691f97f1a06b451a}{sampling\_interval}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00053}00053\ \ \ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>set\_queue\_capacity(cfg-\/>\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_adb8866fdcd75a4517d053df0f321f601}{queue\_size}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00054}00054\ \ \ \mbox{\hyperlink{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}{::telemetryhub::Logger::instance}}().\mbox{\hyperlink{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0}{set\_level}}(cfg-\/>\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_a80e12fb05a23db930671442394ece5ee}{log\_level}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00057}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{00057}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{run\_http\_server}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ port)\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00058}00058\ \ \ std::call\_once(\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{g\_init\_flag}},\ []\{\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}\ =\ std::make\_shared<GatewayCore>();\ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00059}00059\ \ \ \mbox{\hyperlink{classhttplib_1_1_server}{httplib::Server}}\ svr;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00061}00061\ \ \ \textcolor{comment}{//\ Health\ check\ endpoint\ (for\ k6\ load\ testing)}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00062}00062\ \ \ svr.\mbox{\hyperlink{classhttplib_1_1_server_a1b692cb43bdc5c0e33f1951db7bd781d}{Get}}(\textcolor{stringliteral}{"{}/health"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00063}00063\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00064}00064\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}status\(\backslash\)"{}:\(\backslash\)"{}ok\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00065}00065\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00067}00067\ \ \ \textcolor{comment}{//\ Telemetry\ ingestion\ endpoint\ (for\ k6\ load\ testing)}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00068}00068\ \ \ svr.Post(\textcolor{stringliteral}{"{}/telemetry"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00070}00070\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00071}00071\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00072}00072\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00074}00074\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Simple\ validation}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (req.\mbox{\hyperlink{classhttplib_1_1_request_ad4502def5e057794ad17f014cf671656}{body}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00077}00077\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 400;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00078}00078\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Empty\ request\ body\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00079}00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00081}00081\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Accept\ telemetry\ data\ (in\ real\ implementation,\ would\ parse\ and\ process)}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00083}00083\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}ok\(\backslash\)"{}:true,\(\backslash\)"{}message\(\backslash\)"{}:\(\backslash\)"{}Telemetry\ received\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00084}00084\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00086}00086\ \ \ svr.Get(\textcolor{stringliteral}{"{}/status"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00087}00087\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00089}00089\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00090}00090\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00091}00091\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{auto}\ body\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a9eb595a833ddc23fc09b705cb35f21db}{json\_status}}();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00094}00094\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(body,\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00095}00095\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00097}00097\ \ \ svr.Post(\textcolor{stringliteral}{"{}/start"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00098}00098\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00100}00100\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00101}00101\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00102}00102\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>start();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00105}00105\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}ok\(\backslash\)"{}:true\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00106}00106\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00108}00108\ \ \ svr.Post(\textcolor{stringliteral}{"{}/stop"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00109}00109\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00111}00111\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00112}00112\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00113}00113\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00115}00115\ \ \ \ \ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>stop();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00116}00116\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}ok\(\backslash\)"{}:true\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00117}00117\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00118}00118\ \ \ \textcolor{comment}{//\ Day\ 18:\ Reset\ device\ from\ SafeState/Error}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00119}00119\ \ \ svr.Post(\textcolor{stringliteral}{"{}/reset"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00120}00120\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00122}00122\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00123}00123\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00124}00124\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00126}00126\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{comment}{//\ Can\ only\ reset\ when\ gateway\ is\ stopped}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>device\_state()\ ==\ device::DeviceState::Measuring)\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00129}00129\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 400;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00130}00130\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Cannot\ reset\ while\ measuring.\ Stop\ gateway\ first.\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00131}00131\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ success\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>reset\_device();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (success)\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00136}00136\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}ok\(\backslash\)"{}:true,\(\backslash\)"{}message\(\backslash\)"{}:\(\backslash\)"{}Device\ reset\ to\ Idle\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00137}00137\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00138}00138\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 400;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00139}00139\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}ok\(\backslash\)"{}:false,\(\backslash\)"{}message\(\backslash\)"{}:\(\backslash\)"{}Device\ not\ in\ SafeState/Error\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00141}00141\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00142}00142\ \ \ svr.Get(\textcolor{stringliteral}{"{}/metrics"{}},\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{classhttplib_1_1_request}{httplib::Request}}\&\ req,\ \mbox{\hyperlink{classhttplib_1_1_response}{httplib::Response}}\&\ res)\{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00143}00143\ \ \ \ \ (void)req;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}})\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00145}00145\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a8b717024fa31c5146e9e7a46761a0653}{status}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00146}00146\ \ \ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(\textcolor{stringliteral}{"{}\{\(\backslash\)"{}error\(\backslash\)"{}:\(\backslash\)"{}Gateway\ not\ initialized\(\backslash\)"{}\}"{}},\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00147}00147\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keyword}{auto}\ metrics\ =\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}-\/>get\_metrics();}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00150}00150\ \ \ \ \ std::ostringstream\ os;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00151}00151\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\{"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00152}00152\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}samples\_processed\(\backslash\)"{}:"{}}\ <<\ metrics.samples\_processed\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00153}00153\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}samples\_dropped\(\backslash\)"{}:"{}}\ <<\ metrics.samples\_dropped\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00154}00154\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}queue\_depth\(\backslash\)"{}:"{}}\ <<\ metrics.queue\_depth\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00155}00155\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}latency\_p99\_ms\(\backslash\)"{}:"{}}\ <<\ metrics.latency\_p99\_ms\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00156}00156\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}uptime\_seconds\(\backslash\)"{}:"{}}\ <<\ metrics.uptime\_seconds\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00157}00157\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}thread\_pool\(\backslash\)"{}:\{"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00158}00158\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}jobs\_processed\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_jobs\_processed\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00159}00159\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}jobs\_queued\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_jobs\_queued\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00160}00160\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}avg\_processing\_ms\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_avg\_processing\_ms\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00161}00161\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}num\_threads\(\backslash\)"{}:"{}}\ <<\ metrics.pool\_num\_threads;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00162}00162\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00163}00163\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00164}00164\ \ \ \ \ res.\mbox{\hyperlink{classhttplib_1_1_response_a6ed0bec7e4d9fcca5d02e0e53262c84e}{set\_content}}(os.str(),\ \textcolor{stringliteral}{"{}application/json"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00165}00165\ \ \ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00167}00167\ \ \ \textcolor{comment}{//\ Enable\ multithreading\ for\ better\ concurrency\ (handle\ 100+\ concurrent\ connections)}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00168}00168\ \ \ svr.new\_task\_queue\ =\ []\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ httplib::ThreadPool(8);\ \};}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00169}00169\ \ \ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00170}00170\ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}http"{}},\ (std::string(\textcolor{stringliteral}{"{}Listening\ on\ port\ "{}})\ +\ std::to\_string(port)).c\_str());}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00171}00171\ \ \ \mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{TELEMETRYHUB\_LOGI}}(\textcolor{stringliteral}{"{}http"{}},\ \textcolor{stringliteral}{"{}HTTP\ server\ configured\ with\ 8\ worker\ threads\ for\ high\ concurrency"{}});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00172}00172\ \ \ svr.listen(\textcolor{stringliteral}{"{}0.0.0.0"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(port));}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00173}00173\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00176}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}{00176}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}{run\_http\_server\_with\_config}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ port,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub::gateway::AppConfig}}\&\ cfg)\ \{}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00177}00177\ \ \ std::call\_once(\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afcc63bc6547ffcdbfaa6cc42a3de651c}{g\_init\_flag}},\ []\{\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_ad75623626f4790bbff53a572fa8d1e63}{g\_gateway}}\ =\ std::make\_shared<GatewayCore>();\ \});}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00178}00178\ \ \ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af816447a58db4286806d27d9b07ae689}{apply\_cfg\_if\_any}}(\&cfg);}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00179}00179\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{run\_http\_server}}(port);}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00180}00180\ \}}
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{http__server_8cpp_source_l00182}00182\ \}\ \textcolor{comment}{//\ namespace\ telemetryhub::gateway}}
+
+\end{DoxyCode}

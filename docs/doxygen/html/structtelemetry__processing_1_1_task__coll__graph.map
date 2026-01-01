@@ -1,0 +1,7 @@
+<map id="telemetry_processing::Task" name="telemetry_processing::Task">
+<area shape="rect" id="Node000001" title="Represents a single unit of work with priority and metadata." alt="" coords="5,196,151,239"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="38,97,118,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,138,81,196,75,195,76,141"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="15,5,141,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,61,81,97,75,96,77,66"/>
+</map>

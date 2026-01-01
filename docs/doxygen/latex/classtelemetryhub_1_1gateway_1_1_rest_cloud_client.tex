@@ -1,0 +1,143 @@
+\doxysection{telemetryhub\+::gateway\+::Rest\+Cloud\+Client Class Reference}
+\hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client}{}\label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+
+
+{\ttfamily \#include $<$Rest\+Cloud\+Client.\+h$>$}
+
+
+
+Inheritance diagram for telemetryhub\+::gateway\+::Rest\+Cloud\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classtelemetryhub_1_1gateway_1_1_rest_cloud_client__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for telemetryhub\+::gateway\+::Rest\+Cloud\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{classtelemetryhub_1_1gateway_1_1_rest_cloud_client__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93}{Rest\+Cloud\+Client}} (const std\+::string \&endpoint\+\_\+url="{}http\+://localhost\+:0"{})
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_afe65f46ecfb0d91c85eca77e67cf7a70}{\texorpdfstring{$\sim$}{\string~}\+Rest\+Cloud\+Client}} () override=default
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_aee3a1a8ce572b49372622344f17fa553}{push\+\_\+sample}} (const telemetryhub\+::device\+::\+Telemetry\+Sample \&sample) override
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_ac206445c7e9616fec6e59e61c441cc4c}{push\+\_\+status}} (telemetryhub\+::device\+::\+Device\+State state) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client}{telemetryhub\+::gateway\+::\+ICloud\+Client}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client_ae74af069e7d5ba92a0992341df5ea8bc}{\texorpdfstring{$\sim$}{\string~}\+ICloud\+Client}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client_a31ff4dbae0140520f2ca7141735a2a47}{push\+\_\+status}} (device\+::\+Device\+State state)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f}{endpoint\+\_\+url\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_rest_cloud_client_8h_source_l00007}{7}} of file \mbox{\hyperlink{_rest_cloud_client_8h_source}{Rest\+Cloud\+Client.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}!RestCloudClient@{RestCloudClient}}
+\index{RestCloudClient@{RestCloudClient}!telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+\doxysubsubsection{\texorpdfstring{RestCloudClient()}{RestCloudClient()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93} 
+telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::\+Rest\+Cloud\+Client (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{endpoint\+\_\+url}{ = {\ttfamily "{}http\+://localhost\+:0"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_rest_cloud_client_8h_source_l00010}{10}} of file \mbox{\hyperlink{_rest_cloud_client_8h_source}{Rest\+Cloud\+Client.\+h}}.
+
+
+
+References \mbox{\hyperlink{_rest_cloud_client_8h_source_l00019}{endpoint\+\_\+url\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_afe65f46ecfb0d91c85eca77e67cf7a70}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}!````~RestCloudClient@{\texorpdfstring{$\sim$}{\string~}RestCloudClient}}
+\index{````~RestCloudClient@{\texorpdfstring{$\sim$}{\string~}RestCloudClient}!telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RestCloudClient()}{\string~RestCloudClient()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_afe65f46ecfb0d91c85eca77e67cf7a70} 
+telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::\texorpdfstring{$\sim$}{\string~}\+Rest\+Cloud\+Client (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_aee3a1a8ce572b49372622344f17fa553}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}!push\_sample@{push\_sample}}
+\index{push\_sample@{push\_sample}!telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+\doxysubsubsection{\texorpdfstring{push\_sample()}{push\_sample()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_aee3a1a8ce572b49372622344f17fa553} 
+void telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::push\+\_\+sample (\begin{DoxyParamCaption}\item[{const telemetryhub\+::device\+::\+Telemetry\+Sample \&}]{sample}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client_af67d4ca6caf821200830a8c5d695a873}{telemetryhub\+::gateway\+::\+ICloud\+Client}}.
+
+
+
+Definition at line \mbox{\hyperlink{_rest_cloud_client_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_rest_cloud_client_8cpp_source}{Rest\+Cloud\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00061}{TELEMETRYHUB\+\_\+\+LOGI}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_ac206445c7e9616fec6e59e61c441cc4c}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}!push\_status@{push\_status}}
+\index{push\_status@{push\_status}!telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+\doxysubsubsection{\texorpdfstring{push\_status()}{push\_status()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_ac206445c7e9616fec6e59e61c441cc4c} 
+void telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::push\+\_\+status (\begin{DoxyParamCaption}\item[{telemetryhub\+::device\+::\+Device\+State}]{state}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{_rest_cloud_client_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_rest_cloud_client_8cpp_source}{Rest\+Cloud\+Client.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00061}{TELEMETRYHUB\+\_\+\+LOGI}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f}\index{telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}!endpoint\_url\_@{endpoint\_url\_}}
+\index{endpoint\_url\_@{endpoint\_url\_}!telemetryhub::gateway::RestCloudClient@{telemetryhub::gateway::RestCloudClient}}
+\doxysubsubsection{\texorpdfstring{endpoint\_url\_}{endpoint\_url\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f} 
+std\+::string telemetryhub\+::gateway\+::\+Rest\+Cloud\+Client\+::endpoint\+\_\+url\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_rest_cloud_client_8h_source_l00019}{19}} of file \mbox{\hyperlink{_rest_cloud_client_8h_source}{Rest\+Cloud\+Client.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_rest_cloud_client_8h_source_l00010}{Rest\+Cloud\+Client()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_rest_cloud_client_8h}{Rest\+Cloud\+Client.\+h}}\item 
+ingestion/gateway/src/\mbox{\hyperlink{_rest_cloud_client_8cpp}{Rest\+Cloud\+Client.\+cpp}}\end{DoxyCompactItemize}

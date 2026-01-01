@@ -1,0 +1,332 @@
+\doxysection{telemetry\+\_\+processor\+::Task Struct Reference}
+\hypertarget{structtelemetry__processor_1_1_task}{}\label{structtelemetry__processor_1_1_task}\index{telemetry\_processor::Task@{telemetry\_processor::Task}}
+
+
+Core \doxylink{structtelemetry__processor_1_1_task}{Task} data structure.  
+
+
+
+
+{\ttfamily \#include $<$Task.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+processor\+::Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{structtelemetry__processor_1_1_task__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+nlohmann\+::json \mbox{\hyperlink{structtelemetry__processor_1_1_task_abc10d154fdf2b03a4419f6264c176f94}{to\+\_\+json}} () const
+\begin{DoxyCompactList}\small\item\em Serialize task to JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \mbox{\hyperlink{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}{from\+\_\+json}} (const nlohmann\+::json \&j)
+\begin{DoxyCompactList}\small\item\em Deserialize task from JSON. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} \mbox{\hyperlink{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0}{create}} (const std\+::string \&\mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}}, const std\+::string \&\mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}}, \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}} \mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}}=\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051}{Priority\+::\+NORMAL}}, int \mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\+\_\+retries}}=3)
+\begin{DoxyCompactList}\small\item\em Create a new task with generated UUID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_task_adf281d63d3afaf7cfc352fabfb6753e8}{id}}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}{type}}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}{payload}}
+\item 
+\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}} \mbox{\hyperlink{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}{priority}}
+\item 
+\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status}} \mbox{\hyperlink{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed}{status}}
+\item 
+int \mbox{\hyperlink{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5}{retry\+\_\+count}}
+\item 
+int \mbox{\hyperlink{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}{max\+\_\+retries}}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}{created\+\_\+at}}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3}{updated\+\_\+at}}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88}{worker\+\_\+id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core \doxylink{structtelemetry__processor_1_1_task}{Task} data structure. 
+
+Represents a unit of work to be executed by workers. Tasks are serialized to JSON for storage in Redis. 
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00036}{36}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{structtelemetry__processor_1_1_task_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!create@{create}}
+\index{create@{create}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} telemetry\+\_\+processor\+::\+Task\+::create (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type}{, }\item[{const std\+::string \&}]{payload}{, }\item[{\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}}}]{priority}{ = {\ttfamily \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051}{Priority\+::\+NORMAL}}}, }\item[{int}]{max\+\_\+retries}{ = {\ttfamily 3}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a new task with generated UUID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \doxylink{structtelemetry__processor_1_1_task}{Task} type \\
+\hline
+{\em payload} & \doxylink{structtelemetry__processor_1_1_task}{Task} data (JSON string) \\
+\hline
+{\em priority} & \doxylink{structtelemetry__processor_1_1_task}{Task} priority \\
+\hline
+{\em max\+\_\+retries} & Maximum retry attempts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New \doxylink{structtelemetry__processor_1_1_task}{Task} instance 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_task_8h_source_l00044}{created\+\_\+at}}, \mbox{\hyperlink{_task_8cpp_source_l00008}{telemetry\+\_\+processor\+::generate\+\_\+uuid()}}, \mbox{\hyperlink{_task_8h_source_l00037}{id}}, \mbox{\hyperlink{_task_8h_source_l00043}{max\+\_\+retries}}, \mbox{\hyperlink{_task_8h_source_l00039}{payload}}, \mbox{\hyperlink{_task_8h_source_l00023}{telemetry\+\_\+processor\+::\+PENDING}}, \mbox{\hyperlink{_task_8h_source_l00040}{priority}}, \mbox{\hyperlink{_task_8h_source_l00042}{retry\+\_\+count}}, \mbox{\hyperlink{_task_8h_source_l00041}{status}}, \mbox{\hyperlink{_task_8h_source_l00038}{type}}, \mbox{\hyperlink{_task_8h_source_l00045}{updated\+\_\+at}}, and \mbox{\hyperlink{_task_8h_source_l00046}{worker\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00005}{main()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{structtelemetry__processor_1_1_task_a4ecf0d7c4f9d346c1f28438eb5142fa0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612} 
+\mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}} telemetry\+\_\+processor\+::\+Task\+::from\+\_\+json (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Deserialize task from JSON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & JSON object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reconstructed \doxylink{structtelemetry__processor_1_1_task}{Task} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_task_8h_source_l00044}{created\+\_\+at}}, \mbox{\hyperlink{_task_8h_source_l00037}{id}}, \mbox{\hyperlink{_task_8h_source_l00043}{max\+\_\+retries}}, \mbox{\hyperlink{_task_8h_source_l00039}{payload}}, \mbox{\hyperlink{_task_8h_source_l00040}{priority}}, \mbox{\hyperlink{_task_8h_source_l00042}{retry\+\_\+count}}, \mbox{\hyperlink{_task_8h_source_l00041}{status}}, \mbox{\hyperlink{_task_8h_source_l00038}{type}}, \mbox{\hyperlink{_task_8h_source_l00045}{updated\+\_\+at}}, and \mbox{\hyperlink{_task_8h_source_l00046}{worker\+\_\+id}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00005}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{structtelemetry__processor_1_1_task_ae0bb17d5733e6e161018f49a5855c612_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structtelemetry__processor_1_1_task_abc10d154fdf2b03a4419f6264c176f94}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_abc10d154fdf2b03a4419f6264c176f94} 
+nlohmann\+::json telemetry\+\_\+processor\+::\+Task\+::to\+\_\+json (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Serialize task to JSON. 
+
+\begin{DoxyReturn}{Returns}
+JSON representation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_task_8h_source_l00044}{created\+\_\+at}}, \mbox{\hyperlink{_task_8h_source_l00043}{max\+\_\+retries}}, \mbox{\hyperlink{_task_8h_source_l00039}{payload}}, \mbox{\hyperlink{_task_8h_source_l00040}{priority}}, \mbox{\hyperlink{_task_8h_source_l00042}{retry\+\_\+count}}, \mbox{\hyperlink{_task_8h_source_l00041}{status}}, \mbox{\hyperlink{_task_8h_source_l00038}{type}}, \mbox{\hyperlink{_task_8h_source_l00045}{updated\+\_\+at}}, and \mbox{\hyperlink{_task_8h_source_l00046}{worker\+\_\+id}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetry__processor_1_1_task_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!created\_at@{created\_at}}
+\index{created\_at@{created\_at}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{created\_at}{created\_at}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a00696e8bf32a6cfd6e35bd593a152f16} 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point telemetry\+\_\+processor\+::\+Task\+::created\+\_\+at}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00044}{44}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_adf281d63d3afaf7cfc352fabfb6753e8}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!id@{id}}
+\index{id@{id}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_adf281d63d3afaf7cfc352fabfb6753e8} 
+std\+::string telemetry\+\_\+processor\+::\+Task\+::id}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00037}{37}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, and \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!max\_retries@{max\_retries}}
+\index{max\_retries@{max\_retries}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{max\_retries}{max\_retries}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a03fc7206420f884f9a20d76191008b50} 
+int telemetry\+\_\+processor\+::\+Task\+::max\+\_\+retries}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00043}{43}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!payload@{payload}}
+\index{payload@{payload}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_ac86eb051442169f697dcb0a91fa27b39} 
+std\+::string telemetry\+\_\+processor\+::\+Task\+::payload}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00039}{39}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!priority@{priority}}
+\index{priority@{priority}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a1ecd33df180f4ac70e9935f7cb85f59f} 
+\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}} telemetry\+\_\+processor\+::\+Task\+::priority}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00040}{40}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!retry\_count@{retry\_count}}
+\index{retry\_count@{retry\_count}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{retry\_count}{retry\_count}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a5f01e5e3e18bb6dbbd68842508fc5eb5} 
+int telemetry\+\_\+processor\+::\+Task\+::retry\+\_\+count}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00042}{42}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!status@{status}}
+\index{status@{status}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a85ff6cc768faae4cb399cdf9f66ea1ed} 
+\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status}} telemetry\+\_\+processor\+::\+Task\+::status}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00041}{41}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!type@{type}}
+\index{type@{type}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_aa6e3d883dc65b6dd6fb46fa1e15b581a} 
+std\+::string telemetry\+\_\+processor\+::\+Task\+::type}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00038}{38}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!updated\_at@{updated\_at}}
+\index{updated\_at@{updated\_at}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{updated\_at}{updated\_at}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_abc768512ed6aeb72b1582d5bceb632f3} 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point telemetry\+\_\+processor\+::\+Task\+::updated\+\_\+at}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00045}{45}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+\Hypertarget{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88}\index{telemetry\_processor::Task@{telemetry\_processor::Task}!worker\_id@{worker\_id}}
+\index{worker\_id@{worker\_id}!telemetry\_processor::Task@{telemetry\_processor::Task}}
+\doxysubsubsection{\texorpdfstring{worker\_id}{worker\_id}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_task_a4a03ac0a5dc1ed37f701e02b7840cc88} 
+std\+::string telemetry\+\_\+processor\+::\+Task\+::worker\+\_\+id}
+
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00046}{46}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{create()}}, \mbox{\hyperlink{_task_8cpp_source_l00080}{from\+\_\+json()}}, and \mbox{\hyperlink{_task_8cpp_source_l00065}{to\+\_\+json()}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/telemetry\+\_\+processor/\mbox{\hyperlink{_task_8h}{Task.\+h}}\item 
+processing/src/core/\mbox{\hyperlink{_task_8cpp}{Task.\+cpp}}\end{DoxyCompactItemize}

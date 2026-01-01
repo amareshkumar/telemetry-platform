@@ -1,0 +1,148 @@
+\doxysection{ingestion/gateway/src/main\+\_\+gateway.cpp File Reference}
+\hypertarget{main__gateway_8cpp}{}\label{main__gateway_8cpp}\index{ingestion/gateway/src/main\_gateway.cpp@{ingestion/gateway/src/main\_gateway.cpp}}
+{\ttfamily \#include "{}telemetryhub/gateway/\+Gateway\+Core.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/gateway/\+Config.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/device/\+Device\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/\+Version.\+h"{}}\newline
+{\ttfamily \#include "{}telemetryhub/gateway/\+Log.\+h"{}}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$csignal$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+Include dependency graph for main\+\_\+gateway.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__gateway_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_gateway_core}{Gateway\+Core}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetryhub}{telemetryhub}}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub\+::gateway}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{main__gateway_8cpp_a1637a39930b40085556d779274e60f4a}{on\+\_\+sigint}} (int)
+\item 
+static \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{telemetryhub\+::\+Log\+Level}} \mbox{\hyperlink{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e}{parse\+\_\+level}} (std\+::string\+\_\+view s)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_a25ee169b5e15eb899f786f2ee74b57b6}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server}} (unsigned short port)
+\item 
+int \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_af7d234485b97bc637873bc35893ec967}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server\+\_\+with\+\_\+config}} (unsigned short port, const \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{telemetryhub\+::gateway\+::\+App\+Config}} \&cfg)
+\item 
+int \mbox{\hyperlink{main__gateway_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::atomic$<$ bool $>$ \mbox{\hyperlink{main__gateway_8cpp_ab8df6922876833f4ffdaa7a2b673f446}{g\+\_\+stop}} \{false\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main__gateway_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main__gateway_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{main\_gateway.cpp@{main\_gateway.cpp}!main@{main}}
+\index{main@{main}!main\_gateway.cpp@{main\_gateway.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main__gateway_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{main__gateway_8cpp_source}{main\+\_\+gateway.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main__gateway_8cpp_source_l00018}{g\+\_\+stop}}, \mbox{\hyperlink{_log_8h_source_l00015}{telemetryhub\+::\+Logger\+::instance()}}, \mbox{\hyperlink{ingestion_2gateway_2src_2config_8cpp_source_l00027}{telemetryhub\+::gateway\+::load\+\_\+config()}}, \mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h_source_l00011}{telemetryhub\+::gateway\+::\+App\+Config\+::log\+\_\+level}}, \mbox{\hyperlink{main__gateway_8cpp_source_l00019}{on\+\_\+sigint()}}, \mbox{\hyperlink{main__gateway_8cpp_source_l00021}{parse\+\_\+level()}}, \mbox{\hyperlink{http__server_8cpp_source_l00057}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server()}}, \mbox{\hyperlink{http__server_8cpp_source_l00176}{telemetryhub\+::gateway\+::run\+\_\+http\+\_\+server\+\_\+with\+\_\+config()}}, \mbox{\hyperlink{_log_8h_source_l00017}{telemetryhub\+::\+Logger\+::set\+\_\+level()}}, \mbox{\hyperlink{_log_8h_source_l00058}{TELEMETRYHUB\+\_\+\+LOG}}, \mbox{\hyperlink{_log_8h_source_l00062}{TELEMETRYHUB\+\_\+\+LOGD}}, \mbox{\hyperlink{_log_8h_source_l00061}{TELEMETRYHUB\+\_\+\+LOGI}}, \mbox{\hyperlink{_log_8h_source_l00060}{TELEMETRYHUB\+\_\+\+LOGW}}, and \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Trace}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__gateway_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__gateway_8cpp_a1637a39930b40085556d779274e60f4a}\index{main\_gateway.cpp@{main\_gateway.cpp}!on\_sigint@{on\_sigint}}
+\index{on\_sigint@{on\_sigint}!main\_gateway.cpp@{main\_gateway.cpp}}
+\doxysubsubsection{\texorpdfstring{on\_sigint()}{on\_sigint()}}
+{\footnotesize\ttfamily \label{main__gateway_8cpp_a1637a39930b40085556d779274e60f4a} 
+void on\+\_\+sigint (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__gateway_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{main__gateway_8cpp_source}{main\+\_\+gateway.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{main__gateway_8cpp_source_l00018}{g\+\_\+stop}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{main__gateway_8cpp_a1637a39930b40085556d779274e60f4a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e}\index{main\_gateway.cpp@{main\_gateway.cpp}!parse\_level@{parse\_level}}
+\index{parse\_level@{parse\_level}!main\_gateway.cpp@{main\_gateway.cpp}}
+\doxysubsubsection{\texorpdfstring{parse\_level()}{parse\_level()}}
+{\footnotesize\ttfamily \label{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e} 
+\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{telemetryhub\+::\+Log\+Level}} parse\+\_\+level (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__gateway_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{main__gateway_8cpp_source}{main\+\_\+gateway.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Debug}}, \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Error}}, \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Info}}, \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Trace}}, and \mbox{\hyperlink{_log_8h_source_l00011}{telemetryhub\+::\+Warn}}.
+
+
+
+Referenced by \mbox{\hyperlink{ingestion_2gateway_2src_2config_8cpp_source_l00027}{telemetryhub\+::gateway\+::load\+\_\+config()}}, and \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{main__gateway_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{main__gateway_8cpp_ab8df6922876833f4ffdaa7a2b673f446}\index{main\_gateway.cpp@{main\_gateway.cpp}!g\_stop@{g\_stop}}
+\index{g\_stop@{g\_stop}!main\_gateway.cpp@{main\_gateway.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_stop}{g\_stop}}
+{\footnotesize\ttfamily \label{main__gateway_8cpp_ab8df6922876833f4ffdaa7a2b673f446} 
+std\+::atomic$<$bool$>$ g\+\_\+stop \{false\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{main__gateway_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{main__gateway_8cpp_source}{main\+\_\+gateway.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{main__gateway_8cpp_source_l00035}{main()}}, and \mbox{\hyperlink{main__gateway_8cpp_source_l00019}{on\+\_\+sigint()}}.
+

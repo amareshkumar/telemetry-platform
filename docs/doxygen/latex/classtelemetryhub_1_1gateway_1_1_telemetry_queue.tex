@@ -1,0 +1,242 @@
+\doxysection{telemetryhub\+::gateway\+::Telemetry\+Queue Class Reference}
+\hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue}{}\label{classtelemetryhub_1_1gateway_1_1_telemetry_queue}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+
+
+{\ttfamily \#include $<$Telemetry\+Queue.\+h$>$}
+
+
+
+Collaboration diagram for telemetryhub\+::gateway\+::Telemetry\+Queue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classtelemetryhub_1_1gateway_1_1_telemetry_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614}{Telemetry\+Queue}} (size\+\_\+t max\+\_\+size=0)
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_aa381867b573a4d47727aa34377e12e8e}{set\+\_\+capacity}} (size\+\_\+t cap)
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a39a7bc48f6ffa8f4d3f217ac0a5a00f7}{push}} (const device\+::\+Telemetry\+Sample \&sample)
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49613c0b17c425c40239ad6a33648227}{push}} (device\+::\+Telemetry\+Sample \&\&sample)
+\item 
+std\+::optional$<$ device\+::\+Telemetry\+Sample $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a320f5cad295a110b285b12dd55295f4f}{pop}} ()
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d673d944103a52fd87024f127dac0eb}{shutdown}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ab5a8c8c0291d2f4718e20a1509d52bb0}{size}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mutex \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a9f63968f46fd3e8568cccca59ea559d3}{mutex\+\_\+}}
+\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49574bd8f18e3bc32d1002775dbcf33b}{cv\+\_\+}}
+\item 
+std\+::queue$<$ device\+::\+Telemetry\+Sample $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d8ccb2d5e8b73df598a687d4e4d2e2b}{queue\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ae7a52ec080e0a1de7263d34e83d45d7d}{shutdown\+\_\+}} = false
+\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}{max\+\_\+size\+\_\+}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00011}{11}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!TelemetryQueue@{TelemetryQueue}}
+\index{TelemetryQueue@{TelemetryQueue}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{TelemetryQueue()}{TelemetryQueue()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_af53c9ebbbd0b6ba66cc88b088a98d614} 
+telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::\+Telemetry\+Queue (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max\+\_\+size}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00015}{15}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00033}{max\+\_\+size\+\_\+}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a320f5cad295a110b285b12dd55295f4f}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!pop@{pop}}
+\index{pop@{pop}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a320f5cad295a110b285b12dd55295f4f} 
+std\+::optional$<$ device\+::\+Telemetry\+Sample $>$ telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_telemetry_queue_8cpp_source}{Telemetry\+Queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00030}{cv\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{mutex\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00031}{queue\+\_\+}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00032}{shutdown\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a39a7bc48f6ffa8f4d3f217ac0a5a00f7}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!push@{push}}
+\index{push@{push}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a39a7bc48f6ffa8f4d3f217ac0a5a00f7} 
+void telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::push (\begin{DoxyParamCaption}\item[{const device\+::\+Telemetry\+Sample \&}]{sample}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{_telemetry_queue_8cpp_source}{Telemetry\+Queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00030}{cv\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00033}{max\+\_\+size\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{mutex\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00031}{queue\+\_\+}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00032}{shutdown\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49613c0b17c425c40239ad6a33648227}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!push@{push}}
+\index{push@{push}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49613c0b17c425c40239ad6a33648227} 
+void telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::push (\begin{DoxyParamCaption}\item[{device\+::\+Telemetry\+Sample \&\&}]{sample}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{_telemetry_queue_8cpp_source}{Telemetry\+Queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00030}{cv\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00033}{max\+\_\+size\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{mutex\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00031}{queue\+\_\+}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00032}{shutdown\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_aa381867b573a4d47727aa34377e12e8e}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!set\_capacity@{set\_capacity}}
+\index{set\_capacity@{set\_capacity}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{set\_capacity()}{set\_capacity()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_aa381867b573a4d47727aa34377e12e8e} 
+void telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::set\+\_\+capacity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{cap}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00016}{16}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00033}{max\+\_\+size\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d673d944103a52fd87024f127dac0eb}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d673d944103a52fd87024f127dac0eb} 
+void telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::shutdown (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{_telemetry_queue_8cpp_source}{Telemetry\+Queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00030}{cv\+\_\+}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{mutex\+\_\+}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00032}{shutdown\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ab5a8c8c0291d2f4718e20a1509d52bb0}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!size@{size}}
+\index{size@{size}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ab5a8c8c0291d2f4718e20a1509d52bb0} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_telemetry_queue_8cpp_source}{Telemetry\+Queue.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{mutex\+\_\+}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00031}{queue\+\_\+}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49574bd8f18e3bc32d1002775dbcf33b}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!cv\_@{cv\_}}
+\index{cv\_@{cv\_}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{cv\_}{cv\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a49574bd8f18e3bc32d1002775dbcf33b} 
+std\+::condition\+\_\+variable telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::cv\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00030}{30}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00037}{pop()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{push()}}, and \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00051}{shutdown()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!max\_size\_@{max\_size\_}}
+\index{max\_size\_@{max\_size\_}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{max\_size\_}{max\_size\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ac622b891311315429919426fb219583e} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::max\+\_\+size\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00033}{33}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{push()}}, \mbox{\hyperlink{_telemetry_queue_8h_source_l00016}{set\+\_\+capacity()}}, and \mbox{\hyperlink{_telemetry_queue_8h_source_l00015}{Telemetry\+Queue()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a9f63968f46fd3e8568cccca59ea559d3}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!mutex\_@{mutex\_}}
+\index{mutex\_@{mutex\_}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{mutex\_}{mutex\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a9f63968f46fd3e8568cccca59ea559d3} 
+std\+::mutex telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00029}{29}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00037}{pop()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00051}{shutdown()}}, and \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00060}{size()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d8ccb2d5e8b73df598a687d4e4d2e2b}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!queue\_@{queue\_}}
+\index{queue\_@{queue\_}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{queue\_}{queue\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_a0d8ccb2d5e8b73df598a687d4e4d2e2b} 
+std\+::queue$<$device\+::\+Telemetry\+Sample$>$ telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00031}{31}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00037}{pop()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{push()}}, and \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00060}{size()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ae7a52ec080e0a1de7263d34e83d45d7d}\index{telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}!shutdown\_@{shutdown\_}}
+\index{shutdown\_@{shutdown\_}!telemetryhub::gateway::TelemetryQueue@{telemetryhub::gateway::TelemetryQueue}}
+\doxysubsubsection{\texorpdfstring{shutdown\_}{shutdown\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_telemetry_queue_ae7a52ec080e0a1de7263d34e83d45d7d} 
+bool telemetryhub\+::gateway\+::\+Telemetry\+Queue\+::shutdown\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_queue_8h_source_l00032}{32}} of file \mbox{\hyperlink{_telemetry_queue_8h_source}{Telemetry\+Queue.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00037}{pop()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00005}{push()}}, \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00021}{push()}}, and \mbox{\hyperlink{_telemetry_queue_8cpp_source_l00051}{shutdown()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_telemetry_queue_8h}{Telemetry\+Queue.\+h}}\item 
+ingestion/gateway/src/\mbox{\hyperlink{_telemetry_queue_8cpp}{Telemetry\+Queue.\+cpp}}\end{DoxyCompactItemize}

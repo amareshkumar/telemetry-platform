@@ -1,0 +1,66 @@
+\doxysection{proto\+\_\+adapter.\+cpp}
+\hypertarget{proto__adapter_8cpp_source}{}\label{proto__adapter_8cpp_source}\index{common/src/proto\_adapter.cpp@{common/src/proto\_adapter.cpp}}
+\mbox{\hyperlink{proto__adapter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{proto__adapter_8h}{telemetry\_common/proto\_adapter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry}{telemetry}}\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00006}\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{00006}}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{ProtoAdapter::TelemetrySampleProto}}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{ProtoAdapter::toProto}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{CppSample}}\&\ sample)}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{TelemetrySampleProto}}\ proto;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00009}00009\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//\ Convert\ timestamp\ to\ microseconds\ since\ epoch}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{auto}\ timestamp\_us\ =\ std::chrono::duration\_cast<std::chrono::microseconds>(}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_ad150c4c0b59c74ca6c2f85052a74751b}{timestamp}}.time\_since\_epoch()).count();}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00013}00013\ \ \ \ \ proto.set\_timestamp\_us(timestamp\_us);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00014}00014\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00015}00015\ \ \ \ \ proto.set\_value(sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a63826afd62fc02a20607a2c930e91251}{value}});}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00016}00016\ \ \ \ \ proto.set\_unit(sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a9ab10debbbf6c6f04e1904b93e660f8a}{unit}});}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00017}00017\ \ \ \ \ proto.set\_sequence\_id(sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_aed95434ad27c34b3bae885244a1c8fe2}{sequence\_id}});}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ proto;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00022}\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{00022}}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{ProtoAdapter::CppSample}}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{ProtoAdapter::fromProto}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{TelemetrySampleProto}}\&\ proto)}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{CppSample}}\ sample;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Convert\ microseconds\ back\ to\ time\_point}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{auto}\ timestamp\_us\ =\ std::chrono::microseconds(proto.timestamp\_us());}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00028}00028\ \ \ \ \ sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_ad150c4c0b59c74ca6c2f85052a74751b}{timestamp}}\ =\ std::chrono::system\_clock::time\_point(timestamp\_us);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00029}00029\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00030}00030\ \ \ \ \ sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a63826afd62fc02a20607a2c930e91251}{value}}\ =\ proto.value();}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00031}00031\ \ \ \ \ sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a9ab10debbbf6c6f04e1904b93e660f8a}{unit}}\ =\ proto.unit();}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00032}00032\ \ \ \ \ sample.\mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_aed95434ad27c34b3bae885244a1c8fe2}{sequence\_id}}\ =\ proto.sequence\_id();}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00033}00033\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ sample;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00037}\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{00037}}\ std::string\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{ProtoAdapter::serialize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{CppSample}}\&\ sample)}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{auto}\ proto\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{toProto}}(sample);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00040}00040\ \ \ \ \ std::string\ binary\_data;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00041}00041\ \ \ \ \ proto.SerializeToString(\&binary\_data);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ binary\_data;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00045}\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{00045}}\ std::optional<ProtoAdapter::CppSample>\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{ProtoAdapter::deserialize}}(\textcolor{keyword}{const}\ std::string\&\ binary\_data)}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{TelemetrySampleProto}}\ proto;}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (!proto.ParseFromString(binary\_data))\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::nullopt;\ \ \textcolor{comment}{//\ Parse\ failed}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{fromProto}}(proto);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00054}\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}{00054}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}{ProtoAdapter::serializedSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{CppSample}}\&\ sample)}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ proto\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{toProto}}(sample);}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{return}\ proto.ByteSizeLong();}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{proto__adapter_8cpp_source_l00060}00060\ \}\ \textcolor{comment}{//\ namespace\ telemetry}}
+
+\end{DoxyCode}

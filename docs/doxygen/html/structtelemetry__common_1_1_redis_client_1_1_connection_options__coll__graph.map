@@ -1,0 +1,7 @@
+<map id="telemetry_common::RedisClient::ConnectionOptions" name="telemetry_common::RedisClient::ConnectionOptions">
+<area shape="rect" id="Node000001" title="Connection options for Redis." alt="" coords="5,217,214,260"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="70,97,149,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,138,112,218,107,216,107,141"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="47,5,172,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="110,61,112,97,107,96,109,66"/>
+</map>

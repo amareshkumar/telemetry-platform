@@ -1,0 +1,70 @@
+\doxysection{Log.\+h}
+\hypertarget{_log_8h_source}{}\label{_log_8h_source}\index{ingestion/gateway/include/telemetryhub/gateway/Log.h@{ingestion/gateway/include/telemetryhub/gateway/Log.h}}
+\mbox{\hyperlink{_log_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub}{telemetryhub}}\ \{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00011}\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba}{00011}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}}\ \{\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa902b0d55fddef6f8d651fe1035b7d4bd}{Error}}=0,\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa56525ae64d370c0b448ac0d60710ef17}{Warn}}=1,\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{Info}}=2,\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba}{Debug}}=3,\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aadd4ec0ac4e58f7c32a01244ae91150b1}{Trace}}=4\ \};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00013}\mbox{\hyperlink{classtelemetryhub_1_1_logger}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetryhub_1_1_logger}{Logger}}\ \{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00015}\mbox{\hyperlink{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}{00015}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger}{Logger}}\&\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_ad695de45923ff9ce8deb687794d88308}{instance}}()\ \{\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger}{Logger}}\ L;\ \textcolor{keywordflow}{return}\ L;\ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00017}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0}{00017}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a8390e846001f81ff58a6b95881a234e0}{set\_level}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}}\ lvl)\ \{\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{level\_}}.store((\textcolor{keywordtype}{int})lvl,\ std::memory\_order\_relaxed);\ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00018}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a18de8ad973d6af1a8399ff60f9acf321}{00018}}\ \ \ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a18de8ad973d6af1a8399ff60f9acf321}{level}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}})\mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{level\_}}.load(std::memory\_order\_relaxed);\ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00020}00020\ \ \ \textcolor{comment}{//\ optional\ file\ sink}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00021}\mbox{\hyperlink{classtelemetryhub_1_1_logger_ade03441f7e683f6780d8dbb433ec173b}{00021}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_ade03441f7e683f6780d8dbb433ec173b}{open\_file}}(\textcolor{keyword}{const}\ std::string\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00022}00022\ \ \ \ \ std::lock\_guard<std::mutex>\ lk(\mbox{\hyperlink{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}{mu\_}});}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}})\ \{\ std::fclose(\mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}});\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}}\ =\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}}\ =\ std::fopen(path.c\_str(),\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}}\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00026}00026\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00028}\mbox{\hyperlink{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65}{00028}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_ad853c19fb0aa270b6d9c8f0b36194f65}{log}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}}\ lvl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ cat,\ \textcolor{keyword}{const}\ std::string\&\ msg)\ \{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\textcolor{keywordtype}{int})lvl\ >\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{level\_}}.load(std::memory\_order\_relaxed))\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{char}\ ts[24];}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00032}00032\ \ \ \ \ std::time\_t\ t\ =\ std::time(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00033}00033\ \ \ \ \ std::strftime(ts,\ \textcolor{keyword}{sizeof}(ts),\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}},\ std::localtime(\&t));}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ L\ =\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2}{lvl\_name}}(lvl);}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00036}00036\ \ \ \ \ std::lock\_guard<std::mutex>\ lk(\mbox{\hyperlink{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}{mu\_}});}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00037}00037\ \ \ \ \ std::fprintf(stdout,\ \textcolor{stringliteral}{"{}\%s\ [\%s]\ (\%s)\ \%s\(\backslash\)n"{}},\ ts,\ L,\ cat,\ msg.c\_str());}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}})\ std::fprintf(\mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}},\ \textcolor{stringliteral}{"{}\%s\ [\%s]\ (\%s)\ \%s\(\backslash\)n"{}},\ ts,\ L,\ cat,\ msg.c\_str());}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00039}00039\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00041}00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00042}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2}{00042}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a2a237d9fe6fb208cef2b5d7ae45f2cc2}{lvl\_name}}(\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7a}{LogLevel}}\ l)\{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{switch}(l)\{}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00044}00044\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa902b0d55fddef6f8d651fe1035b7d4bd}{LogLevel::Error}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ERROR"{}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00045}00045\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa56525ae64d370c0b448ac0d60710ef17}{LogLevel::Warn}}:\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}WARN"{}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00046}00046\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{LogLevel::Info}}:\ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}INFO"{}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00047}00047\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba}{LogLevel::Debug}}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}DEBUG"{}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00048}00048\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}TRACE"{}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00050}00050\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00052}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{00052}}\ \ \ std::atomic<int>\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a86f9d257b77e3a9178b22236d6a053a4}{level\_}}\{(int)\mbox{\hyperlink{namespacetelemetryhub_a6194d595aa81a47f4b5d0f927df36b7aa4059b0251f66a18cb56f544728796875}{LogLevel::Info}}\};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00053}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}{00053}}\ \ \ std::mutex\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a48330e18fe1202ee7a22a4accb14e39c}{mu\_}};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00054}\mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{00054}}\ \ \ std::FILE*\ \mbox{\hyperlink{classtelemetryhub_1_1_logger_a4ebd9b28353e44daf7361f96f1a200c2}{file\_}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00055}00055\ \};}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00057}00057\ \textcolor{comment}{//\ convenience\ macros\ (telemetryhub-\/prefixed)}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00058}\mbox{\hyperlink{_log_8h_aa5b2b2376bb4992c9b7fc72e5a3bef7b}{00058}}\ \textcolor{preprocessor}{\#define\ TELEMETRYHUB\_LOG(lvl,\ cat,\ msg)\ ::telemetryhub::Logger::instance().log((lvl),(cat),(msg))}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00059}\mbox{\hyperlink{_log_8h_a2e4787f875190d1295b5442419a3421b}{00059}}\ \textcolor{preprocessor}{\#define\ TELEMETRYHUB\_LOGE(cat,\ msg)\ TELEMETRYHUB\_LOG(::telemetryhub::LogLevel::Error,\ (cat),\ (msg))}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00060}\mbox{\hyperlink{_log_8h_af51e2fd4dae67db79ff86edaf5d52552}{00060}}\ \textcolor{preprocessor}{\#define\ TELEMETRYHUB\_LOGW(cat,\ msg)\ TELEMETRYHUB\_LOG(::telemetryhub::LogLevel::Warn,\ \ (cat),\ (msg))}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00061}\mbox{\hyperlink{_log_8h_a0e9db45c59215b84142937a21339ef16}{00061}}\ \textcolor{preprocessor}{\#define\ TELEMETRYHUB\_LOGI(cat,\ msg)\ TELEMETRYHUB\_LOG(::telemetryhub::LogLevel::Info,\ \ (cat),\ (msg))}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00062}\mbox{\hyperlink{_log_8h_a634ffa2eaad9a87cfbdcbadd08d489fa}{00062}}\ \textcolor{preprocessor}{\#define\ TELEMETRYHUB\_LOGD(cat,\ msg)\ TELEMETRYHUB\_LOG(::telemetryhub::LogLevel::Debug,\ (cat),\ (msg))}}
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_log_8h_source_l00064}00064\ \}\ \textcolor{comment}{//\ namespace\ telemetryhub}}
+
+\end{DoxyCode}

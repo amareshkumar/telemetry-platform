@@ -1,0 +1,239 @@
+\doxysection{telemetry\+\_\+common Namespace Reference}
+\hypertarget{namespacetelemetry__common}{}\label{namespacetelemetry__common}\index{telemetry\_common@{telemetry\_common}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtelemetry__common_1_1_config}{Config}}
+\begin{DoxyCompactList}\small\item\em Simple INI-\/style configuration parser. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetry__common_1_1_i_redis_client}{IRedis\+Client}}
+\item 
+class \mbox{\hyperlink{classtelemetry__common_1_1_redis_client}{Redis\+Client}}
+\begin{DoxyCompactList}\small\item\em RAII-\/based Redis client wrapper with connection pooling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} = std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point
+\begin{DoxyCompactList}\small\item\em Common types used across telemetry platform. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}{device\+\_\+id\+\_\+t}} = std\+::string
+\item 
+using \mbox{\hyperlink{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}{task\+\_\+id\+\_\+t}} = std\+::string
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d}{json\+\_\+to\+\_\+string}} (const nlohmann\+::json \&j, int indent=-\/1)
+\begin{DoxyCompactList}\small\item\em Serialize JSON to string. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8}{string\+\_\+to\+\_\+json}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Parse JSON from string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851}{validate\+\_\+json}} (const nlohmann\+::json \&j, const std\+::vector$<$ std\+::string $>$ \&required\+\_\+fields)
+\begin{DoxyCompactList}\small\item\em Validate JSON against simple schema. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5}{pretty\+\_\+print\+\_\+json}} (const nlohmann\+::json \&j)
+\begin{DoxyCompactList}\small\item\em Pretty print JSON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} \mbox{\hyperlink{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95}{now}} ()
+\begin{DoxyCompactList}\small\item\em Get current timestamp. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e}{timestamp\+\_\+to\+\_\+iso8601}} (\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} ts)
+\begin{DoxyCompactList}\small\item\em Convert timestamp to ISO8601 string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} \mbox{\hyperlink{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036}{iso8601\+\_\+to\+\_\+timestamp}} (const std\+::string \&iso\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Parse ISO8601 string to timestamp. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453}{timestamp\+\_\+to\+\_\+ms}} (\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} ts)
+\begin{DoxyCompactList}\small\item\em Get timestamp in milliseconds since epoch. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a03de36d06ee20a2c8a096b4bf7c357a0}{generate\+\_\+uuid}} ()
+\begin{DoxyCompactList}\small\item\em Generate UUID v4 (random). \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}{trim}} (const std\+::string \&str)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{namespacetelemetry__common_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}\index{telemetry\_common@{telemetry\_common}!device\_id\_t@{device\_id\_t}}
+\index{device\_id\_t@{device\_id\_t}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{device\_id\_t}{device\_id\_t}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4} 
+using \mbox{\hyperlink{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}{telemetry\+\_\+common\+::device\+\_\+id\+\_\+t}} = std\+::string}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00015}{15}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}\index{telemetry\_common@{telemetry\_common}!task\_id\_t@{task\_id\_t}}
+\index{task\_id\_t@{task\_id\_t}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{task\_id\_t}{task\_id\_t}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95} 
+using \mbox{\hyperlink{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}{telemetry\+\_\+common\+::task\+\_\+id\+\_\+t}} = std\+::string}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00016}{16}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}\index{telemetry\_common@{telemetry\_common}!timestamp\_t@{timestamp\_t}}
+\index{timestamp\_t@{timestamp\_t}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{timestamp\_t}{timestamp\_t}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0} 
+using \mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{telemetry\+\_\+common\+::timestamp\+\_\+t}} = std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point}
+
+
+
+Common types used across telemetry platform. 
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00014}{14}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespacetelemetry__common_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetelemetry__common_a03de36d06ee20a2c8a096b4bf7c357a0}\index{telemetry\_common@{telemetry\_common}!generate\_uuid@{generate\_uuid}}
+\index{generate\_uuid@{generate\_uuid}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{generate\_uuid()}{generate\_uuid()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a03de36d06ee20a2c8a096b4bf7c357a0} 
+std\+::string telemetry\+\_\+common\+::generate\+\_\+uuid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generate UUID v4 (random). 
+
+\begin{DoxyReturn}{Returns}
+UUID string in format\+: xxxxxxxx-\/xxxx-\/4xxx-\/yxxx-\/xxxxxxxxxxxx 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{uuid__generator_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{uuid__generator_8cpp_source}{uuid\+\_\+generator.\+cpp}}.
+
+\Hypertarget{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036}\index{telemetry\_common@{telemetry\_common}!iso8601\_to\_timestamp@{iso8601\_to\_timestamp}}
+\index{iso8601\_to\_timestamp@{iso8601\_to\_timestamp}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{iso8601\_to\_timestamp()}{iso8601\_to\_timestamp()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036} 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} telemetry\+\_\+common\+::iso8601\+\_\+to\+\_\+timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iso\+\_\+str}{}\end{DoxyParamCaption})}
+
+
+
+Parse ISO8601 string to timestamp. 
+
+\Hypertarget{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d}\index{telemetry\_common@{telemetry\_common}!json\_to\_string@{json\_to\_string}}
+\index{json\_to\_string@{json\_to\_string}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{json\_to\_string()}{json\_to\_string()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d} 
+std\+::string telemetry\+\_\+common\+::json\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{, }\item[{int}]{indent}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+
+
+Serialize JSON to string. 
+
+
+
+Definition at line \mbox{\hyperlink{json__utils_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{json__utils_8cpp_source}{json\+\_\+utils.\+cpp}}.
+
+\Hypertarget{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95}\index{telemetry\_common@{telemetry\_common}!now@{now}}
+\index{now@{now}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{now()}{now()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95} 
+\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}} telemetry\+\_\+common\+::now (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get current timestamp. 
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00021}{21}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5}\index{telemetry\_common@{telemetry\_common}!pretty\_print\_json@{pretty\_print\_json}}
+\index{pretty\_print\_json@{pretty\_print\_json}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{pretty\_print\_json()}{pretty\_print\_json()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5} 
+std\+::string telemetry\+\_\+common\+::pretty\+\_\+print\+\_\+json (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{}\end{DoxyParamCaption})}
+
+
+
+Pretty print JSON. 
+
+
+
+Definition at line \mbox{\hyperlink{json__utils_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{json__utils_8cpp_source}{json\+\_\+utils.\+cpp}}.
+
+\Hypertarget{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8}\index{telemetry\_common@{telemetry\_common}!string\_to\_json@{string\_to\_json}}
+\index{string\_to\_json@{string\_to\_json}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{string\_to\_json()}{string\_to\_json()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8} 
+nlohmann\+::json telemetry\+\_\+common\+::string\+\_\+to\+\_\+json (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Parse JSON from string. 
+
+\begin{DoxyReturn}{Returns}
+JSON object or null if parsing fails 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{json__utils_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{json__utils_8cpp_source}{json\+\_\+utils.\+cpp}}.
+
+\Hypertarget{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e}\index{telemetry\_common@{telemetry\_common}!timestamp\_to\_iso8601@{timestamp\_to\_iso8601}}
+\index{timestamp\_to\_iso8601@{timestamp\_to\_iso8601}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{timestamp\_to\_iso8601()}{timestamp\_to\_iso8601()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e} 
+std\+::string telemetry\+\_\+common\+::timestamp\+\_\+to\+\_\+iso8601 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}}}]{ts}{}\end{DoxyParamCaption})}
+
+
+
+Convert timestamp to ISO8601 string. 
+
+\Hypertarget{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453}\index{telemetry\_common@{telemetry\_common}!timestamp\_to\_ms@{timestamp\_to\_ms}}
+\index{timestamp\_to\_ms@{timestamp\_to\_ms}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{timestamp\_to\_ms()}{timestamp\_to\_ms()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453} 
+int64\+\_\+t telemetry\+\_\+common\+::timestamp\+\_\+to\+\_\+ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\+\_\+t}}}]{ts}{}\end{DoxyParamCaption})}
+
+
+
+Get timestamp in milliseconds since epoch. 
+
+\Hypertarget{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8}\index{telemetry\_common@{telemetry\_common}!trim@{trim}}
+\index{trim@{trim}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8} 
+std\+::string telemetry\+\_\+common\+::trim (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{common_2src_2config_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{common_2src_2config_8cpp_source}{config.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{common_2src_2config_8cpp_source_l00015}{telemetry\+\_\+common\+::\+Config\+::load\+\_\+from\+\_\+file()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetry__common_ad1e64c4f2779ca607ff7a8df8b7bf7e8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851}\index{telemetry\_common@{telemetry\_common}!validate\_json@{validate\_json}}
+\index{validate\_json@{validate\_json}!telemetry\_common@{telemetry\_common}}
+\doxysubsubsection{\texorpdfstring{validate\_json()}{validate\_json()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851} 
+bool telemetry\+\_\+common\+::validate\+\_\+json (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{j}{, }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{required\+\_\+fields}{}\end{DoxyParamCaption})}
+
+
+
+Validate JSON against simple schema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & JSON object to validate \\
+\hline
+{\em required\+\_\+fields} & List of required field names \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all required fields present 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{json__utils_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{json__utils_8cpp_source}{json\+\_\+utils.\+cpp}}.
+

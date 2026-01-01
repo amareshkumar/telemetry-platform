@@ -1,0 +1,209 @@
+\doxysection{telemetry\+\_\+processor\+::Telemetry\+Handler\+::Config Struct Reference}
+\hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config}{}\label{structtelemetry__processor_1_1_telemetry_handler_1_1_config}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+
+
+Configuration for telemetry processing.  
+
+
+
+
+{\ttfamily \#include $<$Telemetry\+Handler.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+\_\+processor\+::Telemetry\+Handler\+::Config\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{structtelemetry__processor_1_1_telemetry_handler_1_1_config__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_affde5687185bb55908c563e90d2127d9}{db\+\_\+host}} = "{}localhost"{}
+\item 
+int \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa8bdb4e8b5a5be1206ae58258b151716}{db\+\_\+port}} = 5432
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a9b560f9f5e3b1f920604bffedeb8d1e0}{db\+\_\+name}} = "{}telemetry"{}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a806b32ec96f4448b08d318546711e2e7}{db\+\_\+user}} = "{}telemetry\+\_\+user"{}
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_afcd5a7f04ba6ad2c1ee2e53e1c5197ef}{db\+\_\+password}} = "{}"{}
+\item 
+double \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa67518ded2afa814c9476f7364ca22bb}{temp\+\_\+high\+\_\+threshold}} = 80.\+0
+\item 
+double \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a17d3b2fa161619af91365c8f98061082}{temp\+\_\+low\+\_\+threshold}} = -\/20.\+0
+\item 
+double \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a5a2514757834a4dbbe273cf777a9b64e}{humidity\+\_\+high\+\_\+threshold}} = 95.\+0
+\item 
+double \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a51c01e85816098fd80944cd93254b02b}{voltage\+\_\+low\+\_\+threshold}} = 2.\+8
+\item 
+double \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a8fc205057c266ff25a2d0eb358d52fda}{current\+\_\+high\+\_\+threshold}} = 2.\+0
+\item 
+int \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a48e2d3723ab58e7930f182f40b45b1de}{aggregation\+\_\+window\+\_\+sec}} = 60
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_af28569b0a9018a9e02375bca151187b1}{alert\+\_\+webhook\+\_\+url}} = "{}"{}
+\item 
+bool \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a103b34b102ff683a73cd16046b47fd4b}{enable\+\_\+email\+\_\+alerts}} = false
+\item 
+std\+::string \mbox{\hyperlink{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a91ad9bc6c295392b0140e5f75cd2b2ba}{alert\+\_\+email}} = "{}"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration for telemetry processing. 
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00048}{48}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a48e2d3723ab58e7930f182f40b45b1de}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!aggregation\_window\_sec@{aggregation\_window\_sec}}
+\index{aggregation\_window\_sec@{aggregation\_window\_sec}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{aggregation\_window\_sec}{aggregation\_window\_sec}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a48e2d3723ab58e7930f182f40b45b1de} 
+int telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::aggregation\+\_\+window\+\_\+sec = 60}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00064}{64}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a91ad9bc6c295392b0140e5f75cd2b2ba}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!alert\_email@{alert\_email}}
+\index{alert\_email@{alert\_email}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{alert\_email}{alert\_email}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a91ad9bc6c295392b0140e5f75cd2b2ba} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::alert\+\_\+email = "{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00069}{69}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_af28569b0a9018a9e02375bca151187b1}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!alert\_webhook\_url@{alert\_webhook\_url}}
+\index{alert\_webhook\_url@{alert\_webhook\_url}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{alert\_webhook\_url}{alert\_webhook\_url}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_af28569b0a9018a9e02375bca151187b1} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::alert\+\_\+webhook\+\_\+url = "{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00067}{67}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a8fc205057c266ff25a2d0eb358d52fda}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!current\_high\_threshold@{current\_high\_threshold}}
+\index{current\_high\_threshold@{current\_high\_threshold}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{current\_high\_threshold}{current\_high\_threshold}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a8fc205057c266ff25a2d0eb358d52fda} 
+double telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::current\+\_\+high\+\_\+threshold = 2.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00061}{61}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_affde5687185bb55908c563e90d2127d9}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!db\_host@{db\_host}}
+\index{db\_host@{db\_host}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{db\_host}{db\_host}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_affde5687185bb55908c563e90d2127d9} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::db\+\_\+host = "{}localhost"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00050}{50}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a9b560f9f5e3b1f920604bffedeb8d1e0}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!db\_name@{db\_name}}
+\index{db\_name@{db\_name}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{db\_name}{db\_name}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a9b560f9f5e3b1f920604bffedeb8d1e0} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::db\+\_\+name = "{}telemetry"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00052}{52}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_afcd5a7f04ba6ad2c1ee2e53e1c5197ef}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!db\_password@{db\_password}}
+\index{db\_password@{db\_password}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{db\_password}{db\_password}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_afcd5a7f04ba6ad2c1ee2e53e1c5197ef} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::db\+\_\+password = "{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00054}{54}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa8bdb4e8b5a5be1206ae58258b151716}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!db\_port@{db\_port}}
+\index{db\_port@{db\_port}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{db\_port}{db\_port}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa8bdb4e8b5a5be1206ae58258b151716} 
+int telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::db\+\_\+port = 5432}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00051}{51}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a806b32ec96f4448b08d318546711e2e7}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!db\_user@{db\_user}}
+\index{db\_user@{db\_user}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{db\_user}{db\_user}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a806b32ec96f4448b08d318546711e2e7} 
+std\+::string telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::db\+\_\+user = "{}telemetry\+\_\+user"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00053}{53}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a103b34b102ff683a73cd16046b47fd4b}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!enable\_email\_alerts@{enable\_email\_alerts}}
+\index{enable\_email\_alerts@{enable\_email\_alerts}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{enable\_email\_alerts}{enable\_email\_alerts}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a103b34b102ff683a73cd16046b47fd4b} 
+bool telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::enable\+\_\+email\+\_\+alerts = false}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00068}{68}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a5a2514757834a4dbbe273cf777a9b64e}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!humidity\_high\_threshold@{humidity\_high\_threshold}}
+\index{humidity\_high\_threshold@{humidity\_high\_threshold}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{humidity\_high\_threshold}{humidity\_high\_threshold}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a5a2514757834a4dbbe273cf777a9b64e} 
+double telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::humidity\+\_\+high\+\_\+threshold = 95.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00059}{59}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa67518ded2afa814c9476f7364ca22bb}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!temp\_high\_threshold@{temp\_high\_threshold}}
+\index{temp\_high\_threshold@{temp\_high\_threshold}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{temp\_high\_threshold}{temp\_high\_threshold}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_aa67518ded2afa814c9476f7364ca22bb} 
+double telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::temp\+\_\+high\+\_\+threshold = 80.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00057}{57}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a17d3b2fa161619af91365c8f98061082}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!temp\_low\_threshold@{temp\_low\_threshold}}
+\index{temp\_low\_threshold@{temp\_low\_threshold}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{temp\_low\_threshold}{temp\_low\_threshold}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a17d3b2fa161619af91365c8f98061082} 
+double telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::temp\+\_\+low\+\_\+threshold = -\/20.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00058}{58}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+\Hypertarget{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a51c01e85816098fd80944cd93254b02b}\index{telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}!voltage\_low\_threshold@{voltage\_low\_threshold}}
+\index{voltage\_low\_threshold@{voltage\_low\_threshold}!telemetry\_processor::TelemetryHandler::Config@{telemetry\_processor::TelemetryHandler::Config}}
+\doxysubsubsection{\texorpdfstring{voltage\_low\_threshold}{voltage\_low\_threshold}}
+{\footnotesize\ttfamily \label{structtelemetry__processor_1_1_telemetry_handler_1_1_config_a51c01e85816098fd80944cd93254b02b} 
+double telemetry\+\_\+processor\+::\+Telemetry\+Handler\+::\+Config\+::voltage\+\_\+low\+\_\+threshold = 2.\+8}
+
+
+
+Definition at line \mbox{\hyperlink{_telemetry_handler_8h_source_l00060}{60}} of file \mbox{\hyperlink{_telemetry_handler_8h_source}{Telemetry\+Handler.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+processing/include/telemetry\+\_\+processor/\mbox{\hyperlink{_telemetry_handler_8h}{Telemetry\+Handler.\+h}}\end{DoxyCompactItemize}

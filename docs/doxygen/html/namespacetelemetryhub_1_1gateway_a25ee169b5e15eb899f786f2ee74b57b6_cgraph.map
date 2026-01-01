@@ -1,0 +1,9 @@
+<map id="telemetryhub::gateway::run_http_server" name="telemetryhub::gateway::run_http_server">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,159,99"/>
+<area shape="rect" id="Node000002" href="$classhttplib_1_1_server.html#a1b692cb43bdc5c0e33f1951db7bd781d" title=" " alt="" coords="218,5,349,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,53,223,35,219,38,158,58"/>
+<area shape="rect" id="Node000003" href="$namespacetelemetryhub_1_1gateway.html#a9eb595a833ddc23fc09b705cb35f21db" title=" " alt="" coords="207,56,360,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,75,194,77,189,78,160,80"/>
+<area shape="rect" id="Node000004" href="$classhttplib_1_1_response.html#a6ed0bec7e4d9fcca5d02e0e53262c84e" title=" " alt="" coords="218,123,349,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,97,205,117,200,118,148,102"/>
+</map>

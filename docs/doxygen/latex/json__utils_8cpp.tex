@@ -1,0 +1,28 @@
+\doxysection{common/src/json\+\_\+utils.cpp File Reference}
+\hypertarget{json__utils_8cpp}{}\label{json__utils_8cpp}\index{common/src/json\_utils.cpp@{common/src/json\_utils.cpp}}
+{\ttfamily \#include "{}telemetry\+\_\+common/json\+\_\+utils.\+h"{}}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for json\+\_\+utils.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{json__utils_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry__common}{telemetry\+\_\+common}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d}{telemetry\+\_\+common\+::json\+\_\+to\+\_\+string}} (const nlohmann\+::json \&j, int indent=-\/1)
+\begin{DoxyCompactList}\small\item\em Serialize JSON to string. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8}{telemetry\+\_\+common\+::string\+\_\+to\+\_\+json}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Parse JSON from string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851}{telemetry\+\_\+common\+::validate\+\_\+json}} (const nlohmann\+::json \&j, const std\+::vector$<$ std\+::string $>$ \&required\+\_\+fields)
+\begin{DoxyCompactList}\small\item\em Validate JSON against simple schema. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5}{telemetry\+\_\+common\+::pretty\+\_\+print\+\_\+json}} (const nlohmann\+::json \&j)
+\begin{DoxyCompactList}\small\item\em Pretty print JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['data_5f_0',['data_',['../classtelemetry__common_1_1_config.html#a746fed123f674e8764d9a2243969f647',1,'telemetry_common::Config']]],
+  ['db_1',['db',['../structtelemetry__common_1_1_redis_client_1_1_connection_options.html#a55cb9ae3593e6c966083793bca9713d1',1,'telemetry_common::RedisClient::ConnectionOptions']]],
+  ['db_5fhost_2',['db_host',['../structtelemetry__processor_1_1_telemetry_handler_1_1_config.html#affde5687185bb55908c563e90d2127d9',1,'telemetry_processor::TelemetryHandler::Config']]],
+  ['db_5fname_3',['db_name',['../structtelemetry__processor_1_1_telemetry_handler_1_1_config.html#a9b560f9f5e3b1f920604bffedeb8d1e0',1,'telemetry_processor::TelemetryHandler::Config']]],
+  ['db_5fpassword_4',['db_password',['../structtelemetry__processor_1_1_telemetry_handler_1_1_config.html#afcd5a7f04ba6ad2c1ee2e53e1c5197ef',1,'telemetry_processor::TelemetryHandler::Config']]],
+  ['db_5fport_5',['db_port',['../structtelemetry__processor_1_1_telemetry_handler_1_1_config.html#aa8bdb4e8b5a5be1206ae58258b151716',1,'telemetry_processor::TelemetryHandler::Config']]],
+  ['db_5fuser_6',['db_user',['../structtelemetry__processor_1_1_telemetry_handler_1_1_config.html#a806b32ec96f4448b08d318546711e2e7',1,'telemetry_processor::TelemetryHandler::Config']]],
+  ['debug_7',['Debug',['../namespacetelemetryhub.html#a6194d595aa81a47f4b5d0f927df36b7aaa603905470e2a5b8c13e96b579ef0dba',1,'telemetryhub']]],
+  ['decr_8',['decr',['../classtelemetry__common_1_1_i_redis_client.html#ae712d42310e991541793d206d9e710d7',1,'telemetry_common::IRedisClient::decr()'],['../classtelemetry__common_1_1_redis_client.html#aa52faf05914b7fd3c90d88fccb5efde8',1,'telemetry_common::RedisClient::decr()']]],
+  ['del_9',['del',['../classtelemetry__common_1_1_i_redis_client.html#a1910c9592e70247e3e32501a051cec34',1,'telemetry_common::IRedisClient::del(const std::string &amp;key)=0'],['../classtelemetry__common_1_1_i_redis_client.html#a7411a727f3fb9e732176c5d208d5dede',1,'telemetry_common::IRedisClient::del(const std::vector&lt; std::string &gt; &amp;keys)=0'],['../classtelemetry__common_1_1_redis_client.html#aa78d10b46806d7ee83801551aa297a1f',1,'telemetry_common::RedisClient::del()'],['../classtelemetry__processor_1_1_redis_client.html#a002d2a2dc477cf8015e02a381dfcaf36',1,'telemetry_processor::RedisClient::del()'],['../structtelemetry__processor_1_1_redis_client_1_1_impl.html#a2a1124cd3a698bbb715619c0b3f0bbed',1,'telemetry_processor::RedisClient::Impl::del()']]],
+  ['demonstrates_10',['🏆 What This Demonstrates',['../index.html#autotoc_md28',1,'']]],
+  ['deployment_11',['🚢 Deployment',['../index.html#autotoc_md36',1,'']]],
+  ['dequeue_12',['dequeue',['../classtelemetry__processing_1_1_task_queue.html#ab8a1eb86b1ddcb65a2d6a2d65ee12877',1,'telemetry_processing::TaskQueue']]],
+  ['deserialize_13',['deserialize',['../classtelemetry_1_1_proto_adapter.html#ab93e9d5db38f88f626e009e0127127d2',1,'telemetry::ProtoAdapter']]],
+  ['development_20testing_14',['Docker Compose (Development/Testing)',['../index.html#autotoc_md37',1,'']]],
+  ['development_20workflow_15',['🔧 Development Workflow',['../index.html#autotoc_md15',1,'']]],
+  ['device_5f_16',['device_',['../classtelemetryhub_1_1gateway_1_1_gateway_core.html#a5a21f33c75a7a91568b202c6c4096d2d',1,'telemetryhub::gateway::GatewayCore::device_'],['../class_gateway_core.html#a5a21f33c75a7a91568b202c6c4096d2d',1,'GatewayCore::device_']]],
+  ['device_5fid_17',['device_id',['../structtelemetry__processor_1_1_telemetry_handler_1_1_telemetry_payload.html#a524d991e4b465a9028f6cd37ec5d715a',1,'telemetry_processor::TelemetryHandler::TelemetryPayload']]],
+  ['device_5fid_5ft_18',['device_id_t',['../namespacetelemetry__common.html#af62461f103b095e6aa2b939d11c801d4',1,'telemetry_common']]],
+  ['device_5fstate_19',['device_state',['../classtelemetryhub_1_1gateway_1_1_gateway_core.html#afda6a8521ff11ed154409f0c86a4157c',1,'telemetryhub::gateway::GatewayCore::device_state()'],['../class_gateway_core.html#afda6a8521ff11ed154409f0c86a4157c',1,'GatewayCore::device_state()']]],
+  ['dispatch_20',['dispatch',['../classhttplib_1_1_server.html#aebd733f33e0eff710048d85008a7bf16',1,'httplib::Server']]],
+  ['docker_20compose_20development_20testing_21',['Docker Compose (Development/Testing)',['../index.html#autotoc_md37',1,'']]],
+  ['docker_20compose_20recommended_20for_20integration_22',['Option 3: Docker Compose (Recommended for Integration)',['../index.html#autotoc_md11',1,'']]],
+  ['docs_23',['Docs',['../index.html#autotoc_md25',1,'Platform-Level Docs'],['../index.html#autotoc_md26',1,'Service-Specific Docs']]],
+  ['documentation_24',['📚 Documentation',['../index.html#autotoc_md24',1,'']]]
+];

@@ -1,0 +1,36 @@
+\doxysection{common/include/telemetry\+\_\+common/json\+\_\+utils.h File Reference}
+\hypertarget{json__utils_8h}{}\label{json__utils_8h}\index{common/include/telemetry\_common/json\_utils.h@{common/include/telemetry\_common/json\_utils.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+Include dependency graph for json\+\_\+utils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{json__utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{json__utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry__common}{telemetry\+\_\+common}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_aca97a07b120219b3fd4fd423f135d15d}{telemetry\+\_\+common\+::json\+\_\+to\+\_\+string}} (const nlohmann\+::json \&j, int indent=-\/1)
+\begin{DoxyCompactList}\small\item\em Serialize JSON to string. \end{DoxyCompactList}\item 
+nlohmann\+::json \mbox{\hyperlink{namespacetelemetry__common_a5c01a7cd8a3af1e8377cbf292faefee8}{telemetry\+\_\+common\+::string\+\_\+to\+\_\+json}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Parse JSON from string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacetelemetry__common_a280b86a65a2cb4f243045b7b9f331851}{telemetry\+\_\+common\+::validate\+\_\+json}} (const nlohmann\+::json \&j, const std\+::vector$<$ std\+::string $>$ \&required\+\_\+fields)
+\begin{DoxyCompactList}\small\item\em Validate JSON against simple schema. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__common_a69fe2aa1f1b5351880559166278318a5}{telemetry\+\_\+common\+::pretty\+\_\+print\+\_\+json}} (const nlohmann\+::json \&j)
+\begin{DoxyCompactList}\small\item\em Pretty print JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}

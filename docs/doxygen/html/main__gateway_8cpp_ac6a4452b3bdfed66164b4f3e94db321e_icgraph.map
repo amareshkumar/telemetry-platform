@@ -1,0 +1,8 @@
+<map id="parse_level" name="parse_level">
+<area shape="rect" id="Node000001" title=" " alt="" coords="304,43,391,69"/>
+<area shape="rect" id="Node000002" href="$namespacetelemetryhub_1_1gateway.html#afb70db026fd5a074f9560b11aeba4402" title=" " alt="" coords="103,5,256,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="286,46,256,43,257,37,292,46"/>
+<area shape="rect" id="Node000003" href="$main__gateway_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,43,55,69"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="286,59,256,63,103,63,55,60,55,55,103,57,256,57,291,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,46,56,54,55,49,90,44"/>
+</map>

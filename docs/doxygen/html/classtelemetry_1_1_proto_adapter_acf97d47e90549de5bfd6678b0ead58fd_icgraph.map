@@ -1,0 +1,7 @@
+<map id="telemetry::ProtoAdapter::toProto" name="telemetry::ProtoAdapter::toProto">
+<area shape="rect" id="Node000001" title="Convert C++ struct to Protobuf message." alt="" coords="213,39,372,81"/>
+<area shape="rect" id="Node000002" href="$classtelemetry_1_1_proto_adapter.html#a1dffda5879478f81e4dc6c6a5d827963" title="Serialize C++ struct to binary Protobuf format." alt="" coords="5,5,165,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,45,165,42,165,37,200,44"/>
+<area shape="rect" id="Node000003" href="$classtelemetry_1_1_proto_adapter.html#a5279b7653ea2e1b3aa57d5dfb01b79d8" title="Calculate serialized size without actually serializing." alt="" coords="5,72,165,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,76,165,83,165,78,200,75"/>
+</map>

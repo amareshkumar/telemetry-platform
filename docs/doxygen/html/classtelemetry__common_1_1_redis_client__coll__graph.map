@@ -1,0 +1,15 @@
+<map id="telemetry_common::RedisClient" name="telemetry_common::RedisClient">
+<area shape="rect" id="Node000001" title="RAII&#45;based Redis client wrapper with connection pooling." alt="" coords="828,72,1037,99"/>
+<area shape="rect" id="Node000002" href="$structtelemetry__common_1_1_redis_client_1_1_connection_options.html" title="Connection options for Redis." alt="" coords="515,29,723,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="739,61,831,74,826,74,739,67"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="231,37,310,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,48,517,50,512,51,326,53"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,29,131,72"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,48,233,49,229,52,147,53"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="551,96,687,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="703,113,804,105,860,100,865,99,805,111,703,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="202,104,340,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="356,115,554,117,548,118,356,120"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="49,104,87,131"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="103,115,203,115,200,119,103,120"/>
+</map>

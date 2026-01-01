@@ -1,0 +1,28 @@
+\doxysection{Rest\+Cloud\+Client.\+h}
+\hypertarget{_rest_cloud_client_8h_source}{}\label{_rest_cloud_client_8h_source}\index{ingestion/gateway/include/telemetryhub/gateway/RestCloudClient.h@{ingestion/gateway/include/telemetryhub/gateway/RestCloudClient.h}}
+\mbox{\hyperlink{_rest_cloud_client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_cloud_client_8h}{telemetryhub/gateway/ICloudClient.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub::gateway}}\ \{}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00007}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client}{00007}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93}{RestCloudClient}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_i_cloud_client}{ICloudClient}}}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00009}00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00010}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93}{00010}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a2b99dc3a9c1658de4c253fb3a9c7fa93}{RestCloudClient}}(\textcolor{keyword}{const}\ std::string\&\ endpoint\_url\ =\ \textcolor{stringliteral}{"{}http://localhost:0"{}})}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f}{endpoint\_url\_}}(endpoint\_url)}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00014}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_afe65f46ecfb0d91c85eca77e67cf7a70}{00014}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_afe65f46ecfb0d91c85eca77e67cf7a70}{\string~RestCloudClient}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_aee3a1a8ce572b49372622344f17fa553}{push\_sample}}(\textcolor{keyword}{const}\ telemetryhub::device::TelemetrySample\&\ sample)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_ac206445c7e9616fec6e59e61c441cc4c}{push\_status}}(telemetryhub::device::DeviceState\ state)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00019}\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f}{00019}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_rest_cloud_client_a1ebc485bf66dbfa498b68f0e30595b1f}{endpoint\_url\_}};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00020}00020\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_rest_cloud_client_8h_source_l00022}00022\ \}}
+
+\end{DoxyCode}

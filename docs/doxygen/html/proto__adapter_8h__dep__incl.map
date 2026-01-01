@@ -1,0 +1,5 @@
+<map id="common/include/telemetry_common/proto_adapter.h" name="common/include/telemetry_common/proto_adapter.h">
+<area shape="rect" id="Node000001" title="Adapter for converting between C++ structs and Protobuf messages." alt="" coords="19,5,193,48"/>
+<area shape="rect" id="Node000002" href="$proto__adapter_8cpp.html" title=" " alt="" coords="5,96,207,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,62,108,97,104,94,104,66"/>
+</map>

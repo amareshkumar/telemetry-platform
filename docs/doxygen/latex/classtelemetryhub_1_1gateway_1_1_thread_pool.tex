@@ -1,0 +1,429 @@
+\doxysection{telemetryhub\+::gateway\+::Thread\+Pool Class Reference}
+\hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool}{}\label{classtelemetryhub_1_1gateway_1_1_thread_pool}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+
+
+Simple thread pool for processing telemetry samples.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Pool.\+h$>$}
+
+
+
+Collaboration diagram for telemetryhub\+::gateway\+::Thread\+Pool\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}{Metrics}}
+\begin{DoxyCompactList}\small\item\em Get metrics for monitoring. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} (size\+\_\+t num\+\_\+threads=0)
+\begin{DoxyCompactList}\small\item\em Construct thread pool with N worker threads. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a1192f65426dcf4c8a392c123b0d0cb0e}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ waits for all jobs to complete. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a469feb6bd4488f8d311bf4202faffa20}{Thread\+Pool}} (const Thread\+Pool \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \& \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_aa3ef20ad6cbe28d7f1ee5786d27c71fa}{operator=}} (const \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \&)=delete
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_af4662aa7ad3f5121d4de59f8bd438564}{Thread\+Pool}} (Thread\+Pool \&\&)=delete
+\item 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \& \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a4f9e1393cd7d5b361d2f3211c3530617}{operator=}} (\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \&\&)=delete
+\item 
+{\footnotesize template$<$typename F, typename... Args$>$ }\\auto \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ac6b6f05ea985a0dd6d849f6778f07415}{submit}} (F \&\&func, Args \&\&... args) -\/$>$ std\+::future$<$ std\+::invoke\+\_\+result\+\_\+t$<$ F, Args... $>$ $>$
+\begin{DoxyCompactList}\small\item\em Submit a job to the thread pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}{Metrics}} \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_afa77bc66c4d7a2923d1f93ac082f02eb}{get\+\_\+metrics}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a1cdea5dcdec47fa2e7f130a2dd65d242}{thread\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Get number of worker threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab91887708fab29ce92f07886629af8dd}{worker\+\_\+loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::thread $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a774f7016f656c10b3fa7625ad6ccc0f2}{workers\+\_\+}}
+\item 
+std\+::queue$<$ std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a51620a1723c61be8884fab267be1bf2c}{jobs\+\_\+}}
+\item 
+std\+::mutex \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_aec93276b590de9e5c0aac5d36c7d0e89}{queue\+\_\+mutex\+\_\+}}
+\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a116cc9391d975f07c2fb93c9ac38de62}{cv\+\_\+}}
+\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_aacd9749cb3bc846e01a526a8efdfc95a}{stop\+\_\+}} \{false\}
+\item 
+std\+::atomic$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a03d92f8cfa9c606190f5e4541194724c}{jobs\+\_\+processed\+\_\+}} \{0\}
+\item 
+std\+::atomic$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_aaa5d9df837e78cd53e1ec479b35a04b7}{total\+\_\+processing\+\_\+time\+\_\+us\+\_\+}} \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple thread pool for processing telemetry samples. 
+
+Features\+:
+\begin{DoxyItemize}
+\item Fixed number of worker threads
+\item Job queue with FIFO processing
+\item \doxylink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}{Metrics}\+: jobs processed, average processing time
+\item Graceful shutdown with job completion
+\end{DoxyItemize}
+
+Design considerations\+:
+\begin{DoxyItemize}
+\item Reduces thread creation overhead for high-\/frequency tasks
+\item Limits concurrency for bounded resource usage
+\item Better CPU utilization through worker reuse
+\item Minimal queue latency for telemetry processing workload 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00030}{30}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281} 
+telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct thread pool with N worker threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+threads} & Number of worker threads (0 = hardware concurrency) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_thread_pool_8cpp_source}{Thread\+Pool.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00090}{stop\+\_\+}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}, and \mbox{\hyperlink{_thread_pool_8h_source_l00082}{workers\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_aa3ef20ad6cbe28d7f1ee5786d27c71fa}{operator=()}}, \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a4f9e1393cd7d5b361d2f3211c3530617}{operator=()}}, \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_a469feb6bd4488f8d311bf4202faffa20}{Thread\+Pool()}}, and \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_af4662aa7ad3f5121d4de59f8bd438564}{Thread\+Pool()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a1192f65426dcf4c8a392c123b0d0cb0e}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!````~ThreadPool@{\texorpdfstring{$\sim$}{\string~}ThreadPool}}
+\index{````~ThreadPool@{\texorpdfstring{$\sim$}{\string~}ThreadPool}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ThreadPool()}{\string~ThreadPool()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a1192f65426dcf4c8a392c123b0d0cb0e} 
+telemetryhub\+::gateway\+::\+Thread\+Pool\+::\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor -\/ waits for all jobs to complete. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_thread_pool_8cpp_source}{Thread\+Pool.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00087}{cv\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00086}{queue\+\_\+mutex\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00090}{stop\+\_\+}}, and \mbox{\hyperlink{_thread_pool_8h_source_l00082}{workers\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a469feb6bd4488f8d311bf4202faffa20}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a469feb6bd4488f8d311bf4202faffa20} 
+telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{const Thread\+Pool \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_a469feb6bd4488f8d311bf4202faffa20_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_af4662aa7ad3f5121d4de59f8bd438564}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_af4662aa7ad3f5121d4de59f8bd438564} 
+telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{Thread\+Pool \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_af4662aa7ad3f5121d4de59f8bd438564_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_afa77bc66c4d7a2923d1f93ac082f02eb}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!get\_metrics@{get\_metrics}}
+\index{get\_metrics@{get\_metrics}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{get\_metrics()}{get\_metrics()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_afa77bc66c4d7a2923d1f93ac082f02eb} 
+\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_thread_pool_1_1_metrics}{Thread\+Pool\+::\+Metrics}} telemetryhub\+::gateway\+::\+Thread\+Pool\+::get\+\_\+metrics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_thread_pool_8cpp_source}{Thread\+Pool.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00067}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::avg\+\_\+processing\+\_\+ms}}, \mbox{\hyperlink{_thread_pool_8h_source_l00085}{jobs\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00065}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::jobs\+\_\+processed}}, \mbox{\hyperlink{_thread_pool_8h_source_l00093}{jobs\+\_\+processed\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00066}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::jobs\+\_\+queued}}, \mbox{\hyperlink{_thread_pool_8h_source_l00068}{telemetryhub\+::gateway\+::\+Thread\+Pool\+::\+Metrics\+::num\+\_\+threads}}, \mbox{\hyperlink{_thread_pool_8h_source_l00086}{queue\+\_\+mutex\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00094}{total\+\_\+processing\+\_\+time\+\_\+us\+\_\+}}, and \mbox{\hyperlink{_thread_pool_8h_source_l00082}{workers\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_aa3ef20ad6cbe28d7f1ee5786d27c71fa}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_aa3ef20ad6cbe28d7f1ee5786d27c71fa} 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \& telemetryhub\+::gateway\+::\+Thread\+Pool\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_aa3ef20ad6cbe28d7f1ee5786d27c71fa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a4f9e1393cd7d5b361d2f3211c3530617}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!operator=@{operator=}}
+\index{operator=@{operator=}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a4f9e1393cd7d5b361d2f3211c3530617} 
+\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \& telemetryhub\+::gateway\+::\+Thread\+Pool\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtelemetryhub_1_1gateway_1_1_thread_pool_ab17f09c9cda16eb61c0d98c4b303c281}{Thread\+Pool}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+References \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_a4f9e1393cd7d5b361d2f3211c3530617_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_ac6b6f05ea985a0dd6d849f6778f07415}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!submit@{submit}}
+\index{submit@{submit}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_ac6b6f05ea985a0dd6d849f6778f07415} 
+template$<$typename F, typename... Args$>$ \\
+auto telemetryhub\+::gateway\+::\+Thread\+Pool\+::submit (\begin{DoxyParamCaption}\item[{F \&\&}]{func}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})-\/$>$std\+::future$<$ std\+::invoke\+\_\+result\+\_\+t$<$ F, Args... $>$ $>$}
+
+
+
+Submit a job to the thread pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em job} & Function to execute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Future to get result
+\end{DoxyReturn}
+Example\+: auto future = pool.\+submit(\mbox{[}\mbox{]}()\{ return 42; \}); int result = future.\+get(); 
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00099}{99}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00087}{cv\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00085}{jobs\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00086}{queue\+\_\+mutex\+\_\+}}, and \mbox{\hyperlink{_thread_pool_8h_source_l00090}{stop\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a1cdea5dcdec47fa2e7f130a2dd65d242}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!thread\_count@{thread\_count}}
+\index{thread\_count@{thread\_count}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_count()}{thread\_count()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a1cdea5dcdec47fa2e7f130a2dd65d242} 
+size\+\_\+t telemetryhub\+::gateway\+::\+Thread\+Pool\+::thread\+\_\+count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get number of worker threads. 
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00076}{76}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00082}{workers\+\_\+}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_ab91887708fab29ce92f07886629af8dd}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!worker\_loop@{worker\_loop}}
+\index{worker\_loop@{worker\_loop}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{worker\_loop()}{worker\_loop()}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_ab91887708fab29ce92f07886629af8dd} 
+void telemetryhub\+::gateway\+::\+Thread\+Pool\+::worker\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_thread_pool_8cpp_source}{Thread\+Pool.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_thread_pool_8h_source_l00087}{cv\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00085}{jobs\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00093}{jobs\+\_\+processed\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00086}{queue\+\_\+mutex\+\_\+}}, \mbox{\hyperlink{_thread_pool_8h_source_l00090}{stop\+\_\+}}, and \mbox{\hyperlink{_thread_pool_8h_source_l00094}{total\+\_\+processing\+\_\+time\+\_\+us\+\_\+}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetryhub_1_1gateway_1_1_thread_pool_ab91887708fab29ce92f07886629af8dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a116cc9391d975f07c2fb93c9ac38de62}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!cv\_@{cv\_}}
+\index{cv\_@{cv\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{cv\_}{cv\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a116cc9391d975f07c2fb93c9ac38de62} 
+std\+::condition\+\_\+variable telemetryhub\+::gateway\+::\+Thread\+Pool\+::cv\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00087}{87}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8h_source_l00099}{submit()}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00022}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a51620a1723c61be8884fab267be1bf2c}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!jobs\_@{jobs\_}}
+\index{jobs\_@{jobs\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{jobs\_}{jobs\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a51620a1723c61be8884fab267be1bf2c} 
+std\+::queue$<$std\+::function$<$void()$>$ $>$ telemetryhub\+::gateway\+::\+Thread\+Pool\+::jobs\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00085}{85}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{get\+\_\+metrics()}}, \mbox{\hyperlink{_thread_pool_8h_source_l00099}{submit()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a03d92f8cfa9c606190f5e4541194724c}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!jobs\_processed\_@{jobs\_processed\_}}
+\index{jobs\_processed\_@{jobs\_processed\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{jobs\_processed\_}{jobs\_processed\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a03d92f8cfa9c606190f5e4541194724c} 
+std\+::atomic$<$uint64\+\_\+t$>$ telemetryhub\+::gateway\+::\+Thread\+Pool\+::jobs\+\_\+processed\+\_\+ \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00093}{93}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{get\+\_\+metrics()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_aec93276b590de9e5c0aac5d36c7d0e89}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!queue\_mutex\_@{queue\_mutex\_}}
+\index{queue\_mutex\_@{queue\_mutex\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{queue\_mutex\_}{queue\_mutex\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_aec93276b590de9e5c0aac5d36c7d0e89} 
+std\+::mutex telemetryhub\+::gateway\+::\+Thread\+Pool\+::queue\+\_\+mutex\+\_\+\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00086}{86}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{get\+\_\+metrics()}}, \mbox{\hyperlink{_thread_pool_8h_source_l00099}{submit()}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00022}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_aacd9749cb3bc846e01a526a8efdfc95a}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!stop\_@{stop\_}}
+\index{stop\_@{stop\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{stop\_}{stop\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_aacd9749cb3bc846e01a526a8efdfc95a} 
+std\+::atomic$<$bool$>$ telemetryhub\+::gateway\+::\+Thread\+Pool\+::stop\+\_\+ \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00090}{90}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8h_source_l00099}{submit()}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00022}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_aaa5d9df837e78cd53e1ec479b35a04b7}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!total\_processing\_time\_us\_@{total\_processing\_time\_us\_}}
+\index{total\_processing\_time\_us\_@{total\_processing\_time\_us\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{total\_processing\_time\_us\_}{total\_processing\_time\_us\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_aaa5d9df837e78cd53e1ec479b35a04b7} 
+std\+::atomic$<$uint64\+\_\+t$>$ telemetryhub\+::gateway\+::\+Thread\+Pool\+::total\+\_\+processing\+\_\+time\+\_\+us\+\_\+ \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00094}{94}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{get\+\_\+metrics()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00039}{worker\+\_\+loop()}}.
+
+\Hypertarget{classtelemetryhub_1_1gateway_1_1_thread_pool_a774f7016f656c10b3fa7625ad6ccc0f2}\index{telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}!workers\_@{workers\_}}
+\index{workers\_@{workers\_}!telemetryhub::gateway::ThreadPool@{telemetryhub::gateway::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{workers\_}{workers\_}}
+{\footnotesize\ttfamily \label{classtelemetryhub_1_1gateway_1_1_thread_pool_a774f7016f656c10b3fa7625ad6ccc0f2} 
+std\+::vector$<$std\+::thread$>$ telemetryhub\+::gateway\+::\+Thread\+Pool\+::workers\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_thread_pool_8h_source_l00082}{82}} of file \mbox{\hyperlink{_thread_pool_8h_source}{Thread\+Pool.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thread_pool_8cpp_source_l00080}{get\+\_\+metrics()}}, \mbox{\hyperlink{_thread_pool_8h_source_l00076}{thread\+\_\+count()}}, \mbox{\hyperlink{_thread_pool_8cpp_source_l00006}{Thread\+Pool()}}, and \mbox{\hyperlink{_thread_pool_8cpp_source_l00022}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ingestion/gateway/include/telemetryhub/gateway/\mbox{\hyperlink{_thread_pool_8h}{Thread\+Pool.\+h}}\item 
+ingestion/gateway/src/\mbox{\hyperlink{_thread_pool_8cpp}{Thread\+Pool.\+cpp}}\end{DoxyCompactItemize}

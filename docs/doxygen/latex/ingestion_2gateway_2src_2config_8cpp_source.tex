@@ -1,0 +1,61 @@
+\doxysection{Config.\+cpp}
+\hypertarget{ingestion_2gateway_2src_2config_8cpp_source}{}\label{ingestion_2gateway_2src_2config_8cpp_source}\index{ingestion/gateway/src/Config.cpp@{ingestion/gateway/src/Config.cpp}}
+\mbox{\hyperlink{ingestion_2gateway_2src_2config_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ingestion_2gateway_2include_2telemetryhub_2gateway_2config_8h}{telemetryhub/gateway/Config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00009}00009\ \textcolor{keyword}{inline}\ std::string\ trim(std::string\ s)\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00010}00010\ \ \ \textcolor{keyword}{auto}\ notspace\ =\ [](\textcolor{keywordtype}{int}\ ch)\{\ \textcolor{keywordflow}{return}\ !std::isspace(ch);\ \};}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00011}00011\ \ \ s.erase(s.begin(),\ std::find\_if(s.begin(),\ s.end(),\ notspace));}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00012}00012\ \ \ s.erase(std::find\_if(s.rbegin(),\ s.rend(),\ notspace).base(),\ s.end());}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00013}00013\ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00016}00016\ inline\ ::telemetryhub::LogLevel\ \mbox{\hyperlink{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e}{parse\_level}}(\textcolor{keyword}{const}\ std::string\&\ s)\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00017}00017\ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}error"{}})\ return\ ::telemetryhub::LogLevel::Error;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00018}00018\ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}warn"{}}\ ||\ s==\textcolor{stringliteral}{"{}warning"{}})\ \ return\ ::telemetryhub::LogLevel::Warn;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00019}00019\ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}info"{}})\ \ return\ ::telemetryhub::LogLevel::Info;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00020}00020\ \ \ \textcolor{keywordflow}{if}\ (s\ ==\ \textcolor{stringliteral}{"{}debug"{}})\ return\ ::telemetryhub::LogLevel::Debug;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00021}00021\ \ \ return\ ::telemetryhub::LogLevel::Trace;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetryhub_1_1gateway}{telemetryhub::gateway}}\ \{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00027}\mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402}{00027}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacetelemetryhub_1_1gateway_afb70db026fd5a074f9560b11aeba4402}{load\_config}}(\textcolor{keyword}{const}\ std::string\&\ path,\ \mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config}{AppConfig}}\&\ out)}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00029}00029\ \ \ std::ifstream\ f(path);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00030}00030\ \ \ \textcolor{keywordflow}{if}\ (!f.is\_open())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00031}00031\ \ \ std::string\ line;}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00032}00032\ \ \ \textcolor{keywordflow}{while}\ (std::getline(f,\ line))\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{auto}\ hash\ =\ line.find(\textcolor{charliteral}{'\#'});}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (hash\ !=\ std::string::npos)\ line\ =\ line.substr(0,\ hash);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{auto}\ semi\ =\ line.find(\textcolor{charliteral}{';'});}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (semi\ !=\ std::string::npos)\ line\ =\ line.substr(0,\ semi);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00037}00037\ \ \ \ \ line\ =\ trim(line);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty())\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{auto}\ eq\ =\ line.find(\textcolor{charliteral}{'='});}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (eq\ ==\ std::string::npos)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{auto}\ key\ =\ trim(line.substr(0,\ eq));}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{auto}\ val\ =\ trim(line.substr(eq+1));}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00043}00043\ \ \ \ \ std::transform(key.begin(),\ key.end(),\ key.begin(),\ ::tolower);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}sampling\_interval\_ms"{}})\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00045}00045\ \ \ \ \ \ \ out.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_a5850046673896782691f97f1a06b451a}{sampling\_interval}}\ =\ std::chrono::milliseconds(std::stoll(val));}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00046}00046\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}queue\_size"{}})\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00047}00047\ \ \ \ \ \ \ out.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_adb8866fdcd75a4517d053df0f321f601}{queue\_size}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::stoull(val));}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00048}00048\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (key\ ==\ \textcolor{stringliteral}{"{}log\_level"{}})\{}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00049}00049\ \ \ \ \ \ \ out.\mbox{\hyperlink{structtelemetryhub_1_1gateway_1_1_app_config_a80e12fb05a23db930671442394ece5ee}{log\_level}}\ =\ \mbox{\hyperlink{main__gateway_8cpp_ac6a4452b3bdfed66164b4f3e94db321e}{parse\_level}}(val);}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00051}00051\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00052}00052\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{ingestion_2gateway_2src_2config_8cpp_source_l00055}00055\ \}}
+
+\end{DoxyCode}

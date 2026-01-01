@@ -1,0 +1,31 @@
+\doxysection{types.\+h}
+\hypertarget{types_8h_source}{}\label{types_8h_source}\index{common/include/telemetry\_common/types.h@{common/include/telemetry\_common/types.h}}
+\mbox{\hyperlink{types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetelemetry__common}{telemetry\_common}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00013}00013\ \textcolor{comment}{//\ Type\ aliases}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00014}\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{00014}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\_t}}\ =\ std::chrono::system\_clock::time\_point;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00015}\mbox{\hyperlink{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}{00015}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacetelemetry__common_af62461f103b095e6aa2b939d11c801d4}{device\_id\_t}}\ =\ std::string;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00016}\mbox{\hyperlink{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}{00016}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacetelemetry__common_a819b3b0974a72642c1e796ae89c3eb95}{task\_id\_t}}\ =\ std::string;}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00021}\mbox{\hyperlink{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95}{00021}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\_t}}\ \mbox{\hyperlink{namespacetelemetry__common_ad2756aa755ce579716f3f69c7fca1f95}{now}}()\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00028}\mbox{\hyperlink{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e}{00028}}\ std::string\ \mbox{\hyperlink{namespacetelemetry__common_a723bbfc608e6ac887564d1af33aefa9e}{timestamp\_to\_iso8601}}(\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\_t}}\ ts);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00033}\mbox{\hyperlink{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036}{00033}}\ \mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\_t}}\ \mbox{\hyperlink{namespacetelemetry__common_a1db90fd3412c55a8ac7ab75138e56036}{iso8601\_to\_timestamp}}(\textcolor{keyword}{const}\ std::string\&\ iso\_str);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00038}\mbox{\hyperlink{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453}{00038}}\ int64\_t\ \mbox{\hyperlink{namespacetelemetry__common_a5de1f294e404e7acf7154abff88ed453}{timestamp\_to\_ms}}(\mbox{\hyperlink{namespacetelemetry__common_a7f08d02f6042739cf34b39992f636ad0}{timestamp\_t}}\ ts);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00040}00040\ \}\ \textcolor{comment}{//\ namespace\ telemetry\_common}}
+
+\end{DoxyCode}

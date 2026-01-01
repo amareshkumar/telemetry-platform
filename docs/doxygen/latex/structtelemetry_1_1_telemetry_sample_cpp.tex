@@ -1,0 +1,131 @@
+\doxysection{telemetry\+::Telemetry\+Sample\+Cpp Struct Reference}
+\hypertarget{structtelemetry_1_1_telemetry_sample_cpp}{}\label{structtelemetry_1_1_telemetry_sample_cpp}\index{telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}}
+
+
+C++ representation of a telemetry data sample.  
+
+
+
+
+{\ttfamily \#include $<$proto\+\_\+adapter.\+h$>$}
+
+
+
+Collaboration diagram for telemetry\+::Telemetry\+Sample\+Cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{structtelemetry_1_1_telemetry_sample_cpp__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_ad150c4c0b59c74ca6c2f85052a74751b}{timestamp}} \{\}
+\begin{DoxyCompactList}\small\item\em Sample timestamp (UTC). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a63826afd62fc02a20607a2c930e91251}{value}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Measured value. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_a9ab10debbbf6c6f04e1904b93e660f8a}{unit}} \{"{}unitless"{}\}
+\begin{DoxyCompactList}\small\item\em Unit of measurement (e.\+g., "{}celsius"{}, "{}psi"{}). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp_aed95434ad27c34b3bae885244a1c8fe2}{sequence\+\_\+id}} = 0
+\begin{DoxyCompactList}\small\item\em Monotonic sequence number for ordering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C++ representation of a telemetry data sample. 
+
+This struct provides a convenient C++ interface for telemetry data, avoiding Protobuf boilerplate in application code. Use \doxylink{classtelemetry_1_1_proto_adapter}{Proto\+Adapter} to convert to/from Protobuf messages for serialization.
+
+\begin{DoxyNote}{Note}
+This is not a Protobuf message -\/ use \doxylink{classtelemetry_1_1_proto_adapter}{Proto\+Adapter} for serialization 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter}{Proto\+Adapter} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00041}{41}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structtelemetry_1_1_telemetry_sample_cpp_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtelemetry_1_1_telemetry_sample_cpp_aed95434ad27c34b3bae885244a1c8fe2}\index{telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}!sequence\_id@{sequence\_id}}
+\index{sequence\_id@{sequence\_id}!telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}}
+\doxysubsubsection{\texorpdfstring{sequence\_id}{sequence\_id}}
+{\footnotesize\ttfamily \label{structtelemetry_1_1_telemetry_sample_cpp_aed95434ad27c34b3bae885244a1c8fe2} 
+uint32\+\_\+t telemetry\+::\+Telemetry\+Sample\+Cpp\+::sequence\+\_\+id = 0}
+
+
+
+Monotonic sequence number for ordering. 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00045}{45}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{telemetry\+::\+Proto\+Adapter\+::from\+Proto()}}, and \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{telemetry\+::\+Proto\+Adapter\+::to\+Proto()}}.
+
+\Hypertarget{structtelemetry_1_1_telemetry_sample_cpp_ad150c4c0b59c74ca6c2f85052a74751b}\index{telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{structtelemetry_1_1_telemetry_sample_cpp_ad150c4c0b59c74ca6c2f85052a74751b} 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point telemetry\+::\+Telemetry\+Sample\+Cpp\+::timestamp \{\}}
+
+
+
+Sample timestamp (UTC). 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00042}{42}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{telemetry\+::\+Proto\+Adapter\+::from\+Proto()}}, and \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{telemetry\+::\+Proto\+Adapter\+::to\+Proto()}}.
+
+\Hypertarget{structtelemetry_1_1_telemetry_sample_cpp_a9ab10debbbf6c6f04e1904b93e660f8a}\index{telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}!unit@{unit}}
+\index{unit@{unit}!telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}}
+\doxysubsubsection{\texorpdfstring{unit}{unit}}
+{\footnotesize\ttfamily \label{structtelemetry_1_1_telemetry_sample_cpp_a9ab10debbbf6c6f04e1904b93e660f8a} 
+std\+::string telemetry\+::\+Telemetry\+Sample\+Cpp\+::unit \{"{}unitless"{}\}}
+
+
+
+Unit of measurement (e.\+g., "{}celsius"{}, "{}psi"{}). 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00044}{44}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{telemetry\+::\+Proto\+Adapter\+::from\+Proto()}}, and \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{telemetry\+::\+Proto\+Adapter\+::to\+Proto()}}.
+
+\Hypertarget{structtelemetry_1_1_telemetry_sample_cpp_a63826afd62fc02a20607a2c930e91251}\index{telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}!value@{value}}
+\index{value@{value}!telemetry::TelemetrySampleCpp@{telemetry::TelemetrySampleCpp}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structtelemetry_1_1_telemetry_sample_cpp_a63826afd62fc02a20607a2c930e91251} 
+double telemetry\+::\+Telemetry\+Sample\+Cpp\+::value = 0.\+0}
+
+
+
+Measured value. 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00043}{43}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{telemetry\+::\+Proto\+Adapter\+::from\+Proto()}}, and \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{telemetry\+::\+Proto\+Adapter\+::to\+Proto()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/include/telemetry\+\_\+common/\mbox{\hyperlink{proto__adapter_8h}{proto\+\_\+adapter.\+h}}\end{DoxyCompactItemize}

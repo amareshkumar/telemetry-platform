@@ -1,0 +1,93 @@
+\doxysection{common/include/telemetry\+\_\+common/redis\+\_\+client.h File Reference}
+\hypertarget{redis__client_8h}{}\label{redis__client_8h}\index{common/include/telemetry\_common/redis\_client.h@{common/include/telemetry\_common/redis\_client.h}}
+
+
+Thread-\/safe Redis client wrapper for telemetry data operations.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+Include dependency graph for redis\+\_\+client.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{redis__client_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{redis__client_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtelemetry__common_1_1_redis_client}{telemetry\+\_\+common\+::\+Redis\+Client}}
+\begin{DoxyCompactList}\small\item\em RAII-\/based Redis client wrapper with connection pooling. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__common_1_1_redis_client_1_1_connection_options}{telemetry\+\_\+common\+::\+Redis\+Client\+::\+Connection\+Options}}
+\begin{DoxyCompactList}\small\item\em Connection options for Redis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesw}{sw}}
+\item 
+namespace \mbox{\hyperlink{namespacesw_1_1redis}{sw\+::redis}}
+\item 
+namespace \mbox{\hyperlink{namespacetelemetry__common}{telemetry\+\_\+common}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread-\/safe Redis client wrapper for telemetry data operations. 
+
+\begin{DoxyAuthor}{Author}
+Telemetry\+Hub Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/12-\/28 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2.\+0
+\end{DoxyVersion}
+This file provides a production-\/ready Redis client with\+:
+\begin{DoxyItemize}
+\item {\bfseries{RAII Resource Management}}\+: Automatic connection cleanup
+\item {\bfseries{Exception Safety}}\+: Strong exception guarantee for all operations
+\item {\bfseries{Connection Pooling}}\+: Configurable pool size for concurrent access
+\item {\bfseries{Automatic Reconnection}}\+: Handles network failures gracefully
+\item {\bfseries{Type Safety}}\+: Modern C++ API (no raw pointers or C-\/style strings)
+\end{DoxyItemize}
+
+{\bfseries{Why redis-\/plus-\/plus?}}
+\begin{DoxyItemize}
+\item Modern C++17 API with std\+::optional, std\+::chrono
+\item Zero-\/copy string views for performance
+\item Built-\/in connection pooling
+\item Active maintenance (last updated 2025)
+\item Used by Redis Labs, Alibaba Cloud
+\end{DoxyItemize}
+
+{\bfseries{Performance Characteristics}}\+:
+\begin{DoxyItemize}
+\item \texorpdfstring{$\sim$}{\string~}50,000 SET operations per second (localhost)
+\item \texorpdfstring{$\sim$}{\string~}60,000 GET operations per second (localhost)
+\item Sub-\/millisecond latency on LAN
+\item Pipeline support for batch operations (10x throughput)
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+sw\+::redis\+::\+Redis for underlying implementation 
+
+Connection\+Options for configuration details 
+\end{DoxySeeAlso}
+
+
+Definition in file \mbox{\hyperlink{redis__client_8h_source}{redis\+\_\+client.\+h}}.
+

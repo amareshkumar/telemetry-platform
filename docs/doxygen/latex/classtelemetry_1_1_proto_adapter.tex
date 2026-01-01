@@ -1,0 +1,446 @@
+\doxysection{telemetry\+::Proto\+Adapter Class Reference}
+\hypertarget{classtelemetry_1_1_proto_adapter}{}\label{classtelemetry_1_1_proto_adapter}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+
+
+Adapter for converting between C++ structs and Protobuf messages.  
+
+
+
+
+{\ttfamily \#include $<$proto\+\_\+adapter.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Telemetry\+Sample\+Proto}} = telemetry\+::\+Telemetry\+Sample
+\begin{DoxyCompactList}\small\item\em Type alias for Protobuf telemetry message (from telemetry.\+pb.\+h). \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} = \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp}{Telemetry\+Sample\+Cpp}}
+\begin{DoxyCompactList}\small\item\em Type alias for C++ telemetry struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Telemetry\+Sample\+Proto}} \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{to\+Proto}} (const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&sample)
+\begin{DoxyCompactList}\small\item\em Convert C++ struct to Protobuf message. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{from\+Proto}} (const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Telemetry\+Sample\+Proto}} \&proto)
+\begin{DoxyCompactList}\small\item\em Convert Protobuf message to C++ struct. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{serialize}} (const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&sample)
+\begin{DoxyCompactList}\small\item\em Serialize C++ struct to binary Protobuf format. \end{DoxyCompactList}\item 
+static std\+::optional$<$ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} $>$ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{deserialize}} (const std\+::string \&binary\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Deserialize binary Protobuf data to C++ struct. \end{DoxyCompactList}\item 
+static size\+\_\+t \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}{serialized\+Size}} (const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&sample)
+\begin{DoxyCompactList}\small\item\em Calculate serialized size without actually serializing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adapter for converting between C++ structs and Protobuf messages. 
+
+Provides bidirectional conversion between \doxylink{structtelemetry_1_1_telemetry_sample_cpp}{Telemetry\+Sample\+Cpp} and Protobuf Telemetry\+Sample messages. This enables type-\/safe serialization with zero-\/copy performance characteristics.
+
+{\bfseries{Key Features}}\+:
+\begin{DoxyItemize}
+\item Zero-\/copy conversions where possible
+\item Type-\/safe API (no raw pointers or manual memory management)
+\item Error handling with std\+::optional for deserialization
+\item Efficient binary serialization (\texorpdfstring{$\sim$}{\string~}10x faster than JSON)
+\end{DoxyItemize}
+
+{\bfseries{Usage Example}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ C++\ sample}}
+\DoxyCodeLine{TelemetrySampleCpp\ sample;}
+\DoxyCodeLine{sample.timestamp\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{sample.value\ =\ 25.5;}
+\DoxyCodeLine{sample.unit\ =\ \textcolor{stringliteral}{"{}celsius"{}};}
+\DoxyCodeLine{sample.sequence\_id\ =\ 42;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Serialize\ to\ binary}}
+\DoxyCodeLine{std::string\ binary\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{ProtoAdapter::serialize}}(sample);}
+\DoxyCodeLine{\textcolor{comment}{//\ binary.size()\ \string~=\ 30\ bytes}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Deserialize\ back}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ deserialized\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{ProtoAdapter::deserialize}}(binary);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (deserialized)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Value:\ "{}}\ <<\ deserialized-\/>value\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Thread Safety}}\+: All methods are static and thread-\/safe. No shared state between calls.
+
+\begin{DoxyWarning}{Warning}
+Deserialization may fail if binary data is corrupted. Always check the std\+::optional return value before accessing the result.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structtelemetry_1_1_telemetry_sample_cpp}{Telemetry\+Sample\+Cpp} 
+
+telemetry\+::\+Telemetry\+Sample (Protobuf message) 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00092}{92}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{classtelemetry_1_1_proto_adapter_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!CppSample@{CppSample}}
+\index{CppSample@{CppSample}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{CppSample}{CppSample}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb} 
+using \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{telemetry\+::\+Proto\+Adapter\+::\+Cpp\+Sample}} = \mbox{\hyperlink{structtelemetry_1_1_telemetry_sample_cpp}{Telemetry\+Sample\+Cpp}}}
+
+
+
+Type alias for C++ telemetry struct. 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00098}{98}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+\Hypertarget{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!TelemetrySampleProto@{TelemetrySampleProto}}
+\index{TelemetrySampleProto@{TelemetrySampleProto}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{TelemetrySampleProto}{TelemetrySampleProto}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4} 
+using \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{telemetry\+::\+Proto\+Adapter\+::\+Telemetry\+Sample\+Proto}} = telemetry\+::\+Telemetry\+Sample}
+
+
+
+Type alias for Protobuf telemetry message (from telemetry.\+pb.\+h). 
+
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8h_source_l00095}{95}} of file \mbox{\hyperlink{proto__adapter_8h_source}{proto\+\_\+adapter.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classtelemetry_1_1_proto_adapter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2} 
+std\+::optional$<$ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Proto\+Adapter\+::\+Cpp\+Sample}} $>$ telemetry\+::\+Proto\+Adapter\+::deserialize (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{binary\+\_\+data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Deserialize binary Protobuf data to C++ struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary\+\_\+data} & Binary serialized Protobuf message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$\+Cpp\+Sample$>$ Deserialized sample, or nullopt if parsing fails
+\end{DoxyReturn}
+Parses binary Protobuf data and converts to C++ struct. Returns nullopt if data is corrupted or not valid Protobuf format.
+
+{\bfseries{Error Handling}}\+:
+\begin{DoxyItemize}
+\item Invalid binary data → returns nullopt (does not throw)
+\item Empty string → returns nullopt
+\item Corrupted Protobuf → returns nullopt
+\end{DoxyItemize}
+
+{\bfseries{Performance}}\+:
+\begin{DoxyItemize}
+\item \texorpdfstring{$\sim$}{\string~}350,000 deserializations per second
+\item Faster than JSON parsing (no string conversions)
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::string\ binary\ =\ receiveFromNetwork();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ sample\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{ProtoAdapter::deserialize}}(binary);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (sample)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Temperature:\ "{}}\ <<\ sample-\/>value\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ sample-\/>unit\ <<\ std::endl;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ deserialize\ telemetry\ data"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+Always check if optional has value before accessing 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{serialize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{proto__adapter_8cpp_source}{proto\+\_\+adapter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{from\+Proto()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!fromProto@{fromProto}}
+\index{fromProto@{fromProto}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{fromProto()}{fromProto()}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734} 
+\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Proto\+Adapter\+::\+Cpp\+Sample}} telemetry\+::\+Proto\+Adapter\+::from\+Proto (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Telemetry\+Sample\+Proto}} \&}]{proto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert Protobuf message to C++ struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em proto} & Protobuf telemetry message to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample} C++ struct representation
+\end{DoxyReturn}
+Performs field-\/by-\/field copy from Protobuf message to C++ struct. Timestamp is converted from Unix epoch (seconds + nanoseconds) to std\+::chrono.
+
+{\bfseries{Time Complexity}}\+: O(1) -\/ constant time conversion {\bfseries{Space Complexity}}\+: O(1) -\/ no dynamic allocations except string copy
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{TelemetrySampleProto}}\ proto;\ \ \textcolor{comment}{//\ Received\ from\ network}}
+\DoxyCodeLine{proto.set\_value(25.5);}
+\DoxyCodeLine{proto.set\_unit(\textcolor{stringliteral}{"{}celsius"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ sample\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{ProtoAdapter::fromProto}}(proto);}
+\DoxyCodeLine{\textcolor{comment}{//\ sample.value\ ==\ 25.5}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+This method never throws exceptions 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{to\+Proto()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{proto__adapter_8cpp_source}{proto\+\_\+adapter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{proto__adapter_8h_source_l00045}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::sequence\+\_\+id}}, \mbox{\hyperlink{proto__adapter_8h_source_l00042}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::timestamp}}, \mbox{\hyperlink{proto__adapter_8h_source_l00044}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::unit}}, and \mbox{\hyperlink{proto__adapter_8h_source_l00043}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::value}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00045}{deserialize()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!serialize@{serialize}}
+\index{serialize@{serialize}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963} 
+std\+::string telemetry\+::\+Proto\+Adapter\+::serialize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&}]{sample}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Serialize C++ struct to binary Protobuf format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & C++ telemetry sample to serialize \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string Binary serialized data
+\end{DoxyReturn}
+Converts C++ struct to Protobuf message and serializes to binary format. This is a convenience method combining \doxylink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{to\+Proto()} + Serialize\+To\+String().
+
+{\bfseries{Performance}}\+:
+\begin{DoxyItemize}
+\item \texorpdfstring{$\sim$}{\string~}408,000 serializations per second
+\item \texorpdfstring{$\sim$}{\string~}30 bytes output size (vs 90 bytes JSON)
+\item 10x faster than nlohmann\+::json
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TelemetrySampleCpp\ sample;}
+\DoxyCodeLine{sample.timestamp\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{sample.value\ =\ 72.5;}
+\DoxyCodeLine{sample.unit\ =\ \textcolor{stringliteral}{"{}fahrenheit"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::string\ binary\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{ProtoAdapter::serialize}}(sample);}
+\DoxyCodeLine{\textcolor{comment}{//\ Store\ in\ Redis,\ send\ over\ network,\ etc.}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Returns empty string if serialization fails (rare) 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter_ab93e9d5db38f88f626e009e0127127d2}{deserialize()} 
+
+\doxylink{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}{serialized\+Size()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{proto__adapter_8cpp_source}{proto\+\_\+adapter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{to\+Proto()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!serializedSize@{serializedSize}}
+\index{serializedSize@{serializedSize}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{serializedSize()}{serializedSize()}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8} 
+size\+\_\+t telemetry\+::\+Proto\+Adapter\+::serialized\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&}]{sample}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate serialized size without actually serializing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & C++ telemetry sample \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Size of serialized message in bytes
+\end{DoxyReturn}
+Computes the wire format size of the Protobuf message without performing actual serialization. Useful for\+:
+\begin{DoxyItemize}
+\item Pre-\/allocating buffers
+\item Estimating bandwidth requirements
+\item Performance comparisons (e.\+g., Protobuf vs JSON)
+\end{DoxyItemize}
+
+{\bfseries{Typical Sizes}}\+:
+\begin{DoxyItemize}
+\item Minimal sample (empty strings)\+: \texorpdfstring{$\sim$}{\string~}15 bytes
+\item Average sample\+: \texorpdfstring{$\sim$}{\string~}30 bytes
+\item Large sample (long unit string)\+: \texorpdfstring{$\sim$}{\string~}50 bytes
+\item JSON equivalent\+: \texorpdfstring{$\sim$}{\string~}90 bytes (3x larger)
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TelemetrySampleCpp\ sample;}
+\DoxyCodeLine{sample.unit\ =\ \textcolor{stringliteral}{"{}pascals"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ size\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8}{ProtoAdapter::serializedSize}}(sample);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Will\ serialize\ to\ "{}}\ <<\ size\ <<\ \textcolor{stringliteral}{"{}\ bytes"{}}\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+This is an O(1) approximation, not exact wire size 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter_a1dffda5879478f81e4dc6c6a5d827963}{serialize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{proto__adapter_8cpp_source}{proto\+\_\+adapter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{to\+Proto()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry_1_1_proto_adapter_a5279b7653ea2e1b3aa57d5dfb01b79d8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}\index{telemetry::ProtoAdapter@{telemetry::ProtoAdapter}!toProto@{toProto}}
+\index{toProto@{toProto}!telemetry::ProtoAdapter@{telemetry::ProtoAdapter}}
+\doxysubsubsection{\texorpdfstring{toProto()}{toProto()}}
+{\footnotesize\ttfamily \label{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd} 
+\mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Proto\+Adapter\+::\+Telemetry\+Sample\+Proto}} telemetry\+::\+Proto\+Adapter\+::to\+Proto (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_a930d3bda81928005de245996ae9483fb}{Cpp\+Sample}} \&}]{sample}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert C++ struct to Protobuf message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & C++ telemetry sample to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classtelemetry_1_1_proto_adapter_a8db48420f1a916a4940760d12b754fa4}{Telemetry\+Sample\+Proto} Protobuf message representation
+\end{DoxyReturn}
+Performs field-\/by-\/field copy from C++ struct to Protobuf message. Timestamp is converted from std\+::chrono to Unix epoch (seconds + nanoseconds).
+
+{\bfseries{Time Complexity}}\+: O(1) -\/ constant time conversion {\bfseries{Space Complexity}}\+: O(1) -\/ no dynamic allocations except string copy
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TelemetrySampleCpp\ sample;}
+\DoxyCodeLine{sample.timestamp\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{sample.value\ =\ 42.0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ proto\ =\ \mbox{\hyperlink{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd}{ProtoAdapter::toProto}}(sample);}
+\DoxyCodeLine{\textcolor{comment}{//\ proto.timestamp\_sec()\ contains\ Unix\ timestamp}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+This method never throws exceptions 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classtelemetry_1_1_proto_adapter_ac4de13141a60519a7dc8eccd356ce734}{from\+Proto()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{proto__adapter_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{proto__adapter_8cpp_source}{proto\+\_\+adapter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{proto__adapter_8h_source_l00045}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::sequence\+\_\+id}}, \mbox{\hyperlink{proto__adapter_8h_source_l00042}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::timestamp}}, \mbox{\hyperlink{proto__adapter_8h_source_l00044}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::unit}}, and \mbox{\hyperlink{proto__adapter_8h_source_l00043}{telemetry\+::\+Telemetry\+Sample\+Cpp\+::value}}.
+
+
+
+Referenced by \mbox{\hyperlink{proto__adapter_8cpp_source_l00037}{serialize()}}, and \mbox{\hyperlink{proto__adapter_8cpp_source_l00054}{serialized\+Size()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classtelemetry_1_1_proto_adapter_acf97d47e90549de5bfd6678b0ead58fd_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+common/include/telemetry\+\_\+common/\mbox{\hyperlink{proto__adapter_8h}{proto\+\_\+adapter.\+h}}\item 
+common/src/\mbox{\hyperlink{proto__adapter_8cpp}{proto\+\_\+adapter.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,200 @@
+\doxysection{telemetry\+\_\+processor Namespace Reference}
+\hypertarget{namespacetelemetry__processor}{}\label{namespacetelemetry__processor}\index{telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtelemetry__processor_1_1_redis_client}{Redis\+Client}}
+\begin{DoxyCompactList}\small\item\em Redis client wrapper for Dist\+Queue. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtelemetry__processor_1_1_task}{Task}}
+\begin{DoxyCompactList}\small\item\em Core \doxylink{structtelemetry__processor_1_1_task}{Task} data structure. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtelemetry__processor_1_1_telemetry_handler}{Telemetry\+Handler}}
+\begin{DoxyCompactList}\small\item\em Telemetry-\/specific task handler for Telemetry\+Task\+Processor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}} \{ \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746ab89de3b4b81c4facfac906edf29aec8c}{HIGH}} = 0
+, \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051}{NORMAL}} = 1
+, \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a41bc94cbd8eebea13ce0491b2ac11b88}{LOW}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Task priority levels Higher priority tasks are processed first. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status}} \{ \newline
+\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ac69f06e1a9b016d133907b4e5f5864d2}{PENDING}}
+, \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a43491564ebcfd38568918efbd6e840fd}{RUNNING}}
+, \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a8f7afecbc8fbc4cd0f50a57d1172482e}{COMPLETED}}
+, \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ab9e14d9b2886bcff408b85aefa780419}{FAILED}}
+, \newline
+\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a9f935beb31030ad0d4d26126c0f39bf2}{CANCELLED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Task execution status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca}{generate\+\_\+uuid}} ()
+\begin{DoxyCompactList}\small\item\em Generate a UUID v4 string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86}{priority\+\_\+to\+\_\+string}} (\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}} p)
+\begin{DoxyCompactList}\small\item\em Convert \doxylink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority} to string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005}{status\+\_\+to\+\_\+string}} (\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status}} s)
+\begin{DoxyCompactList}\small\item\em Convert \doxylink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status} to string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{namespacetelemetry__processor_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}\index{telemetry\_processor@{telemetry\_processor}!Priority@{Priority}}
+\index{Priority@{Priority}!telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection{\texorpdfstring{Priority}{Priority}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746} 
+enum class \mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{telemetry\+\_\+processor\+::\+Priority}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+\doxylink{structtelemetry__processor_1_1_task}{Task} priority levels Higher priority tasks are processed first. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIGH@{HIGH}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!HIGH@{HIGH}}}\Hypertarget{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746ab89de3b4b81c4facfac906edf29aec8c}\label{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746ab89de3b4b81c4facfac906edf29aec8c} 
+HIGH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL@{NORMAL}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!NORMAL@{NORMAL}}}\Hypertarget{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051}\label{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a1e23852820b9154316c7c06e2b7ba051} 
+NORMAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOW@{LOW}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!LOW@{LOW}}}\Hypertarget{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a41bc94cbd8eebea13ce0491b2ac11b88}\label{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746a41bc94cbd8eebea13ce0491b2ac11b88} 
+LOW&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00013}{13}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}\index{telemetry\_processor@{telemetry\_processor}!TaskStatus@{TaskStatus}}
+\index{TaskStatus@{TaskStatus}!telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection{\texorpdfstring{TaskStatus}{TaskStatus}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7} 
+enum class \mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{telemetry\+\_\+processor\+::\+Task\+Status}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+\doxylink{structtelemetry__processor_1_1_task}{Task} execution status. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PENDING@{PENDING}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!PENDING@{PENDING}}}\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ac69f06e1a9b016d133907b4e5f5864d2}\label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ac69f06e1a9b016d133907b4e5f5864d2} 
+PENDING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!RUNNING@{RUNNING}}}\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a43491564ebcfd38568918efbd6e840fd}\label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a43491564ebcfd38568918efbd6e840fd} 
+RUNNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPLETED@{COMPLETED}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!COMPLETED@{COMPLETED}}}\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a8f7afecbc8fbc4cd0f50a57d1172482e}\label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a8f7afecbc8fbc4cd0f50a57d1172482e} 
+COMPLETED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAILED@{FAILED}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!FAILED@{FAILED}}}\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ab9e14d9b2886bcff408b85aefa780419}\label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7ab9e14d9b2886bcff408b85aefa780419} 
+FAILED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CANCELLED@{CANCELLED}!telemetry\_processor@{telemetry\_processor}}\index{telemetry\_processor@{telemetry\_processor}!CANCELLED@{CANCELLED}}}\Hypertarget{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a9f935beb31030ad0d4d26126c0f39bf2}\label{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7a9f935beb31030ad0d4d26126c0f39bf2} 
+CANCELLED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_task_8h_source_l00022}{22}} of file \mbox{\hyperlink{_task_8h_source}{Task.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespacetelemetry__processor_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca}\index{telemetry\_processor@{telemetry\_processor}!generate\_uuid@{generate\_uuid}}
+\index{generate\_uuid@{generate\_uuid}!telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection{\texorpdfstring{generate\_uuid()}{generate\_uuid()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca} 
+std\+::string telemetry\+\_\+processor\+::generate\+\_\+uuid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generate a UUID v4 string. 
+
+\begin{DoxyReturn}{Returns}
+UUID string in format\+: xxxxxxxx-\/xxxx-\/xxxx-\/xxxx-\/xxxxxxxxxxxx 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{_task_8cpp_source_l00101}{telemetry\+\_\+processor\+::\+Task\+::create()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacetelemetry__processor_a51d6c36c1522a65fe9abdd77d02adfca_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86}\index{telemetry\_processor@{telemetry\_processor}!priority\_to\_string@{priority\_to\_string}}
+\index{priority\_to\_string@{priority\_to\_string}!telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection{\texorpdfstring{priority\_to\_string()}{priority\_to\_string()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86} 
+std\+::string telemetry\+\_\+processor\+::priority\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority}}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Convert \doxylink{namespacetelemetry__processor_afc65c065055daa08cf546ea3d029a746}{Priority} to string. 
+
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_task_8h_source_l00014}{HIGH}}, \mbox{\hyperlink{_task_8h_source_l00016}{LOW}}, and \mbox{\hyperlink{_task_8h_source_l00015}{NORMAL}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00005}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{namespacetelemetry__processor_a29d4e5f2ef4740d2ecb548ab3caf7a86_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005}\index{telemetry\_processor@{telemetry\_processor}!status\_to\_string@{status\_to\_string}}
+\index{status\_to\_string@{status\_to\_string}!telemetry\_processor@{telemetry\_processor}}
+\doxysubsubsection{\texorpdfstring{status\_to\_string()}{status\_to\_string()}}
+{\footnotesize\ttfamily \label{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005} 
+std\+::string telemetry\+\_\+processor\+::status\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status}}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Convert \doxylink{namespacetelemetry__processor_a064de34ad8788520cead6500ef1808a7}{Task\+Status} to string. 
+
+
+
+Definition at line \mbox{\hyperlink{_task_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_task_8cpp_source}{Task.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{_task_8h_source_l00027}{CANCELLED}}, \mbox{\hyperlink{_task_8h_source_l00025}{COMPLETED}}, \mbox{\hyperlink{_task_8h_source_l00026}{FAILED}}, \mbox{\hyperlink{_task_8h_source_l00023}{PENDING}}, and \mbox{\hyperlink{_task_8h_source_l00024}{RUNNING}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00005}{main()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{namespacetelemetry__processor_ad0cbfdf3060103085c5c326efe30f005_icgraph}
+\end{center}
+\end{figure}
