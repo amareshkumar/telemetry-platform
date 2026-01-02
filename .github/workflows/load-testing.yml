@@ -1,0 +1,131 @@
+name: Load Testing (k6)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      scenario:
+        description: 'Test scenario to run'
+        required: true
+        default: 'baseline'
+        type: choice
+        options:
+          - smoke
+          - baseline
+          - medium
+          - high
+
+permissions:
+  contents: read
+
+jobs:
+  k6-load-test:
+    name: k6 Load Testing
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake ninja-build redis-server
+
+      - name: Install k6
+        run: |
+          sudo gpg -k
+          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg \
+            --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" \
+            | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install k6
+
+      - name: Start Redis
+        run: |
+          sudo systemctl start redis-server
+          redis-cli ping
+          echo "Redis started successfully"
+
+      - name: Build Ingestion Gateway
+        run: |
+          cmake --preset linux-ninja-release
+          cmake --build --preset linux-ninja-release -v
+          echo "Build completed"
+
+      - name: Start Gateway in Background
+        run: |
+          # Find and start the gateway executable
+          GATEWAY_PATH=$(find build_release -name "gateway_app" -o -name "ingestion_gateway" | head -1)
+          if [ -z "$GATEWAY_PATH" ]; then
+            echo "ERROR: Gateway executable not found!"
+            exit 1
+          fi
+          echo "Starting gateway at: $GATEWAY_PATH"
+          $GATEWAY_PATH &
+          GATEWAY_PID=$!
+          echo $GATEWAY_PID > gateway.pid
+          
+          # Wait for gateway to be ready
+          sleep 5
+          
+          # Verify health endpoint
+          for i in {1..10}; do
+            if curl -f http://localhost:8080/health 2>/dev/null; then
+              echo "Gateway is healthy!"
+              break
+            fi
+            echo "Waiting for gateway... ($i/10)"
+            sleep 2
+          done
+
+      - name: Run k6 Load Test
+        run: |
+          SCENARIO="${{ github.event.inputs.scenario }}"
+          if [ -z "$SCENARIO" ]; then
+            SCENARIO="baseline"
+          fi
+          
+          echo "Running $SCENARIO load test..."
+          
+          case $SCENARIO in
+            smoke)
+              k6 run --vus 10 --duration 30s tests/load/health_check.js
+              ;;
+            baseline)
+              k6 run tests/load/high_concurrency_test.js
+              ;;
+            medium)
+              k6 run --vus 1000 --duration 2m tests/load/high_concurrency_test.js
+              ;;
+            high)
+              k6 run tests/load/telemetry_ingestion.js
+              ;;
+            *)
+              echo "Unknown scenario: $SCENARIO"
+              exit 1
+              ;;
+          esac
+
+      - name: Stop Gateway
+        if: always()
+        run: |
+          if [ -f gateway.pid ]; then
+            kill $(cat gateway.pid) || echo "Gateway already stopped"
+          fi
+
+      - name: Upload k6 Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-results
+          path: |
+            *.json
+            *.html
+          retention-days: 7
